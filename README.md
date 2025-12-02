@@ -13,10 +13,10 @@ The accompanying teaching document is available here:
 ## 1. Overview
 
 The repository contains a curated set of minimal, transparent Dynare examples that illustrate:
-	•	How to approximate and estimate simple DSGE/RBC models.
-	•	How to analyse permanent and temporary fiscal policy shocks.
-	•	How to simulate foreseen and unforeseen changes in taxes and government spending.
-	•	How to reproduce the main transition paths and diagrams from
+	-	How to approximate and estimate simple DSGE/RBC models.
+	-	How to analyse permanent and temporary fiscal policy shocks.
+	-	How to simulate foreseen and unforeseen changes in taxes and government spending.
+	-	How to reproduce the main transition paths and diagrams from
 Ljungqvist & Sargent (2004, 20XX), Chapter 11.
 
 All examples have been rewritten for Dynare v6 to ensure reliable execution, modern syntax, and clean plotting.
@@ -89,18 +89,18 @@ cd section4_fiscal_policy_LS2004
 dynare fig_11_3_1_g_increase.mod
 
 Dynare will:
-	1.	parse the model,
-	2.	compute steady state(s),
-	3.	run deterministic simulations,
-	4.	produce transition paths and figures.
+	- 1.	parse the model,
+	- 2.	compute steady state(s),
+	- 3.	run deterministic simulations,
+	- 4.	produce transition paths and figures.
 
 Step 5 — Working with Deterministic Transitions
 
 Sections 4 and 5 rely heavily on:
-	•	initval (initial steady state)
-	•	endval (post-policy steady state)
-	•	shocks … periods … values … end; (timing of policy changes)
-	•	simul(periods = T); (deterministic transition)
+	-	initval (initial steady state)
+	-	endval (post-policy steady state)
+	-	shocks … periods … values … end; (timing of policy changes)
+	-	simul(periods = T); (deterministic transition)
 
 These blocks are central to replicating the L&S Chapter 11 diagrams.
 
@@ -113,9 +113,9 @@ Section 2 — One-Sector Stochastic Growth Model
 Updates the classic stochastic neoclassical growth model with leisure.
 
 Includes:
-	•	linear and second-order approximations
-	•	simulation of artificial data
-	•	Bayesian or ML estimation of selected parameters
+	-	linear and second-order approximations
+	-	simulation of artificial data
+	-	Bayesian or ML estimation of selected parameters
 
 Purpose: provide the modelling and estimation basics before turning to fiscal policy.
 
