@@ -1,16 +1,12 @@
 # Practicing Dynare (Updated for Dynare 6)
-Repository contains DSGE/RBC applications for fiscal policy using minimal examples, largely based on Ljungqvist, L. and T. J. Sargent (2004). Recursive Macroeconomic Theory
-
- to `view` the `Practicing Dynare` document in Overleaf. Only collaborators have editing rights.
-
 Fiscal-Policy-Focused Training Exercises based on Ljungqvist & Sargent
 
-This repository provides an updated and streamlined version of the original Practicing Dynare worksheet (Barillas et al., 2010)  ￼. It modernises the codebase for Dynare v6, removes outdated syntax, and refocuses the material entirely on fiscal policy in deterministic and stochastic growth models.
+This repository provides an updated and streamlined version of the original Practicing Dynare worksheet (Barillas et al., 2010). It modernises the codebase for Dynare v6, removes outdated syntax, and refocuses the material entirely on fiscal policy in deterministic and stochastic growth models.
 
 It is designed for researchers, graduate students, and policymakers who want hands-on practice implementing fiscal instruments (taxes, government spending, anticipated vs. unanticipated policy) in simple DSGE/RBC environments.
 
 The accompanying teaching document is available here:
-👉 Overleaf: ([View Only](https://www.overleaf.com/read/cbpwghwvmyck#f1a82c))
+👉 Overleaf: ([View Only](https://www.overleaf.com/read/cbpwghwvmyck#f1a82c)). Only collaborators have editing rights.
 
 ⸻
 
