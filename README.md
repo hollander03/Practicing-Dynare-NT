@@ -8,8 +8,6 @@ It is designed for researchers, graduate students, and policymakers who want han
 The accompanying teaching document is available here:
 👉 **Overleaf**: ([View Only](https://www.overleaf.com/read/cbpwghwvmyck#f1a82c)). Only collaborators have editing rights.
 
-⸻
-
 ## 1. Overview
 
 The repository contains a curated set of **minimal, transparent Dynare examples** that illustrate:
@@ -21,8 +19,6 @@ The repository contains a curated set of **minimal, transparent Dynare examples*
   **Ljungqvist & Sargent (2004, 20XX), Chapter 11**.
 
 All examples have been rewritten for **Dynare v6** to ensure reliable execution, modern syntax, and clean plotting.
-
-⸻
 
 ## 2. Repository Structure (example)
 
@@ -54,7 +50,6 @@ Below is a possible directory layout. Adjust filenames to match your actual repo
 - `utils/`
   - `plotting.m`
   - `helper_functions.m`
-⸻
 
 ## 3. Getting Started with Dynare 6
 
@@ -83,22 +78,20 @@ cd section4_fiscal_policy_LS2004
 dynare fig_11_3_1_g_increase.mod
 
 Dynare will:
-	- 1.	parse the model,
-	- 2.	compute steady state(s),
-	- 3.	run deterministic simulations,
-	- 4.	produce transition paths and figures.
+	- 1. parse the model,
+	- 2. compute steady state(s),
+	- 3. run deterministic simulations,
+	- 4. produce transition paths and figures.
 
 Step 5 — Working with Deterministic Transitions
 
 Sections 4 and 5 rely heavily on:
-	-	initval (initial steady state)
-	-	endval (post-policy steady state)
-	-	shocks … periods … values … end; (timing of policy changes)
-	-	simul(periods = T); (deterministic transition)
+	- initval (initial steady state)
+	- endval (post-policy steady state)
+	- shocks … periods … values … end; (timing of policy changes)
+	- simul(periods = T); (deterministic transition)
 
 These blocks are central to replicating the L&S Chapter 11 diagrams.
-
-⸻
 
 ## 4. Contents by Section
 
@@ -107,53 +100,45 @@ Section 2 — One-Sector Stochastic Growth Model
 Updates the classic stochastic neoclassical growth model with leisure.
 
 Includes:
-	-	linear and second-order approximations
-	-	simulation of artificial data
-	-	Bayesian or ML estimation of selected parameters
+	- linear and second-order approximations
+	- simulation of artificial data
+	- Bayesian or ML estimation of selected parameters
 
 Purpose: provide the modelling and estimation basics before turning to fiscal policy.
 
-⸻
-
-Section 3 — Two-Country Growth Model (Optional)
+## Section 3 — Two-Country Growth Model (Optional)
 
 Modernised version of the Kim & Kim (2003) two-country RBC example.
 
 Not part of the core fiscal-policy teaching path, but included for completeness.
 
-⸻
-
-Section 4 — Fiscal Policy in LS (2004): Deterministic Growth Model
+## Section 4 — Fiscal Policy in LS (2004): Deterministic Growth Model
 
 Main teaching module.
 Implements the transition experiments from Recursive Macroeconomic Theory, Ch. 11 (2nd edition).
 
 Exercises include:
-	•	Permanent ↑ in government spending (g)
-	•	Permanent ↑ in consumption tax (τc)
-	•	Permanent ↑ in investment tax (τi)
-	•	Permanent ↑ in capital tax (τk)
-	•	One-time/pulse shocks (g and τi)
+- Permanent ↑ in government spending (g)
+- Permanent ↑ in consumption tax (τc)
+- Permanent ↑ in investment tax (τi)
+- Permanent ↑ in capital tax (τk)
+- One-time/pulse shocks (g and τi)
 
 All timing conventions are adjusted for Dynare 6
 (e.g., capital chosen at t−1 but used in t, tax policies treated as jump variables).
-
-⸻
 
 ## Section 5 — Fiscal Policy in LS (20XX): Updated Version
 
 Extends Section 4 to match the revised Chapter 11.
 
 Additions include:
-	•	foreseen (news) fiscal changes
-	•	elastic labour supply
-	•	yield curve responses
-	•	comparisons across preference parameters
-	•	richer visualisations
+- foreseen (news) fiscal changes
+- elastic labour supply
+- yield curve responses
+- comparisons across preference parameters
+- richer visualisations
 
 This section is ideal for illustrating policy anticipation, news shocks, and general equilibrium dynamics.
-
-⸻
 
 ## Section 6 - National Treasury DSGE model 
 
