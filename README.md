@@ -142,4 +142,4 @@ This section is ideal for illustrating policy anticipation, news shocks, and gen
 
 ## Section 6 - National Treasury DSGE model 
 
-Provides an introduction to the flexible price - i.e., real business cycle - version of the NT-DSGE model. Available in a seperate repo: (dsge-training)[https://github.com/hollander03/dsge-training]
+Provides an introduction to the flexible price - i.e., real business cycle - version of the NT-DSGE model. Available in a seperate repo: [dsge-training](https://github.com/hollander03/dsge-training)
