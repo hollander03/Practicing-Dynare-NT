@@ -7,7 +7,7 @@
 \usepackage[version=4]{mhchem}
 \usepackage{stmaryrd}
 \usepackage{hyperref}
-\hypersetup{colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan,}
+\hypersetup{colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan}
 \urlstyle{same}
 \usepackage{caption}
 \usepackage{graphicx}
@@ -16,52 +16,41 @@
 \usepackage{bbold}
 \usepackage[margin=1in]{geometry}
 
-\title{Practicing Dynare }
+\title{Practicing Dynare: \\ A Fiscal Policy Focus}
 
-\author{\\
-\\
+\author{\\%Contributors: Hylton Hollander, Clinton Joel, Julius Pain
 }
-\date{01 December 2025}
+\date{01 December 2025 \\ Work-in-Progress \\ \sc{Not for Distribution}}
 % December 4, 2010
 
-%New command to display footnote whose markers will always be hidden
-\let\svthefootnote\thefootnote
-\newcommand\blfootnotetext[1]{%
-  \let\thefootnote\relax\footnote{#1}%
-  \addtocounter{footnote}{-1}%
-  \let\thefootnote\svthefootnote%
-}
-
-%Overriding the \footnotetext command to hide the marker if its value is `0`
-\let\svfootnotetext\footnotetext
-\renewcommand\footnotetext[2][?]{%
-  \if\relax#1\relax%
-    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
-  \else%
-    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
-    \else\svfootnotetext[#1]{#2}\fi%
-  \fi
-}
-
-\DeclareUnicodeCharacter{2020}{\ifmmode\dagger\else{$\dagger$}\fi}
 
 \begin{document}
 \maketitle
-\captionsetup{singlelinecheck=false}
+%\captionsetup{singlelinecheck=false}
 
 % \footnotetext{*We thank Michele Juillard for helpful comments on an earlier draft.\\ ${ }^{\dagger}$ Authors’ emails: Barillas: \href{mailto:fvb201@nyu.edu}{fvb201@nyu.edu}, Bhandari: \href{mailto:apb296@nyu.edu}{apb296@nyu.edu}, Colacito: \href{mailto:riccardo.colacito@unc.edu}{riccardo.colacito@unc.edu}, Kitao: \href{mailto:sk910@nyu.edu}{sk910@nyu.edu}, Matthes, \href{mailto:cm1518@nyu.edu}{cm1518@nyu.edu}, Sargent: \href{mailto:ts43@nyu.edu}{ts43@nyu.edu}, Shin: \href{mailto:yshin@wustl.edu}{yshin@wustl.edu}. }
 
 \begin{abstract}
-This note builds on ``Practicing Dynare'' by Barillas et al. (2010). It teaches Dynare by applying it to nine dynamic stochastic general equilibrium models with a fiscal policy focus. We hope it illustrates the efficacy of learning by doing.
+%This note builds on ``Practicing Dynare'' by Barillas et al. (2010). It teaches Dynare by applying it to nine dynamic stochastic general equilibrium models with a fiscal policy focus. We hope it illustrates the efficacy of learning by doing.
+\noindent This document updates the \textit{Practicing Dynare} document and codebase by Barillas et al. (2010) and provides a structured path for learning how to implement and analyse fiscal policy in RBC and DSGE models using Dynare (Version 6 as of 2025). The goal is to move from simple stochastic growth models to fully deterministic fiscal transition experiments as presented in Chapter 11 of Ljungqvist \& Sargent (2018). Each example is designed to be minimal, transparent, and directly linked to the corresponding Dynare \texttt{.mod} file. The document emphasises hands-on learning: running code, inspecting steady states, and interpreting transition dynamics. By the end, users should be comfortable modifying the fiscal instruments, creating their own policy scenarios, and understanding how fiscal shocks propagate through standard macroeconomic environments. The final section introduces the flexible price version of the National Treasury DSGE model and looks at various policy experiments, such as: news shocks, optimal simple rules, and conditional forecasts that can then aid in applications of the larger \texttt{NT-DSGE model}.
 \end{abstract}
 
-\section*{1. Introduction}
-This paper describes nine examples or types of examples that illustrate how Dynare can approximate the solutions of dynamic rational expectations models, simulate them, and estimate them by maximum likelihood and Bayesian methods. Section 2 approximates and estimates a one-sector stochastic growth model. Section 3 approximates and estimates a two-country stochastic growth model. Section 4 follows chapter 11 of Ljungqvist and Sargent (2004) in studying the effects of foreseen fiscal policy in a non-stochastic growth model. Section 5 updates and extends these examples to correspond to chapter 11 of Ljungqvist and Sargent (20XX). Section 6 estimates a rational expectations model of hyperinflation originally formulated by Sargent (1977). Section 7 solves and estimates the permanent income model of Hall (1988). This application is interesting, among other reasons, for the way that it illustrates how Dynare can implement the 'diffuse Kalman filter' needed in situations in which an initial endogenous state variable is unknown and the model has a unit root. Section 8 solves and estimates the Ryoo and Rosen (2004) rational expectations model of a market for engineers. Section 9 estimates a model of consumption growth proposed by Bansal and Yaron (2004). Section 10 solves and estimates the Hansen, Sargent, and Tallarini (1999) model of robust permanent income and pricing. Section 11 solves and estimates the Bansal and Yaron (2004) of asset prices and long-run risk in consumption and dividends. Appendix A tells how the reader can obtain the file examples.zip that contain the *.mod and data files that we used to generate these examples.
+\pagebreak
 
-Some of our examples bear eloquent witness to the technological improvements brought by Dynare. For example, the maximum likelihood estimates in Sargent (1977) and Hansen, Sargent, and Tallarini (1999) were time-consuming and painful to obtain originally. Dynare has reduced the time and the pain.
+\tableofcontents
+
+\pagebreak
+
+\section{Introduction}
+{\color{blue} \textbf{[This will need checking and editing; especially section 5]} \\ 
+This note describes nine examples or types of examples that illustrate how Dynare can approximate the solutions of dynamic rational expectations models, simulate them, and estimate them by maximum likelihood and Bayesian methods. Section 2 approximates and estimates a one-sector stochastic growth model. Section 3 approximates and estimates a two-country stochastic growth model. Section 4 follows chapter 11 of Ljungqvist and Sargent (2004) in studying the effects of foreseen fiscal policy in a non-stochastic growth model. Section 5 updates and extends these examples to correspond to chapter 11 of Ljungqvist and Sargent (20XX). Appendix A tells how the reader can obtain the file examples.zip that contain the *.mod and data files that we used to generate these examples.}
+
+%Some of our examples bear eloquent witness to the technological improvements brought by Dynare. For example, the maximum likelihood estimates in Sargent (1977) and Hansen, Sargent, and Tallarini (1999) were time-consuming and painful to obtain originally. Dynare has reduced the time and the pain.
+
+%Section 6 estimates a rational expectations model of hyperinflation originally formulated by Sargent (1977). Section 7 solves and estimates the permanent income model of Hall (1988). This application is interesting, among other reasons, for the way that it illustrates how Dynare can implement the 'diffuse Kalman filter' needed in situations in which an initial endogenous state variable is unknown and the model has a unit root. Section 8 solves and estimates the Ryoo and Rosen (2004) rational expectations model of a market for engineers. Section 9 estimates a model of consumption growth proposed by Bansal and Yaron (2004). Section 10 solves and estimates the Hansen, Sargent, and Tallarini (1999) model of robust permanent income and pricing. Section 11 solves and estimates the Bansal and Yaron (2004) of asset prices and long-run risk in consumption and dividends. 
 
 
-\section*{2. The Neoclassical growth model}
+\section{The Neoclassical growth model}
 \subsection*{2.1 The model}
 We study a widely used stochastic neoclassical growth model with leisure (see, for example, Cooley and Prescott (1995)). A representative household's problem is
 
@@ -127,6 +116,8 @@ To estimate the policy function, parameters that enter the model are calibrated 
 \subsection*{2.2.2 Approximation}
 The following instructions implement this model in Dynare.
 
+{\color{blue}[\textbf{NOTE:} I added "\texttt{\ldots}" below in the model block so that the \texttt{verbatim} box is not overfull (i.e., goes off page), so it must be removed if pasted directly into a Dynare \texttt{.mod} file; otherwise the follow error would pop up, which is easy to fix, but better to avoid ;-)].}
+
 \begin{verbatim}
 var c k lab z;
 varexo e;
@@ -142,7 +133,8 @@ tau = 2;
 rho = 0.95;
 s = 0.007;
 model;
-    (c^the*(1-lab)^(1-the))^(1-tau)/c=bet*((c(+1)^the*(1-lab(+1))^(1-the))^(1-tau)/c(+1))*
+    (c^the*(1-lab)^(1-the))^(1-tau)/c = ...
+    bet*((c(+1)^the*(1-lab(+1))^(1-the))^(1-tau)/c(+1))*
     (1+alp*exp(z(-1))*k(-1)^(alp-1)*lab^(1-alp)-del);
     c=the/(1-the)*(1-alp)*exp(z(-1))*k(-1)^alp*lab^(-alp)*(1-lab);
     k=exp(z(-1))*k(-1)^alp*lab^(1-alp)-c+(1-del)*k(-1);
@@ -218,7 +210,7 @@ z (-1),e & -0.001076 & 0 & 0.000430 & -0.000056 \\
 \end{center}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-04}
 \captionsetup{labelformat=empty}
@@ -230,7 +222,6 @@ z (-1),e & -0.001076 & 0 & 0.000430 & -0.000056 \\
 The simulated data series for consumption are used to estimate some unknown parameters of the model. Suppose we would like to estimate the preference parameters $\theta$ and $\tau$, and the stochastic process for productivity, summarized by two parameters $\rho$ and $\sigma$. The following code instructs Dynare to conduct the estimation.
 
 \begin{verbatim}
-periods 1000;
 var c k lab z;
 varexo e;
 \end{verbatim}
@@ -276,7 +267,7 @@ estimation(datafile=simudata,mh_replic=10000);
 
 The priors used in estimation are as in Table 3. Table 4 is one of the outputs of Dynare which presents summary statistics of posterior distribution.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-06(1)}
 \captionsetup{labelformat=empty}
@@ -284,7 +275,7 @@ The priors used in estimation are as in Table 3. Table 4 is one of the outputs o
 \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-06}
 \captionsetup{labelformat=empty}
@@ -292,7 +283,7 @@ The priors used in estimation are as in Table 3. Table 4 is one of the outputs o
 \end{center}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[!htbp]
 \begin{center}
 \begin{tabular}{cccc}
 \hline\hline
@@ -328,7 +319,7 @@ $\sigma$ & 0.950 & 1.0227 & 0.8321 & 1.2175 & invg & Inf \\
 
 Table 4: Posterior.
 
-\section*{3. International Business Cycle Model}
+\section{International Business Cycle Model}
 We study a simplified version of the two-country production model in Kim and Kim (2003).
 
 \subsection*{3.1 The model}
@@ -373,7 +364,6 @@ $\sigma_{\epsilon_{2}}$ & 0.08 \\
 Dynare computes the policy function as a second-order approximation around the (log) steady-state. The .mod Dynare file of the system is as follows.
 
 \begin{verbatim}
-periods 1000;
 var c1 c2 k1 k2 a1 a2;
 varexo e1 e2;
 parameters gamma delta alpha beta rho;
@@ -435,13 +425,12 @@ Now assume that we do not know the true parameter values. We can estimate the un
 We will estimate 4 parameters $\rho, \alpha, \sigma_{\epsilon_{1}}$, and $\sigma_{\epsilon_{2}}$. Hence, we have to specify the prior distribution of each parameter. In this exercise, $\rho$ and $\alpha$ are given a normal prior, while the priors of $\sigma_{\epsilon_{1}}$ and $\sigma_{\epsilon_{2}}$ are inverse gamma distributions. The Dynare code is as follows.
 
 \begin{verbatim}
-periods 1000;
 var c1 c2 k1 k2 a1 a2;
 varexo e1 e2;
 parameters gamma delta alpha beta rho;
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-10}
 \captionsetup{labelformat=empty}
@@ -494,7 +483,7 @@ estimation(datafile=simudata,mh_replic=1000,mh_jscale=.5);
 
 Given that there are two exogenous shock variables, we use two observables $\ln C_{1}$ and $\ln K_{2}$. The result of the estimation is summarized in Figure 5, where the posterior distribution (in the darker line) of each parameter is contrasted against the given prior distribution. The result can be compared to the true parameter values in Table 5.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-11}
 \captionsetup{labelformat=empty}
@@ -502,7 +491,7 @@ Given that there are two exogenous shock variables, we use two observables $\ln 
 \end{center}
 \end{figure}
 
-\section*{4. Fiscal policies in the growth model}
+\section{Fiscal policies in the growth model}
 This section describes a suite of Dynare programs that replicate the transition experiments performed in chapter 11 of Ljungqvist and Sargent (2004).
 
 \subsection*{4.1 The model}
@@ -572,102 +561,173 @@ $\tau_{k}$ & 0 \\
 The Dynare code below reproduces Figure 11.3.1. which looks at the impact of a permanent increase of 0.2 in $g$ at $\mathrm{t}=10$.\\
 // This program replicates figure 11.3.1 from chapter 11 of RMT2 by\\
 // Ljungqvist and Sargent.\\
-// y\_ records the simulated endogenous variables in alphabetical order\\
-// ys0\_ records the initial steady state
 
 \begin{verbatim}
-// ys_ records the terminal steady state
-// We check that these line up at the end points
-// Note: y_ has ysO_ in the first column, ys_ in the last column, which explains
-// why it has 102 elements.
-// The sample of size 100 is in between.
-// Warning: All endogenous variables dated time t are treated as jump variables
-// in Dynare. So k in the program corresponds to k_{t+1}
-// and the same timing holds for the taxes.
-//Declares the endogenous variables;
-var c k;
-//declares the exogenous variables
-//investment tax credit, consumption tax, capital tax, government spending
-varexo taui tauc tauk g;
-parameters bet gam del alpha A;
-bet=.95; // discount factor
-gam=2; // CRRA parameter
-del=.2; // depreciation rate
-alpha=.33; // capital's share
-A=1; // productivity
-// Alignment convention:
-// g tauc taui tauk are now columns of ex_. Because of a bad design decision
-// the date of ex_(1,:) doesn't necessarily match the date in y_.
-// Whether they match depends on the number of lag periods in endogenous versus
-// exogenous variables.
-// In this example they match because tauc(-1) and taui(-1) enter the model.
-// These decisions and the timing conventions mean that y_(:,1) records the
-// initial steady state, while y_(:,102) records the terminal steady state
-// values. For j > 2, y_(:,j) records [c(j-1) .. k(j-1) .. G(j-1)] where k(j-1)
-// means end of period capital in period j-1, which equals k(j) in chapter 11
-// notation. Note that the jump in G occurs in y_(;,11), which confirms this
-// timing. The jump occurs now in ex_(11,1)
+// ----------------------------------------------------------------------------
+// Section 4 Replication — CLEAN exercises (k predetermined)
+// Permanent & Once-off for each of: g, tau_c, tau_i, tau_k
+// No macros; standard Dynare/Matlab only
+// ----------------------------------------------------------
+
+// -----------------------------
+// 1) Model (self-contained)
+// -----------------------------
+var
+    c
+    k
+    q
+    r
+    w
+    R
+    s
+    w_over_q
+    s_over_q
+    r_over_q
+    RBIG
+    ;
+
+varexo
+    g
+    tau_c
+    tau_i
+    tau_k
+    ;
+
+parameters beta delta A alpha gamma;
+beta  = 0.95;
+delta = 0.2;
+A     = 1.0;
+alpha = 0.33;
+gamma = 2.0;
+
 model;
-// equation 11.3.8.a
-k=A*k(-1)^alpha+(1-del)*k(-1)-c-g;
-// equation 11.3.8e + 11.3.8.g
-c^(-gam)=
-bet*(c(+1)^(-gam))*((1+tauc(-1))/(1+tauc))*((1-taui)*(1-del)/(1-taui(-1))+
-    ((1-tauk)/(1-taui(-1)))*alpha*A*k(-1)^(alpha-1));
+    // Resource constraint (k predetermined)
+    c = A*k(-1)^alpha + (1 - delta)*k(-1) - k - g;
+
+    // Recursive price of claim 
+    % NOTE: using the equation as stated implies a unit root for "q" -> model still solves fine since q not necessary for core solution, but ...
+    % it gives a warning in Newton solver before successfully converging the SS value for q to numerically zero...
+    % we can avoid this by redefining "q" as a stationary kernal simply by dropping beta
+    % q = q(-1) * beta * (c/c(-1))^(-gamma) * (1 + tau_c(-1)) / (1 + tau_c);
+    q = q(-1) * (c/c(-1))^(-gamma) * (1 + tau_c(-1)) / (1 + tau_c);
+
+    // Marginals with k(-1)
+    r = q * A * alpha * k(-1)^(alpha - 1);
+    w = q * ( A * k(-1)^alpha - k(-1) * A * alpha * k(-1)^(alpha - 1) );
+
+    // Return (Section 4 timing)
+    R = ((1 + tau_c(-1)) / (1 + tau_c)) * ( ((1 - tau_i) / (1 - tau_i(-1))) * (1 - delta)
+        + ((1 - tau_k) / (1 - tau_i(-1))) * A * alpha * k(-1)^(alpha - 1) );
+
+    // Saving return
+    s = q * ( (1 - tau_k) * A * alpha * k(-1)^(alpha - 1) + (1 - delta) );
+
+    // Euler
+    c^(-gamma) = beta * c(+1)^(-gamma) * R;
+
+    // Auxiliaries for plotting
+    w_over_q = w / q;
+    s_over_q = s / q;
+    r_over_q = r / q;
+    RBIG     = c^(-gamma) / ( beta * c(+1)^(-gamma) ); // equals R in equilibrium
 end;
-initval; k=1.5; c=0.6; g = 0.2; tauc = 0; taui = 0; tauk = 0; end;
-steady; // put this in if you want to start from the initial
-// steady state, comment it out to start from the indicated values
+
+initval;
+    g     = 0.2;
+    tau_c = 0.0;
+    tau_i = 0.0;
+    tau_k = 0.0;
+
+    k     = 1.5;
+    c     = 0.6;
+    q     = beta;
+    r     = 0.1;
+    w     = 0.5;
+    R     = 1/beta;
+    s     = 1.0;
+
+    w_over_q = w/q;
+    s_over_q = s/q;
+    r_over_q = r/q;
+    RBIG     = R;
+end;
+
+/*
+endval;
+    g     = 0.4;
+    tau_c = 0.0;
+    tau_i = 0.0;
+    tau_k = 0.0;
+
+    k     = 1.5;
+    c     = 0.6;
+    q     = beta;
+    r     = 0.1;
+    w     = 0.5;
+    R     = 1/beta;
+    s     = 1.0;
+
+    w_over_q = w/q;
+    s_over_q = s/q;
+    r_over_q = r/q;
+    RBIG     = R;
+end;
+*/
+
+steady;
+check;
+
+// Indices (robust to order) 
+// NOTE: if you copy and paste from the doc be careful \dots 
+// apostrophes need to be checked to avoid errors in run
+ik  = strmatch('k',        M_.endo_names, 'exact');
+ic  = strmatch('c',        M_.endo_names, 'exact');
+iR  = strmatch('RBIG',     M_.endo_names, 'exact');
+iwq = strmatch('w_over_q', M_.endo_names, 'exact');
+isq = strmatch('s_over_q', M_.endo_names, 'exact');
+irq = strmatch('r_over_q', M_.endo_names, 'exact');
+
+// Baseline steady values for overlay
+k0  = oo_.steady_state(ik);
+c0  = oo_.steady_state(ic);
+R0  = oo_.steady_state(iR);
+wq0 = oo_.steady_state(iwq);
+sq0 = oo_.steady_state(isq);
+rq0 = oo_.steady_state(irq);
+
+// Horizon and event time
+H  = 100; % # of periods for plotting
+T0 = 10;  % redundant -> dynare does not allow non-integers in var shock block
+
+// Helper for plotting a 2x3 grid
+function plot6(name, H, endo_sim, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0)
+figure('Name', name);
+subplot(2,3,1); plot([k0*ones(H,1)  endo_sim(ik,1:H)']);   title('k');
+subplot(2,3,2); plot([c0*ones(H,1)  endo_sim(ic,2:H+1)']); title('c');
+subplot(2,3,3); plot([R0*ones(H,1)  endo_sim(iR,1:H)']);   title('R');
+subplot(2,3,4); plot([wq0*ones(H,1) endo_sim(iwq,2:H+1)']);  title('w/q');
+subplot(2,3,5); plot([sq0*ones(H,1) endo_sim(isq,1:H)']);  title('s/q');
+subplot(2,3,6); plot([rq0*ones(H,1) endo_sim(irq,2:H+1)']);  title('r/q');
+end
+
+// ===== Figure 11.3.1. g: Permanent =====
+shocks;
+    var g;
+    %periods 1:(T0-1)  T0:H;
+    periods 1:9 10:200; % also set to length of periods
+    values  0.2 0.4;
+end;
+
+perfect_foresight_setup(periods=200); % set # of periods to 200 to ensure the “bend toward terminal SS” happens out of view.
+perfect_foresight_solver;
+
+
+plot6('g — Permanent increase', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
 \end{verbatim}
 
-\begin{verbatim}
-endval; // The following values determine the new steady state
-// after the shocks.
-k=1.5; c=0.4; g =.4; tauc =0; taui =0; tauk =0; end;
-steady; // We use steady again and the enval provided are initial
-// guesses for Dynare to compute the ss.
-// The following lines produce a g sequence with a once and for all jump in g shocks
-// we use shocks to undo that for the first 9 periods and leave g at
-// it's initial value of 0.2
-var g; periods 1:9; values 0.2; end;
-// now solve the model
-simul(periods=100);
-// Note: y_ records the simulated endogenous variables in alphabetical order
-// ysO_ records the initial steady state
-// ys_ records the terminal steady state
-// check that these line up at the end points
-y_(:,1) -ysO_(:) y_(:,102) - ys_(:)
-// Compute the initial steady state for consumption to later do the plots.
-co=ysO_(var_index('c')); ko = ysO_(var_index('k'));
-// g is in ex_(:,1) since it is stored in alphabetical order
-go = ex_ (1,1)
-// The following equation compute the other endogenous variables use in the
-// plots below. Since they are function of capital and consumption, so we can
-// compute them from the solved model above.
-// These equations were taken from page 333 of RMT2
-rbig0=1/bet;
-rbig=y_(var_index('c'),2:101).^(-gam)./(bet*y_(var_index('c'),3:102).^(-gam));
-rq0=alpha*A*ko^(alpha-1);
-rq=alpha*A*y_(var_index('k'),1:100).^(alpha-1);
-wq0=A*ko^alpha-ko*alpha*A*ko^(alpha-1);
-wq=A*y_(var_index('k'),1:100).`alpha-y_(var_index('k'),1:100).*alpha*A.*...
-    y_(var_index('k'),1:100).`(alpha-1);
-sq0=(1-ex_(1,4))*A*alpha*ko^(alpha-1)+(1-del);
-sq=(1-ex_(1:100,4)')*A*alpha.*y_(var_index('k'),1:100).^(alpha-1)+(1-del);
-//Now we plot the responses of the endogenous variables to the shock.
-figure subplot(2,3,1) plot([ko*ones(100,1)
-y_(var_index('k'),1:100)' ]) // note the timing: we lag capital to
-correct for syntax title('k') subplot(2,3,2) plot([co*ones(100,1)
-y_(var_index('c'),2:101)' ]) title('c') subplot(2,3,3)
-plot([rbig0*ones(100,1) rbig' ]) title('R') subplot(2,3,4)
-plot([wq0*ones(100,1) wq' ]) title('w/q') subplot(2,3,5)
-plot([sq0*ones(100,1) sq' ]) title('s/q') subplot(2,3,6)
-plot([rq0*ones(100,1) rq' ]) title('r/q')
-\end{verbatim}
-
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-15}
+  \includegraphics[width=\textwidth]{figures/2025_12_01_2aa251fafcb71267535dg-15.jpg}
 \captionsetup{labelformat=empty}
 \caption{Figure 6: A permanent increase of g (Figure 11.3.1).}
 \end{center}
@@ -680,131 +740,113 @@ Next we show the other transition experiments and only the parts of the code tha
 A permanent increase of $\tau_{c}$ at $\mathrm{t}=10$ of 20 per cent. (Figure 11.3.2)
 
 \begin{verbatim}
-initval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc = 0;
-taui = 0;
-tauk = 0;
+// Reset to baseline for tax experiments
+shocks;
+    var g;     periods 1:200;     values 0.2;
+    var tau_c; periods 1:200;     values 0.0;
+    var tau_i; periods 1:200;     values 0.0;
+    var tau_k; periods 1:200;     values 0.0;
 end;
-steady;
-endval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc =0.2;
-taui =0;
-tauk =0;
+
+// ===== Figure 11.3.2. tau_c: Permanent =====
+shocks;
+    var tau_c;
+    %periods 1:(T0-1)  T0:H;
+    periods 1:9  10:200;
+    values  0.0       0.2;
 end;
+
+perfect_foresight_setup(periods=200);
+perfect_foresight_solver;
+plot6('tau_c — Permanent increase', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-16}
 \captionsetup{labelformat=empty}
 \caption{Figure 7: A permanent increase of \$\textbackslash tau\_\{c}\$ (Figure 11.3.2).\}\end{center}
 \end{figure}
 
-\begin{verbatim}
-steady;
-shocks;
-var tauc;
-periods 1:9;
-values 0;
-end;
-\end{verbatim}
 
 \subsection*{4.3.3 A permanent increase in $\tau_{i}$ (Figure 11.5.1).}
 A permanent increase of $\tau_{i}$ at $\mathrm{t}=10$ of 20 percent. (Figure 11.5.1)
 
 \begin{verbatim}
-initval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc = 0;
-taui = 0;
-tauk = 0;
+// Reset baseline
+shocks;
+    var g;     periods 1:200;     values 0.2;
+    var tau_c; periods 1:200;     values 0.0;
+    var tau_i; periods 1:200;     values 0.0;
+    var tau_k; periods 1:200;     values 0.0;
 end;
-steady;
-endval;
-k=1.5;
-c=0.6;
+
+// ===== Figure 11.5.1. tau_i: Permanent =====
+shocks;
+    var tau_i;
+    %periods 1:(T0-1)  T0:H;
+    periods 1:9  10:200;
+    values  0.0       0.2;
+end;
+
+perfect_foresight_setup(periods=200);
+perfect_foresight_solver;
+plot6('tau_i — Permanent increase', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-17}
 \captionsetup{labelformat=empty}
 \caption{Figure 8: A permanent increase of \$\textbackslash tau\_\{i}\$ (Figure 11.5.1).\}\end{center}
 \end{figure}
 
-\begin{verbatim}
-g =0.2;
-tauc =0;
-taui =0.20;
-tauk =0;
-end;
-steady;
-shocks;
-var taui;
-periods 1:9;
-values 0;
-end;
-\end{verbatim}
-
 \subsection*{4.3.4 A permanent increase in $\tau_{k}$ (Figure 11.5.2).}
 A permanent increase of $\tau_{k}$ at $\mathrm{t}=10$ of 20 percent. (Figure 11.5.2)
 
 \begin{verbatim}
-initval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc = 0;
-taui = 0;
-tauk = 0;
+// Reset baseline
+shocks;
+    var g;     periods 1:200;     values 0.2;
+    var tau_c; periods 1:200;     values 0.0;
+    var tau_i; periods 1:200;     values 0.0;
+    var tau_k; periods 1:200;     values 0.0;
 end;
-steady;
+
+// ===== Figure 11.5.2. tau_k: Permanent =====
+shocks;
+    var tau_k;
+    %periods 1:(T0-1)  T0:H;
+    periods 1:9  10:200;
+    values  0.0       0.2;
+end;
+
+perfect_foresight_setup(periods=200);
+perfect_foresight_solver;
+plot6('tau_k — Permanent increase', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-18}
 \captionsetup{labelformat=empty}
 \caption{Figure 9: A permanent increase of \$\textbackslash tau\_\{k}\$ (Figure 11.5.2).\}\end{center}
 \end{figure}
 
-\begin{verbatim}
-endval;
-k=1.5;
-c=0.6;
-g =0.2;
-tauc =0;
-taui =0;
-tauk = 0.2;
-end;
-steady;
-shocks;
-var tauk;
-periods 1:9;
-values 0;
-end;
-\end{verbatim}
-
 \subsection*{4.3.5 One time increase in g (Figure 11.7.1).}
 A one time pulse of $g$ at $\mathrm{t}=10$ of 0.2 . (Figure 11.7.1)
 
 \begin{verbatim}
-initval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc = 0;
+// Reset baseline
+shocks;
+    var g;     periods 1:200;     values 0.2;
+    var tau_c; periods 1:200;     values 0.0;
+    var tau_i; periods 1:200;     values 0.0;
+    var tau_k; periods 1:200;     values 0.0;
+end;
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-19}
 \captionsetup{labelformat=empty}
@@ -813,34 +855,34 @@ tauc = 0;
 \end{figure}
 
 \begin{verbatim}
-taui = 0;
-tauk = 0;
-end;
-steady;
-endval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc =0;
-taui =0;
-tauk =0;
-end;
-steady;
+// ===== Figure 11.7.1. g: Once-off =====
 shocks;
-var g;
-periods 10;
-values 0.4;
+    var g;
+    %periods 1:(T0-1)  T0:H;
+    periods 1:9  10 11:200; % also set to length of periods
+    values  0.2  0.4  0.2;
 end;
+perfect_foresight_setup(periods=200);
+perfect_foresight_solver;
+plot6('g — Once-off spike', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
+
+
 \end{verbatim}
 
 \subsection*{4.3.6 One time increase in $\tau_{i}$ (Figure 11.7.2).}
 A one time pulse of $\tau_{i}$ at $\mathrm{t}=10$ of 20 percent. (Figure 11.7.2)
 
 \begin{verbatim}
-initval;
+// Reset baseline
+shocks;
+    var g;     periods 1:200;     values 0.2;
+    var tau_c; periods 1:200;     values 0.0;
+    var tau_i; periods 1:200;     values 0.0;
+    var tau_k; periods 1:200;     values 0.0;
+end;
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-20}
 \captionsetup{labelformat=empty}
@@ -848,31 +890,20 @@ initval;
 \end{figure}
 
 \begin{verbatim}
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc = 0;
-taui = 0;
-tauk = 0;
-end;
-steady;
-endval;
-k=1.5;
-c=0.6;
-g =0.2;
-tauc =0;
-taui =0;
-tauk =0;
-end;
-steady;
+// ===== Figure 11.7.2. tau_i: Once-off =====
 shocks;
-var taui;
-periods 10;
-values 0.2;
+    var tau_i;
+%periods 1:(T0-1)  T0  (T0+1):H;
+    periods 1:9  10 11:200;
+    values  0.0       0.2 0.0;
 end;
+
+perfect_foresight_setup(periods=200);
+perfect_foresight_solver;
+plot6('tau_i — Once-off spike', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
 \end{verbatim}
 
-\section*{5. Fiscal policies in the growth model}
+\section{Fiscal policies in the growth model, 2.0}
 This section describes a suite of Dynare programs that replicate the transition experiments performed in chapter 11 of Ljungqvist and Sargent (20XX).
 
 \subsection*{5.1 The model with inelastic labor supply}
@@ -1117,7 +1148,7 @@ steady;
 shocks;
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-26}
 \captionsetup{labelformat=empty}
@@ -1153,7 +1184,7 @@ tauk = 0.2;
 end;
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-27}
 \captionsetup{labelformat=empty}
@@ -1188,7 +1219,7 @@ g = 0.2;
 tauc =0;
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-28}
 \captionsetup{labelformat=empty}
@@ -1219,7 +1250,7 @@ gam=.2;
 simul(periods=100);
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-29}
 \captionsetup{labelformat=empty}
@@ -1301,7 +1332,7 @@ wq0=A*k0^alpha-k0*alpha*A*k0^(alpha-1);
 wq=A*k(1:100).`alpha-k(1:100).*alpha*A.*k(1:100).^(alpha-1);
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-31}
 \captionsetup{labelformat=empty}
@@ -1351,7 +1382,7 @@ set(gca,'Fontsize',12)
 axis fill;
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-33}
 \captionsetup{labelformat=empty}
@@ -1481,7 +1512,7 @@ An unforeseen once-and-for-all increase in $\tau_{n}$ to 20 per cent at $t=0$ (F
 initval;
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-36}
 \captionsetup{labelformat=empty}
@@ -1511,7 +1542,7 @@ end;
 steady;
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-37}
 \captionsetup{labelformat=empty}
@@ -1544,7 +1575,7 @@ end;
 steady;
 \end{verbatim}
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \begin{center}
   \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-38}
 \captionsetup{labelformat=empty}
@@ -1559,1111 +1590,16 @@ values 0;
 end;
 \end{verbatim}
 
-\section*{6. The demand for money during hyperinflations}
-Sargent (1977) specified and estimated a joint stochastic process for money growth and inflation that was designed to make the adaptive expectations model of Cagan (1956) consistent with rational expectations. The model has the form
 
-\[
-\begin{array}{r}
-m_{t}-p_{t}=\alpha \pi_{t}+u_{t} \\
-\pi_{t}=\frac{1-\lambda}{1-\lambda L}\left(p_{t}-p_{t-1}\right)=\frac{1-\lambda}{1-\lambda L} x_{t} \\
-\mu_{t}=m_{t}-m_{t-1} \tag{27}
-\end{array}
-\]
+\section{A full-scale fiscal RBC model}
 
-with $\alpha<0, m$ being the $\log$ of money supply, $\pi$ the expectation of inflation, $p$ the $\log$ of the price level and $u$ an erro term whose specification is described below. The hypothesis of rational expectations imposes
 
+\begin{flushleft}
+    {\color{blue}{[To-do: Hylton to add the RBC (flexible-price) version of the NT-DSGE model here. It is done and running successfully. Will do \texttt{stoch\_simul} and \texttt{Estimation} here... maybe \texttt{perfect\_foresight} too.]}}
+\end{flushleft}
 
-\begin{equation*}
-\pi_{t}=E_{t} x_{t+1} . \tag{28}
-\end{equation*}
 
-
-Sargent (1977) reverse engineered a process for $x_{t}$ such that Cagan's adaptive expectations scheme is equal to rational expectations. The following conditions ensure the rationality of Cagan's expectations scheme
-
-\[
-\begin{array}{r}
-u_{t}=u_{t-1}+\eta_{t} \\
-\mu_{t}=\frac{1-\lambda}{1-\lambda L} x_{t}+\varepsilon_{t} \tag{30}
-\end{array}
-\]
-
-$\eta$ and $\varepsilon$ are both serially uncorrelated random error terms with mean zero and variances $\sigma_{\eta}^{2}$ and $\sigma_{\varepsilon}^{2}$, respectively. For estimating the model, it is convenient to represent it in the following form
-
-\[
-\binom{x_{t}}{\mu_{t}}=\left(\begin{array}{cc}
-1 & 0  \tag{31}\\
-1-\lambda & \lambda
-\end{array}\right)\binom{x_{t-1}}{\mu_{t-1}}+\binom{a_{1 t}}{a_{2 t}}-\lambda I\binom{a_{1 t-1}}{a_{2 t-1}}
-\]
-
-The $a$ terms are linked to the random terms above via
-
-\[
-\binom{a_{1 t}}{a_{2 t}}=\left(\begin{array}{cc}
-1 & -1  \tag{32}\\
-1+\alpha(1-\lambda) & -(1-\lambda)
-\end{array}\right)(\lambda+(1-\lambda) \alpha)^{-1}\binom{\varepsilon_{t}}{\eta_{t}}
-\]
-
-The code below estimates representation (31) by maximum likelihood:
-
-\begin{verbatim}
-// this program estimates the model in
-// "The Demand for Money during Hyperinflations under Rational Expectations: I"
-// by T. Sargent, IER 1977 using maximum likelihood
-// variables are defined as follows:
-// x=p_t-p_{t-1}, p being the log of the price level
-// mu=m_t-m_{t-1},m being the log of money supply
-// note that in contrast to the paper eta and epsilon
-// have variance 1 (they are multiplied by the standard deviations)
-var x mu a1 a2; varexo epsilon eta; parameters alpha lambda sig_eta
-sig_epsilon; lambda=.5921; alpha=-2.344; sig_eta=.001;
-sig_epsilon=.001;
-model;
-x=x(-1)-lambda*a1(-1)+(1/(lambda+alpha*(1-lambda)))*sig_epsilon*epsilon
--(1/(lambda+alpha*(1-lambda)))*sig_eta*eta;
-mu=(1-lambda)*x(-1)+lambda*mu(-1)-lambda*a2(-1)+(1+alpha*(1-lambda))/(lambda+alpha*(1-lambda))
-*sig_epsilon*epsilon-(1-lambda)/(lambda+alpha*(1-lambda))*sig_eta*eta;
-a1=(1/(lambda+alpha*(1-lambda)))*sig_epsilon*epsilon-(1/(lambda+alpha*(1-lambda)))*sig_eta*eta;
-a2=(1+alpha*(1-lambda))/(lambda+alpha*(1-lambda))*sig_epsilon*epsilon
--(1-lambda)/(lambda+alpha*(1-lambda))*sig_eta*eta;
-end; steady; shocks;
-var eta; stderr 1; var epsilon; stderr 1;
-end;
-estimated_params;
-// ML estimation setup
-// parameter name, initial value, boundaries_low, ..._up;
-lambda, .5, 0.25, 0.75; alpha, -2, -8, -0.1; sig_eta, .0001, 0.0001,
-0.3; sig_epsilon, .0001, 0.0001, 0.3; end;
-varobs mu x; unit_root_vars x;
-estimation(datafile=cagan_data,first_obs=1,nobs=34,mh_replic=0,mode_compute=2,mode_check);
-\end{verbatim}
-
-The data for the estimation are from Cagan (1956) for Germany ${ }^{1}$. The shape of the negative of the log-likelihood function is plotted in figure 21.
-
-\footnotetext{${ }^{1}$ The data are demeaned, allowing us to ignore constant terms in the model
-}\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-40}
-\captionsetup{labelformat=empty}
-\caption{Figure 21: Negative of the Log-Likelihood function for the hyperinflation model}
-\end{center}
-\end{figure}
-
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{cccc}
-\hline\hline
-Parameter & Estimate & s.d. & t-stat \\
-\hline
-$\lambda$ & 0.6617 & 0.0535 & 12.3754 \\
-$\alpha$ & -4.7654 & 3.0689 & 1.5528 \\
-$\sigma_{\eta}$ & 0.2447 & 0.2170 & 1.1275 \\
-$\sigma_{\varepsilon}$ & 0.0727 & 0.0100 & 7.2946 \\
-\hline\hline
-\end{tabular}
-\captionsetup{labelformat=empty}
-\caption{Table 6: Results from Maximum likelihood}
-\end{center}
-\end{table}
-
-Next we estimate this model using Bayesian techniques. For this we replace the last part of the code above with
-
-\begin{verbatim}
-estimated_params;
-// Bayesian setup
-lambda, uniform_pdf, 0.68, .5;
-alpha, uniform_pdf, -5, 2;
-sig_eta,uniform_pdf, .5, 0.25;
-sig_epsilon, uniform_pdf, .5, 0.25;
-end;
-varobs mu x; unit_root_vars x;
-estimation(datafile=cagan_data,nobs=34,mh_replic=25000,mh_nblocks=1,mh_jscale=1,mode_compute=4);
-\end{verbatim}
-
-Note that the priors we have chosen are reasonably loose, but given that there are only 34 observations we have opted to use somewhat informative priors. The posteriors and priors are plotted in figure 22.
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-41}
-\captionsetup{labelformat=empty}
-\caption{Figure 22: Posteriors and priors for the hyperinflation model}
-\end{center}
-\end{figure}
-
-\section*{7. Solving and estimating Hall's permanent income model}
-This note describes a suite of Dynare programs to simulate and estimate the permanent income model of Hall(1988).
-
-\subsection*{7.1 The model}
-A consumer faces the following decision problem:
-
-$$
-\max _{\left\{c_{t}, k_{t}\right\}_{t=0}^{\infty}}-\frac{1}{2} \sum_{t=0}^{\infty} \beta^{t}\left(c_{t}-b_{t}\right)^{2}
-$$
-
-subject to the following constraints
-
-$$
-\begin{gathered}
-c_{t}+k_{t}=R k_{t-1}+d_{t} \\
-d_{t}=\rho d_{t-1}+(1-\rho) \mu_{d}+\varepsilon_{d} \\
-b_{t}=\rho_{b} b_{t-1}+\left(1-\rho_{b}\right) \mu_{b}+\varepsilon_{b}
-\end{gathered}
-$$
-
-We assume that $\beta R=1$ and that there is no depreciation, which leads to the following law of motion for investment:
-
-$$
-i_{t}=k_{t}-k_{t-1}
-$$
-
-From the Lagrangian for this problem one obtains the following first order conditions:
-
-$$
-\begin{aligned}
-& \mu_{c t}=\mu_{c t+1} \\
-& \mu_{c t}=b_{t}-c_{t}
-\end{aligned}
-$$
-
-where $\mu_{c t}$ is the marginal utility of consumption or the Lagrange multiplier.\\
-Note that this problem has a unit root and so there exist no steady state. However, we can supply ONE solution corresponding to an initial k that we give to Dynare.
-
-The following Dynare code simulates data from this model:
-
-\begin{verbatim}
-periods 5000;
-var c k mu_c b d in;
-varexo e_d e_b;
-parameters R rho rho_b mu_b mu_d; R=1.05;
-rho = 0;
-mu_b=30;
-mu_d=5;
-rho_b = 0;
-model(linear);
-    c+k = R*k(-1) + d;
-    mu_c = b - c;
-    mu_c=mu_c(+1);
-    d= rho*d(-1)+ mu_d*(1-rho) + e_d;
-    b=(1-rho_b)*mu_b+rho_b*b(-1)+e_b;
-    in = k - k(-1);
-    end;
-\end{verbatim}
-
-\begin{verbatim}
-//With a unit root, there exists no steady state. Use the following trick.
-// Supply ONE solution corresponding to the initial k that you named.
-initval;
-d=mu_d;
-k=100;
-c = (R-1)*k +d;
-mu_c=mu_b-c;
-b=mu_b;
-end;
-shocks;
-var e_d;
-stderr 1;
-var e_b;
-stderr 1;
-end;
-steady;
-check;
-stoch_simul(dr_algo=1, order=1, periods=500, irf=10);
-save data_hall c in;
-\end{verbatim}
-
-Next, we proceed to estimate a subset of the parameters of the model by ML using simulated data obtained from the previous code. To do so we add the following few lines of code. Notice how we use the command unit\_root\_vars to initialize the Kalman filter with a diffuse prior. We do this because $k$ is not stationary - Hall's model with $\beta R=1$ has a solution for $k$ that has a unit root and that is co-integrated with consumption.
-
-\begin{verbatim}
-estimated_params;
-// ML estimation setup
-// parameter name, initial value, boundaries_low, ..._up;
-rho, -0.0159, -0.9, 0.9;
-R, 1.0074, 0, 1.5;
-end;
-varobs c in;
-// declare the unit root variables for diffuse filter
-unit_root_vars k;
-estimation(datafile=data_hall,first_obs=101,nobs=200,mh_replic=0,mode_compute=4,mode_check);
-\end{verbatim}
-
-We proceed to estimate the same subset of the parameters using Bayesian techniques: This is implemented in Dynare by adding the following few lines of code.
-
-\begin{verbatim}
-estimated_params;
-rho, beta_pdf, .1, 0.2;
-R, normal_pdf,1.02,0.05;
-end;
-varobs c in;
-\end{verbatim}
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-44}
-\captionsetup{labelformat=empty}
-\caption{Figure 23: A shock to \$\textbackslash varepsilon\_\{b}\$\}\end{center}
-\end{figure}
-
-\begin{verbatim}
-// declare the unit root variables for diffuse filter
-unit_root_vars k;
-estimation(datafile=data_hall,first_obs=101,nobs=200,mh_replic=1000,mh_nblocks=2,mh_jscale=2);
-\end{verbatim}
-
-\section*{8. Solving and estimating Ryoo and Rosen's (2004) model of the market for engineers}
-This section describes a suite of Dynare programs to simulate and estimate a model of Aloysius Siow (1984) and Jaewoo Ryoo and Sherwin Rosen (2004) of the labor market for engineers.
-
-\subsection*{8.1 The model}
-Ryoo and Rosen studied a partial equilibrium model determining a stock of 'engineers' $N_{t}$; the number of new entrants into engineering school, $s_{t}$; and the wage level $w_{t}$ of engineers. ${ }^{2}$ It takes $k$ periods of schooling to become an engineer. The model consists of the following components:\\
-The present value of wages of an engineer:
-
-$$
-P_{t}=(1-\delta) \beta P_{t+1}+(1-\delta)^{k} \beta^{k} w_{t+k}
-$$
-
-A supply of new engineering students:
-
-$$
-s_{t}=a_{0}+a_{1} P_{t}+e_{s t}
-$$
-
-\footnotetext{${ }^{2}$ Sherwin Rosen showed this version of the model to Sargent in Chicago in fall 1995.
-}\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-45}
-\captionsetup{labelformat=empty}
-\caption{Figure 24: A shock to \$\textbackslash varepsilon\_\{d}\$\}\end{center}
-\end{figure}
-
-A time-to-build structure of the education process:
-
-$$
-N_{t}=(1-\delta) N_{t-1}+s_{t-k}
-$$
-
-A demand curve for engineers:
-
-$$
-N_{t}=d_{0}-d_{1} w_{t}+e_{d t}
-$$
-
-The following Dynare code simulates data from this model:
-
-\begin{verbatim}
-periods 500;
-var s N P W;
-varexo e_s e_d;
-parameters a0 a1 delta d0 d1 bet k;
-a0=10;
-a1=1;
-d0=1000;
-d1=1;
-bet=.99;
-delta=.02;
-model(linear);
-s=a0+a1*P+e_s; // flow supply of new entrants
-N=(1-delta)*N(-1) + s(-4); // evolution of the stock
-N=d0-d1*W+e_d; // stock demand equation
-P=bet*(1-delta)*P(+1)+bet`4*(1-delta)^4*W(+4); // present value of
-//wages
-\end{verbatim}
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-46}
-\captionsetup{labelformat=empty}
-\caption{Figure 25: priors and posteriors from the Bayesian estimation of Hall's model}
-\end{center}
-\end{figure}
-
-\begin{verbatim}
-end;
-initval;
-s=0;
-N=0;
-P=0;
-W=0;
-end;
-shocks;
-var e_d;
-stderr 1;
-var e_s;
-stderr 1;
-end;
-steady;
-check;
-stoch_simul(dr_algo=1, order=1, periods=500, irf=10);
-save data_rosen s N P W;
-\end{verbatim}
-
-Note that in this code we set $k=4$. Dynare does not let you use a parameter as lag length.\\
-Next, we estimate a subset of the parameters of the model by ML using simulated data obtained from the previous code. To do so we add the following lines of code.
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-47}
-\captionsetup{labelformat=empty}
-\caption{Figure 26: A shock to \$e\_\{s t}\$\}\end{center}
-\end{figure}
-
-\begin{verbatim}
-estimated_params;
-a1, .5, -10, 10;
-d1, .5, -20, 40;
-stderr e_d, .5, .05, 5;
-stderr e_s, .3, .05, 6; end;
-// these are the ranges for the parameters
-varobs W N;
-estimation(datafile=data_rosen,first_obs=101,nobs=200,mh_replic=0,mode_compute=4,mode_check);
-\end{verbatim}
-
-Figure plots the negative of the log-likelihood function for the parameters.\\
-We proceed to estimate the same subset of the parameters using Bayesian techniques. We implemented this in Dynare by adding the following lines of code.
-
-\begin{verbatim}
-estimated_params;
-a1, gamma_pdf, .5, .5;
-d1, gamma_pdf, 2, .5;
-stderr e_d,inv_gamma_pdf,.5,30;
-stderr e_s,inv_gamma_pdf,.2, 30;
-// The syntax for to input the priors is the following:
-// variable name, prior distribution, parameters of distribution.
-\end{verbatim}
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-48}
-\captionsetup{labelformat=empty}
-\caption{Figure 27: Negative of the Log-Likelihood for Ryoo and Rosen's model}
-\end{center}
-\end{figure}
-
-\begin{verbatim}
-end;
-varobs W N;
-estimation(datafile=data_rosen,first_obs=101,nobs=200,mh_replic=10000,mh_nblocks=2,
-    mh_jscale=2,mode_compute=0,mode_file=rosen_estimateML2_mode);
-\end{verbatim}
-
-\section*{9. Estimation of Bansal and Yaron(2004) consumption growth process}
-Let consumption growth have the state space representation
-
-$$
-\begin{aligned}
-x_{t} & =\rho x_{t-1}+\sigma_{x} \varepsilon_{x, t} \\
-\Delta c_{t} & =\mu_{c}+x_{t-1}+\sigma_{c} \varepsilon_{c, t}
-\end{aligned}
-$$
-
-where the shocks $\varepsilon_{c, t}$ and $\varepsilon_{x, t}$ are i.i.d. standard normal. We use quarterly growth rate of per capita U.S. consumption over the period 1947.2-2003.3 to estimate the four unknown parameters. The following Dynare code does this by maximum likelihood.
-
-\begin{verbatim}
-var x y;
-varexo e_x e_u;
-parameters rho sig_x sig_u mu_y;
-rho = .98;
-mu_y=.015;
-\end{verbatim}
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-49}
-\captionsetup{labelformat=empty}
-\caption{Figure 28: priors and posteriors from the Bayesian estimation of Ryoo and Rosen's model}
-\end{center}
-\end{figure}
-
-\begin{verbatim}
-sig_x=0.00025;
-sig_u=.0078;
-model(linear);
-x=rho*x(-1) + sig_x*e_x;
-y=mu_y + x(-1) +sig_u*e_u;
-end;
-initval;
-x=0;
-y=mu_y;
-end;
-steady;
-shocks;
-var e_x;
-stderr 1;
-var e_u;
-stderr 1;
-end;
-estimated_params;
-// ML estimation setup
-// parameter name, initial value, boundaries_low, ..._up;
-rho, 0, -0.999, 0.999; // use this for unconstrained max
-likelihood
-// rho, .980, .975, . 999 ; // use this for long run risk model
-// sig_x, .0004,.0001,.05 ; // use this for the long run risk model
-sig_x, .0005, .00000000001, .01; // use this for unconstrained
-max likelihood sig_u, .007,.001, .1; mu_y, .014, .0001, .04;
-end;
-varobs y;
-estimation(datafile=data_consRicardoypg,first_obs=1,nobs=227,mh_replic=0,mode_compute=4,mode_check);
-// mode_compute=4 uses Chris Sim's csminwel algorithm to maximize the likelihood function.
-// Using mode_compute=1 which uses the Matlab function fmincon or using mode_compute=2 which uses
-// Lester Ingber's Adaptive Simulated Annealing algorithm produce almost identical results. However,
-// model_compute=3 which uses fminunc gives the wrong answer.
-\end{verbatim}
-
-Table 7 reports the estimated parameter from Dynare.
-
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{cccc}
-\hline\hline
-Parameter & Estimate & s.d. & t-stat \\
-\hline
-rho & 0.5623 & 0.1927 & 2.9179 \\
-sigx & 0.0030 & 0.0011 & 2.6921 \\
-sigu & 0.0040 & 0.0007 & 5.4519 \\
-muy & 0.0056 & 0.0005 & 10.7613 \\
-\hline\hline
-\end{tabular}
-\captionsetup{labelformat=empty}
-\caption{Table 7: Results from Maximum likelihood}
-\end{center}
-\end{table}
-
-Figure 29 also plots the negative of the log-likelihood function along several dimensions.\\
-Next, we estimate the same model using Bayesian techniques and two different sets of priors. The first set of priors are tight around the calibrated values used in Bansal and Yaron (2004). To accomplish this, we can simply change the following lines of code from our MLE program above.
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-51}
-\captionsetup{labelformat=empty}
-\caption{Figure 29: Negative of the Log-Likelihood function for the consumption growth model}
-\end{center}
-\end{figure}
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-52}
-\captionsetup{labelformat=empty}
-\caption{Figure 30: Prior and Posteriors for the Bansal and Yaron (2004) endownment process}
-\end{center}
-\end{figure}
-
-\begin{verbatim}
-estimated_params;
-rho, beta_pdf, .98, .01;
-mu_y, uniform_pdf, .005, .0025;
-sig_u, inv_gamma_pdf, .003, inf;
-sig_x, inv_gamma_pdf, .003, inf;
-// The syntax for to input the priors is the following:
-// variable name, prior distribution, parameters of distribution.
-end;
-varobs y;
-estimation(datafile=data_consRicardoypg,first_obs=1,nobs=227,mh_replic=5000,mh_nblocks=1,mh_jscale=1)
-\end{verbatim}
-
-Figure 30 plots the prior and the posterior densities for the estimated parameters. The posteriors are plotted in black and priors in gray. A vertical green line denotes a posterior mean.
-
-Next, we set vague priors for $\rho$ and for $\mu_{y}$.\\
-rho, beta\_pdf, .5, .2;\\
-mu\_y, uniform\_pdf, .005, .0025;\\
-sig\_u, inv\_gamma\_pdf, .003, inf;
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-53}
-\captionsetup{labelformat=empty}
-\caption{Figure 31: Prior and Posteriors for the Bansal and Yaron (2004) endownment process}
-\end{center}
-\end{figure}
-
-\begin{verbatim}
-sig_x, inv_gamma_pdf, .003, inf;
-\end{verbatim}
-
-Figure 31 plots the prior and the posterior densities for the estimated parameters. Notice that with a more diffuse prior on $\rho$, the posteriors for $\mu_{y}$ are tighter.
-
-\section*{10. Robust permanent income and pricing}
-Hansen, Sargent, and Tallarini (1999) study consumption, saving, and security market prices in a permanent income model in which the agents mistrust their specification of the economic environment. The preferences of a representative consumer are defined in terms of the following risk-sensitivity recursion:
-
-\[
-\begin{array}{r}
-U_{t}=u_{t}+\beta R_{t}\left(U_{t+1}\right) \\
-R_{t}\left(U_{t+1}\right) \equiv \frac{2}{\sigma} \log E_{t}\left[\exp \left(\frac{\sigma U_{t+1}}{2}\right)\right] \tag{34}
-\end{array}
-\]
-
-with $u_{t}$ being the per-period utility function. Note that $\sigma=0$ corresponds to Von Neumann-Morgenstern preferences. The authors use a linear quadratic framework described below. Furthermore, they show that for a given ( $\beta, \sigma$ ) pair there exists another pair ( $\tilde{\beta}, 0$ ) that gives the same equilibrium quantities. This observation simplifies solution and estimation of the model significantly. For the $\sigma=0$ case and HST's linear-quadratic habit persistence model, preferences become
-
-
-\begin{equation*}
-U_{0}=E_{0} \sum_{t=0}^{\infty} \beta^{t}\left(-\left(s_{t}-b\right)^{2}\right) \tag{35}
-\end{equation*}
-
-
-with $b$ being a subsistence point and $s$ defined as
-
-\[
-\begin{array}{r}
-s_{t}=(1+\lambda) c_{t}-\lambda h_{t-1} \\
-h_{t}=\delta_{h} h_{t-1}+\left(1-\delta_{h}\right) c_{t} \tag{37}
-\end{array}
-\]
-
-where $c_{t}$ is current period consumption and $h_{t-1}$ the habit stock. There is a linear production technology:
-
-\[
-\begin{array}{r}
-c_{t}+i_{t}=\gamma k_{t-1}+d_{t} \\
-k_{t}=\delta_{k} k_{t-1}+i_{t} \\
-d_{t}=\mu_{d}+\hat{d}_{t}+\bar{d}_{t} \\
-\bar{d}_{t}=\left(\phi_{1}+\phi_{2}\right) \bar{d}_{t-1}-\phi_{1} \phi_{2} \bar{d}_{t-2}+c_{\bar{d}} * e_{1 t} \\
-\hat{d}_{t}=\left(\alpha_{1}+\alpha_{2}\right) \hat{d}_{t-1}-\alpha_{1} \alpha_{2} \hat{d}_{t-2}+c_{\hat{d}} * e_{2 t} \tag{42}
-\end{array}
-\]
-
-$e_{1 t}$ and $e_{1 t}$ are standard normal iid shocks. Finally, we define the gross return on capital as
-
-
-\begin{equation*}
-R \equiv \delta_{k}+\gamma \tag{43}
-\end{equation*}
-
-
-and impose
-
-
-\begin{equation*}
-R \beta=1 . \tag{44}
-\end{equation*}
-
-
-To solve the planning problem, we formulate a Lagrangian with multipliers $2 \beta^{t} \mu_{s t}$ on ( 36 ), $2 \beta^{t} \mu_{h t}$ on ( 37 ) and $2 \beta^{t} \mu_{c t}$ on (38) (after substituting for investment $i_{t}$ ). The first order necessary conditions are:
-
-\[
-\begin{array}{r}
-\mu_{s t}=b-s_{t} \\
-\mu_{c t}=(1+\lambda) \mu_{s t}+\left(1-\delta_{h}\right) \mu_{h t} \\
-\mu_{h t}=\beta E_{t}\left[\delta_{h} \mu_{h t+1}-\lambda \mu_{s t+1}\right] \\
-\mu_{c t}=\mu_{c t+1} \tag{48}
-\end{array}
-\]
-
-plus (36)-(39). The following code estimates the model using maximum likelihood:
-
-\begin{verbatim}
-    // Estimates the Hansen Sargent and Tallarini model by maximum likelihood.
-var s c h k i d dhat dbar mus muc muh gamma R; varexo e_dhat e_dbar;
-parameters lambda deltah deltak mud b bet phi1 phi2 cdbar alpha1
-alpha2 cdhat;
-bet=0.9971;
-deltah=0.682;
-lambda=2.443;
-alpha1=0.813;
-alpha2=0.189;
-phi1=0.998;
-phi2=0.704;
-mud=13.710;
-cdhat=0.155;
-cdbar=0.108;
-b=32;
-deltak=0.975;
-model(linear);
-R=deltak+gamma;
-R*bet=1;
-s=(1+lambda)*c-lambda*h(-1);
-h=deltah*h(-1)+(1-deltah)*c;
-k=deltak*k(-1)+i;
-\end{verbatim}
-
-\begin{verbatim}
-c+i=gamma*k(-1)+d;
-mus=b-s;
-muc=(1+lambda)*mus+(1-deltah)*muh;
-muh=bet*(deltah*muh(+1)-lambda*mus(+1));
-muc=bet*R*muc(+1);
-d=mud+dbar+dhat;
-dbar=(phi1+phi2)*dbar(-1) - phi1*phi2*dbar(-2) +
-cdbar*e_dbar;
-dhat=(alpha1+alpha2)*dhat(-1) -
-alpha1*alpha2*dhat(-2)+ cdhat*e_dhat;
-end;
-shocks;
-var e_dhat;
-stderr 1;
-var e_dbar;
-stderr 1;
-end;
-estimated_params;
-bet, .91, .9, .99999;
-deltah, 0.4, 0.1, 0.8;
-lambda, 2, 0.1, 50;
-alpha1, 0.8, 0.6, 0.99999;
-alpha2, 0.2,0.01,0.5;
-phi1, 0.8, 0.6, 0.99999;
-phi2, 0.5, 0.3, 0.9;
-mud, 10, 1,50;
-cdhat, 0.1, 0.05, 0.2;
-cdbar, 0.1, 0.05, 0.2;
-end;
-varobs c i;
-estimation(datafile=dataHST,first_obs=1,nobs=500,mode_compute=4,mode_check);
-\end{verbatim}
-
-To estimate the model using Bayesian techniques simply replace the last part of the code with
-
-\begin{verbatim}
-estimated_params;
-bet,uniform_pdf, .9499999999, 0.0288675134306;
-deltah,uniform_pdf, 0.45, 0.202072594216;
-lambda,uniform_pdf,25.05,14.4048892163;
-alpha1,uniform_pdf, 0.8, 0.115470053809;
-alpha2,uniform_pdf, 0.25, 0.144337567297;
-phi1,uniform_pdf,0.8,0.115470053809;
-phi2,uniform_pdf, 0.5, 0.288675134595;
-mud,uniform_pdf, 24.5, 14.1450815951;
-cdhat,uniform_pdf,0.175,0.0721687836487;
-cdbar,uniform_pdf, 0.175, 0.0721687836487;
-\end{verbatim}
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-56}
-\captionsetup{labelformat=empty}
-\caption{Figure 32: negative of the log-likelihood for the robust permanent income model}
-\end{center}
-\end{figure}
-
-\begin{verbatim}
-end;
-varobs c i;
-estimation(datafile=dataHST,nobs=500,mode_check,mh_replic=10000,mh_nblocks=1,mh_jscale=0.2);
-\end{verbatim}
-
-The sliced negative of the log-likelihood function is given by pictures (32) and (33). The maximization routine used here (mode compute=4) is Chris Sims' csminwel. Note that this procedure uses a random number generator, so different runs of this code can lead to different estimates (the routine might get stuck in a local extremum). Thus, it is important to run the code several times.
-
-\section*{11. Asset pricing with risks for the long run}
-\subsection*{11.1 Introduction}
-Following Bansal and Yaron (2004), we specify dividend and consumption growth as containing a small but highly persistent predictable component. These dynamics, when combined with Epstein and Zin (1989) preferences, help explain financial phenomena including the equity premium puzzle. What allows this specification to be successful is the ability of Epstein and Zin preferences to separate risk aversion from intertemporal elasticity of substitution, possibly allowing both to be larger than one. Dynare enables us to compute policy functions for the response of price-dividend ratios to an increase in the long-run predictable component of dividend and consumption growth. Using the specification just described, this impact turns out to be positive. In economic terms, the intertemporal substitution effect dominates the wealth effect. In response to higher expected growth rates, agents buy more assets and this increases the wealth to consumption ratio. In the standard power utility (constant relative risk aversion) model, the wealth effect dominates the substitution effect. Dynare shows that the policy functions for the latter
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-57}
-\captionsetup{labelformat=empty}
-\caption{Figure 33: negative of the log-likelihood for the robust permanent income model}
-\end{center}
-\end{figure}
-
-specification display the opposite sign for the feedback of the predictable component of growth on price-dividend ratios. Hence the former specification helps explain high equity premia, because when the IES is larger than one, agents fear that a reduction in economic growth prospects will lower asset prices.
-
-\subsection*{11.2 Setup of the model}
-Specify preferences as follows:
-
-
-\begin{equation*}
-U_{t}=\left[(1-\delta) C_{t}^{\frac{1-\gamma}{\theta}}+\delta\left(E_{t}\left[U_{t+1}^{1-\gamma}\right]\right)^{\frac{1}{\theta}}\right]^{\frac{\theta}{1-\gamma}} \tag{49}
-\end{equation*}
-
-
-where
-
-
-\begin{equation*}
-\theta=\frac{1-\gamma}{1-1 / \Psi} \tag{50}
-\end{equation*}
-
-
-Here $\gamma$ reflects the degree of risk aversion, while $\Psi$ take into account intertemporal elasticity of substitution. When $\theta=1$, preferences collapse to the standard CRRA case. Hence this model can be regarded as a general one.
-
-There are $N$ assets in this economy, whose one period ahead return is denoted as $R_{j, t+1}, \forall j=1, \ldots, N$. The share of investment in asset $j$ is denoted as $\omega_{j, t}$. Hence there are $N-1$ linearly independent elements in $\omega_{t}= \left[\begin{array}{llll}\omega_{1, t} & \omega_{2, t} & \ldots & \omega_{N, t}\end{array}\right]^{\prime}$, since portfolio shares must satisfy:
-
-
-\begin{equation*}
-\sum_{j=1}^{N} \omega_{j, t}=1, \forall t \tag{51}
-\end{equation*}
-
-
-The representative agent is endowed with an initial stock of the consumption asset $A_{0}$ that can be either consumed or invested in the $N$ assets in the competitive market. Therefore, her wealth evolves according to:
-
-
-\begin{equation*}
-A_{t+1}=\left(A_{t}-C_{t}\right) \omega_{t}^{\prime} R_{t} \tag{52}
-\end{equation*}
-
-
-Following Epstein and Zin (1991), first order conditions to price an asset that entitles to a claim on a stream of consumption good imply:
-
-
-\begin{equation*}
-v_{c, t}=E_{t}\left[\delta^{\theta} e^{\left[-\frac{\theta}{\Psi} \Delta c_{t+1}+(\theta-1) r_{c, t+1}\right]}\left(1+v_{c, t+1}\right) e^{\Delta c_{t+1}}\right] \tag{53}
-\end{equation*}
-
-
-where
-
-$$
-\begin{aligned}
-\Delta c_{t} & =\log \left(C_{t}\right)-\log \left(C_{t-1}\right) \\
-r_{c, t+1} & =\log R_{c, t+1} \\
-R_{c, t+1} & =\frac{\left(1+v_{c, t+1}\right) e^{\Delta c_{t+1}}}{v_{c, t}} \\
-v_{c, t} & =\frac{P_{c, t}}{C_{t}}
-\end{aligned}
-$$
-
-Similarly, first order condition to price an asset that entitles to a dividend $D_{t}$ in each period imply:
-
-
-\begin{equation*}
-v_{d, t}=E_{t}\left[\delta^{\theta} e^{\left[-\frac{\theta}{\Psi} \Delta c_{t+1}+(\theta-1) r_{c, t+1}\right]}\left(1+v_{d, t+1}\right) e^{\Delta d_{t+1}}\right] \tag{54}
-\end{equation*}
-
-
-where
-
-$$
-\begin{aligned}
-\Delta d_{t} & =\log \left(D_{t}-D_{t-1}\right) \\
-v_{d, t} & =\frac{P_{d, t}}{D_{t}}
-\end{aligned}
-$$
-
-We close the model, by specifying exogenous processes for consumption and dividend growth:
-
-
-\begin{align*}
-\Delta c_{t} & =\mu_{c}+x_{t-1}+\varepsilon_{c, t}  \tag{55}\\
-\Delta d_{t} & =\mu_{d}+\lambda_{d x} x_{t-1}+\varepsilon_{d, t}  \tag{56}\\
-x_{t} & =\rho_{x} x_{t-1}+\varepsilon_{x, t} \tag{57}
-\end{align*}
-
-
-where the shocks $\varepsilon_{c, t}, \varepsilon_{d, t}$ and $\varepsilon_{s, t}$ are i.i.d. normal with mean zero and standard deviations $\sigma_{c}, \sigma_{d}$ and $\sigma_{x}$, respectively. For stationarity $\left|\rho_{x}\right|<1$. The economy is completely described by equations (53)-(57).
-
-\subsection*{11.3 Calibration and simulation}
-We calibrate the parameters of the model in two different ways. Our guidelines in doing this are:
-
-\begin{itemize}
-  \item use a reasonable risk aversion
-  \item model the process of $x$ as highly persistent
-\end{itemize}
-
-One important feature that, following the lines of Bansal and Yaron (2004), we would like to display is the different way in which $x_{t}$ affects price-dividend ratios in the presence of Epstein and Zin utility functions. As we stressed before the channel through which a highly persistent and predictable component of consumption and dividend growth combined with Epstein-Zin preferences helps explaining the equity premium puzzle is the possibility of having intertemporal elasticity of substitution and risk aversion greater than one at the same time. Hence we want to experiment both a calibration where this condition is met and a standard constant relative risk aversion preferences environment, where risk aversion greater than one implies IES smaller than unity. The latter specification is a particular case in our model, as it only requires to put $\theta=1$.
-
-\subsection*{11.3.1 CRRA specification}
-We calibrate parameters as in Table 8. The numbers are the same as in Bansal and Yaron (2004) except for risk IES, that is now the inverse of risk aversion.
-
-\begin{center}
-\begin{tabular}{|l|l|}
-\hline
-Parameter & Calibration \\
-\hline
-$\Psi$ & 0.133 \\
-\hline
-$\theta$ & 1 \\
-\hline
-$\gamma$ & 7.5 \\
-\hline
-$\delta$ & 0.99 \\
-\hline
-$\mu_{c}$ & 0.0015 \\
-\hline
-$\sigma_{c}$ & 0.0078 \\
-\hline
-$\mu_{d}$ & 0.0015 \\
-\hline
-$\lambda_{d x}$ & 3 \\
-\hline
-$\sigma_{d}$ & 0.0351 \\
-\hline
-$\rho_{x}$ & 0.979 \\
-\hline
-$\sigma_{x}$ & 0.0003432 \\
-\hline
-\end{tabular}
-\end{center}
-
-Table 8: Parameters' calibration. The value of $\theta$ is calibrated to satisfy equation (50).
-
-The Dynare code reported below implements a first order approximation of the model.
-
-\begin{verbatim}
-periods 500;
-var dc, dd, v_c, v_d, x; varexo e_c, e_x, e_d;
-parameters DELTA THETA PSI MU_C MU_D RHO_X LAMBDA_DX;
-DELTA=.99;
-PSI=1.5;
-THETA=(1-7.5)/(1-1/PSI);
-MU_C=0.0015;
-MU_D=0.0015;
-RHO_X=.979;
-LAMBDA_DX=3;
-model;
-v_c = DELTA^THETA *exp((-THETA/PSI)*dc(+1)+(THETA-1)*log((1+v_c(+1))*exp(dc(+1))/v_c))* (1+v_c(+1))*exp(dc(+1)); %
-v_d = DELTA^THETA * exp((-THETA/PSI)*dc(+1) + (THETA-1)*log((1+v_c(+1))*exp(dc(+1))/v_c) ) * (1+v_d(+1))*exp(dd(+1)); %
-dc = MU_C + x(-1) + e_c;
-dd = MU_D + LAMBDA_DX*x(-1) + e_d; %
-x = RHO_X * x(-1) + e_x;
-end;
-initval;
-v_c=15;
-v_d=15;
-dc=MU_C;
-dd=MU_D;
-x=0;
-e_c=0;
-e_x=0;
-e_d=0;
-end;
-shocks;
-var e_c;
-stderr .0078;
-var e_x;
-stderr .0078*.044;%
-var e_d;
-stderr .0078*4.5;
-end;
-steady(solve_algo=0); check;
-stoch_simul(dr_algo=1, order=1, periods=1000, irf=30);
-datasaver('simudata',[]);
-\end{verbatim}
-
-Dynare computes policy and transition functions as reported in Table 9. Since these equations are expressed in terms of $x_{t-1}$, it is possible to express the system in terms of time t state variable using equation (57):
-
-$$
-\begin{aligned}
-v_{c, t} & =50.005-8086.753\left(x_{t}-\bar{x}\right) \\
-v_{d, t} & =50.005-5598.521\left(x_{t}-\bar{x}\right)
-\end{aligned}
-$$
-
-Equations (55)-(57) complete the description of the solution.
-
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|}
-\hline
- & x & $\Delta c$ & $\Delta d$ & $v_{c}$ & $v_{d}$ \\
-\hline
-Constant & 0 & 0.0015 & 0.0015 & 50.005844 & 50.005844 \\
-\hline
-$\mathrm{x}(-1)$ & 0.979 & 1 & 3 & -7916.931499 & -5480.952577 \\
-\hline
-$e_{c}$ & 0 & 1 & 0 & 0 & 0 \\
-\hline
-$e_{d}$ & 0 & 0 & 1 & 0 & 0 \\
-\hline
-$e_{x}$ & 1 & 0 & 0 & -8086.753319 & -5598.521529 \\
-\hline
-\end{tabular}
-\captionsetup{labelformat=empty}
-\caption{Table 9: Policy and transition functions, CRRA calibration (Matlab output).}
-\end{center}
-\end{table}
-
-It is also interesting to look at the impulse response functions to a shock to $x_{t}$. Figure 34 reports the response of the variables of the system to a one standard deviation shock to $x$. According to the rationale discussed above, both price-dividend and price-consumption ratios fall.
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-60}
-\captionsetup{labelformat=empty}
-\caption{Figure 34: Impulse response function to a shock to \$x\_\{t}\$ (CRRA preferences).\}\end{center}
-\end{figure}
-
-\subsection*{11.3.2 Epstein-Zin specification}
-This section focuses on the more general Epstein-Zin setup. In particular, we allow both risk aversion and IES to be larger than one. $\Psi$ and, via equation (50), $\theta$ are the only two parameters to differ between Table 8 and Table 10.
-
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|l|l|}
-\hline
-Parameter & Calibration \\
-\hline
-$\Psi$ & 1.5 \\
-\hline
-$\theta$ & -19.5 \\
-\hline
-$\gamma$ & 7.5 \\
-\hline
-$\delta$ & 0.99 \\
-\hline
-$\mu_{c}$ & 0.0015 \\
-\hline
-$\sigma_{c}$ & 0.0078 \\
-\hline
-$\mu_{d}$ & 0.0015 \\
-\hline
-$\lambda_{d x}$ & 3 \\
-\hline
-$\sigma_{d}$ & 0.0351 \\
-\hline
-$\rho_{x}$ & 0.979 \\
-\hline
-$\sigma_{x}$ & 0.0003432 \\
-\hline
-\end{tabular}
-\captionsetup{labelformat=empty}
-\caption{Table 10: Parameters' calibration. The value of $\theta$ is calibrated to satisfy equation (50).}
-\end{center}
-\end{table}
-
-By running the Dynare program with the change in the calibration of $\Psi$ and $\theta$, the policy functions for $v_{c}$ and $v_{d}$ change to:
-
-$$
-\begin{aligned}
-& v_{c, t}=104.209+1146.215\left(x_{t}-\bar{x}\right) \\
-& v_{d, t}=104.209+8023.510\left(x_{t}-\bar{x}\right)
-\end{aligned}
-$$
-
-Therefore, a shock to $x_{t}$ will now have a positive effect on price-dividend ratios. Separating risk aversion from intertemporal substitution and modelling both as greater than unity produces the effect of changing the sign of the impact of the forecastable part of consumption and dividend growth on price-dividend ratios. The IRF reported in Figure 35 stress this finding.
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-61}
-\captionsetup{labelformat=empty}
-\caption{Figure 35: Impulse response function to a shock to \$x\_\{t}\$ (CRRA preferences).\}\end{center}
-\end{figure}
-
-\subsection*{11.4 Bayesian estimation}
-We perform a Bayesian estimation of the general model, using simulated series. The model has three shocks $\varepsilon_{c}, \varepsilon_{x}$ and $\varepsilon_{d}$ and three observables $v_{d}, \Delta c$ and $\Delta d$. The priors that we use are reported in Table 11. A slight modification to the program reported in the previous pages enables us to estimate the parameters of the model in Dynare. The following code was been used:
-
-\begin{verbatim}
-var dc, dd, v_c, v_d, x;
-varexo e_c, e_x, e_d;
-parameters DELTA THETA PSI MU_C MU_D RHO_X LAMBDA_DX;
-DELTA=.99;
-PSI=1.5;
-THETA=(1-7.5)/(1-1/PSI);
-MU_C=0.0015;
-MU_D=0.0015;
-RHO_X=.979;
-LAMBDA_DX=3;
-model;
-v_c = DELTA^THETA * exp((-THETA/PSI)*dc(+1) + (THETA-1)*log((1+v_c(+1))*exp(dc(+1))/v_c) ) * (1+v_c(+1))*exp(dc(+1)); %
-v_d = DELTA^THETA * exp((-THETA/PSI)*dc(+1) + (THETA-1)*log((1+v_c(+1))*exp(dc(+1))/v_c) ) * (1+v_d(+1))*exp(dd(+1)); %
-\end{verbatim}
-
-\begin{verbatim}
-dc = MU_C + x(-1) + e_c; %
-dd = MU_D + LAMBDA_DX*x(-1) + e_d; %
-x = RHO_X * x(-1) + e_x;
-end;
-initval;
-v_c=15;
-v_d=15;
-dc=MU_C;
-dd=MU_D;
-x=0;
-e_c=0;
-e_x=0;
-e_d=0;
-end;
-shocks;
-var e_d;
-stderr .001;
-var e_c;
-stderr .001;
-var e_x;
-stderr .001;
-end;
-steady;
-estimated_params;
-DELTA, beta_pdf, 0.99,.001;
-THETA,normal_pdf,-7.5, 0.005;
-PSI,normal_pdf,1.5, 0.005;
-MU_C,normal_pdf,0.001, 0.005;
-MU_D,normal_pdf,0.001, 0.005;
-RHO_X,normal_pdf,.98, 0.05;
-LAMBDA_DX,normal_pdf,3, 0.05;%
-stderr e_d,inv_gamma_pdf,.01, inf; %
-stderr e_x,inv_gamma_pdf,.001, inf;
-stderr e_c,inv_gamma_pdf,.0001, inf;
-end;
-varobs v_d dd dc;
-estimation(datafile=simudata,mh_replic=5000);
-\end{verbatim}
-
-In terms of Dynare's output Figure 36 displays priors' distributions, while Figure 37 reports a comparison between prior's and posterior's distributions. Since the data generating process is exactly the model that we are estimating, it is not very surprising that the distribution of the posterior has very little variance around the true parameters.
-
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|l|l|l|l|}
-\hline
-Parameter & Prior Distribution & Mean & Std. Dev. \\
-\hline
-$\Psi$ & Normal & 1.5 & . 005 \\
-\hline
-$\theta$ & Normal & -19.5 & . 005 \\
-\hline
-$\delta$ & Beta & 0.99 & . 001 \\
-\hline
-$\mu_{c}$ & Normal & 0.0015 & . 005 \\
-\hline
-$\sigma_{c}$ & Inv. Gamma & 0.0078 & inf \\
-\hline
-$\mu_{d}$ & Normal & 0.0015 & . 005 \\
-\hline
-$\lambda_{d x}$ & Normal & 3 & . 05 \\
-\hline
-$\sigma_{d}$ & Inv. Gamma & 0.0351 & inf \\
-\hline
-$\rho_{x}$ & Normal & 0.979 & . 05 \\
-\hline
-$\sigma_{x}$ & Inv. Gamma & 0.0003432 & inf \\
-\hline
-\end{tabular}
-\captionsetup{labelformat=empty}
-\caption{Table 11: Priors.}
-\end{center}
-\end{table}
-
-Dynare also produces a table of summary statistics of the estimation. As already seen from the Figures, the mean of the posterior distributions is almost coincidental with the correct values and the estimated confidence interval is very tight around these values. Table 12 reports these numbers.
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-63}
-\captionsetup{labelformat=empty}
-\caption{Figure 36: Priors.}
-\end{center}
-\end{figure}
-
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|}
-\hline
- & Prior Mean & Post. Mean & Confidence & Interval & Prior dbn & Post std dev \\
-\hline
-$\bar{\delta}$ & 0.99 & 0.9896 & 0.988 & 0.991 & Beta & 0.001 \\
-\hline
-$\theta$ & -7.5 & -7.501 & -7.5102 & - 7.4934 & Normal & 0.005 \\
-\hline
-$\Psi$ & 1.5 & 1.4981 & 1.4898 & 1.5049 & Normal & 0.005 \\
-\hline
-$\mu_{c}$ & 0.001 & 0.0012 & 0.0001 & 0.0021 & Normal & 0.005 \\
-\hline
-$\mu_{d}$ & 0.001 & 0.0017 & -0.0004 & 0.0044 & Normal & 0.005 \\
-\hline
-$\rho_{x}$ & 0.98 & 0.9786 & 0.9753 & 0.9813 & Normal & 0.05 \\
-\hline
-$\lambda_{d x}$ & 3 & 2.9963 & 2.9205 & 3.0812 & Normal & 0.05 \\
-\hline
-$\sigma_{d}$ & 0.01 & 0.0368 & 0.0355 & 0.038 & Inv. Gamma & Inf \\
-\hline
-$\sigma_{x}$ & 0.001 & 0.0003 & 0.0003 & 0.0003 & Inv. Gamma & Inf \\
-\hline
-$\sigma_{c}$ & 0 & 0.0076 & 0.0074 & 0.0079 & Inv. Gamma & Inf \\
-\hline
-\end{tabular}
-\captionsetup{labelformat=empty}
-\caption{Table 12: Posterior.}
-\end{center}
-\end{table}
-
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-64}
-\captionsetup{labelformat=empty}
-\caption{Figure 37: Posterior.}
-\end{center}
-\end{figure}
+\appendix
 
 \section*{A. List of Dynare Files}
 This appendix lists the dynare files used in this paper. All files and the data used are contained in the file examples.zip. In case simulated data was used in the estimation one first needs to run the relevant dynare code to simulate the data.
@@ -2677,46 +1613,16 @@ This appendix lists the dynare files used in this paper. All files and the data 
   \item Figv3\_11XX.mod - solves a deterministic growth model and reproduces the graph XX in chapter 11 of Ljungqvist and Sargent (20XX)
   \item sargent77.mod - solves the model in Sargent (1977)
   \item sargent77ML.mod, sargent77Bayes.mod - estimate the model in Sargent (1977) using maximum likelihood and Bayesian MCMC methods, respectively
-  \item hall1.mod - solves the model in Hall (1988) and simulates data
-  \item hall1estimateML.mod, hall1estimateBayes.mod - estimate the model in Hall (1988) using maximum likelihood and Bayesian MCMC methods, respectively
-  \item rosen.mod - solves the model in Ryoo and Rosen (2004) and simulates data
-  \item rosenestimateML.mod, rosenestimateBayes.mod - estimate the model in Ryoo and Rosen (2004) using maximum likelihood and Bayesian MCMC methods, respectively
-  \item BansalYaronML.mod, BansalYaronBayes.mod - estimate the consumption-growth process of Bansal and Yaron (2004) using maximum likelihood and Bayesian MCMC methods, respectively
-  \item HSTML.mod, HSTBayes.mod - estimate the model in Hansen, Sargent, and Tallarini (1999) using maximum likelihood and Bayesian MCMC methods, respectively
-  \item AssetPricingApproximation.mod - solves the model of Bansal and Yaron (2004) and simulates data
-  \item AssetPricingEstimate.mod - estimates the model of Bansal and Yaron (2004)
-  \item 
 \end{itemize}
 
 \section*{References}
-Bansal, R., R. Gallant, and G. Tauchen (2007). Rational pessimism, rational exuberance and markets for macro risks. Working Paper.
-
-Bansal, R. and A. Yaron (2004, 08). Risks for the long run: A potential resolution of asset pricing puzzles. Journal of Finance 59(4), 1481-1509.
-
-Burnside, C. (1998, March). Solving asset pricing models with gaussian shocks. Journal of Economic Dynamics and Control 22(3), 329-340.
-
-Cagan, P. (1956). The monetary dynamics of hyperinflation. In M. Friedman (Ed.), Studies in the Quantity Theory of Money. University of Chicago Press.
-
 Cooley, T. F. and E. C. Prescott (1995). Economic growth and business cycles. In T. F. Cooley (Ed.), Frontiers of Business Cycle Research. Princeton University Press.
-
-Epstein, L. G. and S. E. Zin (1989, July). Substitution, risk aversion, and the temporal behavior of consumption and asset returns: A theoretical framework. Econometrica 57(4), 937-69.
-
-Epstein, L. G. and S. E. Zin (1991, April). Substitution, risk aversion, and the temporal behavior of consumption and asset returns: An empirical analysis. Journal of Political Economy 99(2), 263-86.
-
-Hall, R. E. (1988, April). Intertemporal substitution in consumption. Journal of Political Economy 96(2), 339-57.\\
-Hansen, L. P., T. J. Sargent, and J. Tallarini, Thomas D (1999, October). Robust permanent income and pricing. Review of Economic Studies 66(4), 873-907.
 
 Kim, J. and S. H. Kim (2003, August). Spurious welfare reversals in international business cycle models. Journal of International Economics 60(2), 471-500.
 
 Ljungqvist, L. and T. J. Sargent (2004). Recursive Macroeconomic Theory, Second edition. Cambridge, Ma.: MIT Press.
 
 Ljungqvist, L. and T. J. Sargent (20XX). Recursive Macroeconomic Theory, Third edition. Cambridge, Ma.: MIT Press.
-
-Ryoo, J. and S. Rosen (2004, February). The engineering labor market. Journal of Political Economy 112(S1), S110-S140.
-
-Sargent, T. J. (1977, February). The demand for money during hyperinflations under rational expectations: I. International Economic Review 18(1), 59-82.
-
-Schmitt-Grohe, S. and M. Uribe (2004). Solving asset pricing models with gaussian shocks. Journal of Economic Dynamics and Control 28, 755-775.
 
 Siow, A. (1984, May). Occupational choice under uncertainty. Econometrica 52(3), 631-45.
 
