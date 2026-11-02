@@ -1,0 +1,48 @@
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Substitution of exo lags: added 1 auxiliary variables and equations.
+Found 11 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+4 block(s) found:
+  3 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+q               		 1.11022e-15
+r               		 2.77556e-16
+w               		 8.88178e-16
+R               		 1.05263
+s               		 1.22125e-15
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.903969,	 time = 0.062436
+Iter: 2,	 err. = 0.000309772,	 time = 0.012453
+Iter: 3,	 err. = 1.89656e-11,	 time = 0.006198
+
+Total time of simulation: 0.082428.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s

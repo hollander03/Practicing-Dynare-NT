@@ -1,0 +1,1612 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Found 6 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 4 equation(s)
+                                 and 4 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 4 equation(s)
+                                 and 4 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c1 		 0.823947
+c2 		 0.823947
+k1 		 2.89526
+k2 		 2.89526
+a1 		 0
+a2 		 0
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+       6.244e-14        6.244e-14                0
+            0.85             0.85                0
+            0.85             0.85                0
+          0.9592           0.9592                0
+           1.064            1.064                0
+       1.416e+13        1.416e+13                0
+       4.508e+16        4.508e+16                0
+       2.401e+17        2.401e+17                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+MODEL SUMMARY
+
+  Number of variables:         6
+  Number of stochastic shocks: 2
+  Number of state variables:   4
+  Number of jumpers:           4
+  Number of static variables:  0
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          e1        e2
+e1           0.006400  0.000000
+e2           0.000000  0.006400
+
+POLICY AND TRANSITION FUNCTIONS
+                                  c1              c2              k1              k2              a1              a2
+Constant                    0.828143        0.828143        2.894730        2.894730               0               0
+(correction)                0.004196        0.004196       -0.000529       -0.000529               0               0
+k1(-1)                      0.243036        0.243036        0.479577        0.479577               0               0
+k2(-1)                      0.243036        0.243036        0.479577        0.479577               0               0
+a1(-1)                      0.118991        0.118991        0.661897       -0.542270        0.850000               0
+a2(-1)                      0.118991        0.118991       -0.542270        0.661897               0        0.850000
+e1                          0.139989        0.139989        0.778702       -0.637965        1.000000               0
+e2                          0.139989        0.139989       -0.637965        0.778702               0        1.000000
+k1(-1),k1(-1)               0.061511        0.061511        0.118070        0.118070               0               0
+k2(-1),k1(-1)              -0.109951       -0.109951       -0.223581       -0.223581               0               0
+k2(-1),k2(-1)               0.061511        0.061511        0.118070        0.118070               0               0
+a1(-1),k1(-1)              -0.013166       -0.013166       -0.000747       -0.000747               0               0
+a1(-1),k2(-1)              -0.027420       -0.027420       -0.028874       -0.028874               0               0
+a1(-1),a1(-1)               0.032025        0.032025       -0.156175       -0.156175               0               0
+a2(-1),k1(-1)              -0.027420       -0.027420       -0.028874       -0.028874               0               0
+a2(-1),k2(-1)              -0.013166       -0.013166       -0.000747       -0.000747               0               0
+a2(-1),a1(-1)              -0.029124       -0.029124        0.360813        0.360813               0               0
+a2(-1),a2(-1)               0.032025        0.032025       -0.156175       -0.156175               0               0
+e1,e1                       0.044325        0.044325       -0.216160       -0.216160               0               0
+e2,e1                      -0.040310       -0.040310        0.499395        0.499395               0               0
+e2,e2                       0.044325        0.044325       -0.216160       -0.216160               0               0
+k1(-1),e1                  -0.015489       -0.015489       -0.000879       -0.000879               0               0
+k1(-1),e2                  -0.032259       -0.032259       -0.033969       -0.033969               0               0
+k2(-1),e1                  -0.032259       -0.032259       -0.033969       -0.033969               0               0
+k2(-1),e2                  -0.015489       -0.015489       -0.000879       -0.000879               0               0
+a1(-1),e1                   0.075353        0.075353       -0.367471       -0.367471               0               0
+a1(-1),e2                  -0.034263       -0.034263        0.424485        0.424485               0               0
+a2(-1),e1                  -0.034263       -0.034263        0.424485        0.424485               0               0
+a2(-1),e2                   0.075353        0.075353       -0.367471       -0.367471               0               0
+
+
+MOMENTS OF SIMULATED VARIABLES
+VARIABLE              MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
+c1                0.882625        0.086014        0.007398        0.625754        0.250316
+c2                0.882625        0.086014        0.007398        0.625754        0.250316
+k1                3.013746        0.229327        0.052591        0.267559        0.288086
+k2                2.942967        0.218203        0.047612       -0.051610       -0.426609
+a1                0.040077        0.165692        0.027454        0.233008        0.486246
+a2               -0.009884        0.155104        0.024057       -0.161600       -0.124212
+
+
+CORRELATION OF SIMULATED VARIABLES
+VARIABLE         c1       c2       k1       k2       a1       a2
+c1           1.0000   1.0000   0.6816   0.5736   0.4601   0.3497
+c2           1.0000   1.0000   0.6816   0.5736   0.4601   0.3497
+k1           0.6816   0.6816   1.0000  -0.1464   0.7580  -0.3793
+k2           0.5736   0.5736  -0.1464   1.0000  -0.3911   0.7280
+a1           0.4601   0.4601   0.7580  -0.3911   1.0000  -0.1112
+a2           0.3497   0.3497  -0.3793   0.7280  -0.1112   1.0000
+
+
+AUTOCORRELATION OF SIMULATED VARIABLES
+VARIABLE         1       2       3       4       5
+c1          0.9827  0.9606  0.9325  0.9031  0.8720
+c2          0.9827  0.9606  0.9325  0.9031  0.8720
+k1          0.9305  0.8609  0.7947  0.7313  0.6707
+k2          0.9144  0.8242  0.7379  0.6597  0.5949
+a1          0.8763  0.7586  0.6482  0.5537  0.4628
+a2          0.8524  0.7075  0.5657  0.4531  0.3752
+
+
+
+VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent)
+                    e1                e2  Tot. lin. contr.
+c1              103.99             67.66            171.65
+c2              103.99             67.66            171.65
+k1              102.04             25.69            127.73
+k2               39.18             84.69            123.87
+a1              100.11              0.00            100.11
+a2                0.00            100.11            100.11
+Note: numbers do not add up to 100 due to i) non-zero correlation of simulated shocks in small samples and ii) nonlinearity
+
+Total computing time : 0h00m01s
+NT_RUN_PASS s03_02_twocountry_approx.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.191929
+Iter: 2,	 err. = 0.0167953,	 time = 0.031505
+Iter: 3,	 err. = 0.000385123,	 time = 0.002996
+Iter: 4,	 err. = 1.01919e-07,	 time = 0.003195
+Iter: 5,	 err. = 3.55271e-15,	 time = 0.032742
+
+Total time of simulation: 0.269898.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m01s
+NT_RUN_PASS s04_03_01_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.403558,	 time = 0.088578
+Iter: 2,	 err. = 0.073143,	 time = 0.005125
+Iter: 3,	 err. = 0.00554638,	 time = 0.004992
+Iter: 4,	 err. = 1.17171e-05,	 time = 0.002969
+Iter: 5,	 err. = 6.69353e-11,	 time = 0.002964
+
+Total time of simulation: 0.10923.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_02_tauc.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.657389
+k               		 2.0788
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.603592,	 time = 0.08633
+Iter: 2,	 err. = 0.191291,	 time = 0.022281
+Iter: 3,	 err. = 0.00473367,	 time = 0.017487
+Iter: 4,	 err. = 1.63882e-05,	 time = 0.015961
+Iter: 5,	 err. = 6.65352e-11,	 time = 0.011223
+
+Total time of simulation: 0.156984.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_03_taui.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.608336
+k               		 1.0679
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.456363,	 time = 0.07089
+Iter: 2,	 err. = 0.0133313,	 time = 0.015828
+Iter: 3,	 err. = 0.000244934,	 time = 0.02879
+Iter: 4,	 err. = 7.84757e-08,	 time = 0.018225
+Iter: 5,	 err. = 1.77636e-15,	 time = 0.016667
+
+Total time of simulation: 0.156527.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_04_tauk.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.079255
+Iter: 2,	 err. = 0.00196189,	 time = 0.002909
+Iter: 3,	 err. = 3.76803e-07,	 time = 0.003062
+Iter: 4,	 err. = 2.3137e-13,	 time = 0.004421
+
+Total time of simulation: 0.09316.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_05_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.605337,	 time = 0.06927
+Iter: 2,	 err. = 0.0502166,	 time = 0.002815
+Iter: 3,	 err. = 0.000358438,	 time = 0.003132
+Iter: 4,	 err. = 7.05124e-09,	 time = 0.002869
+Iter: 5,	 err. = 7.05124e-09,	 time = 0.002895
+Iter: 6,	 err. = 7.05124e-09,	 time = 0.002783
+Iter: 7,	 err. = 7.05124e-09,	 time = 0.00284
+Iter: 8,	 err. = 7.05124e-09,	 time = 0.005186
+Iter: 9,	 err. = 7.05124e-09,	 time = 0.006701
+Iter: 10,	 err. = 7.05124e-09,	 time = 0.002961
+Iter: 11,	 err. = 7.05124e-09,	 time = 0.004496
+Iter: 12,	 err. = 7.05124e-09,	 time = 0.003719
+Iter: 13,	 err. = 7.05124e-09,	 time = 0.005104
+Iter: 14,	 err. = 7.05124e-09,	 time = 0.002715
+Iter: 15,	 err. = 7.05124e-09,	 time = 0.006902
+Iter: 16,	 err. = 7.05124e-09,	 time = 0.002715
+Iter: 17,	 err. = 7.05124e-09,	 time = 0.005455
+Iter: 18,	 err. = 7.05124e-09,	 time = 0.002541
+Iter: 19,	 err. = 7.05124e-09,	 time = 0.003294
+Iter: 20,	 err. = 7.05124e-09,	 time = 0.002499
+Iter: 21,	 err. = 7.05124e-09,	 time = 0.0025
+Iter: 22,	 err. = 7.05124e-09,	 time = 0.003244
+Iter: 23,	 err. = 7.05124e-09,	 time = 0.003398
+Iter: 24,	 err. = 7.05124e-09,	 time = 0.004266
+Iter: 25,	 err. = 7.05124e-09,	 time = 0.003176
+Iter: 26,	 err. = 7.05124e-09,	 time = 0.013179
+Iter: 27,	 err. = 7.05124e-09,	 time = 0.002826
+Iter: 28,	 err. = 7.05124e-09,	 time = 0.004029
+Iter: 29,	 err. = 7.05124e-09,	 time = 0.002756
+Iter: 30,	 err. = 7.05124e-09,	 time = 0.002613
+Iter: 31,	 err. = 7.05124e-09,	 time = 0.003661
+Iter: 32,	 err. = 7.05124e-09,	 time = 0.002768
+Iter: 33,	 err. = 7.05124e-09,	 time = 0.012695
+Iter: 34,	 err. = 7.05124e-09,	 time = 0.005448
+Iter: 35,	 err. = 7.05124e-09,	 time = 0.002511
+Iter: 36,	 err. = 7.05124e-09,	 time = 0.002569
+Iter: 37,	 err. = 7.05124e-09,	 time = 0.00291
+Iter: 38,	 err. = 7.05124e-09,	 time = 0.0025
+Iter: 39,	 err. = 7.05124e-09,	 time = 0.002607
+Iter: 40,	 err. = 7.05124e-09,	 time = 0.00391
+Iter: 41,	 err. = 7.05124e-09,	 time = 0.004675
+Iter: 42,	 err. = 7.05124e-09,	 time = 0.008117
+Iter: 43,	 err. = 7.05124e-09,	 time = 0.003297
+Iter: 44,	 err. = 7.05124e-09,	 time = 0.002549
+Iter: 45,	 err. = 7.05124e-09,	 time = 0.00534
+Iter: 46,	 err. = 7.05124e-09,	 time = 0.002492
+Iter: 47,	 err. = 7.05124e-09,	 time = 0.002478
+Iter: 48,	 err. = 7.05124e-09,	 time = 0.003595
+Iter: 49,	 err. = 7.05124e-09,	 time = 0.002525
+Iter: 50,	 err. = 7.05124e-09,	 time = 0.002512
+
+Total time of simulation: 0.271411.
+Maximum number of iterations is reached (modify option maxit).
+--------------------------------------------------------------
+
+
+Entering the homotopy method iterations...
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 7.051238e-09 	 | 0.3
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.269039,	 time = 0.002611
+Iter: 2,	 err. = 0.0113563,	 time = 0.006292
+Iter: 3,	 err. = 2.07735e-05,	 time = 0.005156
+Iter: 4,	 err. = 2.69997e-11,	 time = 0.002638
+
+Total time of simulation: 0.018956.
+--------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 7.051238e-09 	 | 0.3
+2 	 | 0.50000 	 | succeeded 	 | 2.699974e-11 	 | 0.0
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.328664,	 time = 0.00419
+Iter: 2,	 err. = 0.0151683,	 time = 0.002938
+Iter: 3,	 err. = 3.0907e-05,	 time = 0.002528
+Iter: 4,	 err. = 5.11906e-11,	 time = 0.002506
+
+Total time of simulation: 0.013253.
+--------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 7.051238e-09 	 | 0.3
+2 	 | 0.50000 	 | succeeded 	 | 2.699974e-11 	 | 0.0
+3 	 | 1.00000 	 | succeeded 	 | 5.119061e-11 	 | 0.0
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_06_taui.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.073096
+Iter: 2,	 err. = 0.0167953,	 time = 0.003931
+Iter: 3,	 err. = 0.000385123,	 time = 0.00286
+Iter: 4,	 err. = 1.01919e-07,	 time = 0.003834
+Iter: 5,	 err. = 3.55271e-15,	 time = 0.003689
+
+Total time of simulation: 0.089124.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_01_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.403558,	 time = 0.090697
+Iter: 2,	 err. = 0.073143,	 time = 0.002873
+Iter: 3,	 err. = 0.00554638,	 time = 0.002793
+Iter: 4,	 err. = 1.17171e-05,	 time = 0.01231
+Iter: 5,	 err. = 6.69353e-11,	 time = 0.003099
+
+Total time of simulation: 0.114879.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_02_tauc.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.608336
+k               		 1.0679
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.456363,	 time = 0.108902
+Iter: 2,	 err. = 0.0133313,	 time = 0.035204
+Iter: 3,	 err. = 0.000244934,	 time = 0.021452
+Iter: 4,	 err. = 7.84757e-08,	 time = 0.014993
+Iter: 5,	 err. = 1.77636e-15,	 time = 0.008834
+
+Total time of simulation: 0.191165.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_03_tauk.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.08356
+Iter: 2,	 err. = 0.00196189,	 time = 0.005932
+Iter: 3,	 err. = 3.76803e-07,	 time = 0.002771
+Iter: 4,	 err. = 2.3137e-13,	 time = 0.016642
+
+Total time of simulation: 0.110183.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_04_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.5779           0.5779                0
+           1.822            1.822                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.085865
+Iter: 2,	 err. = 0.00264864,	 time = 0.015378
+Iter: 3,	 err. = 2.0232e-05,	 time = 0.002784
+Iter: 4,	 err. = 7.28638e-10,	 time = 0.002886
+Iter: 5,	 err. = 7.28638e-10,	 time = 0.002977
+Iter: 6,	 err. = 7.28638e-10,	 time = 0.004412
+Iter: 7,	 err. = 7.28638e-10,	 time = 0.006492
+Iter: 8,	 err. = 7.28638e-10,	 time = 0.002994
+Iter: 9,	 err. = 7.28638e-10,	 time = 0.002952
+Iter: 10,	 err. = 7.28638e-10,	 time = 0.006137
+Iter: 11,	 err. = 7.28638e-10,	 time = 0.003
+Iter: 12,	 err. = 7.28638e-10,	 time = 0.003876
+Iter: 13,	 err. = 7.28638e-10,	 time = 0.002707
+Iter: 14,	 err. = 7.28638e-10,	 time = 0.005111
+Iter: 15,	 err. = 7.28638e-10,	 time = 0.003232
+Iter: 16,	 err. = 7.28638e-10,	 time = 0.003552
+Iter: 17,	 err. = 7.28638e-10,	 time = 0.002651
+Iter: 18,	 err. = 7.28638e-10,	 time = 0.002636
+Iter: 19,	 err. = 7.28638e-10,	 time = 0.002809
+Iter: 20,	 err. = 7.28638e-10,	 time = 0.003355
+Iter: 21,	 err. = 7.28638e-10,	 time = 0.002526
+Iter: 22,	 err. = 7.28638e-10,	 time = 0.010501
+Iter: 23,	 err. = 7.28638e-10,	 time = 0.004943
+Iter: 24,	 err. = 7.28638e-10,	 time = 0.005278
+Iter: 25,	 err. = 7.28638e-10,	 time = 0.003426
+Iter: 26,	 err. = 7.28638e-10,	 time = 0.0036
+Iter: 27,	 err. = 7.28638e-10,	 time = 0.002602
+Iter: 28,	 err. = 7.28638e-10,	 time = 0.006346
+Iter: 29,	 err. = 7.28638e-10,	 time = 0.002533
+Iter: 30,	 err. = 7.28638e-10,	 time = 0.00251
+Iter: 31,	 err. = 7.28638e-10,	 time = 0.002504
+Iter: 32,	 err. = 7.28638e-10,	 time = 0.002507
+Iter: 33,	 err. = 7.28638e-10,	 time = 0.002504
+Iter: 34,	 err. = 7.28638e-10,	 time = 0.004986
+Iter: 35,	 err. = 7.28638e-10,	 time = 0.004716
+Iter: 36,	 err. = 7.28638e-10,	 time = 0.002535
+Iter: 37,	 err. = 7.28638e-10,	 time = 0.003102
+Iter: 38,	 err. = 7.28638e-10,	 time = 0.008734
+Iter: 39,	 err. = 7.28638e-10,	 time = 0.002562
+Iter: 40,	 err. = 7.28638e-10,	 time = 0.002528
+Iter: 41,	 err. = 7.28638e-10,	 time = 0.002531
+Iter: 42,	 err. = 7.28638e-10,	 time = 0.00427
+Iter: 43,	 err. = 7.28638e-10,	 time = 0.002514
+Iter: 44,	 err. = 7.28638e-10,	 time = 0.002511
+Iter: 45,	 err. = 7.28638e-10,	 time = 0.002959
+Iter: 46,	 err. = 7.28638e-10,	 time = 0.002694
+Iter: 47,	 err. = 7.28638e-10,	 time = 0.002522
+Iter: 48,	 err. = 7.28638e-10,	 time = 0.003826
+Iter: 49,	 err. = 7.28638e-10,	 time = 0.002534
+Iter: 50,	 err. = 7.28638e-10,	 time = 0.005089
+
+Total time of simulation: 0.282538.
+Maximum number of iterations is reached (modify option maxit).
+--------------------------------------------------------------
+
+
+Entering the homotopy method iterations...
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 7.286383e-10 	 | 0.3
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.1,	 time = 0.002837
+Iter: 2,	 err. = 0.000558087,	 time = 0.002718
+Iter: 3,	 err. = 8.06683e-07,	 time = 0.002732
+Iter: 4,	 err. = 1.28031e-12,	 time = 0.020377
+
+Total time of simulation: 0.030172.
+--------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 7.286383e-10 	 | 0.3
+2 	 | 0.50000 	 | succeeded 	 | 1.280309e-12 	 | 0.1
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.1,	 time = 0.002892
+Iter: 2,	 err. = 0.0061848,	 time = 0.008049
+Iter: 3,	 err. = 2.90629e-05,	 time = 0.003273
+Iter: 4,	 err. = 1.10494e-09,	 time = 0.002508
+Iter: 5,	 err. = 1.10494e-09,	 time = 0.002502
+Iter: 6,	 err. = 1.10494e-09,	 time = 0.00272
+Iter: 7,	 err. = 1.10494e-09,	 time = 0.003378
+Iter: 8,	 err. = 1.10494e-09,	 time = 0.007023
+Iter: 9,	 err. = 1.10494e-09,	 time = 0.002575
+Iter: 10,	 err. = 1.10494e-09,	 time = 0.003109
+Iter: 11,	 err. = 1.10494e-09,	 time = 0.004563
+Iter: 12,	 err. = 1.10494e-09,	 time = 0.004642
+Iter: 13,	 err. = 1.10494e-09,	 time = 0.002492
+Iter: 14,	 err. = 1.10494e-09,	 time = 0.00249
+Iter: 15,	 err. = 1.10494e-09,	 time = 0.005016
+Iter: 16,	 err. = 1.10494e-09,	 time = 0.002555
+Iter: 17,	 err. = 1.10494e-09,	 time = 0.004374
+Iter: 18,	 err. = 1.10494e-09,	 time = 0.00256
+Iter: 19,	 err. = 1.10494e-09,	 time = 0.005595
+Iter: 20,	 err. = 1.10494e-09,	 time = 0.005584
+Iter: 21,	 err. = 1.10494e-09,	 time = 0.00452
+Iter: 22,	 err. = 1.10494e-09,	 time = 0.00253
+Iter: 23,	 err. = 1.10494e-09,	 time = 0.005005
+Iter: 24,	 err. = 1.10494e-09,	 time = 0.002507
+Iter: 25,	 err. = 1.10494e-09,	 time = 0.008247
+Iter: 26,	 err. = 1.10494e-09,	 time = 0.002519
+Iter: 27,	 err. = 1.10494e-09,	 time = 0.005165
+Iter: 28,	 err. = 1.10494e-09,	 time = 0.004278
+Iter: 29,	 err. = 1.10494e-09,	 time = 0.00254
+Iter: 30,	 err. = 1.10494e-09,	 time = 0.002522
+Iter: 31,	 err. = 1.10494e-09,	 time = 0.009698
+Iter: 32,	 err. = 1.10494e-09,	 time = 0.009208
+Iter: 33,	 err. = 1.10494e-09,	 time = 0.002561
+Iter: 34,	 err. = 1.10494e-09,	 time = 0.002529
+Iter: 35,	 err. = 1.10494e-09,	 time = 0.002626
+Iter: 36,	 err. = 1.10494e-09,	 time = 0.00355
+Iter: 37,	 err. = 1.10494e-09,	 time = 0.002503
+Iter: 38,	 err. = 1.10494e-09,	 time = 0.002565
+Iter: 39,	 err. = 1.10494e-09,	 time = 0.002508
+Iter: 40,	 err. = 1.10494e-09,	 time = 0.002491
+Iter: 41,	 err. = 1.10494e-09,	 time = 0.002505
+Iter: 42,	 err. = 1.10494e-09,	 time = 0.006419
+Iter: 43,	 err. = 1.10494e-09,	 time = 0.007115
+Iter: 44,	 err. = 1.10494e-09,	 time = 0.002534
+Iter: 45,	 err. = 1.10494e-09,	 time = 0.002512
+Iter: 46,	 err. = 1.10494e-09,	 time = 0.002545
+Iter: 47,	 err. = 1.10494e-09,	 time = 0.004266
+Iter: 48,	 err. = 1.10494e-09,	 time = 0.002533
+Iter: 49,	 err. = 1.10494e-09,	 time = 0.00251
+Iter: 50,	 err. = 1.10494e-09,	 time = 0.002495
+
+Total time of simulation: 0.196318.
+Maximum number of iterations is reached (modify option maxit).
+--------------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 7.286383e-10 	 | 0.3
+2 	 | 0.50000 	 | succeeded 	 | 1.280309e-12 	 | 0.1
+3 	 | 1.00000 	 | failed 	 | 1.104938e-09 	 | 0.2
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.05,	 time = 0.002925
+Iter: 2,	 err. = 0.00132223,	 time = 0.004724
+Iter: 3,	 err. = 1.30353e-06,	 time = 0.00563
+Iter: 4,	 err. = 1.7264e-12,	 time = 0.00288
+
+Total time of simulation: 0.018095.
+--------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 7.286383e-10 	 | 0.3
+2 	 | 0.50000 	 | succeeded 	 | 1.280309e-12 	 | 0.1
+3 	 | 1.00000 	 | failed 	 | 1.104938e-09 	 | 0.2
+4 	 | 0.75000 	 | succeeded 	 | 1.726397e-12 	 | 0.0
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.05,	 time = 0.002914
+Iter: 2,	 err. = 0.00166347,	 time = 0.002794
+Iter: 3,	 err. = 2.04403e-06,	 time = 0.002696
+Iter: 4,	 err. = 4.97868e-12,	 time = 0.002638
+
+Total time of simulation: 0.013748.
+--------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 7.286383e-10 	 | 0.3
+2 	 | 0.50000 	 | succeeded 	 | 1.280309e-12 	 | 0.1
+3 	 | 1.00000 	 | failed 	 | 1.104938e-09 	 | 0.2
+4 	 | 0.75000 	 | succeeded 	 | 1.726397e-12 	 | 0.0
+5 	 | 1.00000 	 | succeeded 	 | 4.978684e-12 	 | 0.0
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m01s
+NT_RUN_PASS s05_03_05_g_gamma02.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.083138
+Iter: 2,	 err. = 0.0167953,	 time = 0.0174
+Iter: 3,	 err. = 0.000385123,	 time = 0.018205
+Iter: 4,	 err. = 1.01919e-07,	 time = 0.012897
+Iter: 5,	 err. = 3.55271e-15,	 time = 0.002874
+
+Total time of simulation: 0.136172.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_06_yields.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 6 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 5 eigenvalue(s) larger than 1 in modulus for 5 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 1.15771
+n               		 0.777008
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.383358,	 time = 0.097655
+Iter: 2,	 err. = 0.011735,	 time = 0.00354
+Iter: 3,	 err. = 5.28042e-05,	 time = 0.003289
+Iter: 4,	 err. = 3.03436e-09,	 time = 0.004311
+Iter: 5,	 err. = 3.03436e-09,	 time = 0.003882
+Iter: 6,	 err. = 3.03436e-09,	 time = 0.003163
+Iter: 7,	 err. = 3.03436e-09,	 time = 0.017871
+Iter: 8,	 err. = 3.03436e-09,	 time = 0.004316
+Iter: 9,	 err. = 3.03436e-09,	 time = 0.003039
+Iter: 10,	 err. = 3.03436e-09,	 time = 0.012499
+Iter: 11,	 err. = 3.03436e-09,	 time = 0.003063
+Iter: 12,	 err. = 3.03436e-09,	 time = 0.003189
+Iter: 13,	 err. = 3.03436e-09,	 time = 0.002982
+Iter: 14,	 err. = 3.03436e-09,	 time = 0.016674
+Iter: 15,	 err. = 3.03436e-09,	 time = 0.00866
+Iter: 16,	 err. = 3.03436e-09,	 time = 0.003891
+Iter: 17,	 err. = 3.03436e-09,	 time = 0.004833
+Iter: 18,	 err. = 3.03436e-09,	 time = 0.003753
+Iter: 19,	 err. = 3.03436e-09,	 time = 0.004451
+Iter: 20,	 err. = 3.03436e-09,	 time = 0.013974
+Iter: 21,	 err. = 3.03436e-09,	 time = 0.002879
+Iter: 22,	 err. = 3.03436e-09,	 time = 0.002823
+Iter: 23,	 err. = 3.03436e-09,	 time = 0.003237
+Iter: 24,	 err. = 3.03436e-09,	 time = 0.002896
+Iter: 25,	 err. = 3.03436e-09,	 time = 0.005658
+Iter: 26,	 err. = 3.03436e-09,	 time = 0.004867
+Iter: 27,	 err. = 3.03436e-09,	 time = 0.00365
+Iter: 28,	 err. = 3.03436e-09,	 time = 0.002811
+Iter: 29,	 err. = 3.03436e-09,	 time = 0.002791
+Iter: 30,	 err. = 3.03436e-09,	 time = 0.004524
+Iter: 31,	 err. = 3.03436e-09,	 time = 0.002809
+Iter: 32,	 err. = 3.03436e-09,	 time = 0.004183
+Iter: 33,	 err. = 3.03436e-09,	 time = 0.002796
+Iter: 34,	 err. = 3.03436e-09,	 time = 0.005024
+Iter: 35,	 err. = 3.03436e-09,	 time = 0.003827
+Iter: 36,	 err. = 3.03436e-09,	 time = 0.003692
+Iter: 37,	 err. = 3.03436e-09,	 time = 0.002791
+Iter: 38,	 err. = 3.03436e-09,	 time = 0.002771
+Iter: 39,	 err. = 3.03436e-09,	 time = 0.00499
+Iter: 40,	 err. = 3.03436e-09,	 time = 0.002821
+Iter: 41,	 err. = 3.03436e-09,	 time = 0.002815
+Iter: 42,	 err. = 3.03436e-09,	 time = 0.002771
+Iter: 43,	 err. = 3.03436e-09,	 time = 0.002763
+Iter: 44,	 err. = 3.03436e-09,	 time = 0.0036
+Iter: 45,	 err. = 3.03436e-09,	 time = 0.007888
+Iter: 46,	 err. = 3.03436e-09,	 time = 0.003024
+Iter: 47,	 err. = 3.03436e-09,	 time = 0.002773
+Iter: 48,	 err. = 3.03436e-09,	 time = 0.007672
+Iter: 49,	 err. = 3.03436e-09,	 time = 0.00443
+Iter: 50,	 err. = 3.03436e-09,	 time = 0.002768
+
+Total time of simulation: 0.335351.
+Maximum number of iterations is reached (modify option maxit).
+--------------------------------------------------------------
+
+
+Entering the homotopy method iterations...
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 3.034362e-09 	 | 0.3
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.189131,	 time = 0.003111
+Iter: 2,	 err. = 0.00303181,	 time = 0.002887
+Iter: 3,	 err. = 5.72298e-06,	 time = 0.007922
+Iter: 4,	 err. = 3.55976e-11,	 time = 0.003301
+
+Total time of simulation: 0.019689.
+--------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 3.034362e-09 	 | 0.3
+2 	 | 0.50000 	 | succeeded 	 | 3.559764e-11 	 | 0.0
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.110648,	 time = 0.007616
+Iter: 2,	 err. = 0.0257548,	 time = 0.002933
+Iter: 3,	 err. = 0.000369838,	 time = 0.002814
+Iter: 4,	 err. = 5.69983e-08,	 time = 0.002785
+Iter: 5,	 err. = 3.9968e-15,	 time = 0.002762
+
+Total time of simulation: 0.021147.
+--------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 3.034362e-09 	 | 0.3
+2 	 | 0.50000 	 | succeeded 	 | 3.559764e-11 	 | 0.0
+3 	 | 1.00000 	 | succeeded 	 | 3.996803e-15 	 | 0.0
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m01s
+NT_RUN_PASS s05_04_01_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 6 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 5 eigenvalue(s) larger than 1 in modulus for 5 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.203794
+k               		 0.713984
+n               		 0.479198
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.0939283,	 time = 0.133674
+Iter: 2,	 err. = 0.000880569,	 time = 0.006432
+Iter: 3,	 err. = 1.02247e-06,	 time = 0.005923
+Iter: 4,	 err. = 1.34237e-12,	 time = 0.003318
+
+Total time of simulation: 0.151275.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_04_02_taun.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 6 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 5 eigenvalue(s) larger than 1 in modulus for 5 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.203794
+k               		 0.713984
+n               		 0.479198
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.183408,	 time = 0.157753
+Iter: 2,	 err. = 0.014165,	 time = 0.04783
+Iter: 3,	 err. = 2.36199e-05,	 time = 0.044116
+Iter: 4,	 err. = 2.83066e-10,	 time = 0.019174
+Iter: 5,	 err. = 2.83066e-10,	 time = 0.004647
+Iter: 6,	 err. = 2.83066e-10,	 time = 0.008637
+Iter: 7,	 err. = 2.83066e-10,	 time = 0.006948
+Iter: 8,	 err. = 2.83066e-10,	 time = 0.004338
+Iter: 9,	 err. = 2.83066e-10,	 time = 0.025632
+Iter: 10,	 err. = 2.83066e-10,	 time = 0.013716
+Iter: 11,	 err. = 2.83066e-10,	 time = 0.007227
+Iter: 12,	 err. = 2.83066e-10,	 time = 0.018473
+Iter: 13,	 err. = 2.83066e-10,	 time = 0.013322
+Iter: 14,	 err. = 2.83066e-10,	 time = 0.004658
+Iter: 15,	 err. = 2.83066e-10,	 time = 0.004089
+Iter: 16,	 err. = 2.83066e-10,	 time = 0.002845
+Iter: 17,	 err. = 2.83066e-10,	 time = 0.003756
+Iter: 18,	 err. = 2.83066e-10,	 time = 0.002865
+Iter: 19,	 err. = 2.83066e-10,	 time = 0.0056
+Iter: 20,	 err. = 2.83066e-10,	 time = 0.002867
+Iter: 21,	 err. = 2.83066e-10,	 time = 0.002844
+Iter: 22,	 err. = 2.83066e-10,	 time = 0.002846
+Iter: 23,	 err. = 2.83066e-10,	 time = 0.002795
+Iter: 24,	 err. = 2.83066e-10,	 time = 0.006881
+Iter: 25,	 err. = 2.83066e-10,	 time = 0.005549
+Iter: 26,	 err. = 2.83066e-10,	 time = 0.002918
+Iter: 27,	 err. = 2.83066e-10,	 time = 0.003349
+Iter: 28,	 err. = 2.83066e-10,	 time = 0.002848
+Iter: 29,	 err. = 2.83066e-10,	 time = 0.002967
+Iter: 30,	 err. = 2.83066e-10,	 time = 0.00368
+Iter: 31,	 err. = 2.83066e-10,	 time = 0.002909
+Iter: 32,	 err. = 2.83066e-10,	 time = 0.004936
+Iter: 33,	 err. = 2.83066e-10,	 time = 0.003935
+Iter: 34,	 err. = 2.83066e-10,	 time = 0.003222
+Iter: 35,	 err. = 2.83066e-10,	 time = 0.002825
+Iter: 36,	 err. = 2.83066e-10,	 time = 0.003408
+Iter: 37,	 err. = 2.83066e-10,	 time = 0.004889
+Iter: 38,	 err. = 2.83066e-10,	 time = 0.002889
+Iter: 39,	 err. = 2.83066e-10,	 time = 0.00433
+Iter: 40,	 err. = 2.83066e-10,	 time = 0.002825
+Iter: 41,	 err. = 2.83066e-10,	 time = 0.003428
+Iter: 42,	 err. = 2.83066e-10,	 time = 0.005266
+Iter: 43,	 err. = 2.83066e-10,	 time = 0.003242
+Iter: 44,	 err. = 2.83066e-10,	 time = 0.002848
+Iter: 45,	 err. = 2.83066e-10,	 time = 0.002803
+Iter: 46,	 err. = 2.83066e-10,	 time = 0.003583
+Iter: 47,	 err. = 2.83066e-10,	 time = 0.00282
+Iter: 48,	 err. = 2.83066e-10,	 time = 0.005487
+Iter: 49,	 err. = 2.83066e-10,	 time = 0.004345
+Iter: 50,	 err. = 2.83066e-10,	 time = 0.003091
+
+Total time of simulation: 0.514505.
+Maximum number of iterations is reached (modify option maxit).
+--------------------------------------------------------------
+
+
+Entering the homotopy method iterations...
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 2.830665e-10 	 | 0.5
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.0911007,	 time = 0.003385
+Iter: 2,	 err. = 0.00312817,	 time = 0.003061
+Iter: 3,	 err. = 1.06662e-06,	 time = 0.003345
+Iter: 4,	 err. = 5.49782e-13,	 time = 0.003367
+
+Total time of simulation: 0.017419.
+--------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 2.830665e-10 	 | 0.5
+2 	 | 0.50000 	 | succeeded 	 | 5.497824e-13 	 | 0.0
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.497919,	 time = 0.003639
+Iter: 2,	 err. = 0.0603877,	 time = 0.00607
+Iter: 3,	 err. = 0.00438313,	 time = 0.003092
+Iter: 4,	 err. = 2.01564e-05,	 time = 0.002946
+Iter: 5,	 err. = 4.2993e-10,	 time = 0.00606
+Iter: 6,	 err. = 4.2993e-10,	 time = 0.00475
+Iter: 7,	 err. = 4.2993e-10,	 time = 0.002827
+Iter: 8,	 err. = 4.2993e-10,	 time = 0.005931
+Iter: 9,	 err. = 4.2993e-10,	 time = 0.003358
+Iter: 10,	 err. = 4.2993e-10,	 time = 0.004203
+Iter: 11,	 err. = 4.2993e-10,	 time = 0.002841
+Iter: 12,	 err. = 4.2993e-10,	 time = 0.00285
+Iter: 13,	 err. = 4.2993e-10,	 time = 0.005693
+Iter: 14,	 err. = 4.2993e-10,	 time = 0.00325
+Iter: 15,	 err. = 4.2993e-10,	 time = 0.00295
+Iter: 16,	 err. = 4.2993e-10,	 time = 0.003029
+Iter: 17,	 err. = 4.2993e-10,	 time = 0.003523
+Iter: 18,	 err. = 4.2993e-10,	 time = 0.004047
+Iter: 19,	 err. = 4.2993e-10,	 time = 0.004629
+Iter: 20,	 err. = 4.2993e-10,	 time = 0.002839
+Iter: 21,	 err. = 4.2993e-10,	 time = 0.00516
+Iter: 22,	 err. = 4.2993e-10,	 time = 0.003252
+Iter: 23,	 err. = 4.2993e-10,	 time = 0.005982
+Iter: 24,	 err. = 4.2993e-10,	 time = 0.002858
+Iter: 25,	 err. = 4.2993e-10,	 time = 0.004573
+Iter: 26,	 err. = 4.2993e-10,	 time = 0.002879
+Iter: 27,	 err. = 4.2993e-10,	 time = 0.006336
+Iter: 28,	 err. = 4.2993e-10,	 time = 0.006283
+Iter: 29,	 err. = 4.2993e-10,	 time = 0.006093
+Iter: 30,	 err. = 4.2993e-10,	 time = 0.004358
+Iter: 31,	 err. = 4.2993e-10,	 time = 0.004471
+Iter: 32,	 err. = 4.2993e-10,	 time = 0.006226
+Iter: 33,	 err. = 4.2993e-10,	 time = 0.014045
+Iter: 34,	 err. = 4.2993e-10,	 time = 0.003584
+Iter: 35,	 err. = 4.2993e-10,	 time = 0.002962
+Iter: 36,	 err. = 4.2993e-10,	 time = 0.004685
+Iter: 37,	 err. = 4.2993e-10,	 time = 0.00381
+Iter: 38,	 err. = 4.2993e-10,	 time = 0.002901
+Iter: 39,	 err. = 4.2993e-10,	 time = 0.006526
+Iter: 40,	 err. = 4.2993e-10,	 time = 0.004936
+Iter: 41,	 err. = 4.2993e-10,	 time = 0.004052
+Iter: 42,	 err. = 4.2993e-10,	 time = 0.005474
+Iter: 43,	 err. = 4.2993e-10,	 time = 0.007205
+Iter: 44,	 err. = 4.2993e-10,	 time = 0.006261
+Iter: 45,	 err. = 4.2993e-10,	 time = 0.002846
+Iter: 46,	 err. = 4.2993e-10,	 time = 0.002903
+Iter: 47,	 err. = 4.2993e-10,	 time = 0.004587
+Iter: 48,	 err. = 4.2993e-10,	 time = 0.002994
+Iter: 49,	 err. = 4.2993e-10,	 time = 0.002795
+Iter: 50,	 err. = 4.2993e-10,	 time = 0.002793
+
+Total time of simulation: 0.233154.
+Maximum number of iterations is reached (modify option maxit).
+--------------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 2.830665e-10 	 | 0.5
+2 	 | 0.50000 	 | succeeded 	 | 5.497824e-13 	 | 0.0
+3 	 | 1.00000 	 | failed 	 | 4.299299e-10 	 | 0.2
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.234427,	 time = 0.003003
+Iter: 2,	 err. = 0.0141818,	 time = 0.007649
+Iter: 3,	 err. = 0.00023309,	 time = 0.002859
+Iter: 4,	 err. = 6.10597e-08,	 time = 0.003058
+Iter: 5,	 err. = 4.44089e-15,	 time = 0.002802
+
+Total time of simulation: 0.022138.
+--------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 2.830665e-10 	 | 0.5
+2 	 | 0.50000 	 | succeeded 	 | 5.497824e-13 	 | 0.0
+3 	 | 1.00000 	 | failed 	 | 4.299299e-10 	 | 0.2
+4 	 | 0.75000 	 | succeeded 	 | 4.440892e-15 	 | 0.0
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.264391,	 time = 0.00565
+Iter: 2,	 err. = 0.0169213,	 time = 0.00302
+Iter: 3,	 err. = 0.000313505,	 time = 0.002807
+Iter: 4,	 err. = 1.03947e-07,	 time = 0.002784
+Iter: 5,	 err. = 1.15463e-14,	 time = 0.002788
+
+Total time of simulation: 0.019997.
+--------------------------------------------------------
+
+
+Iter. 	 | Share 	 | Status 	 | Max. residual	 | Duration (sec)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 	 | 1.00000 	 | failed 	 | 2.830665e-10 	 | 0.5
+2 	 | 0.50000 	 | succeeded 	 | 5.497824e-13 	 | 0.0
+3 	 | 1.00000 	 | failed 	 | 4.299299e-10 	 | 0.2
+4 	 | 0.75000 	 | succeeded 	 | 4.440892e-15 	 | 0.0
+5 	 | 1.00000 	 | succeeded 	 | 1.154632e-14 	 | 0.0
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m01s
+NT_RUN_PASS s05_04_03_taun.mod
+PATH_PASS s04_03_01_g resource=9.44e-16 euler=3.55e-15
+PATH_PASS s04_03_02_tauc resource=7.98e-13 euler=6.69e-11
+PATH_PASS s04_03_03_taui resource=3.69e-13 euler=6.65e-11
+PATH_PASS s04_03_04_tauk resource=4.44e-16 euler=1.33e-15
+PATH_PASS s04_03_05_g resource=5e-15 euler=2.31e-13
+PATH_PASS s04_03_06_taui resource=5.49e-12 euler=5.12e-11
+PATH_PASS s05_03_01_g resource=9.44e-16 euler=3.55e-15
+PATH_PASS s05_03_02_tauc resource=7.98e-13 euler=6.69e-11
+PATH_PASS s05_03_03_tauk resource=4.44e-16 euler=1.33e-15
+PATH_PASS s05_03_04_g resource=5e-15 euler=2.31e-13
+PATH_PASS s05_03_05_g_gamma02 resource=1.16e-12 euler=4.98e-12
+PATH_PASS s05_03_06_yields resource=9.44e-16 euler=3.55e-15
+PATH_PASS s05_04_01_g resource=5e-16 euler=4e-15
+PATH_PASS s05_04_02_taun resource=5.71e-13 euler=1.06e-13
+PATH_PASS s05_04_03_taun resource=3.89e-16 euler=1.15e-14

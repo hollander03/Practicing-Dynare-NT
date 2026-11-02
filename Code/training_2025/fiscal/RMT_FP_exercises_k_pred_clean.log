@@ -1,0 +1,172 @@
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall
+Starting preprocessing of the model file ...
+Substitution of exo lags: added 2 auxiliary variables and equations.
+Found 13 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Normalization failed with cutoff, trying symbolic normalization...
+Finding the optimal block decomposition of the static model...
+4 block(s) found:
+  3 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c                		 0.642641
+k                		 1.48995
+q                		 0.458215
+r                		 0.11576
+w                		 0.350179
+R                		 1.05263
+s                		 0.482332
+w_over_q         		 0.764228
+s_over_q         		 1.05263
+r_over_q         		 0.252635
+RBIG             		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+       1.206e-17        1.206e-17                0
+       4.886e-17        4.886e-17                0
+       1.664e-16       -1.664e-16                0
+          0.8382           0.8382                0
+               1                1                0
+           1.214            1.214                0
+
+There are 1 eigenvalue(s) larger than 1 in modulus for 1 forward-looking variable(s)
+The rank condition is verified.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.199996,	 time = 0.090239
+Iter: 2,	 err. = 0.177568,	 time = 0.016717
+Iter: 3,	 err. = 0.0128433,	 time = 0.002169
+Iter: 4,	 err. = 0.000165974,	 time = 0.002194
+Iter: 5,	 err. = 2.43159e-08,	 time = 0.00242
+
+Total time of simulation: 0.116153.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.199996,	 time = 0.002463
+Iter: 2,	 err. = 0.000840592,	 time = 0.008808
+Iter: 3,	 err. = 2.18644e-06,	 time = 0.003774
+
+Total time of simulation: 0.01696.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.00217
+Iter: 2,	 err. = 0.0282428,	 time = 0.002049
+Iter: 3,	 err. = 0.00022096,	 time = 0.002166
+Iter: 4,	 err. = 8.83505e-08,	 time = 0.002136
+
+Total time of simulation: 0.010546.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.002168
+Iter: 2,	 err. = 0.0702179,	 time = 0.002078
+Iter: 3,	 err. = 0.000748597,	 time = 0.00212
+Iter: 4,	 err. = 5.28313e-08,	 time = 0.002067
+
+Total time of simulation: 0.0103.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.00207
+Iter: 2,	 err. = 0.0465654,	 time = 0.00201
+Iter: 3,	 err. = 0.00771758,	 time = 0.00214
+Iter: 4,	 err. = 0.000189631,	 time = 0.001972
+Iter: 5,	 err. = 2.40219e-07,	 time = 0.001963
+
+Total time of simulation: 0.012686.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.002099
+Iter: 2,	 err. = 0.0666295,	 time = 0.002055
+Iter: 3,	 err. = 0.000851006,	 time = 0.002266
+Iter: 4,	 err. = 5.17357e-08,	 time = 0.002006
+
+Total time of simulation: 0.010217.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.0505253,	 time = 0.0022
+Iter: 2,	 err. = 0.0484758,	 time = 0.002086
+Iter: 3,	 err. = 0.00455734,	 time = 0.00214
+Iter: 4,	 err. = 9.35258e-05,	 time = 0.002047
+Iter: 5,	 err. = 2.62195e-08,	 time = 0.002015
+
+Total time of simulation: 0.013158.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.0505253,	 time = 0.00212
+Iter: 2,	 err. = 0.00225147,	 time = 0.00207
+Iter: 3,	 err. = 5.57418e-07,	 time = 0.002261
+
+Total time of simulation: 0.008919.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m01s

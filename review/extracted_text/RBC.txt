@@ -1,0 +1,247 @@
+PAGE 1
+Assessing a basic RBC model in Dynare
+Julius Pain and Malope Mampholo
+September 2025
+Julius Pain and Malope Mampholo
+Assessing a basic RBC model in Dynare
+September 2025
+1 / 8
+
+PAGE 2
+Introduction
+We’ll be adding government consumption to Hansen’s (1985) RBC model.
+We’ll take a look at:
+Extension of Hansen (1985)’s RBC model
+Data collection and parameterization
+Empirical and model-implied moments
+Visual comparison
+Julius Pain and Malope Mampholo
+Assessing a basic RBC model in Dynare
+September 2025
+2 / 8
+
+PAGE 3
+Extension
+Resource constraint in the RBC model:
+Yt = Ct + It + Gt
+Government spending follows an AR(1) process:
+ln Gt = ω ln Gt−1 + ϵt,
+ϵt ∼i.i.d. (0, σ2
+ϵg )
+Linearized around steady state. Steady-state consumption:
+C
+Y = 1 −δK
+Y −G
+Y
+Julius Pain and Malope Mampholo
+Assessing a basic RBC model in Dynare
+September 2025
+3 / 8
+
+PAGE 4
+Data collection and parameterization
+All data are sourced from the SARB’s QB, seasonally adjusted and
+annualized.
+Calculate the Solow residual:
+▶Calculate quarterly capital stock using the SNA-implied depreciation
+rate and perpetual inventory method (per quarter).
+Julius Pain and Malope Mampholo
+Assessing a basic RBC model in Dynare
+September 2025
+4 / 8
+
+PAGE 5
+Parameters of the RBC Model
+Parameter
+Description
+Value
+ρ
+Capital share
+0.3
+β
+Discount factor
+0.994
+δ
+Depreciation rate
+0.016
+ψ
+TFP AR(1) coefficient
+0.95
+η
+Risk aversion
+1.5
+ω
+Gov AR(1) coefficient
+0.95
+σϵz
+TFP shock std dev
+0.01
+σϵg
+Gov shock std dev
+0.01
+G
+Y
+Gov steady-state share
+0.19
+Julius Pain and Malope Mampholo
+Assessing a basic RBC model in Dynare
+September 2025
+5 / 8
+
+PAGE 6
+Empirical and model-implied moments (i)
+Empirical moments
+Variable
+Symbol
+Mean
+Std. Dev.
+Rel. S.D.
+Corr. w. y
+Autocorr.
+Output
+y
+0.000
+0.019
+1.000
+1.000
+0.492
+Consumption
+c
+-0.001
+0.024
+1.268
+0.928
+0.522
+Investment
+x
+-0.001
+0.054
+2.849
+0.725
+0.813
+Capital
+k
+0.000
+0.006
+0.302
+-0.107
+0.966
+Employment
+n
+0.000
+0.018
+0.946
+0.097
+0.490
+Interest rate
+r
+-0.001
+0.020
+1.051
+0.208
+0.814
+Wage
+w
+0.000
+0.027
+1.431
+0.749
+0.399
+TFP
+z
+0.000
+0.022
+1.164
+0.824
+0.500
+Gov purchases
+g
+0.000
+0.018
+0.945
+0.020
+0.455
+Julius Pain and Malope Mampholo
+Assessing a basic RBC model in Dynare
+September 2025
+6 / 8
+
+PAGE 7
+Empirical and model-implied moments (ii)
+Model-implied moments
+Variable
+Symbol
+Mean
+Std. Dev.
+Rel. S.D.
+Corr. w. y
+Autocorr.
+Output
+y
+-0.02
+0.04
+1.0
+1.00
+0.88
+Consumption
+c
+-0.00
+0.02
+0.5
+0.73
+0.96
+Investment
+i
+-0.05
+0.18
+4.5
+0.98
+0.87
+Capital
+k
+-0.01
+0.03
+0.8
+0.42
+0.99
+Employment
+n
+-0.01
+0.03
+0.7
+0.68
+0.87
+Interest rate
+r
+-0.00
+0.00
+0.0
+0.71
+0.87
+TFP
+z
+-0.01
+0.02
+0.6
+0.98
+0.90
+Gov purchases
+g
+-0.02
+0.02
+0.6
+-0.33
+0.90
+Julius Pain and Malope Mampholo
+Assessing a basic RBC model in Dynare
+September 2025
+7 / 8
+
+PAGE 8
+Visual comparison - IRFs
+Government purchases shock
+TFP shock
+Julius Pain and Malope Mampholo
+Assessing a basic RBC model in Dynare
+September 2025
+8 / 8

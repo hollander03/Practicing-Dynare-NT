@@ -1,0 +1,932 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+
+NT_RUN_BEGIN s04_03_01_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.075775
+Iter: 2,	 err. = 0.0167953,	 time = 0.003286
+Iter: 3,	 err. = 0.000385123,	 time = 0.002956
+Iter: 4,	 err. = 1.01919e-07,	 time = 0.003786
+
+Total time of simulation: 0.089281.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_01_g.mod
+
+NT_RUN_BEGIN s04_03_02_tauc.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.403558,	 time = 0.100488
+Iter: 2,	 err. = 0.073143,	 time = 0.003299
+Iter: 3,	 err. = 0.00554638,	 time = 0.003105
+Iter: 4,	 err. = 1.17171e-05,	 time = 0.003144
+Iter: 5,	 err. = 6.69353e-11,	 time = 0.004769
+
+Total time of simulation: 0.117128.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_02_tauc.mod
+
+NT_RUN_BEGIN s04_03_03_taui.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.657389
+k               		 2.0788
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.603592,	 time = 0.087184
+Iter: 2,	 err. = 0.191291,	 time = 0.005161
+Iter: 3,	 err. = 0.00473367,	 time = 0.002943
+Iter: 4,	 err. = 1.63882e-05,	 time = 0.003165
+Iter: 5,	 err. = 6.65352e-11,	 time = 0.004884
+
+Total time of simulation: 0.105483.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_03_taui.mod
+
+NT_RUN_BEGIN s04_03_04_tauk.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.608336
+k               		 1.0679
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.456363,	 time = 0.085812
+Iter: 2,	 err. = 0.0133313,	 time = 0.020136
+Iter: 3,	 err. = 0.000244934,	 time = 0.030417
+Iter: 4,	 err. = 7.84757e-08,	 time = 0.014797
+
+Total time of simulation: 0.154815.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_04_tauk.mod
+
+NT_RUN_BEGIN s04_03_05_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.126844
+Iter: 2,	 err. = 0.00196189,	 time = 0.016743
+Iter: 3,	 err. = 3.76803e-07,	 time = 0.029059
+
+Total time of simulation: 0.176606.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_05_g.mod
+
+NT_RUN_BEGIN s04_03_06_taui.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.605337,	 time = 0.083102
+Iter: 2,	 err. = 0.0502166,	 time = 0.003957
+Iter: 3,	 err. = 0.000358438,	 time = 0.002779
+Iter: 4,	 err. = 7.05124e-09,	 time = 0.013264
+
+Total time of simulation: 0.104663.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s04_03_06_taui.mod
+
+NT_RUN_BEGIN s05_03_01_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 4 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.076635
+Iter: 2,	 err. = 0.0167953,	 time = 0.013239
+Iter: 3,	 err. = 0.000385123,	 time = 0.016524
+Iter: 4,	 err. = 1.01919e-07,	 time = 0.017128
+
+Total time of simulation: 0.125431.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_01_g.mod
+
+NT_RUN_BEGIN s05_03_02_tauc.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 4 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.403558,	 time = 0.124236
+Iter: 2,	 err. = 0.073143,	 time = 0.016197
+Iter: 3,	 err. = 0.00554638,	 time = 0.011545
+Iter: 4,	 err. = 1.17171e-05,	 time = 0.011581
+Iter: 5,	 err. = 6.69345e-11,	 time = 0.014544
+
+Total time of simulation: 0.183823.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_02_tauc.mod
+
+NT_RUN_BEGIN s05_03_03_tauk.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 4 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.608336
+k               		 1.0679
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.456363,	 time = 0.097245
+Iter: 2,	 err. = 0.0133313,	 time = 0.021235
+Iter: 3,	 err. = 0.000244934,	 time = 0.036295
+Iter: 4,	 err. = 7.84757e-08,	 time = 0.015036
+
+Total time of simulation: 0.175937.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_03_tauk.mod
+
+NT_RUN_BEGIN s05_03_04_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 4 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.100385
+Iter: 2,	 err. = 0.00196189,	 time = 0.029319
+Iter: 3,	 err. = 3.76803e-07,	 time = 0.020869
+
+Total time of simulation: 0.154741.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_04_g.mod
+
+NT_RUN_BEGIN s05_03_05_g_gamma02.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 4 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.5779           0.5779                0
+           1.822            1.822                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.145018
+Iter: 2,	 err. = 0.00264864,	 time = 0.024665
+Iter: 3,	 err. = 2.0232e-05,	 time = 0.004846
+Iter: 4,	 err. = 7.28638e-10,	 time = 0.005624
+
+Total time of simulation: 0.182088.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_05_g_gamma02.mod
+
+NT_RUN_BEGIN s05_03_06_yields.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 4 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.111655
+Iter: 2,	 err. = 0.0167953,	 time = 0.00623
+Iter: 3,	 err. = 0.000385123,	 time = 0.007403
+Iter: 4,	 err. = 1.01919e-07,	 time = 0.005307
+
+Total time of simulation: 0.136795.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_03_06_yields.mod
+
+NT_RUN_BEGIN s05_04_01_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 1.15771
+n               		 0.777008
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.383358,	 time = 0.134803
+Iter: 2,	 err. = 0.011735,	 time = 0.003582
+Iter: 3,	 err. = 5.28042e-05,	 time = 0.00334
+Iter: 4,	 err. = 3.03436e-09,	 time = 0.009547
+
+Total time of simulation: 0.154237.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_04_01_g.mod
+
+NT_RUN_BEGIN s05_04_02_taun.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.203794
+k               		 0.713984
+n               		 0.479198
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.0939283,	 time = 0.161625
+Iter: 2,	 err. = 0.000880569,	 time = 0.007029
+Iter: 3,	 err. = 1.02247e-06,	 time = 0.007869
+
+Total time of simulation: 0.180847.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_04_02_taun.mod
+
+NT_RUN_BEGIN s05_04_03_taun.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.203794
+k               		 0.713984
+n               		 0.479198
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.183408,	 time = 0.199487
+Iter: 2,	 err. = 0.014165,	 time = 0.00351
+Iter: 3,	 err. = 2.36199e-05,	 time = 0.003235
+Iter: 4,	 err. = 2.83066e-10,	 time = 0.023146
+
+Total time of simulation: 0.231867.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_04_03_taun.mod

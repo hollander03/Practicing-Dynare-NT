@@ -1,0 +1,165 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./practice_dynare_NT.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/size12.clo))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/mhchem/mhchem.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/chemgreek/chemgreek.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xparse/xparse.sty))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty (/usr/local/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/url/url.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+
+(/usr/local/texlive/2024/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+))) (/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/caption/caption3.sty))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/local/texlive/2024/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2024/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/adjustbox/adjcalc.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/adjustbox/trimclip.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/collectbox/collectbox.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/adjustbox/tc-pdftex.def))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/varwidth/varwidth.sty))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/bbold/bbold.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg))
+(/tmp/nt-teaching-tex/practice_dynare_NT.aux)
+(/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/color.sty
+(/usr/local/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/tmp/nt-teaching-tex/practice_dynare_NT.out)
+(/tmp/nt-teaching-tex/practice_dynare_NT.out)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd) [1{/usr/local/tex
+live/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024
+/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+(/tmp/nt-teaching-tex/practice_dynare_NT.toc) [2] [3]
+(./Code/sections/s02_02_growth_approx.mod [4]) [5] [6 <./figures/s02_02_growth_
+irfs_legacy.jpg>] (./Code/sections/s02_03_growth_estimate.mod [7])
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8] [9 <./figures/s02_03_priors_legacy.jpg>] [10 <./figures/s02_03_posterior_le
+gacy.jpg>] (/usr/local/texlive/2024/texmf-dist/tex/latex/bbold/Ubbold.fd)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+(./Code/sections/s03_02_twocountry_approx.mod [11] [12])
+Overfull \hbox (11.78407pt too wide) detected at line 315
+[][]
+(./Code/sections/s03_03_twocountry_estimate.mod [13] [14 <./figures/s03_02_twoc
+ountry_irfs_legacy.jpg>] [15]) [16] [17 <./figures/s03_03_posterior_legacy.jpg>
+]
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
+
+[18] (./Code/sections/s04_03_01_g.mod [19]) (./Code/sections/s04_03_02_tauc.mod
+ [20] [21 <./figures/s04_03_01_g_legacy.jpg>])
+(./Code/sections/s04_03_03_taui.mod [22] [23 <./figures/s04_03_02_tauc_legacy.j
+pg>] [24]) (./Code/sections/s04_03_04_tauk.mod [25 <./figures/s04_03_03_taui_le
+gacy.jpg>] [26]) (./Code/sections/s04_03_05_g.mod [27 <./figures/s04_03_04_tauk
+_legacy.jpg>]) [28] [29 <./figures/s04_03_05_g_legacy.jpg>]
+(./Code/sections/s04_03_06_taui.mod [30]) [31 <./figures/s04_03_06_taui_legacy.
+jpg>] [32] (./Code/sections/s05_03_01_g.mod [33])
+(./Code/sections/s05_03_02_tauc.mod [34] [35 <./figures/s05_03_01_g_legacy.jpg>
+]) (./Code/sections/s05_03_03_tauk.mod [36] [37 <./figures/s05_03_02_tauc_legac
+y.jpg>] [38]) (./Code/sections/s05_03_04_g.mod [39 <./figures/s05_03_03_tauk_le
+gacy.jpg>]) [40] [41 <./figures/s05_03_04_g_legacy.jpg>]
+(./Code/sections/s05_03_05_g_gamma02.mod [42]) [43 <./figures/s05_03_05_g_gamma
+_comparison_legacy.jpg>] (./Code/sections/s05_03_06_yields.mod [44]) [45]
+[46 <./figures/s05_03_06_yields_legacy.jpg>] (./Code/sections/s05_04_01_g.mod
+[47]) [48] [49 <./figures/s05_04_01_g_legacy.jpg>]
+(./Code/sections/s05_04_02_taun.mod [50]) [51 <./figures/s05_04_02_taun_legacy.
+jpg>] (./Code/sections/s05_04_03_taun.mod [52]) [53] [54 <./figures/s05_04_03_t
+aun_legacy.jpg>] [55] (/tmp/nt-teaching-tex/practice_dynare_NT.aux) )
+(see the transcript file for additional information)</usr/local/texlive/2024/te
+xmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/local/texlive/2024/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/
+public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/pu
+blic/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/publ
+ic/cm-super/sfbx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public
+/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/c
+m-super/sfcc1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-
+super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-su
+per/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/
+sfrm2074.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sf
+ti1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt
+1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt10
+95.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1200
+.pfb>
+Output written on /tmp/nt-teaching-tex/practice_dynare_NT.pdf (55 pages, 200101
+7 bytes).
+Transcript written on /tmp/nt-teaching-tex/practice_dynare_NT.log.

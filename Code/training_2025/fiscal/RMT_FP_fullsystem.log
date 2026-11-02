@@ -1,0 +1,66 @@
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ...
+Substitution of exo lags: added 2 auxiliary variables and equations.
+Found 13 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+4 block(s) found:
+  3 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c                		 0.642645
+k                		 1.48996
+q                		 1.11022e-15
+r                		 2.77556e-16
+w                		 8.32667e-16
+R                		 1.05263
+s                		 1.22125e-15
+w_over_q         		 0.75
+s_over_q         		 1.1
+r_over_q         		 0.25
+RBIG             		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+       6.658e-18       -6.658e-18                0
+       2.734e-17        2.734e-17                0
+       5.825e-17        5.825e-17                0
+          0.8382           0.8382                0
+            0.95             0.95                0
+           1.214            1.214                0
+
+There are 1 eigenvalue(s) larger than 1 in modulus for 1 forward-looking variable(s)
+The rank condition is verified.
+
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.786696,	 time = 0.06262
+WARNING : Failed to find a solution to the linear system.
+Iter: 2,	 err. = 3.41389e+13,	 time = 0.022509
+Iter: 3,	 err. = 0.00495837,	 time = 0.011587
+Iter: 4,	 err. = 1.33227e-15,	 time = 0.008601
+
+Total time of simulation: 0.107518.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s

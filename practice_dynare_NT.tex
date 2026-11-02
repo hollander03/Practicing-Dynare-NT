@@ -24,6 +24,8 @@
 % December 4, 2010
 
 
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
 \begin{document}
 \maketitle
 %\captionsetup{singlelinecheck=false}
@@ -32,7 +34,7 @@
 
 \begin{abstract}
 %This note builds on ``Practicing Dynare'' by Barillas et al. (2010). It teaches Dynare by applying it to nine dynamic stochastic general equilibrium models with a fiscal policy focus. We hope it illustrates the efficacy of learning by doing.
-\noindent This document updates the \textit{Practicing Dynare} document and codebase by Barillas et al. (2010) and provides a structured path for learning how to implement and analyse fiscal policy in RBC and DSGE models using Dynare (Version 6 as of 2025). The goal is to move from simple stochastic growth models to fully deterministic fiscal transition experiments as presented in Chapter 11 of Ljungqvist \& Sargent (2018). Each example is designed to be minimal, transparent, and directly linked to the corresponding Dynare \texttt{.mod} file. The document emphasises hands-on learning: running code, inspecting steady states, and interpreting transition dynamics. By the end, users should be comfortable modifying the fiscal instruments, creating their own policy scenarios, and understanding how fiscal shocks propagate through standard macroeconomic environments. The final section introduces the flexible price version of the National Treasury DSGE model and looks at various policy experiments, such as: news shocks, optimal simple rules, and conditional forecasts that can then aid in applications of the larger \texttt{NT-DSGE model}.
+\noindent This document updates the \textit{Practicing Dynare} document and codebase by Barillas et al. (2010) and provides a structured path for learning how to implement and analyse fiscal policy in RBC and DSGE models using Dynare (Version 6 as of 2025). The goal is to move from simple stochastic growth models to fully deterministic fiscal transition experiments as presented in Chapter 11 of Ljungqvist \& Sargent (2012). Each example is designed to be minimal, transparent, and directly linked to the corresponding Dynare \texttt{.mod} file. The document emphasises hands-on learning: running code, inspecting steady states, and interpreting transition dynamics. By the end, users should be comfortable modifying the fiscal instruments, creating their own policy scenarios, and understanding how fiscal shocks propagate through standard macroeconomic environments. Section 6 reserves space for the flexible-price NT-DSGE model, which is maintained separately and is not implemented by the examples in this repository.
 \end{abstract}
 
 \pagebreak
@@ -42,13 +44,14 @@
 \pagebreak
 
 \section{Introduction}
-{\color{blue} \textbf{[This will need checking and editing; especially section 5]} \\ 
-This note describes nine examples or types of examples that illustrate how Dynare can approximate the solutions of dynamic rational expectations models, simulate them, and estimate them by maximum likelihood and Bayesian methods. Section 2 approximates and estimates a one-sector stochastic growth model. Section 3 approximates and estimates a two-country stochastic growth model. Section 4 follows chapter 11 of Ljungqvist and Sargent (2004) in studying the effects of foreseen fiscal policy in a non-stochastic growth model. Section 5 updates and extends these examples to correspond to chapter 11 of Ljungqvist and Sargent (20XX). Appendix A tells how the reader can obtain the file examples.zip that contain the *.mod and data files that we used to generate these examples.}
+Sections 2 and 3 solve and estimate stochastic growth models. Sections 4 and 5 implement deterministic fiscal experiments, including anticipated changes and elastic labour supply. Section 6 remains a placeholder for the separate NT-DSGE model. The runnable files are in \texttt{Code/sections}; original 2025 revisions are preserved separately. Historical figures, tables, posterior summaries and figure-number mappings have not yet been revalidated. All anticipated changes at text date $t=10$ occur in simulation period 11, since simulation period 1 denotes $t=0$. Investment instrument $\tau_i$ denotes a subsidy, with purchase price $1-\tau_i$. Prices $q_t$ are dated Arrow--Debreu prices; they should not be added as an unnormalised recursive state with an arbitrary steady-state level.
 
 %Some of our examples bear eloquent witness to the technological improvements brought by Dynare. For example, the maximum likelihood estimates in Sargent (1977) and Hansen, Sargent, and Tallarini (1999) were time-consuming and painful to obtain originally. Dynare has reduced the time and the pain.
 
 %Section 6 estimates a rational expectations model of hyperinflation originally formulated by Sargent (1977). Section 7 solves and estimates the permanent income model of Hall (1988). This application is interesting, among other reasons, for the way that it illustrates how Dynare can implement the 'diffuse Kalman filter' needed in situations in which an initial endogenous state variable is unknown and the model has a unit root. Section 8 solves and estimates the Ryoo and Rosen (2004) rational expectations model of a market for engineers. Section 9 estimates a model of consumption growth proposed by Bansal and Yaron (2004). Section 10 solves and estimates the Hansen, Sargent, and Tallarini (1999) model of robust permanent income and pricing. Section 11 solves and estimates the Bansal and Yaron (2004) of asset prices and long-run risk in consumption and dividends. 
 
+
+The listings below are the short participant examples. Self-contained files in \path{Code/full_replications} produce the corresponding section outputs. Command explanations and the figure-name map are in \path{notes/README.md}. Historical images retain a \texttt{\_legacy} suffix pending the separate replication comparison.
 
 \section{The Neoclassical growth model}
 \subsection*{2.1 The model}
@@ -87,7 +90,7 @@ The system of equations characterizing an equilibrium is comprised of equations 
 
 
 \begin{equation*}
-\frac{\left(c_{t}^{\theta}\left(1-l_{t}\right)^{1-\theta}\right)^{1-\tau}}{c_{t}}=\beta E_{t}\left[\frac{\left(c_{t+1}^{\theta}\left(1-l_{t+1}\right)^{1-\theta}\right)^{1-\tau}}{c_{t+1}}\left(1+\alpha e^{z_{t}} k_{t}^{\alpha-1} l_{t}^{\alpha}-\delta\right)\right] \tag{4}
+\frac{\left(c_{t}^{\theta}\left(1-l_{t}\right)^{1-\theta}\right)^{1-\tau}}{c_{t}}=\beta E_{t}\left[\frac{\left(c_{t+1}^{\theta}\left(1-l_{t+1}\right)^{1-\theta}\right)^{1-\tau}}{c_{t+1}}\left(1+\alpha e^{z_{t+1}} k_{t+1}^{\alpha-1} l_{t+1}^{1-\alpha}-\delta\right)\right] \tag{4}
 \end{equation*}
 
 
@@ -114,46 +117,19 @@ An equilibrium is characterized by a system of four equations (3), (4), (5) and 
 To estimate the policy function, parameters that enter the model are calibrated as in Table 1. For more on the calibrations of the related parameters, please see, for example, Cooley and Prescott (1995).
 
 \subsection*{2.2.2 Approximation}
-The following instructions implement this model in Dynare.
+The following file implements the model in Dynare. The stochastic Euler equation uses next-period marginal product, consistent with equations (1)--(6).
 
-{\color{blue}[\textbf{NOTE:} I added "\texttt{\ldots}" below in the model block so that the \texttt{verbatim} box is not overfull (i.e., goes off page), so it must be removed if pasted directly into a Dynare \texttt{.mod} file; otherwise the follow error would pop up, which is easy to fix, but better to avoid ;-)].}
+\lstinputlisting{Code/sections/s02_02_growth_approx.mod}
 
-\begin{verbatim}
-var c k lab z;
-varexo e;
-parameters bet the del alp tau rho s;
-bet = 0.987;
-the = 0.357;
-del = 0.012;
-\end{verbatim}
+\begin{figure}[!htbp]
+\begin{center}
+  \includegraphics[width=\textwidth]{s02_02_growth_irfs_legacy.jpg}
+\captionsetup{labelformat=empty}
+\caption{Figure 1: Impulse response function to a technology shock}
+\end{center}
+\label{fig:s02-02-growth-irfs-legacy}
+\end{figure}
 
-\begin{verbatim}
-alp = 0.4;
-tau = 2;
-rho = 0.95;
-s = 0.007;
-model;
-    (c^the*(1-lab)^(1-the))^(1-tau)/c = ...
-    bet*((c(+1)^the*(1-lab(+1))^(1-the))^(1-tau)/c(+1))*
-    (1+alp*exp(z(-1))*k(-1)^(alp-1)*lab^(1-alp)-del);
-    c=the/(1-the)*(1-alp)*exp(z(-1))*k(-1)^alp*lab^(-alp)*(1-lab);
-    k=exp(z(-1))*k(-1)^alp*lab^(1-alp)-c+(1-del)*k(-1);
-    z=rho*z(-1)+s*e;
-end;
-initval;
-k = 1;
-c = 1;
-lab = 0.3;
-z = 0;
-e = 0;
-end;
-shocks;
-var e;
-stderr 1;
-end;
-steady;
-stoch_simul(periods=1000);
-\end{verbatim}
 
 \begin{table}[h]
 \begin{center}
@@ -176,7 +152,7 @@ $\sigma$ & 1 \\
 \end{center}
 \end{table}
 
-Dynare displays the results reported in Table 2 that provide the coefficients of the approximated policy functions and transition functions.
+The historical Table 2 reports the coefficients of the approximated policy functions and transition functions.
 
 \begin{table}[h]
 \begin{center}
@@ -210,78 +186,33 @@ z (-1),e & -0.001076 & 0 & 0.000430 & -0.000056 \\
 \end{center}
 \end{table}
 
-\begin{figure}[!htbp]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-04}
-\captionsetup{labelformat=empty}
-\caption{Figure 1: Impulse response function to a technology shock}
-\end{center}
-\end{figure}
 
 \subsection*{2.3 Estimation}
 The simulated data series for consumption are used to estimate some unknown parameters of the model. Suppose we would like to estimate the preference parameters $\theta$ and $\tau$, and the stochastic process for productivity, summarized by two parameters $\rho$ and $\sigma$. The following code instructs Dynare to conduct the estimation.
 
-\begin{verbatim}
-var c k lab z;
-varexo e;
-\end{verbatim}
-
-\begin{verbatim}
-parameters bet del alp rho the tau s;
-bet = 0.987;
-the = 0.357;
-del = 0.012;
-alp = 0.4;
-tau = 2;
-rho = 0.95;
-s = 0.007;
-model;
-    (c^the*(1-lab)^(1-the))^(1-tau)/c=bet*((c(+1)^the*(1-lab(+1))^(1-the))^(1-tau)/c(+1))
-    *(1+alp*exp(z(-1))*k(-1)^(alp-1)*lab^(1-alp)-del);
-    c=the/(1-the)*(1-alp)*exp(z(-1))*k(-1)^alp*lab^(-alp)*(1-lab);
-    k=exp(z(-1))*k(-1)^alp*lab*(1-alp)-c+(1-del)*k(-1);
-    z=rho*z(-1)+s*e;
-end;
-initval;
-k = 1;
-c = 1;
-lab = 0.3;
-z = 0;
-e = 0;
-end;
-shocks;
-var e;
-stderr 1;
-end;
-steady;
-check;
-estimated_params;
-stderr e,inv_gamma_pdf, 0.95,inf;
-rho,beta_pdf,0.93,0.02;
-the,normal_pdf,0.3,0.05;
-tau,normal_pdf,2.1,0.3;
-end;
-varobs c;
-estimation(datafile=simudata,mh_replic=10000);
-\end{verbatim}
-
-The priors used in estimation are as in Table 3. Table 4 is one of the outputs of Dynare which presents summary statistics of posterior distribution.
+\lstinputlisting{Code/sections/s02_03_growth_estimate.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-06(1)}
+  \includegraphics[width=\textwidth]{s02_03_priors_legacy.jpg}
 \captionsetup{labelformat=empty}
 \caption{Figure 2: Priors.}
 \end{center}
+\label{fig:s02-03-priors-legacy}
 \end{figure}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-06}
+  \includegraphics[width=\textwidth]{s02_03_posterior_legacy.jpg}
 \captionsetup{labelformat=empty}
 \caption{Figure 3: Posterior.}
 \end{center}
+\label{fig:s02-03-posterior-legacy}
 \end{figure}
+
+
+Table 3 records the historical priors. The runnable example uses a beta prior for the consumption share and a finite-spread innovation standard-deviation prior (mean 1, standard deviation 0.2). These changes impose economic bounds and regularise a short teaching run. Table 4 is historical output and is not a result of the revised estimation file.
+
 
 \begin{table}[!htbp]
 \begin{center}
@@ -303,7 +234,7 @@ $\sigma$ & Inv. Gamma & 0.95 & inf. \\
 \begin{table}[h]
 \begin{center}
 \captionsetup{labelformat=empty}
-\caption{Table 3: Priors}
+\caption{Table 4: Historical posterior (not revalidated)}
 \begin{tabular}{lcccccc}
 \hline\hline
  & prior mean & post. mean & conf. & interval & prior dist & prior std \\
@@ -317,7 +248,6 @@ $\sigma$ & 0.950 & 1.0227 & 0.8321 & 1.2175 & invg & Inf \\
 \end{center}
 \end{table}
 
-Table 4: Posterior.
 
 \section{International Business Cycle Model}
 We study a simplified version of the two-country production model in Kim and Kim (2003).
@@ -363,48 +293,19 @@ $\sigma_{\epsilon_{2}}$ & 0.08 \\
 
 Dynare computes the policy function as a second-order approximation around the (log) steady-state. The .mod Dynare file of the system is as follows.
 
-\begin{verbatim}
-var c1 c2 k1 k2 a1 a2;
-varexo e1 e2;
-parameters gamma delta alpha beta rho;
-gamma=2;
-delta=.05;
-alpha=.4;
-beta=.98;
-rho=.85;
-model;
-c1=c2;
-exp(c1)^(-gamma) =...
-\end{verbatim}
+\lstinputlisting{Code/sections/s03_02_twocountry_approx.mod}
 
-\begin{verbatim}
-beta*exp(c1(+1))^(-gamma)*(alpha*exp(a1(+1))*exp(k1)^(alpha-1)+1-delta);
-exp(c2)^(-gamma) =...
-beta*exp(c2(+1))^(-gamma)*(alpha*exp(a2(+1))*exp(k2)^(alpha-1)+1-delta);
-exp(c1)+exp(c2)+exp(k1)-exp(k1(-1))*(1-delta)+exp(k2)-exp(k2(-1))*(1-delta)...
-= exp(a1)*exp(k1(-1))`alpha+exp(a2)*exp(k2(-1))`alpha;
-a1=rho*a1(-1)+e1; a2=rho*a2(-1)+e2; end;
-initval;
-k1=2.8;
-k2=2.8;
-c1=.8;
-c2=.8;
-a1=0;
-a2=0;
-e1=0;
-e2=0;
-end;
-shocks;
-var e1;
-stderr .08;
-var e2;
-stderr .08;
-end;
-steady;
-stoch_simul(periods=1000);
-\end{verbatim}
+\begin{figure}[!htbp]
+\begin{center}
+  \includegraphics[width=\textwidth]{s03_02_twocountry_irfs_legacy.jpg}
+\captionsetup{labelformat=empty}
+\caption{Figure 4: Impulse response function $(\epsilon_1)$}
+\end{center}
+\label{fig:s03-02-twocountry-irfs-legacy}
+\end{figure}
 
-The output is given as a matrix of coefficients for the policy function. From this matrix, for example, one can construct the optimal consumption rule for Country 1:
+
+The historical output is given as a matrix of coefficients for the policy function; the numerical coefficients below have not been revalidated against the revised code. From this matrix, for example, one can construct the optimal consumption rule for Country 1:
 
 $$
 \begin{aligned}
@@ -417,82 +318,30 @@ where $\hat{y}$ denotes the deviation of $\ln Y$ from its log steady-state. Note
 
 Dynare also produces the associated impulse response functions of the system. Figure 4 illustrate the response of the system to a one-standard-deviation shock to $\epsilon_{1}$.
 
-The last two lines of the code generates sample paths of the variables governed by the approximated policy functions. The simulated process is saved as a .m file.
+The approximation file saves named observable series in a section-specific MAT file. Run it before the corresponding estimation example. The random seed is fixed for repeatability.
 
 \subsection*{3.3 Estimation}
 Now assume that we do not know the true parameter values. We can estimate the unknown parameters from the saved data, using the Bayesian econometrics function of Dynare.
 
-We will estimate 4 parameters $\rho, \alpha, \sigma_{\epsilon_{1}}$, and $\sigma_{\epsilon_{2}}$. Hence, we have to specify the prior distribution of each parameter. In this exercise, $\rho$ and $\alpha$ are given a normal prior, while the priors of $\sigma_{\epsilon_{1}}$ and $\sigma_{\epsilon_{2}}$ are inverse gamma distributions. The Dynare code is as follows.
+We will estimate 4 parameters $\rho, \alpha, \sigma_{\epsilon_{1}}$, and $\sigma_{\epsilon_{2}}$. Hence, we specify a prior distribution for each parameter. The revised runnable exercise uses beta priors for $\rho$ and $\alpha$, and finite-spread inverse-gamma priors for $\sigma_{\epsilon_{1}}$ and $\sigma_{\epsilon_{2}}$. These differ from the historical normal and infinite-spread priors. The Dynare code is as follows.
 
-\begin{verbatim}
-var c1 c2 k1 k2 a1 a2;
-varexo e1 e2;
-parameters gamma delta alpha beta rho;
-\end{verbatim}
+\lstinputlisting{Code/sections/s03_03_twocountry_estimate.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-10}
-\captionsetup{labelformat=empty}
-\caption{Figure 4: Impulse response function \$\textbackslash left(\textbackslash epsilon\_\{1}\textbackslash right)\$\}\end{center}
-\end{figure}
-
-\begin{verbatim}
-gamma=2;
-delta=.05;
-alpha=.4;
-beta=.98;
-rho=.85;
-model;
-c1=c2; exp(c1)^(-gamma) =...
-beta*exp(c1(+1))^(-gamma)*(alpha*exp(a1(+1))*exp(k1)^(alpha-1)+1-delta);
-exp(c2)^(-gamma) =...
-beta*exp(c2(+1))^(-gamma)*(alpha*exp(a2(+1))*exp(k2)^(alpha-1)+1-delta);
-exp(c1)+exp(c2)+exp(k1)-exp(k1(-1))*(1-delta)+exp(k2)-exp(k2(-1))*(1-delta)...
-= exp(a1)*exp(k1(-1))`alpha+exp(a2)*exp(k2(-1))`alpha;
-a1=rho*a1(-1)+e1; a2=rho*a2(-1)+e2; end;
-initval;
-k1=2.8;
-k2=2.8;
-c1=.8;
-c2=.8;
-a1=0;
-a2=0;
-e1=0;
-e2=0;
-end;
-shocks;
-var e1;
-stderr .08;
-var e2;
-\end{verbatim}
-
-\begin{verbatim}
-stderr .08;
-end;
-steady;
-estimated_params;
-rho, normal_pdf, .84,.05; %
-alpha, normal_pdf, .38, .03;
-stderr e1, inv_gamma_pdf, .078, inf;
-stderr e2,inv_gamma_pdf,.082, inf;
-end;
-varobs c1 k2;
-estimation(datafile=simudata,mh_replic=1000,mh_jscale=.5);
-\end{verbatim}
-
-Given that there are two exogenous shock variables, we use two observables $\ln C_{1}$ and $\ln K_{2}$. The result of the estimation is summarized in Figure 5, where the posterior distribution (in the darker line) of each parameter is contrasted against the given prior distribution. The result can be compared to the true parameter values in Table 5.
-
-\begin{figure}[!htbp]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-11}
+  \includegraphics[width=\textwidth]{s03_03_posterior_legacy.jpg}
 \captionsetup{labelformat=empty}
 \caption{Figure 5: Prior v. Posterior Distribution}
 \end{center}
+\label{fig:s03-03-posterior-legacy}
 \end{figure}
 
+
+Given that there are two exogenous shock variables, we use two observables $\ln C_{1}$ and $\ln K_{2}$. The result of the estimation is summarized in Figure 5, where the posterior distribution (in the darker line) of each parameter is contrasted against the given prior distribution. The result can be compared to the true parameter values in Table 5.
+
+
 \section{Fiscal policies in the growth model}
-This section describes a suite of Dynare programs that replicate the transition experiments performed in chapter 11 of Ljungqvist and Sargent (2004).
+This section describes a suite of Dynare programs that implement the transition experiments performed in chapter 11 of Ljungqvist and Sargent (2004).
 
 \subsection*{4.1 The model}
 A deterministic growth model has inelastic labor supply, an exogenous stream of government expenditures, and several kinds of distorting taxes. All variables are as described in chapter 11 of Ljungqvist and Sargent (2004). A representative agent maximizes
@@ -507,16 +356,16 @@ $$
 g_{t}+c_{t}+k_{t+1} \leq A k_{t}^{\alpha}+(1-\delta) k_{t} .
 $$
 
-The household budget constraint is
+Let $T_t$ denote a residual lump-sum tax (negative for a transfer), which finances spending net of distorting tax receipts. This closes the fiscal budget without altering the marginal conditions. The household budget constraint is
 
 $$
-\sum_{t=0}^{\infty}\left\{q_{t}\left(1+\tau_{c t}\right)+\left(1-\tau_{i t}\right) q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]\right\} \leq \sum_{t=0}^{\infty}\left\{r_{t}\left(1-\tau_{k t}\right) k_{t}+w_{t}\right\}
+\sum_{t=0}^{\infty}\left\{q_{t}\left(1+\tau_{c t}\right)c_t+\left(1-\tau_{i t}\right) q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]\right\} \leq \sum_{t=0}^{\infty}\left\{r_{t}\left(1-\tau_{k t}\right) k_{t}+w_{t}-q_t T_t\right\}
 $$
 
 and the government budget constraint is
 
 $$
-\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty}\left\{\tau_{c t} q_{t} c_{t}-\tau_{i t} q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]+r_{t} \tau_{k t} k_{t}+w_{t}\right\}
+\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty}\left\{\tau_{c t} q_{t} c_{t}-\tau_{i t} q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]+r_{t} \tau_{k t} k_{t}+q_t T_t\right\}
 $$
 
 The following conditions characterize an equilibrium:
@@ -527,11 +376,28 @@ c_{t} & =A k_{t}^{\alpha}+(1-\delta) k_{t}-k_{t+1}-g_{t}  \tag{7}\\
 q_{t} & =\beta^{t} c_{t}^{-\gamma} /\left(1+\tau_{c t}\right)  \tag{8}\\
 r_{t} / q_{t} & =A \alpha k_{t}^{\alpha-1}  \tag{9}\\
 w_{t} / q_{t} & =A k_{t}^{\alpha}-k_{t} A \alpha k_{t}^{\alpha-1}  \tag{10}\\
-R_{t+1} & =\frac{\left(1+\tau_{c t}\right)}{\left(1+\tau_{c t+1}\right)}\left[\frac{\left(1+\tau_{i t+1}\right)}{\left(1+\tau_{i t}\right)}(1-\delta)+\frac{\left(1-\tau_{k t+1}\right)}{\left(1-\tau_{i t}\right)} A \alpha k_{t+1}^{\alpha-1}\right]  \tag{11}\\
+R_{t+1} & =\frac{\left(1+\tau_{c t}\right)}{\left(1+\tau_{c t+1}\right)}\left[\frac{\left(1-\tau_{i t+1}\right)}{\left(1-\tau_{i t}\right)}(1-\delta)+\frac{\left(1-\tau_{k t+1}\right)}{\left(1-\tau_{i t}\right)} A \alpha k_{t+1}^{\alpha-1}\right]  \tag{11}\\
 s_{t} / q_{t} & =\left(1-\tau_{k t}\right) A \alpha k_{t}^{\alpha-1}+(1-\delta)  \tag{12}\\
 c_{t}^{-\gamma} & =\beta c_{t+1}^{-\gamma} R_{t+1} \tag{13}
 \end{align*}
 
+
+\paragraph{Dated prices and real plotting quantities.}
+The ratios $r_t/q_t$, $w_t/q_t$ and $s_t/q_t$ express dated payoffs in current consumption-good units. They can be calculated directly from allocations; it is unnecessary to solve for a recursive $q_t$ and then divide by it. The dated-price recursion implied by (8) is
+\[
+q_t=\beta q_{t-1}
+\left(\frac{c_t}{c_{t-1}}\right)^{-\gamma}
+\frac{1+\tau_{c,t-1}}{1+\tau_{c,t}}.
+\]
+With constant consumption and taxes this becomes $q_t=\beta q_{t-1}$. For $0<\beta<1$ it has no positive constant steady-state level: imposing one gives $q=0$. This is not a unit root. Dropping $\beta$ removes the discount trend but gives $\widetilde q_t=\widetilde q_{t-1}$ at a constant allocation, leaving its level undetermined. The resulting unit root is not resolved merely by calling the variable a stationary kernel. This corrects the explanation in the preserved 2025 training file.
+
+The section examples therefore solve allocations first. Their optional commented epilogues calculate real factor prices and the Euler-implied return without a $q$ state. The full-output files include those observables explicitly. Dated prices are reconstructed only when needed, using the normalization
+\[
+\frac{q_t}{q_0}=\beta^t
+\left(\frac{c_t}{c_0}\right)^{-\gamma}
+\frac{1+\tau_{c,0}}{1+\tau_{c,t}}.
+\]
+The one-period pricing factor is $q_{t+1}/q_t$; it retains $\beta$. A detrended price level is not itself this one-period factor. See \path{notes/q_and_auxiliaries.md} for the implementation mapping and the 2025 comment erratum.
 
 Because the other endogenous variables can be expressed as functions of $k_{t}$ and $c_{t}$, in the programs below we use only a subset of the equilibrium conditions to compute equilibrium paths.
 
@@ -558,356 +424,103 @@ $\tau_{k}$ & 0 \\
 
 \subsection*{4.3 Transition experiments}
 \subsection*{4.3.1 A permanent increase in g (Figure 11.3.1).}
-The Dynare code below reproduces Figure 11.3.1. which looks at the impact of a permanent increase of 0.2 in $g$ at $\mathrm{t}=10$.\\
-// This program replicates figure 11.3.1 from chapter 11 of RMT2 by\\
-// Ljungqvist and Sargent.\\
+The Dynare code below implements the experiment associated with Figure 11.3.1. which looks at the impact of a permanent increase of 0.2 in $g$ at $\mathrm{t}=10$.\\
 
-\begin{verbatim}
-// ----------------------------------------------------------------------------
-// Section 4 Replication — CLEAN exercises (k predetermined)
-// Permanent & Once-off for each of: g, tau_c, tau_i, tau_k
-// No macros; standard Dynare/Matlab only
-// ----------------------------------------------------------
-
-// -----------------------------
-// 1) Model (self-contained)
-// -----------------------------
-var
-    c
-    k
-    q
-    r
-    w
-    R
-    s
-    w_over_q
-    s_over_q
-    r_over_q
-    RBIG
-    ;
-
-varexo
-    g
-    tau_c
-    tau_i
-    tau_k
-    ;
-
-parameters beta delta A alpha gamma;
-beta  = 0.95;
-delta = 0.2;
-A     = 1.0;
-alpha = 0.33;
-gamma = 2.0;
-
-model;
-    // Resource constraint (k predetermined)
-    c = A*k(-1)^alpha + (1 - delta)*k(-1) - k - g;
-
-    // Recursive price of claim 
-    % NOTE: using the equation as stated implies a unit root for "q" -> model still solves fine since q not necessary for core solution, but ...
-    % it gives a warning in Newton solver before successfully converging the SS value for q to numerically zero...
-    % we can avoid this by redefining "q" as a stationary kernal simply by dropping beta
-    % q = q(-1) * beta * (c/c(-1))^(-gamma) * (1 + tau_c(-1)) / (1 + tau_c);
-    q = q(-1) * (c/c(-1))^(-gamma) * (1 + tau_c(-1)) / (1 + tau_c);
-
-    // Marginals with k(-1)
-    r = q * A * alpha * k(-1)^(alpha - 1);
-    w = q * ( A * k(-1)^alpha - k(-1) * A * alpha * k(-1)^(alpha - 1) );
-
-    // Return (Section 4 timing)
-    R = ((1 + tau_c(-1)) / (1 + tau_c)) * ( ((1 - tau_i) / (1 - tau_i(-1))) * (1 - delta)
-        + ((1 - tau_k) / (1 - tau_i(-1))) * A * alpha * k(-1)^(alpha - 1) );
-
-    // Saving return
-    s = q * ( (1 - tau_k) * A * alpha * k(-1)^(alpha - 1) + (1 - delta) );
-
-    // Euler
-    c^(-gamma) = beta * c(+1)^(-gamma) * R;
-
-    // Auxiliaries for plotting
-    w_over_q = w / q;
-    s_over_q = s / q;
-    r_over_q = r / q;
-    RBIG     = c^(-gamma) / ( beta * c(+1)^(-gamma) ); // equals R in equilibrium
-end;
-
-initval;
-    g     = 0.2;
-    tau_c = 0.0;
-    tau_i = 0.0;
-    tau_k = 0.0;
-
-    k     = 1.5;
-    c     = 0.6;
-    q     = beta;
-    r     = 0.1;
-    w     = 0.5;
-    R     = 1/beta;
-    s     = 1.0;
-
-    w_over_q = w/q;
-    s_over_q = s/q;
-    r_over_q = r/q;
-    RBIG     = R;
-end;
-
-/*
-endval;
-    g     = 0.4;
-    tau_c = 0.0;
-    tau_i = 0.0;
-    tau_k = 0.0;
-
-    k     = 1.5;
-    c     = 0.6;
-    q     = beta;
-    r     = 0.1;
-    w     = 0.5;
-    R     = 1/beta;
-    s     = 1.0;
-
-    w_over_q = w/q;
-    s_over_q = s/q;
-    r_over_q = r/q;
-    RBIG     = R;
-end;
-*/
-
-steady;
-check;
-
-// Indices (robust to order) 
-// NOTE: if you copy and paste from the doc be careful \dots 
-// apostrophes need to be checked to avoid errors in run
-ik  = strmatch('k',        M_.endo_names, 'exact');
-ic  = strmatch('c',        M_.endo_names, 'exact');
-iR  = strmatch('RBIG',     M_.endo_names, 'exact');
-iwq = strmatch('w_over_q', M_.endo_names, 'exact');
-isq = strmatch('s_over_q', M_.endo_names, 'exact');
-irq = strmatch('r_over_q', M_.endo_names, 'exact');
-
-// Baseline steady values for overlay
-k0  = oo_.steady_state(ik);
-c0  = oo_.steady_state(ic);
-R0  = oo_.steady_state(iR);
-wq0 = oo_.steady_state(iwq);
-sq0 = oo_.steady_state(isq);
-rq0 = oo_.steady_state(irq);
-
-// Horizon and event time
-H  = 100; % # of periods for plotting
-T0 = 10;  % redundant -> dynare does not allow non-integers in var shock block
-
-// Helper for plotting a 2x3 grid
-function plot6(name, H, endo_sim, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0)
-figure('Name', name);
-subplot(2,3,1); plot([k0*ones(H,1)  endo_sim(ik,1:H)']);   title('k');
-subplot(2,3,2); plot([c0*ones(H,1)  endo_sim(ic,2:H+1)']); title('c');
-subplot(2,3,3); plot([R0*ones(H,1)  endo_sim(iR,1:H)']);   title('R');
-subplot(2,3,4); plot([wq0*ones(H,1) endo_sim(iwq,2:H+1)']);  title('w/q');
-subplot(2,3,5); plot([sq0*ones(H,1) endo_sim(isq,1:H)']);  title('s/q');
-subplot(2,3,6); plot([rq0*ones(H,1) endo_sim(irq,2:H+1)']);  title('r/q');
-end
-
-// ===== Figure 11.3.1. g: Permanent =====
-shocks;
-    var g;
-    %periods 1:(T0-1)  T0:H;
-    periods 1:9 10:200; % also set to length of periods
-    values  0.2 0.4;
-end;
-
-perfect_foresight_setup(periods=200); % set # of periods to 200 to ensure the “bend toward terminal SS” happens out of view.
-perfect_foresight_solver;
-
-
-plot6('g — Permanent increase', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
-\end{verbatim}
+\lstinputlisting{Code/sections/s04_03_01_g.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{figures/2025_12_01_2aa251fafcb71267535dg-15.jpg}
+  \includegraphics[width=\textwidth]{s04_03_01_g_legacy.jpg}
 \captionsetup{labelformat=empty}
 \caption{Figure 6: A permanent increase of g (Figure 11.3.1).}
 \end{center}
+\label{fig:s04-03-01-g-legacy}
 \end{figure}
 
+
 The following figure shows the path of the endogenous variables along the transition to the new steady state.\\
-Next we show the other transition experiments and only the parts of the code that need to be changed for each experiment.
+The remaining experiments each have a complete, independently runnable file.
 
 \subsection*{4.3.2 A permanent increase in $\tau_{c}$ (Figure 11.3.2).}
-A permanent increase of $\tau_{c}$ at $\mathrm{t}=10$ of 20 per cent. (Figure 11.3.2)
+A permanent increase of $\tau_{c}$ at $\mathrm{t}=10$ of 20 percentage points. (Figure 11.3.2)
 
-\begin{verbatim}
-// Reset to baseline for tax experiments
-shocks;
-    var g;     periods 1:200;     values 0.2;
-    var tau_c; periods 1:200;     values 0.0;
-    var tau_i; periods 1:200;     values 0.0;
-    var tau_k; periods 1:200;     values 0.0;
-end;
-
-// ===== Figure 11.3.2. tau_c: Permanent =====
-shocks;
-    var tau_c;
-    %periods 1:(T0-1)  T0:H;
-    periods 1:9  10:200;
-    values  0.0       0.2;
-end;
-
-perfect_foresight_setup(periods=200);
-perfect_foresight_solver;
-plot6('tau_c — Permanent increase', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
-\end{verbatim}
+\lstinputlisting{Code/sections/s04_03_02_tauc.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-16}
+  \includegraphics[width=\textwidth]{s04_03_02_tauc_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 7: A permanent increase of \$\textbackslash tau\_\{c}\$ (Figure 11.3.2).\}\end{center}
+\caption{Figure 7: A permanent increase of $\tau_c$ (Figure 11.3.2).}
+\end{center}
+\label{fig:s04-03-02-tauc-legacy}
 \end{figure}
 
 
 \subsection*{4.3.3 A permanent increase in $\tau_{i}$ (Figure 11.5.1).}
-A permanent increase of $\tau_{i}$ at $\mathrm{t}=10$ of 20 percent. (Figure 11.5.1)
+A permanent increase of $\tau_{i}$ at $\mathrm{t}=10$ of 20 percentage points. (Figure 11.5.1)
 
-\begin{verbatim}
-// Reset baseline
-shocks;
-    var g;     periods 1:200;     values 0.2;
-    var tau_c; periods 1:200;     values 0.0;
-    var tau_i; periods 1:200;     values 0.0;
-    var tau_k; periods 1:200;     values 0.0;
-end;
-
-// ===== Figure 11.5.1. tau_i: Permanent =====
-shocks;
-    var tau_i;
-    %periods 1:(T0-1)  T0:H;
-    periods 1:9  10:200;
-    values  0.0       0.2;
-end;
-
-perfect_foresight_setup(periods=200);
-perfect_foresight_solver;
-plot6('tau_i — Permanent increase', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
-\end{verbatim}
+\lstinputlisting{Code/sections/s04_03_03_taui.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-17}
+  \includegraphics[width=\textwidth]{s04_03_03_taui_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 8: A permanent increase of \$\textbackslash tau\_\{i}\$ (Figure 11.5.1).\}\end{center}
+\caption{Figure 8: A permanent increase of $\tau_i$ (Figure 11.5.1).}
+\end{center}
+\label{fig:s04-03-03-taui-legacy}
 \end{figure}
+
 
 \subsection*{4.3.4 A permanent increase in $\tau_{k}$ (Figure 11.5.2).}
-A permanent increase of $\tau_{k}$ at $\mathrm{t}=10$ of 20 percent. (Figure 11.5.2)
+A permanent increase of $\tau_{k}$ at $\mathrm{t}=10$ of 20 percentage points. (Figure 11.5.2)
 
-\begin{verbatim}
-// Reset baseline
-shocks;
-    var g;     periods 1:200;     values 0.2;
-    var tau_c; periods 1:200;     values 0.0;
-    var tau_i; periods 1:200;     values 0.0;
-    var tau_k; periods 1:200;     values 0.0;
-end;
-
-// ===== Figure 11.5.2. tau_k: Permanent =====
-shocks;
-    var tau_k;
-    %periods 1:(T0-1)  T0:H;
-    periods 1:9  10:200;
-    values  0.0       0.2;
-end;
-
-perfect_foresight_setup(periods=200);
-perfect_foresight_solver;
-plot6('tau_k — Permanent increase', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
-\end{verbatim}
+\lstinputlisting{Code/sections/s04_03_04_tauk.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-18}
+  \includegraphics[width=\textwidth]{s04_03_04_tauk_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 9: A permanent increase of \$\textbackslash tau\_\{k}\$ (Figure 11.5.2).\}\end{center}
+\caption{Figure 9: A permanent increase of $\tau_k$ (Figure 11.5.2).}
+\end{center}
+\label{fig:s04-03-04-tauk-legacy}
 \end{figure}
+
 
 \subsection*{4.3.5 One time increase in g (Figure 11.7.1).}
 A one time pulse of $g$ at $\mathrm{t}=10$ of 0.2 . (Figure 11.7.1)
 
-\begin{verbatim}
-// Reset baseline
-shocks;
-    var g;     periods 1:200;     values 0.2;
-    var tau_c; periods 1:200;     values 0.0;
-    var tau_i; periods 1:200;     values 0.0;
-    var tau_k; periods 1:200;     values 0.0;
-end;
-\end{verbatim}
+\lstinputlisting{Code/sections/s04_03_05_g.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-19}
+  \includegraphics[width=\textwidth]{s04_03_05_g_legacy.jpg}
 \captionsetup{labelformat=empty}
 \caption{Figure 10: One time increase of g (Figure 11.7.1).}
 \end{center}
+\label{fig:s04-03-05-g-legacy}
 \end{figure}
 
-\begin{verbatim}
-// ===== Figure 11.7.1. g: Once-off =====
-shocks;
-    var g;
-    %periods 1:(T0-1)  T0:H;
-    periods 1:9  10 11:200; % also set to length of periods
-    values  0.2  0.4  0.2;
-end;
-perfect_foresight_setup(periods=200);
-perfect_foresight_solver;
-plot6('g — Once-off spike', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
-
-
-\end{verbatim}
 
 \subsection*{4.3.6 One time increase in $\tau_{i}$ (Figure 11.7.2).}
-A one time pulse of $\tau_{i}$ at $\mathrm{t}=10$ of 20 percent. (Figure 11.7.2)
+A one time pulse of $\tau_{i}$ at $\mathrm{t}=10$ of 20 percentage points. (Figure 11.7.2)
 
-\begin{verbatim}
-// Reset baseline
-shocks;
-    var g;     periods 1:200;     values 0.2;
-    var tau_c; periods 1:200;     values 0.0;
-    var tau_i; periods 1:200;     values 0.0;
-    var tau_k; periods 1:200;     values 0.0;
-end;
-\end{verbatim}
+\lstinputlisting{Code/sections/s04_03_06_taui.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-20}
+  \includegraphics[width=\textwidth]{s04_03_06_taui_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 11: One time increase of \$\textbackslash tau\_\{i}\$ (Figure 11.7.2).\}\end{center}
+\caption{Figure 11: One time increase of $\tau_i$ (Figure 11.7.2).}
+\end{center}
+\label{fig:s04-03-06-taui-legacy}
 \end{figure}
 
-\begin{verbatim}
-// ===== Figure 11.7.2. tau_i: Once-off =====
-shocks;
-    var tau_i;
-%periods 1:(T0-1)  T0  (T0+1):H;
-    periods 1:9  10 11:200;
-    values  0.0       0.2 0.0;
-end;
-
-perfect_foresight_setup(periods=200);
-perfect_foresight_solver;
-plot6('tau_i — Once-off spike', H, oo_.endo_simul, ik, ic, iR, iwq, isq, irq, k0, c0, R0, wq0, sq0, rq0);
-\end{verbatim}
 
 \section{Fiscal policies in the growth model, 2.0}
-This section describes a suite of Dynare programs that replicate the transition experiments performed in chapter 11 of Ljungqvist and Sargent (20XX).
+This section describes a suite of Dynare programs that implement the transition experiments performed in chapter 11 of Ljungqvist and Sargent (2012).
 
 \subsection*{5.1 The model with inelastic labor supply}
-A deterministic growth model has inelastic labor supply, an exogenous stream of government expenditures, and several kinds of distorting taxes. All variables are as described in chapter 11 of Ljungqvist and Sargent (20XX). A representative agent maximizes
+A deterministic growth model has inelastic labor supply, an exogenous stream of government expenditures, and several kinds of distorting taxes. All variables are as described in chapter 11 of Ljungqvist and Sargent (2012). A representative agent maximizes
 
 $$
 \sum_{t=0}^{\infty} \beta^{t} \frac{c_{t}^{1-\gamma}}{1-\gamma}, \quad \beta \in(0,1)
@@ -919,16 +532,16 @@ $$
 g_{t}+c_{t}+k_{t+1} \leq A k_{t}^{\alpha}+(1-\delta) k_{t}
 $$
 
-The household budget constraint is
+Let $T_t$ denote a residual lump-sum tax (negative for a transfer), which finances spending net of distorting tax receipts. This closes the fiscal budget without altering the marginal conditions. The household budget constraint is
 
 $$
-\sum_{t=0}^{\infty}\left\{q_{t} c_{t}\left(1+\tau_{c t}\right)+q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]\right\} \leq \sum_{t=0}^{\infty} q_{t}\left\{\eta_{t}\left(1-\tau_{k t}\right) k_{t}+w_{t}\right\}
+\sum_{t=0}^{\infty}\left\{q_{t} c_{t}\left(1+\tau_{c t}\right)+q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]\right\} \leq \sum_{t=0}^{\infty} q_{t}\left\{\eta_{t}\left(1-\tau_{k t}\right) k_{t}+w_{t}-T_t\right\}
 $$
 
 and the government budget constraint is
 
 $$
-\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty} q_{t}\left\{\tau_{c t} c_{t}+\tau_{k t} \eta_{t} k_{t}\right\}
+\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty} q_{t}\left\{\tau_{c t} c_{t}+\tau_{k t} \eta_{t} k_{t}+T_t\right\}
 $$
 
 The following conditions characterize an equilibrium:
@@ -947,7 +560,7 @@ c_{t}^{-\gamma} & =\beta c_{t+1}^{-\gamma} \bar{R}_{t+1} \tag{19}
 Because the other endogenous variables can be expressed as functions of $k_{t}$ and $c_{t}$, in the programs below we use only a subset of the equilibrium conditions to compute equilibrium paths.
 
 \subsection*{5.2 Parameter values}
-We set the parameters and the baseline values of the exogenous variables at values set in chapter 11 of Ljungqvist and Sargent (20XX), as described in the following table are taken from RMT3.
+We set the parameters and the baseline values of the exogenous variables at values set in chapter 11 of Ljungqvist and Sargent (2012), as described in the following table are taken from RMT3.
 
 \begin{center}
 \begin{tabular}{cc}
@@ -968,446 +581,111 @@ $\tau_{k}$ & 0 \\
 
 \subsection*{5.3 Transition experiments}
 \subsection*{5.3.1 Foreseen once-and-for-all increase in g (Figure 11.6.1).}
-The Dynare code below reproduces Figure 11.6.1. which looks at the impact of a foreseen once-for-and-all increase of 0.2 in g at $t=10$.
+The Dynare code below implements the experiment associated with Figure 11.6.1. which looks at the impact of a foreseen once-for-and-all increase of 0.2 in g at $t=10$.
 
-\begin{verbatim}
-%---------------------------------------------------------------------------------------------------
-% Experiment : Permenant increase in g at t=10
-% Note:Following the discussion in the text t = 0 is the first period of the new (simulated) path
-// This program replicates figure 11.6.1 from chapter 11 of RMT3 by Ljungqvist and Sargent
-// Dynare records the endogenous variables with the following convention.
-//Say N is the number of simulations(sample)
-//Index 1 : Initial values (steady sate)
-//Index 2 to N+1 : N simulated values
-//Index N+2 : Terminal Value (Steady State)
-// Warning: we align c, k, and the taxes to exploit the dynare syntax.
-//In Dynare the timing of the variable reflects the date when the variable is decided.
-//For instance the capital stock for time 't' is decided in time 't-1'(end of period).
-//So a statement like k (t+1) = i(t) + (1-del)*k(t) would translate to
-// k(t) = i(t) +(1-del)*k(t-1) in the code.
-%----------------------------------------------------------------------------------------------------
-% 1. Defining variables
-%---------------------------------------------------------------------------------------------------
-// Declares the endogenous variables consumption ('c') capital stock ('k');
-var c k;
-// declares the exogenous variables consumption tax ('tauc'),
-// capital tax('tauk'), government spending('g')
-varexo tauc tauk g;
-parameters bet gam del alpha A;
-%----------------------------------------------------------------------------------------------------
-% 2. Calibration and alignment convention
-%---------------------------------------------------------------------------------------------------
-bet=.95; // discount factor
-gam=2; // CRRA parameter
-del=.2; // depreciation rate
-alpha=.33; // capital's share
-A=1; // productivity
-// Alignment convention:
-// g tauc tauk are now columns of ex_. Because of a bad design decision the date of ex_(1,:)
-// doesn't necessarily match the date in endogenous variables. Whether they match depends on
-// the number of lag periods in endogenous versus exogenous variables.
-\end{verbatim}
-
-\begin{verbatim}
-// These decisions and the timing conventions mean that
-// k(1) records the initial steady state, while k(102) records the terminal steady state values.
-// For j > 1, k(j) records the variables for j-1th simulation where the capital stock decision
-// taken in j-1th simulation i.e stock at the beginning of period j.
-// The variable ex_ also follows a different timing convention i.e
-// ex_(j,:) records the value of exogenous variables in the jth simulation.
-// The jump in the government policy is reflected in ex_(11,1) for instance.
-%--------------------------------------------------------------------------------------
-% 3. Model
-%----------------------------------------------------------------------------------------
-model;
-// equation 11.3.8.a
-k=A*k(-1)^alpha+(1-del)*k(-1)-c-g;
-// equation 11.3.8e + 11.3.8.g
-c^(-gam)= bet*(c(+1)^(-gam))*((1+tauc)/(1+tauc(+1)))*((1-del)+(1-tauk(+1))*alpha*A*k^(alpha-1));
-end;
-%----------------------------------------------------------------------------------------
-% 4. Computation
-%----------------------------------------------------------------------------------------
-initval;
-k=1.5;
-c=0.6;
-g = .2;
-tauc = 0;
-tauk = 0;
-end;
-steady;
-// put this in if you want to start from the initial steady state,comment it out to start
-// from the indicated values
-// The following values determine the new steady state after the shocks.
-endval;
-k=1.5;
-c=0.6;
-g =.4;
-tauc =0;
-tauk =0;
-end;
-steady;
-// We use 'steady' again and the endval provided are initial guesses for dynare to compute the ss.
-// The following lines produce a g sequence with a once and for all jump in g
-// we use 'shocks' to undo that for the first 10 periods ( t=0 until t=9) and leave g at
-// it's initial value of 0
-// Note : period j refers to the value in the jth simulation
-\end{verbatim}
-
-\begin{verbatim}
-shocks;
-var g;
-periods 1:10;
-values 0.2;
-end;
-// now solve the model
-simul(periods=100);
-// Compute the initial steady state for consumption to later do the plots.
-c0=c(1);
-k0 = k(1);
-// g is in ex_(:,1) since it is stored in alphabetical order
-g0 = ex_ (1,1)
-%---------------------------------------------------------------------------------------
-% 5. Graphs and plots for other endogenous variables
-%---------------------------------------------------------------------------------------
-// Let N be the periods to plot
-N=40;
-// The following equation compute the other endogenous variables use in the plots below
-// Since they are function of capital and consumption, so we can compute them from the solved
-// model above.
-// These equations were taken from page 371 of RMT3
-rbig0=1/bet;
-rbig=c(2:101).^(-gam)./(bet*c(3:102).^(-gam));
-nq0=alpha*A*k0^(alpha-1);
-nq=alpha*A*k(1:100).^(alpha-1);
-wq0=A*k0^alpha-k0*alpha*A*k0^(alpha-1);
-wq=A*k(1:100).`alpha-k(1:100).*alpha*A.*k(1:100).^(alpha-1);
-// Now we plot the responses of the endogenous variables to the shock.
-x=0:N-1;
-figure(1)
-// subplot for capital 'k'
-subplot(2,3,1)
-plot(x,[k0*ones(N,1)],'--k',x,k(1:N),'k','LineWidth',1.5)
-// note the timing: we lag capital to correct for syntax
-title('k','Fontsize',12)
-set(gca,'Fontsize',12)
-// subplot for consumption 'c'
-subplot(2,3,2)
-plot(x,[c0*ones(N,1)],'--k', x,c(2:N+1),'k','LineWidth',1.5)
-title('c','Fontsize',12)
-set(gca,'Fontsize',12)
-// subplot for cost of capital 'R_bar'
-\end{verbatim}
-
-\begin{verbatim}
-subplot(2,3,3)
-plot(x,[rbig0*ones(N,1)],'--k',x,rbig(1:N),'k','LineWidth',1.5)
-title('$\overline{R}$','interpreter', 'latex','Fontsize',12)
-set(gca,'Fontsize',12)
-// subplot for rental rate 'eta'
-subplot(2,3,4)
-plot(x,[nq0*ones(N,1)],'--k', x,nq(1:N),'k','LineWidth',1.5)
-title('\eta','Fontsize',12)
-set(gca,'Fontsize',12)
-// subplot for the experiment proposed
-subplot(2,3,5)
-plot([0:9],ex_(1:10,1),'k','LineWidth',1.5);
-hold on;
-plot([10:N-1],ex_(11:N,1),'k','LineWidth',1.5);
-hold on;
-plot(x,[g0*ones(N,1)],'--k','LineWidth',1.5)
-title('g','Fontsize',12)
-axis([0 N -.1 .5])
-set(gca,'Fontsize',12)
-print -depsc fig_g.eps
-\end{verbatim}
-
-The following figure shows the path of the endogenous variables along the transition to the new steady state.\\
-Next we show the other transition experiments and only the parts of the code that need to be changed for each experiment.
-
-\subsection*{5.3.2 Foreseen once-and-for-all increase in $\tau_{c}$ (Figure 11.6.4).}
-A foreseen once-and-for-all increase in $\tau_{c}$ at $t=10$ of 20 per cent.(Figure 11.6.4)
-
-\begin{verbatim}
-initval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc = 0;
-tauk = 0;
-end;
-steady;
-endval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc =0.2;
-tauk =0;
-end;
-steady;
-shocks;
-\end{verbatim}
+\lstinputlisting{Code/sections/s05_03_01_g.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-26}
+  \includegraphics[width=\textwidth]{s05_03_01_g_legacy.jpg}
 \captionsetup{labelformat=empty}
 \caption{Figure 12: Foreseen once-and-for-all increase in g at $t=10$ (Figure 11.6.1).}
 \end{center}
+\label{fig:s05-03-01-g-legacy}
 \end{figure}
 
-\begin{verbatim}
-var tauc;
-periods 1:10;
-values 0;
-end;
-\end{verbatim}
 
-\subsection*{5.3.3 Foreseen once-and-for-all increase in $\tau_{k}$ (Figure 11.6.5).}
-A foreseen once-and-for-all increase in $\tau_{k}$ at $t=10$ of 20 percent. (Figure 11.6.5)
+The following figure shows the path of the endogenous variables along the transition to the new steady state.\\
+The remaining experiments each have a complete, independently runnable file.
 
-\begin{verbatim}
-initval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc = 0;
-tauk = 0;
-end;
-steady;
-endval;
-k=1.5;
-c=0.6;
-g =0.2;
-tauc =0;
-tauk = 0.2;
-end;
-\end{verbatim}
+\subsection*{5.3.2 Foreseen once-and-for-all increase in $\tau_{c}$ (Figure 11.6.4).}
+A foreseen once-and-for-all increase in $\tau_{c}$ at $t=10$ of 20 percentage points.(Figure 11.6.4)
+
+\lstinputlisting{Code/sections/s05_03_02_tauc.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-27}
+  \includegraphics[width=\textwidth]{s05_03_02_tauc_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 13: Foreseen once-and-for-all increase in \$\textbackslash tau\_\{c}\$ at $t=10$ (Figure 11.6.4).\}\end{center}
+\caption{Figure 13: Foreseen once-and-for-all increase in $\tau_c$ at $t=10$ (Figure 11.6.4).}
+\end{center}
+\label{fig:s05-03-02-tauc-legacy}
 \end{figure}
 
-\begin{verbatim}
-steady;
-shocks;
-var tauk;
-periods 1:10;
-values 0;
-end;
-\end{verbatim}
+
+\subsection*{5.3.3 Foreseen once-and-for-all increase in $\tau_{k}$ (Figure 11.6.5).}
+A foreseen once-and-for-all increase in $\tau_{k}$ at $t=10$ of 20 percentage points. (Figure 11.6.5)
+
+\lstinputlisting{Code/sections/s05_03_03_tauk.mod}
+
+\begin{figure}[!htbp]
+\begin{center}
+  \includegraphics[width=\textwidth]{s05_03_03_tauk_legacy.jpg}
+\captionsetup{labelformat=empty}
+\caption{Figure 14: Foreseen once-and-for-all foreseen increase in $\tau_k$ at $t=10$ (Figure 11.6.5).}
+\end{center}
+\label{fig:s05-03-03-tauk-legacy}
+\end{figure}
+
 
 \subsection*{5.3.4 Foreseen one-time pulse increase in g (Figure 11.6.6).}
 A foreseen one-time pulse of $g$ at $t=10$ of 0.2 . (Figure 11.6.6)
 
-\begin{verbatim}
-initval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc = 0;
-tauk = 0;
-end;
-steady;
-endval;
-k=1.5;
-c=0.6;
-g = 0.2;
-tauc =0;
-\end{verbatim}
+\lstinputlisting{Code/sections/s05_03_04_g.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-28}
+  \includegraphics[width=\textwidth]{s05_03_04_g_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 14: Foreseen once-and-for-all foreseen increase in \$\textbackslash tau\_\{k}\$ at $t=10$ (Figure 11.6.5).\}\end{center}
+\caption{Figure 15: Foreseen one-time pulse increase in g at $t=10$ (Figure 11.6.6).}
+\end{center}
+\label{fig:s05-03-04-g-legacy}
 \end{figure}
 
-\begin{verbatim}
-tauk =0;
-end;
-steady;
-shocks;
-var g;
-periods 11;
-values 0.4;
-end;
-\end{verbatim}
 
 \subsection*{5.3.5 Foreseen once-and-for-all increase $\mathbf{g}$ at $\mathbf{t}=10$ for two economies (Figure 11.6.2).}
 Responses to a foreseen increase in $g$ at $t=10$ for two economies, the original economy with $\gamma=2$ and an otherwise identical economy with $\gamma=.2$ (Figure 11.6.2).
 
-\begin{verbatim}
-//values for gamma = 2
-kgamma(:,1)=k;
-cgamma(:,1)=c;
-rbig(:,1)=cgamma(2:101,1).^(-gam)./(bet*cgamma(3:102,1).^(-gam));
-//values for gamma=. }
-gam=.2;
-simul(periods=100);
-\end{verbatim}
+Compare the following low-curvature economy with \texttt{s05\_03\_01\_g.mod} ($\gamma=2$).
+\lstinputlisting{Code/sections/s05_03_05_g_gamma02.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-29}
+  \includegraphics[width=\textwidth]{s05_03_05_g_gamma_comparison_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 15: Foreseen one-time pulse increase in g at $t=10$ (Figure 11.6.6).}
+\caption{Figure 16: Response to foreseen once-and-for-all increase in g at $t=10$. The solid line is for $\gamma=2$, while the dashed-dotted line is for $\gamma=.2$ (Figure 11.6.2).}
 \end{center}
+\label{fig:s05-03-05-g-gamma-comparison-legacy}
 \end{figure}
 
-\begin{verbatim}
-kgamma(:,2)=k;
-cgamma(:,2)=c;
-rbig(:,2)=cgamma(2:101,2).^(-gam)./(bet*cgamma(3:102,2).^(-gam));
-%---------------------------------------------------------------------------------------------------
-% 5. Graphs and plots for other endogenous variables
-%---------------------------------------------------------------------------------------------------
-N=40;
-rbig0=1/bet;
-nq0=alpha*A*k0^(alpha-1);
-nq=alpha*A*kgamma(1:100,:).^(alpha-1);
-wq0=A*k0^alpha-k0*alpha*A*k0^(alpha-1);
-wq=A*kgamma(1:100,:).^alpha-kgamma(1:100,:).*alpha*A.*kgamma(1:100,:).^(alpha-1);
-x=0:N-1;
-figure(1)
-// subplot for capital 'k'
-subplot(2,3,1)
-plot(x,[k0*ones(N,1)],'--k', x,kgamma(1:N,1),'k',x,kgamma(1:N,2),'-.k','LineWidth',1.5) // note the timing:
-title('k','Fontsize',12)
-set(gca,'Fontsize',12)
-\end{verbatim}
-
-\begin{verbatim}
-// subplot for consumption 'c'
-subplot(2,3,2)
-plot(x,[c0*ones(N,1)],'--k',x,cgamma(2:N+1,1),'k',x,cgamma(2:N+1,2),'-.k','LineWidth',1.5)
-title('c','Fontsize',12)
-set(gca,'Fontsize',12)
-// subplot for cost of capital 'R_bar'
-subplot(2,3,3)
-plot(x,[rbig0*ones(N,1)],'--k',x,rbig(1:N,1),'k',x,rbig(1:N,2),'-.k','LineWidth',1.5)
-title('$\overline{R}$','interpreter', 'latex','Fontsize',12)
-set(gca,'Fontsize',12)
-// subplot for rental rate 'eta'
-subplot(2,3,4)
-plot(x,[nq0*ones(N,1)],'--k',x,nq(1:N,1),'k',x,nq(1:N,2),'-.k','LineWidth',1.5)
-title('\eta','Fontsize',12)
-set(gca,'Fontsize',12)
-// subplot for the experiment proposed
-subplot(2,3,5)
-plot([0:9],ex_(1:10,1),'k','LineWidth',1.5);
-hold on;
-plot([10:N-1],ex_(11:N,1),'k','LineWidth',1.5);
-hold on;
-plot(x,[g0*ones(N,1)],'--k','LineWidth',1.5)
-title('g','Fontsize',12)
-axis([0 N -.1 .5])
-set(gca,'Fontsize',12)
-\end{verbatim}
 
 \subsection*{5.3.6 Impact of an foreseen once-and-for-all increase in g on yield curves (Figure 11.6.3).}
-Impact of an foreseen once-and-for-all increase in $g$ at $t=10$ on yield curves. For this section we use some additional formulas
+Impact of an foreseen once-and-for-all increase in $g$ at $t=10$ on yield curves. For this section we use normalized dated prices (including the consumption-tax wedge, which is constant in this spending experiment) and continuously compounded yields
 
 
 \begin{align*}
-q_{t} & =\frac{\beta^{t} c_{t}^{-\gamma}}{c_{0}^{-\gamma}}  \tag{20}\\
+q_{t}/q_0 & =\beta^{t}\left(\frac{c_t}{c_0}\right)^{-\gamma}\frac{1+\tau_{c,0}}{1+\tau_{c,t}}  \tag{20}\\
 y_{i, t} & =-\frac{1}{i} \log \left(\frac{q_{t+i}}{q_{t}}\right) \tag{21}
 \end{align*}
 
 
-\begin{verbatim}
-%---------------------------------------------------------------------------------------------------
-% 5. Graphs and plots for other endogenous variables
-%---------------------------------------------------------------------------------------------------
-//Let N be the periods to plot
-N=40;
-rbig0=1/bet;
-rbig=c(2:101).^(-gam)./(bet*c(3:102).^(-gam));
-nq0=alpha*A*k0^(alpha-1);
-nq=alpha*A*k(1:100).^(alpha-1);
-wq0=A*k0^alpha-k0*alpha*A*k0^(alpha-1);
-wq=A*k(1:100).`alpha-k(1:100).*alpha*A.*k(1:100).^(alpha-1);
-\end{verbatim}
+\lstinputlisting{Code/sections/s05_03_06_yields.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-31}
-\captionsetup{labelformat=empty}
-\caption{Figure 16: Response to foreseen once-and-for-all increase in g at \$\textbackslash mathrm\{t}=10\$. The solid line is for $\gamma=2$, while the dashed-dotted line is for $\gamma=.2$ (Figure 11.6.2).\}\end{center}
-\end{figure}
-
-\begin{verbatim}
-// computing the price system : q and steady state price system qs(t)=beta^t
-//q(2) is normalized to 1
-//qs(1) is normalized to 1
-for n=1:102
-q(n)=bet^n*c(n).^(-gam)/(bet^2*c(2)^(-gam));
-qs(n)=bet^n*c(1).^(-gam)/(bet*c(1)^(-gam));
-end
-// computing the short term interest rates
-rsmall=-log(q(3:102)./q(2:101));
-rsmall0=rbig0-1;
-// computing the term structure for n=1 to 40 for all periods
-for t=1:62
-for i=1:40
-y(i,t)=log(q(t+i)/q(t))/-i;
-end
-end
-/ /Now we plot the yield curves and other responses of the endogenous variables to the shock.
-figure(1)
-x=0 : N-1;
-// subplot for consumption 'c'
-subplot(2,3,1)
-plot(x,c0*ones(N,1),'--k', x,c(2:N+1),'k','LineWidth',1.5)
-title('c','Fontsize',12)
-set(gca,'Fontsize',12)
-// subplot for consumption 'q'
-subplot(2,3,2)
-plot(x,qs(1:N),'--k', x,q(2:N+1),'k','LineWidth',1.5)
-title('q','Fontsize',12)
-set(gca,'Fontsize',12)
-// subplot for rate of interest 'r'
-subplot(2,3,3)
-plot(x,[rsmall0*ones(N,1)],'--k', x,rsmall(1:N),'k','LineWidth',1.5)
-title('r','Fontsize',12)
-set(gca,'Fontsize',12)
-// subplot for yield curves at t=0,t=10,t=60
-subplot(2,3,4)
-plot(x,y(:,2),'k',x,y(:,11),'-.k',x,y(:,61),'--k','LineWidth',1.5)
-title('','Fontsize',12)
-set(gca,'Fontsize',12)
-axis fill;
-\end{verbatim}
-
-\begin{figure}[!htbp]
-\begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-33}
+  \includegraphics[width=\textwidth]{s05_03_06_yields_legacy.jpg}
 \captionsetup{labelformat=empty}
 \caption{Figure 17: Response to foreseen once-and-for-all increase in g at $t=10$. Yield curves for $t=0$ (solid line), $t=10$ (dashdotted line) and $t=60$ (dashed line); term to maturity is on the x axis for the yield curve, time for the other panels (Figure 11.6.3).}
 \end{center}
+\label{fig:s05-03-06-yields-legacy}
 \end{figure}
 
-\begin{verbatim}
-// subplot for the experiment proposed
-subplot(2,3,5)
-plot([0:9],ex_(1:10,1),'k','LineWidth',1.5);
-hold on;
-plot([10:N-1],ex_(11:N,1),'k','LineWidth',1.5);
-hold on;
-plot(x,[g0*ones(N,1)],'--k','LineWidth',1.5)
-title('g','Fontsize',12)
-axis([0 N -.1 .5])
-set(gca,'Fontsize',12)
-\end{verbatim}
 
 \subsection*{5.4 The model with elastic labor supply}
 In this section we modify the previous model by allowing for elastic labor supply. Now the representative agent maximizes
 
 $$
-\sum_{t=0}^{\infty} \beta^{t} \log c+B(1-n), \quad \beta \in(0,1)
+\sum_{t=0}^{\infty} \beta^{t} [\log c_t+B(1-n_t)], \quad \beta \in(0,1)
 $$
 
 where B is substantially greater than 1 to assure an interior solution $n \in(0,1)$ for labor supply. Feasible allocations satisfy
@@ -1416,16 +694,16 @@ $$
 g_{t}+c_{t}+k_{t+1} \leq A k_{t}^{\alpha} n_{t}^{1-\alpha}+(1-\delta) k_{t} .
 $$
 
-The household budget constraint is
+Let $T_t$ denote a residual lump-sum tax (negative for a transfer), which finances spending net of distorting tax receipts. This closes the fiscal budget without altering the marginal conditions. The household budget constraint is
 
 $$
-\sum_{t=0}^{\infty}\left\{q_{t}\left(1+\tau_{c t}\right)+q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]\right\} \leq \sum_{t=0}^{\infty} q_{t}\left\{\eta_{t}\left(1-\tau_{k t}\right) k_{t}+w_{t}\left(1-\tau_{n t}\right)\right\}
+\sum_{t=0}^{\infty}\left\{q_{t}\left(1+\tau_{c t}\right)c_t+q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]\right\} \leq \sum_{t=0}^{\infty} q_{t}\left\{\eta_{t}\left(1-\tau_{k t}\right) k_{t}+w_{t}n_t\left(1-\tau_{n t}\right)-T_t\right\}
 $$
 
 and the government budget constraint is
 
 $$
-\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty} q_{t}\left\{\tau_{c t} c_{t}+\tau_{k t} \eta_{t} k_{t}+\tau_{n t} n_{t} w_{t}\right\}
+\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty} q_{t}\left\{\tau_{c t} c_{t}+\tau_{k t} \eta_{t} k_{t}+\tau_{n t} n_{t} w_{t}+T_t\right\}
 $$
 
 The following conditions characterize the endogenous variables in the model equilibrium:
@@ -1439,181 +717,60 @@ B c_{t}\left(1+\tau_{c t}\right) & =\left(1-\tau_{n t}\right)\left[(1-\alpha) A 
 
 
 \subsection*{5.4.1 Elastic Labor supply : Unforseen once-and-for-all increase in $\mathbf{g}$ at $\mathbf{t}=\mathbf{0}$ (Figure 11.9.1).}
-An unforeseen once-and-for-all increase in g to . 2 at $t=0$ (Figure 11.9.1).
+An unforeseen once-and-for-all increase in g from 0.2 to 0.4 at $t=0$ (Figure 11.9.1).
 
-\begin{verbatim}
-%----------------------------------------------------------------------------------------------------
-% 1. Defining variables
-%----------------------------------------------------------------------------------------------------
-//Declares the endogenous variables consumption ('c') capital stock ('k');
-var c k n;
-//declares the exogenous variables
-// consumption tax ('tauc'), capital tax('tauk'), labor tax('taun') government spending('g')
-varexo tauc tauk taun g;
-parameters bet gam del alpha A B;
-%----------------------------------------------------------------------------------------------------
-% 2. Calibration and alignment convention
-%---------------------------------------------------------------------------------------------------
-bet=.95; // discount factor
-gam=1; // CRRA parameter
-del=.2; // depreciation rate
-alpha=.33; // capital's share
-A=1; // productivity
-B=3; // coefficient on leisure
-%----------------------------------------------------------------------------------------------------
-% 3. Model
-%----------------------------------------------------------------------------------------------------
-model;
-//Feasibility
-\end{verbatim}
-
-\begin{verbatim}
-k=A*k(-1)`alpha*n^(1-alpha)+(1-del)*k(-1)-c-g;
-//Euler equation
-c^(-gam)= bet*(c(+1)^(-gam))*((1+tauc)/(1+tauc(+1)))*((1-del) + (1-tauk(+1))
-*alpha*A*k^(alpha-1)*n(+1)^(1-alpha));
-//Consumption leisure choice
-B/C^(-gam)=(1-taun)*((1-alpha)*A*k(-1)^(alpha)*n^(-alpha))*(1+tauc)^-1;
-end;
-%-------------------------------------------------------------------------------------------------------
-% 4. Computation
-%----------------------------------------------------------------------------------------------------
-initval;
-k=1.5;
-c=0.6;
-g = .2;
-n=1.02;
-tauc = 0;
-tauk = 0;
-taun=0;
-end;
-steady;
-endval;
-k=1.5;
-c=0.6;
-g =.4;
-n=1.02;
-tauc =0;
-tauk =0;
-taun=0;
-end;
-steady;
-simul(periods=100);
-c0=c(1);
-k0 = k(1);
-n0=n(1);
-g0 = .2;
-\end{verbatim}
-
-\subsection*{5.4.2 Elastic Labor supply : Unforseen once-and-for-all increase in $\tau_{n}$ at $\mathbf{t}=\mathbf{0}$ (Figure 11.9.2).}
-An unforeseen once-and-for-all increase in $\tau_{n}$ to 20 per cent at $t=0$ (Figure 11.9.2).
-
-\begin{verbatim}
-initval;
-\end{verbatim}
+\lstinputlisting{Code/sections/s05_04_01_g.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-36}
+  \includegraphics[width=\textwidth]{s05_04_01_g_legacy.jpg}
 \captionsetup{labelformat=empty}
 \caption{Figure 18: Elastic labor supply: response to unforeseen increase in g at $t=0$ (Figure 11.9.1).}
 \end{center}
+\label{fig:s05-04-01-g-legacy}
 \end{figure}
 
-\begin{verbatim}
-k=1.5;
-c=0.6;
-g = .2;
-n=1.02;
-tauc = 0;
-tauk = 0;
-taun=0;
-end;
-steady;
-endval;
-k=1.5;
-c=0.6;
-g =.2;
-n=1.02;
-tauc =0;
-tauk =0;
-taun=0.2;
-end;
-steady;
-\end{verbatim}
+
+\subsection*{5.4.2 Elastic Labor supply : Unforseen once-and-for-all increase in $\tau_{n}$ at $\mathbf{t}=\mathbf{0}$ (Figure 11.9.2).}
+An unforeseen once-and-for-all increase in $\tau_{n}$ to 20 percentage points at $t=0$ (Figure 11.9.2).
+
+\lstinputlisting{Code/sections/s05_04_02_taun.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-37}
+  \includegraphics[width=\textwidth]{s05_04_02_taun_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 19: Elastic labor supply: response to unforeseen increase in \$\textbackslash tau\_\{n}\$ at $t=0$ (Figure 11.9.2).\}\end{center}
+\caption{Figure 19: Elastic labor supply: response to unforeseen increase in $\tau_n$ at $t=0$ (Figure 11.9.2).}
+\end{center}
+\label{fig:s05-04-02-taun-legacy}
 \end{figure}
+
 
 \subsection*{5.4.3 Elastic Labor supply : Foreseen once-and-for-all increase in $\tau_{n}$ at $\mathbf{t}=\mathbf{1 0}$ (Figure 11.9.3).}
-A foreseen once-and-for-all increase in $\tau_{n}$ to 20 per cent at $t=10$ (Figure 11.9.3).
+A foreseen once-and-for-all increase in $\tau_{n}$ to 20 percentage points at $t=10$ (Figure 11.9.3).
 
-\begin{verbatim}
-initval;
-k=1.5;
-c=0.6;
-g = .2;
-n=1.02;
-tauc = 0;
-tauk = 0;
-taun=0;
-end;
-steady;
-endval;
-k=1.5;
-c=0.6;
-g =.2;
-n=1.02;
-tauc =0;
-tauk =0;
-taun=0.2;
-end;
-steady;
-\end{verbatim}
+\lstinputlisting{Code/sections/s05_04_03_taun.mod}
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth]{2025_12_01_2aa251fafcb71267535dg-38}
+  \includegraphics[width=\textwidth]{s05_04_03_taun_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 20: Elastic labor supply: response to foreseen increase in \$\textbackslash tau\_\{n}\$ at $t=10$ (Figure 11.9.3).\}\end{center}
+\caption{Figure 20: Elastic labor supply: response to foreseen increase in $\tau_n$ at $t=10$ (Figure 11.9.3).}
+\end{center}
+\label{fig:s05-04-03-taun-legacy}
 \end{figure}
-
-\begin{verbatim}
-shocks;
-var taun;
-periods 1:10;
-values 0;
-end;
-\end{verbatim}
 
 
 \section{A full-scale fiscal RBC model}
 
 
-\begin{flushleft}
-    {\color{blue}{[To-do: Hylton to add the RBC (flexible-price) version of the NT-DSGE model here. It is done and running successfully. Will do \texttt{stoch\_simul} and \texttt{Estimation} here... maybe \texttt{perfect\_foresight} too.]}}
-\end{flushleft}
+This section is reserved for the flexible-price version of the separate NT-DSGE model. No verified implementation is included here; the archived generic RBC tax file must not be used as a substitute.
 
 
 \appendix
 
 \section*{A. List of Dynare Files}
-This appendix lists the dynare files used in this paper. All files and the data used are contained in the file examples.zip. In case simulated data was used in the estimation one first needs to run the relevant dynare code to simulate the data.
-
-\begin{itemize}
-  \item GrowthApproximate.mod - solves the neoclassical growth model and simulates data
-  \item GrowthEstimate.mod - estimates the neoclassical growth model
-  \item TwocountryApprox.mod - solves the two country production economy and simulates data
-  \item TwocountryEstim.mod - estimates the two country production economy
-  \item Fig11XX.mod - solves a deterministic growth model and reproduces the graph XX in chapter 11 of Ljungqvist and Sargent (2004)
-  \item Figv3\_11XX.mod - solves a deterministic growth model and reproduces the graph XX in chapter 11 of Ljungqvist and Sargent (20XX)
-  \item sargent77.mod - solves the model in Sargent (1977)
-  \item sargent77ML.mod, sargent77Bayes.mod - estimate the model in Sargent (1977) using maximum likelihood and Bayesian MCMC methods, respectively
-\end{itemize}
+The executable examples are in \texttt{Code/sections}. Run the approximation file before its corresponding estimation file to create the named simulated-data file. Section 4 files cover all six experiments; Section 5 files cover anticipated policies, both curvature calibrations, yield calculations, and three labour experiments. Section 6 has no verified local implementation. See \texttt{Code/README.md} for the inventory and run instructions and \texttt{review/REVIEW.md} for corrections and outstanding replication work.
 
 \section*{References}
 Cooley, T. F. and E. C. Prescott (1995). Economic growth and business cycles. In T. F. Cooley (Ed.), Frontiers of Business Cycle Research. Princeton University Press.
@@ -1622,7 +779,7 @@ Kim, J. and S. H. Kim (2003, August). Spurious welfare reversals in internationa
 
 Ljungqvist, L. and T. J. Sargent (2004). Recursive Macroeconomic Theory, Second edition. Cambridge, Ma.: MIT Press.
 
-Ljungqvist, L. and T. J. Sargent (20XX). Recursive Macroeconomic Theory, Third edition. Cambridge, Ma.: MIT Press.
+Ljungqvist, L. and T. J. Sargent (2012). Recursive Macroeconomic Theory, Third edition. Cambridge, Ma.: MIT Press.
 
 Siow, A. (1984, May). Occupational choice under uncertainty. Econometrica 52(3), 631-45.
 

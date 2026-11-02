@@ -1,0 +1,21 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+PATH_PASS s04_03_01_g resource=3.21e-09 euler=1.02e-07
+PATH_PASS s04_03_02_tauc resource=7.98e-13 euler=6.69e-11
+PATH_PASS s04_03_03_taui resource=3.69e-13 euler=6.65e-11
+PATH_PASS s04_03_04_tauk resource=3.55e-09 euler=7.85e-08
+PATH_PASS s04_03_05_g resource=2.07e-07 euler=3.77e-07
+PATH_PASS s04_03_06_taui resource=7.11e-10 euler=7.05e-09
+PATH_PASS s05_03_01_g resource=3.21e-09 euler=1.02e-07
+PATH_PASS s05_03_02_tauc resource=7.98e-13 euler=6.69e-11
+PATH_PASS s05_03_03_tauk resource=3.55e-09 euler=7.85e-08
+PATH_PASS s05_03_04_g resource=2.07e-07 euler=3.77e-07
+PATH_PASS s05_03_05_g_gamma02 resource=4.46e-10 euler=7.29e-10
+PATH_PASS s05_03_06_yields resource=3.21e-09 euler=1.02e-07
+PATH_PASS s05_04_01_g resource=2.11e-09 euler=5.47e-10
+{Error using assert
+Labour FOC residual too large
+
+Error in verify_fiscal_paths (line 17)
+        assert(max(abs(labour))<1e-6,'Labour FOC residual too large');
+} 

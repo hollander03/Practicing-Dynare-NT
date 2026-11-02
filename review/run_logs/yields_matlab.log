@@ -1,0 +1,63 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 5 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 2 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.105354
+Iter: 2,	 err. = 0.0167953,	 time = 0.005441
+Iter: 3,	 err. = 0.000385123,	 time = 0.004651
+Iter: 4,	 err. = 1.01919e-07,	 time = 0.00299
+
+Total time of simulation: 0.122879.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m01s
+NT_RUN_PASS s05_03_06_yields.mod

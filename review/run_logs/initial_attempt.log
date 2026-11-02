@@ -1,0 +1,406 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+
+NT_RUN_BEGIN s02_02_growth_approx.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: s02_02_growth_approx.mod: line 22, cols 25-37: M_.endo_names treated as a variable, but it contains a '.'
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s02_02_growth_approx.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s02_03_growth_estimate.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Found 4 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c   		 1.49163
+k   		 29.289
+lab 		 0.291594
+z   		 0
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+            0.95             0.95                0
+          0.9783           0.9783                0
+           1.036            1.036                0
+       1.733e+16        1.733e+16                0
+       9.123e+34       -9.123e+34                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+You did not declare endogenous variables after the estimation/calib_smoother command.
+NT_RUN_FAIL s02_03_growth_estimate.mod: makedataset: I can't find a datafile (with allowed extension m, mat, csv, xls or xlsx)!
+
+NT_RUN_BEGIN s03_02_twocountry_approx.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: s03_02_twocountry_approx.mod: line 26, cols 26-38: M_.endo_names treated as a variable, but it contains a '.'
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s03_02_twocountry_approx.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s03_03_twocountry_estimate.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Found 6 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 4 equation(s)
+                                 and 4 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 4 equation(s)
+                                 and 4 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c1 		 0.823947
+c2 		 0.823947
+k1 		 2.89526
+k2 		 2.89526
+a1 		 0
+a2 		 0
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+       6.244e-14        6.244e-14                0
+            0.85             0.85                0
+            0.85             0.85                0
+          0.9592           0.9592                0
+           1.064            1.064                0
+       1.416e+13        1.416e+13                0
+       4.508e+16        4.508e+16                0
+       2.401e+17        2.401e+17                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+You did not declare endogenous variables after the estimation/calib_smoother command.
+NT_RUN_FAIL s03_03_twocountry_estimate.mod: makedataset: I can't find a datafile (with allowed extension m, mat, csv, xls or xlsx)!
+
+NT_RUN_BEGIN s04_03_01_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s04_03_01_g.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s04_03_02_tauc.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s04_03_02_tauc.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s04_03_03_taui.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s04_03_03_taui.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s04_03_04_tauk.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s04_03_04_tauk.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s04_03_05_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s04_03_05_g.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s04_03_06_taui.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s04_03_06_taui.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s05_03_01_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s05_03_01_g.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s05_03_02_tauc.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s05_03_02_tauc.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s05_03_03_tauk.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s05_03_03_tauk.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s05_03_04_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s05_03_04_g.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s05_03_05_g_gamma02.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s05_03_05_g_gamma02.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s05_03_06_yields.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: taun not used in model block. To bypass this error, use the `nostrict` option. This may lead to crashes or unexpected behavior.
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s05_03_06_yields.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s05_04_01_g.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 6 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 5 eigenvalue(s) larger than 1 in modulus for 5 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 1.15771
+n               		 0.777008
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.383358,	 time = 0.112599
+Iter: 2,	 err. = 0.011735,	 time = 0.018519
+Iter: 3,	 err. = 5.28042e-05,	 time = 0.003146
+Iter: 4,	 err. = 3.03436e-09,	 time = 0.003409
+
+Total time of simulation: 0.143657.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_04_01_g.mod
+
+NT_RUN_BEGIN s05_04_02_taun.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 6 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 5 eigenvalue(s) larger than 1 in modulus for 5 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.203794
+k               		 0.713984
+n               		 0.479198
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.0939283,	 time = 0.067579
+Iter: 2,	 err. = 0.000880569,	 time = 0.017939
+Iter: 3,	 err. = 1.02247e-06,	 time = 0.018174
+
+Total time of simulation: 0.105081.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_04_02_taun.mod
+
+NT_RUN_BEGIN s05_04_03_taun.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 6 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 5 eigenvalue(s) larger than 1 in modulus for 5 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.203794
+k               		 0.713984
+n               		 0.479198
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.183408,	 time = 0.064947
+Iter: 2,	 err. = 0.014165,	 time = 0.003741
+Iter: 3,	 err. = 2.36199e-05,	 time = 0.002891
+Iter: 4,	 err. = 2.83066e-10,	 time = 0.003256
+
+Total time of simulation: 0.076718.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m00s
+NT_RUN_PASS s05_04_03_taun.mod

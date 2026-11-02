@@ -1,0 +1,97 @@
+[
+  {
+    "model": "Code/sections/s02_02_growth_approx.mod",
+    "sha256": "ade17786c64e9f7bbf8dcdc7b9315b2eadf6eb6cc6257c77df739a82291e3dc2",
+    "execution_log": "review/run_logs/final_matlab.log"
+  },
+  {
+    "model": "Code/sections/s02_03_growth_estimate.mod",
+    "sha256": "96ba0fe1b6f550677a3d2c4ea0e05883b4f4e9b8f2f6d46f9d650f10c4fe2093",
+    "execution_log": "review/run_logs/final_matlab.log"
+  },
+  {
+    "model": "Code/sections/s03_02_twocountry_approx.mod",
+    "sha256": "e5e6a24cf4f1e399b143515b7d06a33bac1950f84863cf0a9abcbd25ddbf54d1",
+    "execution_log": "review/run_logs/final_matlab.log"
+  },
+  {
+    "model": "Code/sections/s03_03_twocountry_estimate.mod",
+    "sha256": "8a84f88747b7051e918f6dc5579ceb132fe36c24b7279ef02e6d235a78854139",
+    "execution_log": "review/run_logs/final_matlab.log"
+  },
+  {
+    "model": "Code/sections/s04_03_01_g.mod",
+    "sha256": "d8db9920671835e3739ad364d106ddae66d6f10b4fc8786cd24edd1a7c96e6cd",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s04_03_02_tauc.mod",
+    "sha256": "250911e06815b9615a948c4e074b3dfb6702a8fe5fa15600e92b832784637fae",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s04_03_03_taui.mod",
+    "sha256": "02099ba47b6c8452660b996edbb2b3f488c279023e592f9168c88903beb45c06",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s04_03_04_tauk.mod",
+    "sha256": "2fbf9fab38365ffee4f8b139d838693f05cb7651c0c003a787208e3c0c7679cd",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s04_03_05_g.mod",
+    "sha256": "8358630355294f2d66343e2f03d39deca04ec0f6dc9b30d0211b72b6369bb211",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s04_03_06_taui.mod",
+    "sha256": "b48a6435ed9025ba35e97063e685c3dec94a948cfc8c44d36887f8fa5fa39369",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s05_03_01_g.mod",
+    "sha256": "56f4264adbbebaa16f4ae4eda23112704a40bc2953997fbbad401b2019b21a6f",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s05_03_02_tauc.mod",
+    "sha256": "e30d4e99b6595e0eca3180a13a9333cf0cdee692ae51e0fab666f46ffce87fcd",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s05_03_03_tauk.mod",
+    "sha256": "6242ca3f3f8082201867999383a62eeb87bb207cd9d8f2497b4b77010c3a16b2",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s05_03_04_g.mod",
+    "sha256": "375d2261fc10fd67731b7b5e14b6e9022daa1cc8686d4b033de3159638c9f805",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s05_03_05_g_gamma02.mod",
+    "sha256": "7ed93fdfc10358804a730c19f68d4931376d1913a4a29ac0d2a945e9b8de283f",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s05_03_06_yields.mod",
+    "sha256": "c71c41ebcc99813d039b17565cb8c8e7ef4555a6ad03e83c421fbac8a96921ef",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s05_04_01_g.mod",
+    "sha256": "bec0f9dd0f5b596db8ec3b4479cb3d759c8f481368f18be6320b8c5ff18bc0f5",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s05_04_02_taun.mod",
+    "sha256": "71c5f27fa4fd8fc7f1f0e463ea536b0643e116d6002bb5223c39dd4f1d4e5da5",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  },
+  {
+    "model": "Code/sections/s05_04_03_taun.mod",
+    "sha256": "69866996c46e982b90471c4588c83c9aa4aa7833e087e41996ede0e1a0bfc08e",
+    "execution_log": "review/run_logs/fiscal_final.log"
+  }
+]

@@ -1,0 +1,38 @@
+Starting Dynare (version 6.4).
+Calling Dynare with arguments: none
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+
+STEADY-STATE RESULTS:
+
+c               		 0.608336
+k               		 1.0679
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.456361,	 time = 0.0283127
+Iter: 2,	 err. = 0.0411044,	 time = 0.0246429
+Iter: 3,	 err. = 0.000641765,	 time = 0.0253601
+Iter: 4,	 err. = 4.46599e-08,	 time = 0.0254288
+
+Total time of simulation: 0.108894.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+Total computing time : 0h00m01s
+Note: warning(s) encountered in MATLAB/Octave code

@@ -1,0 +1,215 @@
+PAGE 1
+Fiscal policies in a non-
+stochastic growth model
+A Dynare application
+November 2025
+
+PAGE 2
+NATIONAL TREASURY
+2
+Introduction
+• Continue with replicating LS (2004)’s section 5 in Practicing Dynare.
+• So far, code has been cleaned and adjusted for a modern dynare
+version, i.e. old simul vs. the new perfect foresight solver.
+• In section 5.4, an elastic labour supply is now added to Section’s 5.3
+model.
+• In this session:
+• Explain how labour is added to the model and some of the implications.
+• The challenges are discussed.
+• The results from policy experiments
+Disclaimer: The views presented are those of the presenters and do not necessarily reflect the views of the National Treasury.
+
+PAGE 3
+NATIONAL TREASURY
+3
+Differences between sections 4 and 5.3
+Section 4’s equilibrium conditions:
+ct = Akα
+t −kt+1 + (1 −δ)kt −gt
+(1)
+qt = βc−γ
+t+1
+1 + τct
+(2)
+rt
+qt
+= Aαkα−1
+t
+(3)
+wt
+qt
+= Akα
+t −ktAαkα−1
+t
+(4)
+Rt+1 =
+(1 + τct)
+(1 + τct+1)
+(1 + τt+1)
+(1 + τt) (1 −δ) + (1 −τkt+1)
+(1 −τt) Aαkα−1
+t+1
+
+(5)
+st
+qt
+= (1 −τkt)Aαkα−1
+t
++ (1 −δ)
+(6)
+c−γ
+t
+= βc−γ
+t+1Rt+1
+(7)
+
+PAGE 4
+NATIONAL TREASURY
+4
+Differences between sections 4 and 5.3
+Section 5.3’s equilibrium conditions:
+ct = Akα
+t −kt+1 + (1 −δ)kt −gt
+(8)
+qt = βc−γ
+t+1
+1 + τct
+(9)
+rt
+qt
+= Aαkα−1
+t
+(10)
+wt
+qt
+= Akα
+t −ktAαkα−1
+t
+(11)
+Rt+1 =
+(1 + τct)
+(1 + τct+1)
+
+(1 −δ) + (1 −τkt+1)Aαkα−1
+t+1
+
+(12)
+st
+qt
+= (1 −τkt)Aαkα−1
+t
++ (1 −δ)
+(13)
+c−γ
+t
+= βc−γ
+t+1Rt+1
+(14)
+
+PAGE 5
+NATIONAL TREASURY
+5
+Section 5.4’s equilibrium conditions (1/2)
+ct = Akα
+t n1−α
+t
+−kt+1 + (1 −δ)kt −gt
+(15)
+qt = βc−γ
+t+1
+1 + τct
+(16)
+rt
+qt
+= Aα
+kt
+nt
+α−1
+(17)
+wt
+qt
+= A(1 −α)
+kt
+nt
+α
+(18)
+Rt+1 =
+(1 + τct)
+(1 + τct+1)
+"
+(1 −δ) + (1 −τkt+1)Aα
+kt+1
+nt+1
+α−1#
+(19)
+
+PAGE 6
+NATIONAL TREASURY
+6
+Section 5.4’s equilibrium conditions (2/2)
+st
+qt
+= (1 −τkt)Aα
+kt+1
+nt+1
+α−1
++ (1 −δ)
+(20)
+c−γ
+t
+= βc−γ
+t+1Rt+1
+(21)
+Bct(1 + τct) = (1 −τnt)
+
+(1 −α)A
+kt
+nt
+α
+(22)
+
+PAGE 7
+NATIONAL TREASURY
+7
+Challenges
+• Adding labour to the production and felicity functions is a bit more
+tricky to incorporate.
+• This adds one more key equilibrium addition to the previous 5.3’s
+Euler and aggregate resource constraint equations.
+• Also, production and income factors now depend on labour.
+• Previously, wt was calculated as total income minus capital’s income.
+Now its MPn.
+• The funny timing conventions still result in kinked IRFs.
+• In the case of the τn shocks, cannot find a steady state solution without
+rolling back n in the rental rate of capital equilibrium equation.
+
+PAGE 8
+NATIONAL TREASURY
+8
+Textbook’s labour Example 1: permanent increase
+in g
+Figure 12: Foreseen once-ad-for-all increase in g at t = 10
+
+PAGE 9
+NATIONAL TREASURY
+9
+Section 4’s Example 1: permanent increase in g
+Figure 12: Foreseen once-ad-for-all increase in g at t = 10
+
+PAGE 10
+NATIONAL TREASURY
+10
+Section 5.3’s Example 1: permanent increase in g
+Figure 12: Foreseen once-ad-for-all increase in g at t = 10
+
+PAGE 11
+NATIONAL TREASURY
+11
+Section 5.4’s Example 1: permanent increase in g
+Figure 12: Foreseen once-ad-for-all increase in g at t = 10
+
+PAGE 12
+NATIONAL TREASURY
+12
+Section 4 with labour’s Example 1: permanent increa
+Figure 12: Foreseen once-ad-for-all increase in g at t = 10

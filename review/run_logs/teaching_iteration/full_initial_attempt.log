@@ -1,0 +1,48 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+
+NT_RUN_BEGIN s02_full_rep.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: s02_full_rep.mod: line 105, cols 40-42: syntax error, unexpected NAME, expecting EPS or PDF or FIG or NONE
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s02_full_rep.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s03_full_rep.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: s03_full_rep.mod: line 110, cols 40-42: syntax error, unexpected NAME, expecting EPS or PDF or FIG or NONE
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s03_full_rep.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s04_full_rep.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: an 'initval' block cannot appear after an 'endval' block
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s04_full_rep.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s05_03_full_rep.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: an 'initval' block cannot appear after an 'endval' block
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s05_03_full_rep.mod: Dynare: preprocessing failed
+
+NT_RUN_BEGIN s05_04_full_rep.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+ERROR: an 'initval' block cannot appear after an 'endval' block
+Preprocessing time: 0h00m00s.
+NT_RUN_FAIL s05_04_full_rep.mod: Dynare: preprocessing failed
+{Error using assert
+One or more section models failed; inspect NT_RUN_FAIL entries
+
+Error in run_sections (line 16)
+assert(isempty(failed_models),'One or more section models failed; inspect NT_RUN_FAIL entries');
+} 

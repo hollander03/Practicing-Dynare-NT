@@ -1,0 +1,1241 @@
+[
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 1,
+    "type": "Highlight",
+    "rect": [
+      40.54050064086914,
+      477.2569885253906,
+      549.9290161132812,
+      499.8420104980469
+    ],
+    "vertices": [
+      [
+        264.8299865722656,
+        477.5679931640625
+      ],
+      [
+        547.27001953125,
+        477.5679931640625
+      ],
+      [
+        264.8299865722656,
+        487.5299987792969
+      ],
+      [
+        547.27001953125,
+        487.5299987792969
+      ],
+      [
+        43.20009994506836,
+        489.5679931640625
+      ],
+      [
+        383.6499938964844,
+        489.5679931640625
+      ],
+      [
+        43.20009994506836,
+        499.5299987792969
+      ],
+      [
+        383.6499938964844,
+        499.5299987792969
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230228180350+02'00'",
+      "modDate": "D:20230228180350+02'00'",
+      "subject": "Highlight",
+      "id": "8112e47f-c175-43b4-9f53-e4da0427dc95"
+    },
+    "selected_text": "Section 4 follows chapter 11 of Ljungqvist and Sargent (2004) in studying the eﬀects of foreseen ﬁscal policy in a non-stochastic growth model.",
+    "nearby_text": "This paper describes nine examples or types of examples that illustrate how Dynare can approximate the solutions\nof dynamic rational expectations models, simulate them, and estimate them by maximum likelihood and Bayesian\nmethods. Section 2 approximates and estimates a one-sector stochastic growth model. Section 3 approximates and\nestimates a two-country stochastic growth model. Section 4 follows chapter 11 of Ljungqvist and Sargent (2004) in\nstudying the effects of foreseen fiscal policy in a non-stochastic growth model. Section 5 updates and extends these\nexamples to correspond to chapter 11 of Ljungqvist and Sargent (20XX). Section 6 estimates a rational expectations\nmodel of hyperinflation originally formulated by Sargent (1977).\nSection 7 solves and estimates the permanent\nincome model of Hall (1988). This application is interesting, among other reasons, for the way that it illustrates how\nDynare can implement the ‘diffuse Kalman filter’ needed in situations in which an initial endogenous state variable\nis unknown and the model has a unit root. Section 8 solves and estimates the Ryoo and Rosen (2004) rational\nexpectations model of a market for engineers. Section 9 estimates a model of consumption growth proposed by"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 1,
+    "type": "Highlight",
+    "rect": [
+      40.54050064086914,
+      489.2569885253906,
+      549.8590087890625,
+      511.8420104980469
+    ],
+    "vertices": [
+      [
+        388.3219909667969,
+        489.5679931640625
+      ],
+      [
+        547.2000122070312,
+        489.5679931640625
+      ],
+      [
+        388.3219909667969,
+        499.5299987792969
+      ],
+      [
+        547.2000122070312,
+        499.5299987792969
+      ],
+      [
+        43.20009994506836,
+        501.5679931640625
+      ],
+      [
+        359.1780090332031,
+        501.5679931640625
+      ],
+      [
+        43.20009994506836,
+        511.5299987792969
+      ],
+      [
+        359.1780090332031,
+        511.5299987792969
+      ]
+    ],
+    "info": {
+      "content": "permanent tax shocks (transitions to different steady states / init_val to end_values)",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230228180359+02'00'",
+      "modDate": "D:20230228180437+02'00'",
+      "subject": "Highlight",
+      "id": "b0537fa8-e9f3-4c13-b368-d45ef44385ea"
+    },
+    "selected_text": "Section 5 updates and extends these examples to correspond to chapter 11 of Ljungqvist and Sargent (20XX).",
+    "nearby_text": "This paper describes nine examples or types of examples that illustrate how Dynare can approximate the solutions\nof dynamic rational expectations models, simulate them, and estimate them by maximum likelihood and Bayesian\nmethods. Section 2 approximates and estimates a one-sector stochastic growth model. Section 3 approximates and\nestimates a two-country stochastic growth model. Section 4 follows chapter 11 of Ljungqvist and Sargent (2004) in\nstudying the effects of foreseen fiscal policy in a non-stochastic growth model. Section 5 updates and extends these\nexamples to correspond to chapter 11 of Ljungqvist and Sargent (20XX). Section 6 estimates a rational expectations\nmodel of hyperinflation originally formulated by Sargent (1977).\nSection 7 solves and estimates the permanent\nincome model of Hall (1988). This application is interesting, among other reasons, for the way that it illustrates how\nDynare can implement the ‘diffuse Kalman filter’ needed in situations in which an initial endogenous state variable\nis unknown and the model has a unit root. Section 8 solves and estimates the Ryoo and Rosen (2004) rational\nexpectations model of a market for engineers. Section 9 estimates a model of consumption growth proposed by\nBansal and Yaron (2004). Section 10 solves and estimates the Hansen, Sargent, and Tallarini (1999) model of robust"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 1,
+    "type": "Highlight",
+    "rect": [
+      40.54050064086914,
+      441.49700927734375,
+      550.1309814453125,
+      475.9620056152344
+    ],
+    "vertices": [
+      [
+        43.20009994506836,
+        441.8080139160156
+      ],
+      [
+        547.323974609375,
+        441.8080139160156
+      ],
+      [
+        43.20009994506836,
+        451.77099609375
+      ],
+      [
+        547.323974609375,
+        451.77099609375
+      ],
+      [
+        43.20009994506836,
+        453.68798828125
+      ],
+      [
+        547.4710083007812,
+        453.68798828125
+      ],
+      [
+        43.20009994506836,
+        463.6510009765625
+      ],
+      [
+        547.4710083007812,
+        463.6510009765625
+      ],
+      [
+        43.20009994506836,
+        465.68798828125
+      ],
+      [
+        82.80750274658203,
+        465.68798828125
+      ],
+      [
+        43.20009994506836,
+        475.6499938964844
+      ],
+      [
+        82.80750274658203,
+        475.6499938964844
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230228180608+02'00'",
+      "modDate": "D:20230228180608+02'00'",
+      "subject": "Highlight",
+      "id": "cb736650-6264-4aa8-b6bc-1d193b6d3a70"
+    },
+    "selected_text": "This paper describes nine examples or types of examples that illustrate how Dynare can approximate the solutions of dynamic rational expectations models, simulate them, and estimate them by maximum likelihood and Bayesian methods.",
+    "nearby_text": "1.\nIntroduction\nThis paper describes nine examples or types of examples that illustrate how Dynare can approximate the solutions\nof dynamic rational expectations models, simulate them, and estimate them by maximum likelihood and Bayesian\nmethods. Section 2 approximates and estimates a one-sector stochastic growth model. Section 3 approximates and\nestimates a two-country stochastic growth model. Section 4 follows chapter 11 of Ljungqvist and Sargent (2004) in\nstudying the effects of foreseen fiscal policy in a non-stochastic growth model. Section 5 updates and extends these\nexamples to correspond to chapter 11 of Ljungqvist and Sargent (20XX). Section 6 estimates a rational expectations\nmodel of hyperinflation originally formulated by Sargent (1977).\nSection 7 solves and estimates the permanent\nincome model of Hall (1988). This application is interesting, among other reasons, for the way that it illustrates how\nDynare can implement the ‘diffuse Kalman filter’ needed in situations in which an initial endogenous state variable"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 1,
+    "type": "Highlight",
+    "rect": [
+      40.54050064086914,
+      465.37701416015625,
+      549.8909912109375,
+      487.8420104980469
+    ],
+    "vertices": [
+      [
+        87.72010040283203,
+        465.68798828125
+      ],
+      [
+        547.2319946289062,
+        465.68798828125
+      ],
+      [
+        87.72010040283203,
+        475.6499938964844
+      ],
+      [
+        547.2319946289062,
+        475.6499938964844
+      ],
+      [
+        43.20009994506836,
+        477.5679931640625
+      ],
+      [
+        257.2749938964844,
+        477.5679931640625
+      ],
+      [
+        43.20009994506836,
+        487.5299987792969
+      ],
+      [
+        257.2749938964844,
+        487.5299987792969
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230228180617+02'00'",
+      "modDate": "D:20230228180617+02'00'",
+      "subject": "Highlight",
+      "id": "b08684bb-b561-481a-b583-770ddf90eaf5"
+    },
+    "selected_text": "Section 2 approximates and estimates a one-sector stochastic growth model. Section 3 approximates and estimates a two-country stochastic growth model.",
+    "nearby_text": "1.\nIntroduction\nThis paper describes nine examples or types of examples that illustrate how Dynare can approximate the solutions\nof dynamic rational expectations models, simulate them, and estimate them by maximum likelihood and Bayesian\nmethods. Section 2 approximates and estimates a one-sector stochastic growth model. Section 3 approximates and\nestimates a two-country stochastic growth model. Section 4 follows chapter 11 of Ljungqvist and Sargent (2004) in\nstudying the effects of foreseen fiscal policy in a non-stochastic growth model. Section 5 updates and extends these\nexamples to correspond to chapter 11 of Ljungqvist and Sargent (20XX). Section 6 estimates a rational expectations\nmodel of hyperinflation originally formulated by Sargent (1977).\nSection 7 solves and estimates the permanent\nincome model of Hall (1988). This application is interesting, among other reasons, for the way that it illustrates how\nDynare can implement the ‘diffuse Kalman filter’ needed in situations in which an initial endogenous state variable\nis unknown and the model has a unit root. Section 8 solves and estimates the Ryoo and Rosen (2004) rational"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 1,
+    "type": "Text",
+    "rect": [
+      190.5500030517578,
+      414.50201416015625,
+      214.5500030517578,
+      438.50201416015625
+    ],
+    "vertices": null,
+    "info": {
+      "content": "Work up to the end of Section 5",
+      "name": "Comment",
+      "title": "hylton",
+      "creationDate": "D:20230228180636+02'00'",
+      "modDate": "D:20230228180731+02'00'",
+      "subject": "Sticky Note",
+      "id": "b9b58480-c2b8-400c-bc88-c38f456efebc"
+    },
+    "selected_text": "",
+    "nearby_text": "per teaches Dynare by applying it to approximate equilibria and estimate nine dynamic economic model\ne that it illustrates once again the efficacy of learning by doing.\noduction\nescribes nine examples or types of examples that illustrate how Dynare can approximate the so\national expectations models, simulate them, and estimate them by maximum likelihood and B\nction 2 approximates and estimates a one-sector stochastic growth model. Section 3 approxima\nwo-country stochastic growth model. Section 4 follows chapter 11 of Ljungqvist and Sargent (2\n effects of foreseen fiscal policy in a non-stochastic growth model. Section 5 updates and extend\ncorrespond to chapter 11 of Ljungqvist and Sargent (20XX). Section 6 estimates a rational expec"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 1,
+    "type": "Highlight",
+    "rect": [
+      40.54050064086914,
+      596.89599609375,
+      549.9140014648438,
+      619.3619995117188
+    ],
+    "vertices": [
+      [
+        241.14100646972656,
+        597.2080078125
+      ],
+      [
+        547.2550048828125,
+        597.2080078125
+      ],
+      [
+        241.14100646972656,
+        607.1699829101562
+      ],
+      [
+        547.2550048828125,
+        607.1699829101562
+      ],
+      [
+        43.20009994506836,
+        609.0880126953125
+      ],
+      [
+        366.72198486328125,
+        609.0880126953125
+      ],
+      [
+        43.20009994506836,
+        619.0499877929688
+      ],
+      [
+        366.72198486328125,
+        619.0499877929688
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230228180711+02'00'",
+      "modDate": "D:20230228180711+02'00'",
+      "subject": "Highlight",
+      "id": "f5417a1b-5047-4799-a72d-7be5da3b192c"
+    },
+    "selected_text": "Appendix A tells how the reader can obtain the ﬁle examples.zip that contain the *.mod and data ﬁles that we used to generate these examples.",
+    "nearby_text": "is unknown and the model has a unit root. Section 8 solves and estimates the Ryoo and Rosen (2004) rational\nexpectations model of a market for engineers. Section 9 estimates a model of consumption growth proposed by\nBansal and Yaron (2004). Section 10 solves and estimates the Hansen, Sargent, and Tallarini (1999) model of robust\npermanent income and pricing. Section 11 solves and estimates the Bansal and Yaron (2004) of asset prices and\nlong-run risk in consumption and dividends. Appendix A tells how the reader can obtain the file examples.zip that\ncontain the *.mod and data files that we used to generate these examples.\nSome of our examples bear eloquent witness to the technological improvements brought by Dynare. For example,\nthe maximum likelihood estimates in Sargent (1977) and Hansen, Sargent, and Tallarini (1999) were time-consuming\nand painful to obtain originally. Dynare has reduced the time and the pain."
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 1,
+    "type": "Highlight",
+    "rect": [
+      316.94000244140625,
+      313.20098876953125,
+      341.1400146484375,
+      324.8739929199219
+    ],
+    "vertices": [
+      [
+        317.2829895019531,
+        313.54400634765625
+      ],
+      [
+        340.7969970703125,
+        313.54400634765625
+      ],
+      [
+        317.2829895019531,
+        324.531005859375
+      ],
+      [
+        340.7969970703125,
+        324.531005859375
+      ]
+    ],
+    "info": {
+      "content": "be cautious: because this is an old tutorial, in some cases, code may be deprecated which may lead to errors. Learning to bug fix on these small examples is a good practice though ;-)",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20241203010346+02'00'",
+      "modDate": "D:20241203010500+02'00'",
+      "subject": "Highlight",
+      "id": "536efbdb-d4ed-c141-a3c5-390222ba846e"
+    },
+    "selected_text": "2010",
+    "nearby_text": "Yongseok Shin\nWashington University\nDept. of Economics\nDecember 4, 2010\nAbstract\n it to approximate equilibria and estimate nine dynamic economic models.\nthe efficacy of learning by doing."
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 1,
+    "type": "Underline",
+    "rect": [
+      40.22919845581055,
+      524.8250122070312,
+      550.3250122070312,
+      559.9129638671875
+    ],
+    "vertices": [
+      [
+        172.44700622558594,
+        525.447998046875
+      ],
+      [
+        547.344970703125,
+        525.447998046875
+      ],
+      [
+        172.44700622558594,
+        535.4100341796875
+      ],
+      [
+        547.344970703125,
+        535.4100341796875
+      ],
+      [
+        43.20009994506836,
+        537.447998046875
+      ],
+      [
+        547.35400390625,
+        537.447998046875
+      ],
+      [
+        43.20009994506836,
+        547.4100341796875
+      ],
+      [
+        547.35400390625,
+        547.4100341796875
+      ],
+      [
+        43.20009994506836,
+        549.3280029296875
+      ],
+      [
+        238.13099670410156,
+        549.3280029296875
+      ],
+      [
+        43.20009994506836,
+        559.2899780273438
+      ],
+      [
+        238.13099670410156,
+        559.2899780273438
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20251201162436+02'00'",
+      "modDate": "D:20251201162436+02'00'",
+      "subject": "Underline",
+      "id": "e4c41da5-6e75-8143-a7f2-a50c039677b7"
+    },
+    "selected_text": "This application is interesting, among other reasons, for the way that it illustrates how Dynare can implement the ‘diﬀuse Kalman ﬁlter’ needed in situations in which an initial endogenous state variable is unknown and the model has a unit root.",
+    "nearby_text": "estimates a two-country stochastic growth model. Section 4 follows chapter 11 of Ljungqvist and Sargent (2004) in\nstudying the effects of foreseen fiscal policy in a non-stochastic growth model. Section 5 updates and extends these\nexamples to correspond to chapter 11 of Ljungqvist and Sargent (20XX). Section 6 estimates a rational expectations\nmodel of hyperinflation originally formulated by Sargent (1977).\nSection 7 solves and estimates the permanent\nincome model of Hall (1988). This application is interesting, among other reasons, for the way that it illustrates how\nDynare can implement the ‘diffuse Kalman filter’ needed in situations in which an initial endogenous state variable\nis unknown and the model has a unit root. Section 8 solves and estimates the Ryoo and Rosen (2004) rational\nexpectations model of a market for engineers. Section 9 estimates a model of consumption growth proposed by\nBansal and Yaron (2004). Section 10 solves and estimates the Hansen, Sargent, and Tallarini (1999) model of robust\npermanent income and pricing. Section 11 solves and estimates the Bansal and Yaron (2004) of asset prices and\nlong-run risk in consumption and dividends. Appendix A tells how the reader can obtain the file examples.zip that\ncontain the *.mod and data files that we used to generate these examples.\nSome of our examples bear eloquent witness to the technological improvements brought by Dynare. For example,"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 2,
+    "type": "StrikeOut",
+    "rect": [
+      40.45790100097656,
+      613.031005859375,
+      114.1719970703125,
+      623.3759765625
+    ],
+    "vertices": [
+      [
+        43.19990158081055,
+        613.6060180664062
+      ],
+      [
+        111.43000030517578,
+        613.6060180664062
+      ],
+      [
+        43.19990158081055,
+        622.801025390625
+      ],
+      [
+        111.43000030517578,
+        622.801025390625
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20250820094110+02'00'",
+      "modDate": "D:20250820094110+02'00'",
+      "subject": "Cross-Out",
+      "id": "eb65d60a-0767-2047-96eb-fb20da4067a8"
+    },
+    "selected_text": "periods 1000;",
+    "nearby_text": "2.2.2\nApproximation\nThe following instructions implement this model in Dynare.\nperiods 1000;\nvar c k lab z;\nvarexo e;\nparameters bet the del alp tau rho s;"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 3,
+    "type": "StrikeOut",
+    "rect": [
+      103.81700134277344,
+      417.31201171875,
+      161.6909942626953,
+      427.656005859375
+    ],
+    "vertices": [
+      [
+        106.55899810791016,
+        417.885986328125
+      ],
+      [
+        158.94900512695312,
+        417.885986328125
+      ],
+      [
+        106.55899810791016,
+        427.0820007324219
+      ],
+      [
+        158.94900512695312,
+        427.0820007324219
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20250820094103+02'00'",
+      "modDate": "D:20250820094103+02'00'",
+      "subject": "Cross-Out",
+      "id": "7be81e98-13e8-8345-bdc2-71e612f46755"
+    },
+    "selected_text": "stoch_simul(dr_algo=0,periods=1000);",
+    "nearby_text": "end;\nsteady;\nstoch_simul(dr_algo=0,periods=1000); datasaver(’simudata’,[]);"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 3,
+    "type": "StrikeOut",
+    "rect": [
+      234.01600646972656,
+      417.31201171875,
+      370.97100830078125,
+      427.656005859375
+    ],
+    "vertices": [
+      [
+        236.75799560546875,
+        417.885986328125
+      ],
+      [
+        368.22900390625,
+        417.885986328125
+      ],
+      [
+        236.75799560546875,
+        427.0820007324219
+      ],
+      [
+        368.22900390625,
+        427.0820007324219
+      ]
+    ],
+    "info": {
+      "content": "save simudata",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20250820094105+02'00'",
+      "modDate": "D:20250820094215+02'00'",
+      "subject": "Cross-Out",
+      "id": "600cf5d4-9ee8-7b41-be30-c47df63e73f9"
+    },
+    "selected_text": "datasaver(’simudata’,[]);",
+    "nearby_text": "=0,periods=1000); datasaver(’simudata’,[]);"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 4,
+    "type": "StrikeOut",
+    "rect": [
+      40.45790100097656,
+      684.6710205078125,
+      114.1719970703125,
+      695.01611328125
+    ],
+    "vertices": [
+      [
+        43.20000076293945,
+        685.2459716796875
+      ],
+      [
+        111.43000030517578,
+        685.2459716796875
+      ],
+      [
+        43.20000076293945,
+        694.44140625
+      ],
+      [
+        111.43000030517578,
+        694.44140625
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20250820094131+02'00'",
+      "modDate": "D:20250820094131+02'00'",
+      "subject": "Cross-Out",
+      "id": "8fb176ea-d6aa-594b-a2c0-69c586aa639e"
+    },
+    "selected_text": "periods 1000;",
+    "nearby_text": "would like to estimate the preference parameters θ and τ, and the stochastic process\nby two parameters ρ and σ. The following code instructs Dynare to conduct the estim\nperiods 1000;\nvar c k lab z;\nvarexo e;\n4"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 8,
+    "type": "StrikeOut",
+    "rect": [
+      40.45790100097656,
+      553.1510009765625,
+      114.1719970703125,
+      563.4959716796875
+    ],
+    "vertices": [
+      [
+        43.20000076293945,
+        553.7260131835938
+      ],
+      [
+        111.43000030517578,
+        553.7260131835938
+      ],
+      [
+        43.20000076293945,
+        562.9210205078125
+      ],
+      [
+        111.43000030517578,
+        562.9210205078125
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20250820094300+02'00'",
+      "modDate": "D:20250820094300+02'00'",
+      "subject": "Cross-Out",
+      "id": "77cf473c-972e-234c-b924-0c44ae339878"
+    },
+    "selected_text": "periods 1000;",
+    "nearby_text": "Dynare computes the policy function as a second-order approximation around the\nDynare file of the system is as follows.\nperiods 1000;\nvar c1 c2 k1 k2 a1 a2;\nvarexo e1 e2;\nparameters gamma delta alpha beta rho;\ngamma=2;"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 9,
+    "type": "StrikeOut",
+    "rect": [
+      103.81700134277344,
+      405.31201171875,
+      161.6909942626953,
+      415.656005859375
+    ],
+    "vertices": [
+      [
+        106.55899810791016,
+        405.885986328125
+      ],
+      [
+        158.94900512695312,
+        405.885986328125
+      ],
+      [
+        106.55899810791016,
+        415.0820007324219
+      ],
+      [
+        158.94900512695312,
+        415.0820007324219
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20250820094308+02'00'",
+      "modDate": "D:20250820094308+02'00'",
+      "subject": "Cross-Out",
+      "id": "c2e80d69-ba2e-9e44-8dbc-5c4797925eec"
+    },
+    "selected_text": "stoch_simul(dr_algo=0,periods=1000);",
+    "nearby_text": "end;\nsteady;\nstoch_simul(dr_algo=0,periods=1000); datatomfile(’simudata’,[]);\nThe output is given as a matrix of coefficients for the policy function. From this matrix, fo\nconstruct the optimal consumption rule for Country 1:\nˆc1,t = 0.824 + 0.243(ˆk1,t + ˆk2,t) + 0.140(ˆa1,t + ˆa2,t) + 0.062(ˆk2\n1,t−1 + ˆk2\n2,t−1) −0.110ˆk1\n−0.015(ˆa1,tˆk1,t + ˆa2,tˆk2,t) −0.032(ˆa1,tˆk2,t + ˆa2,tˆk1,t) + 0.044(ˆa2\n + ˆa2\n) −0.040"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 9,
+    "type": "StrikeOut",
+    "rect": [
+      234.01600646972656,
+      405.31201171875,
+      381.4110107421875,
+      415.656005859375
+    ],
+    "vertices": [
+      [
+        236.75799560546875,
+        405.885986328125
+      ],
+      [
+        378.66900634765625,
+        405.885986328125
+      ],
+      [
+        236.75799560546875,
+        415.0820007324219
+      ],
+      [
+        378.66900634765625,
+        415.0820007324219
+      ]
+    ],
+    "info": {
+      "content": "save simudata",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20250820094311+02'00'",
+      "modDate": "D:20250820094317+02'00'",
+      "subject": "Cross-Out",
+      "id": "09f5f1d5-d80b-6746-af93-21f005732585"
+    },
+    "selected_text": "datatomfile(’simudata’,[]);",
+    "nearby_text": "=0,periods=1000); datatomfile(’simudata’,[]);\nn as a matrix of coefficients for the policy function. From this matrix, for example, one can\nconsumption rule for Country 1:\n4 + 0.243(ˆk1,t + ˆk2,t) + 0.140(ˆa1,t + ˆa2,t) + 0.062(ˆk2\n1,t−1 + ˆk2\n2,t−1) −0.110ˆk1,tˆk2,t\n5(ˆa1,tˆk1,t + ˆa2,tˆk2,t) −0.032(ˆa1,tˆk2,t + ˆa2,tˆk1,t) + 0.044(ˆa2\n + ˆa2\n) −0.040ˆa1,tˆa2,t,"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 9,
+    "type": "StrikeOut",
+    "rect": [
+      40.45790100097656,
+      672.7919921875,
+      114.1719970703125,
+      683.135986328125
+    ],
+    "vertices": [
+      [
+        43.20000076293945,
+        673.3670043945312
+      ],
+      [
+        111.43000030517578,
+        673.3670043945312
+      ],
+      [
+        43.20000076293945,
+        682.56201171875
+      ],
+      [
+        111.43000030517578,
+        682.56201171875
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20250820094324+02'00'",
+      "modDate": "D:20250820094324+02'00'",
+      "subject": "Cross-Out",
+      "id": "1ef6e468-c99d-984f-bdcb-74779262e770"
+    },
+    "selected_text": "periods 1000;",
+    "nearby_text": "We will estimate 4 parameters ρ, α, σǫ1, and σǫ2.\nHence, we have to specify \nparameter. In this exercise, ρ and α are given a normal prior, while the priors of σ\ndistributions. The Dynare code is as follows.\nperiods 1000;\nvar c1 c2 k1 k2 a1 a2;\nvarexo e1 e2;\nparameters gamma delta alpha beta rho;"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 11,
+    "type": "Highlight",
+    "rect": [
+      68.06069946289062,
+      586.3919677734375,
+      323.06500244140625,
+      601.6500244140625
+    ],
+    "vertices": [
+      [
+        71.89430236816406,
+        586.8399658203125
+      ],
+      [
+        319.2309875488281,
+        586.8399658203125
+      ],
+      [
+        71.89430236816406,
+        601.2009887695312
+      ],
+      [
+        319.2309875488281,
+        601.2009887695312
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230228180110+02'00'",
+      "modDate": "D:20230228180110+02'00'",
+      "subject": "Highlight",
+      "id": "7435e430-ce70-4ac2-bd34-57efefe4fe88"
+    },
+    "selected_text": "Fiscal policies in the growth model",
+    "nearby_text": "Figure 5: Prior v. Posterior Distribution\n4.\nFiscal policies in the growth model\nThis section describes a suite of Dynare programs that replicate the transition experiments performed in chapter 11\nof Ljungqvist and Sargent (2004).\n4.1\nThe model"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 11,
+    "type": "Highlight",
+    "rect": [
+      40.540401458740234,
+      611.5369873046875,
+      549.9450073242188,
+      634.1220092773438
+    ],
+    "vertices": [
+      [
+        43.20000076293945,
+        611.8480224609375
+      ],
+      [
+        547.2849731445312,
+        611.8480224609375
+      ],
+      [
+        43.20000076293945,
+        621.81103515625
+      ],
+      [
+        547.2849731445312,
+        621.81103515625
+      ],
+      [
+        43.20000076293945,
+        623.8480224609375
+      ],
+      [
+        190.61099243164062,
+        623.8480224609375
+      ],
+      [
+        43.20000076293945,
+        633.81103515625
+      ],
+      [
+        190.61099243164062,
+        633.81103515625
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230228180114+02'00'",
+      "modDate": "D:20230228180114+02'00'",
+      "subject": "Highlight",
+      "id": "5f60f234-e3ff-4963-8bf0-b75156a2d467"
+    },
+    "selected_text": "This section describes a suite of Dynare programs that replicate the transition experiments performed in chapter 11 of Ljungqvist and Sargent (2004).",
+    "nearby_text": "4.\nFiscal policies in the growth model\nThis section describes a suite of Dynare programs that replicate the transition experiments performed in chapter 11\nof Ljungqvist and Sargent (2004).\n4.1\nThe model\nA deterministic growth model has inelastic labor supply, an exogenous stream of government expenditures, and\nseveral kinds of distorting taxes. All variables are as described in chapter 11 of Ljungqvist and Sargent (2004). A\nrepresentative agent maximizes"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 11,
+    "type": "Highlight",
+    "rect": [
+      335.4649963378906,
+      681.2570190429688,
+      534.7429809570312,
+      691.8419799804688
+    ],
+    "vertices": [
+      [
+        335.7770080566406,
+        681.5679931640625
+      ],
+      [
+        534.4320068359375,
+        681.5679931640625
+      ],
+      [
+        335.7770080566406,
+        691.531005859375
+      ],
+      [
+        534.4320068359375,
+        691.531005859375
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20251022113952+02'00'",
+      "modDate": "D:20251022113952+02'00'",
+      "subject": "Highlight",
+      "id": "615b06dc-3f3c-d14c-a6de-38c42006c967"
+    },
+    "selected_text": "chapter 11 of Ljungqvist and Sargent (2004).",
+    "nearby_text": "abor supply, an exogenous stream of government expenditures, and\ns are as described in chapter 11 of Ljungqvist and Sargent (2004). A\n∞\n�\nt=0\nβt c1−γ\nt\n1 −γ ,\nβ ∈(0, 1)\n11"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 12,
+    "type": "Highlight",
+    "rect": [
+      40.00529861450195,
+      600.739990234375,
+      212.7830047607422,
+      613.4550170898438
+    ],
+    "vertices": [
+      [
+        43.20000076293945,
+        601.114013671875
+      ],
+      [
+        60.38290023803711,
+        601.114013671875
+      ],
+      [
+        43.20000076293945,
+        613.0809936523438
+      ],
+      [
+        60.38290023803711,
+        613.0809936523438
+      ],
+      [
+        73.81809997558594,
+        601.114013671875
+      ],
+      [
+        209.58900451660156,
+        601.114013671875
+      ],
+      [
+        73.81809997558594,
+        613.0809936523438
+      ],
+      [
+        209.58900451660156,
+        613.0809936523438
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230518112634+02'00'",
+      "modDate": "D:20230518112634+02'00'",
+      "subject": "Highlight",
+      "id": "03d908b4-6469-4b99-b424-93f8d1a5f409"
+    },
+    "selected_text": "4.3 Transition experiments",
+    "nearby_text": "τc\n0\nτi\n0\nτk\n0\n4.3\nTransition experiments\n4.3.1\nA permanent increase in g (Figure 11.3.1).\nThe Dynare code below reproduces Figure 11.3.1. which looks at the impact of a permanent increase of 0.2\nt=10.\n// This program replicates figure 11.3.1 from chapter 11 of RMT2 by"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 12,
+    "type": "Highlight",
+    "rect": [
+      221.6750030517578,
+      140.64300537109375,
+      246.84100341796875,
+      151.697998046875
+    ],
+    "vertices": [
+      [
+        222.0,
+        140.968017578125
+      ],
+      [
+        246.51499938964844,
+        140.968017578125
+      ],
+      [
+        222.0,
+        150.9310302734375
+      ],
+      [
+        246.51499938964844,
+        151.37200927734375
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20251022113334+02'00'",
+      "modDate": "D:20251022113334+02'00'",
+      "subject": "Highlight",
+      "id": "ccaef9e7-b422-624b-bfda-fe18fc0372e0"
+    },
+    "selected_text": "−τit)",
+    "nearby_text": "gt + ct + kt+1 ≤Ak\nt + (1 −δ) kt.\nget constraint is\n∞\n�\nt=0\n{qt (1 + τct) + (1 −τit) qt [kt+1 −(1 −δ) kt]} ≤\n∞\n�\nt=0\n{rt (1 −τkt) kt + wt}\n budget constraint is\n∞\n�\nt=0\nqtgt ≤\n∞\n�\nt=0\n{τctqtct −τitqt [kt+1 −(1 −δ) kt] + rtτktkt + wt}"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 12,
+    "type": "Highlight",
+    "rect": [
+      405.1549987792969,
+      199.56298828125,
+      425.8580017089844,
+      210.61798095703125
+    ],
+    "vertices": [
+      [
+        405.4800109863281,
+        199.88800048828125
+      ],
+      [
+        425.5329895019531,
+        199.88800048828125
+      ],
+      [
+        405.4800109863281,
+        209.85101318359375
+      ],
+      [
+        425.5329895019531,
+        210.2919921875
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20251022113631+02'00'",
+      "modDate": "D:20251022113631+02'00'",
+      "subject": "Highlight",
+      "id": "cbc34e31-367f-7749-be37-d282d47e08e7"
+    },
+    "selected_text": "+ wt}",
+    "nearby_text": "t=0\n−(1 −δ) kt] + rtτktkt + wt}\ngt\n(7)\n(8)"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 15,
+    "type": "Highlight",
+    "rect": [
+      75.56009674072266,
+      468.3630065917969,
+      216.2209930419922,
+      479.4179992675781
+    ],
+    "vertices": [
+      [
+        78.2311019897461,
+        468.68798828125
+      ],
+      [
+        213.44400024414062,
+        468.68798828125
+      ],
+      [
+        78.2311019897461,
+        478.6409912109375
+      ],
+      [
+        213.44400024414062,
+        479.0920104980469
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230518112709+02'00'",
+      "modDate": "D:20230518112709+02'00'",
+      "subject": "Highlight",
+      "id": "eb54a01f-0a52-4047-bff7-b9939c4dbc98"
+    },
+    "selected_text": "A permanent increase in τc",
+    "nearby_text": "The following figure shows the path of the endogenous variables along the transition to the new steady st\nNext we show the other transition experiments and only the parts of the code that need to be changed fo\nexperiment.\n4.3.2\nA permanent increase in τc (Figure 11.3.2).\nA permanent increase of τc at t=10 of 20 per cent. (Figure 11.3.2)\ninitval;\nk=1.5;\nc=0.6;\ng = 0.2;"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 16,
+    "type": "Highlight",
+    "rect": [
+      75.56009674072266,
+      536.04296875,
+      215.47500610351562,
+      547.0980224609375
+    ],
+    "vertices": [
+      [
+        78.2311019897461,
+        536.3679809570312
+      ],
+      [
+        212.69700622558594,
+        536.3679809570312
+      ],
+      [
+        78.2311019897461,
+        546.3209838867188
+      ],
+      [
+        212.69700622558594,
+        546.77197265625
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230518112731+02'00'",
+      "modDate": "D:20230518112731+02'00'",
+      "subject": "Highlight",
+      "id": "4cc0f3b0-dbcf-4e59-9e7b-0db300ea3e15"
+    },
+    "selected_text": "A permanent increase in τi",
+    "nearby_text": "values 0;\nend;\n4.3.3\nA permanent increase in τi (Figure 11.5.1).\nA permanent increase of τi at t=10 of 20 percent. (Figure 11.5.1)\ninitval;\nk=1.5;\nc=0.6;"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 18,
+    "type": "Highlight",
+    "rect": [
+      75.57420349121094,
+      633.2570190429688,
+      194.00599670410156,
+      643.83203125
+    ],
+    "vertices": [
+      [
+        78.2311019897461,
+        633.5679931640625
+      ],
+      [
+        191.3489990234375,
+        633.5679931640625
+      ],
+      [
+        78.2311019897461,
+        643.52099609375
+      ],
+      [
+        191.3489990234375,
+        643.52099609375
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230518112816+02'00'",
+      "modDate": "D:20230518112816+02'00'",
+      "subject": "Highlight",
+      "id": "55163683-949a-4785-8215-db7e244ebbb1"
+    },
+    "selected_text": "One time increase in g",
+    "nearby_text": "values 0;\nend;\n4.3.5\nOne time increase in g (Figure 11.7.1).\nA one time pulse of g at t=10 of 0.2. (Figure 11.7.1)\ninitval;\nk=1.5;\nc=0.6;\ng = 0.2;"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 21,
+    "type": "Highlight",
+    "rect": [
+      39.36640167236328,
+      78.7919921875,
+      323.06500244140625,
+      94.04998779296875
+    ],
+    "vertices": [
+      [
+        43.20000076293945,
+        79.24102783203125
+      ],
+      [
+        55.73759841918945,
+        79.24102783203125
+      ],
+      [
+        43.20000076293945,
+        93.60101318359375
+      ],
+      [
+        55.73759841918945,
+        93.60101318359375
+      ],
+      [
+        71.89430236816406,
+        79.24102783203125
+      ],
+      [
+        319.2309875488281,
+        79.24102783203125
+      ],
+      [
+        71.89430236816406,
+        93.60101318359375
+      ],
+      [
+        319.2309875488281,
+        93.60101318359375
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "hylton",
+      "creationDate": "D:20230228180233+02'00'",
+      "modDate": "D:20230228180233+02'00'",
+      "subject": "Highlight",
+      "id": "b1dbd0f7-c345-4fba-bedb-32400c606b85"
+    },
+    "selected_text": "5. Fiscal policies in the growth model",
+    "nearby_text": "5.\nFiscal policies in the growth model\nThis section describes a suite of Dynare programs that replicate the transition experiments performed in chapter 11\nof Ljungqvist and Sargent (20XX).\n5.1\nThe model with inelastic labor supply"
+  },
+  {
+    "source": "fiscal/2010_Practicing Dynare.pdf",
+    "page": 38,
+    "type": "Highlight",
+    "rect": [
+      71.44550323486328,
+      548.83203125,
+      399.15399169921875,
+      564.0899658203125
+    ],
+    "vertices": [
+      [
+        71.89430236816406,
+        549.280029296875
+      ],
+      [
+        398.7049865722656,
+        549.280029296875
+      ],
+      [
+        71.89430236816406,
+        563.6409912109375
+      ],
+      [
+        398.7049865722656,
+        563.6409912109375
+      ]
+    ],
+    "info": {
+      "content": "",
+      "name": "",
+      "title": "Hylton Hollander",
+      "creationDate": "D:20250820094609+02'00'",
+      "modDate": "D:20250820094609+02'00'",
+      "subject": "Highlight",
+      "id": "0fb2b7e9-bb43-574c-b0be-db5023b0f2b4"
+    },
+    "selected_text": "The demand for money during hyperinﬂations",
+    "nearby_text": "6.\nThe demand for money during hyperinflations\nSargent (1977) specified and estimated a joint stochastic process for money growth and inflation that was designed\nto make the adaptive expectations model of Cagan (1956) consistent with rational expectations. The model has the\nform\nmt −pt = απt + ut\n(25)"
+  }
+]

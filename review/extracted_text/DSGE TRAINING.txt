@@ -1,0 +1,31 @@
+ppt/slides/slide1.xml
+DSGE TRAINING
+NATIONAL TREASURY
+EPIC-M&F
+  
+Updated on
+October 2025
+
+ppt/slides/slide2.xml
+Description of variables and parameters
+Variables
+Parameters
+Shocks
+
+ppt/slides/slide3.xml
+Policy and transition functions
+
+ppt/slides/slide4.xml
+Technology shock
+
+ppt/slides/slide5.xml
+Money growth shock
+
+ppt/slides/slide6.xml
+Thank you
+
+ppt/notesSlides/notesSlide1.xml
+1
+
+ppt/notesSlides/notesSlide2.xml
+5

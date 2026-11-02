@@ -1,0 +1,158 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+
+NT_RUN_BEGIN s02_02_growth_approx.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Found 4 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c   		 1.49163
+k   		 29.289
+lab 		 0.291594
+z   		 0
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+            0.95             0.95                0
+          0.9783           0.9783                0
+           1.036            1.036                0
+       1.733e+16        1.733e+16                0
+       9.123e+34       -9.123e+34                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+MODEL SUMMARY
+
+  Number of variables:         4
+  Number of stochastic shocks: 1
+  Number of state variables:   2
+  Number of jumpers:           3
+  Number of static variables:  0
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables           e
+e            1.000000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   c               k             lab               z
+Constant                    1.491629       29.288977        0.291594               0
+(correction)               -0.000002        0.000004               0               0
+k(-1)                       0.027972        0.978257       -0.001831               0
+z(-1)                       0.622874        1.853511        0.191285        0.950000
+e                           0.004590        0.013657        0.001409        0.007000
+k(-1),k(-1)                -0.000182       -0.000086        0.000025               0
+z(-1),k(-1)                 0.007307        0.024441        0.000712               0
+z(-1),z(-1)                 0.237402        1.157824       -0.008033               0
+e,e                         0.000013        0.000063               0               0
+k(-1),e                     0.000054        0.000180        0.000005               0
+z(-1),e                     0.003499        0.017063       -0.000118               0
+
+
+MOMENTS OF SIMULATED VARIABLES
+VARIABLE              MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
+c                 1.506456        0.045006        0.002026       -0.028575       -0.394566
+k                29.727223        1.214452        1.474895       -0.055759       -0.471484
+lab               0.291615        0.004630        0.000021        0.034915        0.133124
+z                 0.003858        0.026278        0.000691        0.058698        0.066024
+
+
+CORRELATION OF SIMULATED VARIABLES
+VARIABLE         c       k     lab       z
+c           1.0000  0.9536  0.4191  0.7566
+k           0.9536  1.0000  0.1264  0.5247
+lab         0.4191  0.1264  1.0000  0.9107
+z           0.7566  0.5247  0.9107  1.0000
+
+
+AUTOCORRELATION OF SIMULATED VARIABLES
+VARIABLE         1       2       3       4       5
+c           0.9933  0.9874  0.9799  0.9714  0.9613
+k           0.9982  0.9962  0.9930  0.9886  0.9830
+lab         0.9493  0.9086  0.8627  0.8174  0.7661
+z           0.9617  0.9309  0.8959  0.8610  0.8215
+Total computing time : 0h00m01s
+NT_RUN_PASS s02_02_growth_approx.mod
+
+NT_RUN_BEGIN s02_03_growth_estimate.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Found 4 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 2).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+2 block(s) found:
+  1 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c   		 1.49163
+k   		 29.289
+lab 		 0.291594
+z   		 0
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+            0.95             0.95                0
+          0.9783           0.9783                0
+           1.036            1.036                0
+       1.733e+16        1.733e+16                0
+       9.123e+34       -9.123e+34                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+You did not declare endogenous variables after the estimation/calib_smoother command.
+Initial value of the log posterior (or likelihood): 3933.1996
+
+==========================================================
+   Change in the posterior covariance matrix = 0.031794.
+   Change in the posterior mean = 0.10877.
+   Current mode = -3935.0347
+   Mode improvement = 1.8351
+   New value of jscale = 0.14475
+==========================================================
+
+==========================================================
+   Change in the posterior covariance matrix = 0.004819.
+   Change in the posterior mean = 0.044634.
+   Current mode = -3935.0365
+   Mode improvement = 0.0017418
+   New value of jscale = 1.0025
+==========================================================

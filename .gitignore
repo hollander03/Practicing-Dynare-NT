@@ -1,1 +1,23 @@
 .DS_Store
+
+# Local LaTeX build products (the source and figures are versioned).
+/practice_dynare_NT.aux
+/practice_dynare_NT.fdb_latexmk
+/practice_dynare_NT.fls
+/practice_dynare_NT.log
+/practice_dynare_NT.out
+/practice_dynare_NT.pdf
+/practice_dynare_NT.synctex.gz
+/practice_dynare_NT.toc
+
+# Outputs generated when participants run the maintained examples in place.
+/Code/sections/+*/
+/Code/sections/s*/
+/Code/sections/*.log
+/Code/sections/*.mat
+/Code/sections/output/
+/Code/full_replications/+*/
+/Code/full_replications/s*/
+/Code/full_replications/*.log
+/Code/full_replications/*.mat
+/Code/full_replications/output/

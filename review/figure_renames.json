@@ -1,0 +1,162 @@
+[
+  {
+    "section": "2.2",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-04.jpg",
+    "renamed": "figures/s02_02_growth_irfs_legacy.jpg",
+    "sha256": "b35058dfc5e53472c1e00e45c8d6b3b628f4f5b093c1d62f379a691a2964189c",
+    "code": "Code/full_replications/s02_full_rep.mod",
+    "generated_output": "output/s02_02_growth_irfs.png"
+  },
+  {
+    "section": "2.3",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-06(1).jpg",
+    "renamed": "figures/s02_03_priors_legacy.jpg",
+    "sha256": "e0a67eaaaa86cad44a07af17c8272050de92642918a8dd26d15dd8af92a1c7a8",
+    "code": "Code/full_replications/s02_full_rep.mod",
+    "generated_output": "output/s02_03_priors.pdf"
+  },
+  {
+    "section": "2.3",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-06.jpg",
+    "renamed": "figures/s02_03_posterior_legacy.jpg",
+    "sha256": "dff5a8e690788cdbc0e00d0f054e853c185e90102688db9f8696e84eee740fc2",
+    "code": "Code/full_replications/s02_full_rep.mod",
+    "generated_output": "output/s02_03_posterior.pdf"
+  },
+  {
+    "section": "3.2",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-10.jpg",
+    "renamed": "figures/s03_02_twocountry_irfs_legacy.jpg",
+    "sha256": "ef18990fc397a0ab95eb14243591ecd93586e3eb0407bb435f16fe9889525d48",
+    "code": "Code/full_replications/s03_full_rep.mod",
+    "generated_output": "output/s03_02_twocountry_irfs.png"
+  },
+  {
+    "section": "3.3",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-11.jpg",
+    "renamed": "figures/s03_03_posterior_legacy.jpg",
+    "sha256": "9e7c5ae04b78941dc56c19a1c8fc6667531f64808216a71c1714f35a7e1f3f6f",
+    "code": "Code/full_replications/s03_full_rep.mod",
+    "generated_output": "output/s03_03_posterior.pdf"
+  },
+  {
+    "section": "4.3.1",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-15.jpg",
+    "renamed": "figures/s04_03_01_g_legacy.jpg",
+    "sha256": "4a253d3d628c4c6ba222ee876b590a6429a061f123bec922f2394aae500f0285",
+    "code": "Code/full_replications/s04_full_rep.mod",
+    "generated_output": "output/s04_03_01_g.png"
+  },
+  {
+    "section": "4.3.2",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-16.jpg",
+    "renamed": "figures/s04_03_02_tauc_legacy.jpg",
+    "sha256": "4ae5d42b72aca4255a00eac19d685483b5fee86cad5cd0b06aae7054fed90844",
+    "code": "Code/full_replications/s04_full_rep.mod",
+    "generated_output": "output/s04_03_02_tauc.png"
+  },
+  {
+    "section": "4.3.3",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-17.jpg",
+    "renamed": "figures/s04_03_03_taui_legacy.jpg",
+    "sha256": "93857147e76bca2d662d3fa73db3fd7fe7fcd317d467903c357b6d06b97b7fd2",
+    "code": "Code/full_replications/s04_full_rep.mod",
+    "generated_output": "output/s04_03_03_taui.png"
+  },
+  {
+    "section": "4.3.4",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-18.jpg",
+    "renamed": "figures/s04_03_04_tauk_legacy.jpg",
+    "sha256": "20a21137d60424fc81c27b98055ff18de2584e9eabcb251ce1c1778c073739b7",
+    "code": "Code/full_replications/s04_full_rep.mod",
+    "generated_output": "output/s04_03_04_tauk.png"
+  },
+  {
+    "section": "4.3.5",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-19.jpg",
+    "renamed": "figures/s04_03_05_g_legacy.jpg",
+    "sha256": "11ec9042df840e3661cfbe214f77e3713ecdcb460f994e6520e818f993555d1e",
+    "code": "Code/full_replications/s04_full_rep.mod",
+    "generated_output": "output/s04_03_05_g.png"
+  },
+  {
+    "section": "4.3.6",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-20.jpg",
+    "renamed": "figures/s04_03_06_taui_legacy.jpg",
+    "sha256": "6235f8896f8576b79b6d1d10caf199f187a7d1767539893465dd52500ec99047",
+    "code": "Code/full_replications/s04_full_rep.mod",
+    "generated_output": "output/s04_03_06_taui.png"
+  },
+  {
+    "section": "5.3.1",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-26.jpg",
+    "renamed": "figures/s05_03_01_g_legacy.jpg",
+    "sha256": "581dd5af85a0b29669c8fd59188c05b6e2edac308ce4e2923ce6e3933226791b",
+    "code": "Code/full_replications/s05_03_full_rep.mod",
+    "generated_output": "output/s05_03_01_g.png"
+  },
+  {
+    "section": "5.3.2",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-27.jpg",
+    "renamed": "figures/s05_03_02_tauc_legacy.jpg",
+    "sha256": "65e11af8bf44d93f2e396ba323528e41f72e699376e5d3294e096f79e7caf4f2",
+    "code": "Code/full_replications/s05_03_full_rep.mod",
+    "generated_output": "output/s05_03_02_tauc.png"
+  },
+  {
+    "section": "5.3.3",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-28.jpg",
+    "renamed": "figures/s05_03_03_tauk_legacy.jpg",
+    "sha256": "135fc2fc5ac982da13e9f2a5e8acba078239c5a0e7f37ac223222c8feb1112eb",
+    "code": "Code/full_replications/s05_03_full_rep.mod",
+    "generated_output": "output/s05_03_03_tauk.png"
+  },
+  {
+    "section": "5.3.4",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-29.jpg",
+    "renamed": "figures/s05_03_04_g_legacy.jpg",
+    "sha256": "fefd7d7165f8356243775ed559936a13f71affd953900c3144f299eaee64fdfe",
+    "code": "Code/full_replications/s05_03_full_rep.mod",
+    "generated_output": "output/s05_03_04_g.png"
+  },
+  {
+    "section": "5.3.5",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-31.jpg",
+    "renamed": "figures/s05_03_05_g_gamma_comparison_legacy.jpg",
+    "sha256": "6e09aa2a8ec6a80db6793a02ae603266a3ac959a63787516c21ef2c2255cdab7",
+    "code": "Code/full_replications/s05_03_full_rep.mod",
+    "generated_output": "output/s05_03_05_g_gamma_comparison.png"
+  },
+  {
+    "section": "5.3.6",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-33.jpg",
+    "renamed": "figures/s05_03_06_yields_legacy.jpg",
+    "sha256": "5bc60646688d94520c819b28106c7bee49dbc61745deda356257592392ea186a",
+    "code": "Code/full_replications/s05_03_full_rep.mod",
+    "generated_output": "output/s05_03_06_yields.png"
+  },
+  {
+    "section": "5.4.1",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-36.jpg",
+    "renamed": "figures/s05_04_01_g_legacy.jpg",
+    "sha256": "f2823afb530bcf92b045160990227d476ddfb39906975ae070b0bd319182bf23",
+    "code": "Code/full_replications/s05_04_full_rep.mod",
+    "generated_output": "output/s05_04_01_g.png"
+  },
+  {
+    "section": "5.4.2",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-37.jpg",
+    "renamed": "figures/s05_04_02_taun_legacy.jpg",
+    "sha256": "b1c5f8602fcd82bc0d29d139d9361150d74e4efac7748fda9127e879690ab678",
+    "code": "Code/full_replications/s05_04_full_rep.mod",
+    "generated_output": "output/s05_04_02_taun.png"
+  },
+  {
+    "section": "5.4.3",
+    "old": "figures/2025_12_01_2aa251fafcb71267535dg-38.jpg",
+    "renamed": "figures/s05_04_03_taun_legacy.jpg",
+    "sha256": "cb1795b899f5c622af338bfa7a2bf37b0cdf05988f16d0cd68b918dc8848a5d3",
+    "code": "Code/full_replications/s05_04_full_rep.mod",
+    "generated_output": "output/s05_04_03_taun.png"
+  }
+]

@@ -1,0 +1,139 @@
+PAGE 1
+Fiscal policies in a non-
+stochastic growth model
+A Dynare application
+September 2025
+
+PAGE 2
+NATIONAL TREASURY
+2
+Introduction
+• In Ljungqvist and Sargent (2004) (LS), Hall (1971)’s nonstochastic
+growth model is augmented with a fiscal block.
+• The distorting taxes prevents competitive equilibrium allocation. To
+solve, LS uses a numerical method called a shooting algorithm.
+• Solution shows how current endogenous variables respond to paths of
+future exogenous variables, which is useful from a planner’s
+perspective.
+• In this exercise, the code from Practicing Dynare is:
+• Amended the example code to run in Dynare 6.4.
+• Replicated the policy shocks.
+Disclaimer: The views presented are those of the presenters and do not necessarily reflect the views of the National Treasury.
+
+PAGE 3
+NATIONAL TREASURY
+3
+Challenges
+• Old code uses simul, deprecated in Dynare 6.4; new code uses
+perfect foresight setup and perfect foresight solver for
+compatibility.
+• Old code lacks shocks; block, causing errors; new code adds
+shocks; for correct exogenous variable specification.
+• Old code uses y , ex , ys0 , ys ; new code uses oo .endo simul,
+oo .exo simul, and explicitly saves steady states.
+• Old code relies on undefined var index; new code uses explicit indices
+(1 for c, 2 for k).
+• New code improves syntax (e.g., semicolons, line breaks) for
+readability and error prevention.
+• Both replicate the different figures, showing responses to a different
+fiscal variables at t = 10.
+
+PAGE 4
+NATIONAL TREASURY
+4
+Non-linear equilibrium conditions (i)
+ct = Akα
+t −kt+1 + (1 −δ)kt −gt
+(1)
+qt = βc−γ
+t+1
+1 + τct
+(2)
+rt
+qt
+= Aαkα−1
+t
+(3)
+wt
+qt
+= Akα
+t −ktAαkα−1
+t
+(4)
+Rt+1 =
+(1 + τct)
+(1 + τct+1)
+(1 + τt+1)
+(1 + τt) (1 −δ) + (1 −τkt+1)
+(1 −τt) Aαkα−1
+t+1
+
+(5)
+st
+qt
+= (1 −τkt)Aαkα−1
+t
++ (1 −δ)
+(6)
+c−γ
+t
+= βc−γ
+t+1Rt+1
+(7)
+
+PAGE 5
+NATIONAL TREASURY
+5
+Example 1: permanent increase in g
+Figure 11.3.1: g increases from 0.2 to 0.4
+
+PAGE 6
+NATIONAL TREASURY
+6
+Example 2: permanent increase in τc
+Figure 11.3.2: τc increases from 0 to 0.2
+
+PAGE 7
+NATIONAL TREASURY
+7
+Annexure
+
+PAGE 8
+NATIONAL TREASURY
+8
+The steady states
+css = A(kss)α −δkss −gss
+(8)
+qss = β(css)−γ
+1 + τ ss
+c
+(9)
+rss
+qss = Aα(kss)α−1
+(10)
+wss
+qss = A(kss)α(1 −α)
+(11)
+Rss = (1 −δ) + (1 −τ ss
+k
+1 −τ ss )Aα(kss)α−1
+(12)
+sss
+qss = (1 −τ ss
+k )Aα(kss)α−1 + (1 −δ)
+(13)
+Rss = 1
+β
+(14)
+
+PAGE 9
+NATIONAL TREASURY
+9
+Log-linearised model
+ˆct = αAkα + (1 −δ)k
+c
+ˆkt −k
+c
+ˆkt+1 −g
+c ˆgt
+(15)

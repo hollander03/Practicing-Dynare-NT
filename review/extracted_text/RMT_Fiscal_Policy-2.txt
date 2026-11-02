@@ -1,0 +1,141 @@
+PAGE 1
+Fiscal policies in a non-
+stochastic growth model
+A Dynare application
+October 2025
+
+PAGE 2
+NATIONAL TREASURY
+2
+Introduction
+• Continue with replicating LS (2004)’s section 5 in Practicing Dynare.
+• So far, code has been cleaned and adjusted for a modern dynare
+version, i.e. old simul vs. the new perfect foresight solver.
+• In this session:
+• Difference between section 5 and 4 are discussed.
+• The challenges encountered in replicating section 5.3 are discussed.
+• The results from three policy experiments are shown:
+• A permanent government spending change
+• A permanent consumption tax change
+• A permanent capital tax change
+Disclaimer: The views presented are those of the presenters and do not necessarily reflect the views of the National Treasury.
+
+PAGE 3
+NATIONAL TREASURY
+3
+Differences between sections 4 and 5
+Section 4’s equilibrium conditions:
+ct = Akα
+t −kt+1 + (1 −δ)kt −gt
+(1)
+qt = βc−γ
+t+1
+1 + τct
+(2)
+rt
+qt
+= Aαkα−1
+t
+(3)
+wt
+qt
+= Akα
+t −ktAαkα−1
+t
+(4)
+Rt+1 =
+(1 + τct)
+(1 + τct+1)
+(1 + τt+1)
+(1 + τt) (1 −δ) + (1 −τkt+1)
+(1 −τt) Aαkα−1
+t+1
+
+(5)
+st
+qt
+= (1 −τkt)Aαkα−1
+t
++ (1 −δ)
+(6)
+c−γ
+t
+= βc−γ
+t+1Rt+1
+(7)
+
+PAGE 4
+NATIONAL TREASURY
+4
+Differences between sections 4 and 5
+Section 5’s equilibrium conditions:
+ct = Akα
+t −kt+1 + (1 −δ)kt −gt
+(8)
+qt = βc−γ
+t+1
+1 + τct
+(9)
+rt
+qt
+= Aαkα−1
+t
+(10)
+wt
+qt
+= Akα
+t −ktAαkα−1
+t
+(11)
+Rt+1 =
+(1 + τct)
+(1 + τct+1)
+
+(1 −δ) + (1 −τkt+1)Aαkα−1
+t+1
+
+(12)
+st
+qt
+= (1 −τkt)Aαkα−1
+t
++ (1 −δ)
+(13)
+c−γ
+t
+= βc−γ
+t+1Rt+1
+(14)
+
+PAGE 5
+NATIONAL TREASURY
+5
+Challenges
+• Easy enough to simply adjust the Rt+1 equation to omit τi.
+• However, likely due to errors in the timing convention results in
+incorrect kinks in the transition diagrams.
+• Section 5.3: R = ((1 + tauc(−1))/(1 + tauc)) ∗((1 −delta) + (1 −
+tauk) ∗A ∗alpha ∗k(−1) ˆ(alpha −1));
+• Section 4: R = ((1 +
+tauc(−1))/(1 + tauc)) ∗(((1 −taui)/(1 −taui(−1))) ∗(1 −delta) +
+((1 −tauk)/(1 −taui(−1))) ∗A ∗alpha ∗k(−1) ˆ(alpha −1));
+• Adjusted the 6plot function to show 5 plots with an easy way of
+incorporating the policy variable for each experiment.
+
+PAGE 6
+NATIONAL TREASURY
+6
+Example 1: permanent increase in g
+Figure 12: Foreseen once-ad-for-all increase in g at t = 10
+
+PAGE 7
+NATIONAL TREASURY
+7
+Example 2: permanent increase in τc
+Figure 12: Foreseen once-ad-for-all increase in τc at t = 10
+
+PAGE 8
+NATIONAL TREASURY
+8
+Example 3: permanent increase in τk
+Figure 12: Foreseen once-ad-for-all increase in τk at t = 10

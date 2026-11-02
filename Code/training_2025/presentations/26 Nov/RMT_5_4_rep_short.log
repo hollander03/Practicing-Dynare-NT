@@ -1,0 +1,40 @@
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ...
+Substitution of exo lags: added 1 auxiliary variables and equations.
+Found 13 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Normalization failed with cutoff, trying symbolic normalization...
+Finding the optimal block decomposition of the static model...
+4 block(s) found:
+  3 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 4 equation(s)
+                                 and 4 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 4 equation(s)
+                                 and 4 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+
+Residuals of the static equations:
+Equation number  1: c        :      -0.058436
+Equation number  2: q        :       0.000000
+Equation number  3: r        :      -0.142113
+Equation number  4: w        :      -0.222887
+Equation number  5: R        :      -0.002224
+Equation number  6: 6        :       0.319066
+Equation number  7: s        :      -0.002113
+Equation number  8: 8        :       0.000000
+Equation number  9: w_over_q :       0.000000
+Equation number 10: s_over_q :       0.000000
+Equation number 11: r_over_q :       0.000000
+Equation number 12: RBIG     :       0.000000
+
+

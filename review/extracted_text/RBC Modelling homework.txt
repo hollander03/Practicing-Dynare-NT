@@ -1,0 +1,89 @@
+ppt/slides/slide1.xml
+RBC Modelling homework
+Impulse Responses in an RBC Model with Technology and Government Spending Shocks
+PRESENTED BY:
+Kabelo, Murendeni and Sanele
+Title:
+Division
+Date: 17 September 2025
+
+ppt/slides/slide2.xml
+Outline
+Background: Standard RBC model
+Variables and Parameters descriptions
+Model Setup
+Calibration and Simulation
+Technology shock
+Government spending shock
+Comparison on Tech vs Gov spending shocks
+
+ppt/slides/slide3.xml
+BACKGROUND: STANDARD RBC MODELS
+RBC tradition:
+ Standard RBC models emphasize technology (TFP) shocks as the main driver of business cycles.
+Fiscal policy in RBC:
+ Government spending is usually passive, financed by lump-sum taxes, with limited role in driving cycles.
+Why extend the model?
+To examine whether fiscal shocks can generate realistic fluctuations.
+To test crowding-out vs. stimulus effects on private activity.
+
+ppt/slides/slide4.xml
+Variables and Parameters descriptions
+
+ppt/slides/slide5.xml
+Slide 3: Summary of Model Setup
+Households: consumption–
+labour
+ choice:
+Marginal utility of consumption and 
+labour
+Euler equation (intertemporal optimality)
+Labour
+ supply conditions	
+		
+Firms: capital and labor → output
+Production Function
+Marginal costs
+Factor demand	
+Total factor productivity shock	
+Government: exogenous spending process
+Key resource constraint (
+market clearing)
+			
+
+ppt/slides/slide6.xml
+Calibration and Simulation
+
+ppt/slides/slide7.xml
+IRFs – Technology Shock
+A positive productivity shock makes firms more efficient.
+Higher productivity raises wages and returns on capital.
+Households consume more, invest more, and supply more 
+labour
+.
+Output expands strongly and persists due to the durability of the shock.
+Key intuition:
+ Technology shocks stimulate demand and supply simultaneously, creating a long-lasting boost in output (permanent output shock deviation from the baseline remain above 0 percentage points over the long-run).
+
+ppt/slides/slide8.xml
+IRFs – Government Spending Shock
+Higher government spending directly raises demand.
+Households supply more 
+labour
+ due to the wealth effect.
+Wages fall while employment increases.
+Private consumption and investment are crowded out.
+Output rises temporarily, but the effect fades as the spending shock is not permanent.
+Key intuition: 
+Government expenditure shocks boost output in the short run by lowering real wages and raising 
+labour
+ supply, but do not create lasting growth.
+
+ppt/slides/slide9.xml
+Comparison and Conclusion
+In summary
+Tech shocks → sustained growth, private activity boosted
+Govt shocks → short-term stimulus, private consumption crowded out.
+
+ppt/notesSlides/notesSlide1.xml
+1

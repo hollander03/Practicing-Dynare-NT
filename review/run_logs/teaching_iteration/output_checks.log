@@ -1,0 +1,17 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+OUTPUT_MATCH s04_03_01_g max_k_c=7.57e-07
+OUTPUT_MATCH s04_03_02_tauc max_k_c=5.03e-06
+OUTPUT_MATCH s04_03_03_taui max_k_c=2.53e-07
+OUTPUT_MATCH s04_03_04_tauk max_k_c=4.96e-08
+OUTPUT_MATCH s04_03_05_g max_k_c=2.56e-07
+OUTPUT_MATCH s04_03_06_taui max_k_c=4.93e-08
+OUTPUT_MATCH s05_03_01_g max_k_c=7.57e-07
+OUTPUT_MATCH s05_03_02_tauc max_k_c=5.03e-06
+OUTPUT_MATCH s05_03_03_tauk max_k_c=4.96e-08
+OUTPUT_MATCH s05_03_04_g max_k_c=2.56e-07
+OUTPUT_MATCH s05_03_05_g_gamma02 max_k_c=7.35e-07
+OUTPUT_MATCH s05_03_06_yields prices/yields
+OUTPUT_MATCH s05_04_01_g max_k_c=4.4e-07
+OUTPUT_MATCH s05_04_02_taun max_k_c=4.4e-07
+OUTPUT_MATCH s05_04_03_taun max_k_c=4.4e-07

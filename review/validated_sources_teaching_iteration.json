@@ -1,0 +1,122 @@
+[
+  {
+    "model": "Code/sections/s02_02_growth_approx.mod",
+    "sha256": "f2017c7a5996a255903d8e2c20b47f4539a60551fc66112ec429b62580d32bca",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s02_03_growth_estimate.mod",
+    "sha256": "d987e74e03e79d7b3d4628c2f7cf4b1eaf692349b4c4fdc9b080d848eddc51da",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s03_02_twocountry_approx.mod",
+    "sha256": "4580002ee2bd92bd79d2fa30c968ab7c5f49187a167f4194e9b91a2f24029cf0",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s03_03_twocountry_estimate.mod",
+    "sha256": "81c6357b6ac55fb5341ad00bc6cd581bb87c8ad670774df54b9acfd080a76e70",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_01_g.mod",
+    "sha256": "672ee88a150e968418c178936f3eb3df511e1fe92d36c5b8fb03a9a4f3c407f4",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_02_tauc.mod",
+    "sha256": "06fec45b7d8fb77a933b5da5c17db378b21b0faad25989659b7e80d8625d8ada",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_03_taui.mod",
+    "sha256": "6841e4b8c04c63fe3109b1da8536285b094fcc8727523e1cc2ce1a98f2fb4b04",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_04_tauk.mod",
+    "sha256": "d2da95617d73e25add054427ddaafa51529f568a028e4a80ff03380ca34962e9",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_05_g.mod",
+    "sha256": "e8b6862a308d35e2ed9571bd1f83acfe1d9a7865ce51afa338f1ffd1c7059d5a",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_06_taui.mod",
+    "sha256": "e9770dc6bad2b2821f2f7ba369d67842eaae600d873aee67024a66e31cc88e61",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_01_g.mod",
+    "sha256": "1740c238c4bb6eb12b5d7c8c9f6ac7c3e938159dd24e28bae74db7642696e416",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_02_tauc.mod",
+    "sha256": "2bd5b2564b6918a8d4845fd4fc92254b0b7e28b8cfa1c24e09e857af1be8a5a9",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_03_tauk.mod",
+    "sha256": "38e76a060e194384c7eea704d59f442f5c4cad7eaca1e6ce94d0e9d303f0bc7b",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_04_g.mod",
+    "sha256": "8ea279e833d89329866acbf8ce76a718857dd0984b900d11a38cdd2a739c4128",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_05_g_gamma02.mod",
+    "sha256": "3d880888311cb9a3fba72ddbb8f320c44f9acec689f9996fc881b71e6f070bdd",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_06_yields.mod",
+    "sha256": "ffbb79b23d1ac4dc36466f88944a19d697e1dcd4820aeb314e2ab0ef0d0d1b4b",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_04_01_g.mod",
+    "sha256": "a3906b3c8ad47da2a62401e9ff3c3cd4756b3a02e4df14c8f3983c769b5ead71",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_04_02_taun.mod",
+    "sha256": "aa3cad44ce6d4ab03d981a5434ce0e92f1624b1a9b416171f555bdaf48a826ba",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_04_03_taun.mod",
+    "sha256": "1cf3897d7f4e6e6ee21e9db7ceca5fab9048f68de72371bb436bdbbfe3a04270",
+    "execution_log": "review/run_logs/teaching_iteration/simple.log"
+  },
+  {
+    "model": "Code/full_replications/s02_full_rep.mod",
+    "sha256": "aa8c474e9086bc7d038cd24c3896eb7a290ed11b7e359cdcc9fc33ecae054ff1",
+    "execution_log": "review/run_logs/teaching_iteration/full.log"
+  },
+  {
+    "model": "Code/full_replications/s03_full_rep.mod",
+    "sha256": "3a2d29e39216e99e0e6e81bb5d1273c9d631a75c3f56cd1a6b53acf3ebbb1ab0",
+    "execution_log": "review/run_logs/teaching_iteration/full.log"
+  },
+  {
+    "model": "Code/full_replications/s04_full_rep.mod",
+    "sha256": "057978b2db219d67e7786e71a0b777a281ff4c4b3015a89198909f0f671d7066",
+    "execution_log": "review/run_logs/teaching_iteration/full_fiscal_final.log"
+  },
+  {
+    "model": "Code/full_replications/s05_03_full_rep.mod",
+    "sha256": "66ea343c28114fd3393da1af9aea379da06f884324a475c62ee2cbb63e41a098",
+    "execution_log": "review/run_logs/teaching_iteration/full_fiscal_final.log"
+  },
+  {
+    "model": "Code/full_replications/s05_04_full_rep.mod",
+    "sha256": "8ee733d9e21577758697adef41bf2e0f8f92400c4664a5b7880bb213a4dfeb0e",
+    "execution_log": "review/run_logs/teaching_iteration/full_fiscal_final.log"
+  }
+]

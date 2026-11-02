@@ -1,0 +1,63 @@
+PAGE 1
+Assessing a Basic NK Model in Dynare
+Julius Pain
+September 2025
+Julius Pain
+Assessing a Basic NK Model in Dynare
+September 2025
+1 / 5
+
+PAGE 2
+Overview
+We simulate a baseline New Keynesian model with labour and
+money-in-utility (MIU).
+The experiment focuses on the response of key variables to a price
+shock.
+Six alternative monetary policy reaction functions (Taylor-rule
+variants) are compared:
+▶Baseline Taylor rule with inflation and output gap.
+▶Taylor rule with inflation and output level.
+▶Taylor rule with inflation and output growth.
+▶Forward-looking Taylor rule (inflation and output gap, t + 1).
+▶Backward-looking Taylor rule (inflation and output gap, t −1).
+▶Optimal simple rule (interest rate set equal to natural rate plus policy
+terms).
+Each figure shows impulse responses (IRFs) to the price shock under
+these policy rules.
+Julius Pain
+Assessing a Basic NK Model in Dynare
+September 2025
+2 / 5
+
+PAGE 3
+Visual comparison - IRFs (i)
+Baseline Taylor rule: inflation +
+output gap
+Taylor rule: inflation + output level
+Julius Pain
+Assessing a Basic NK Model in Dynare
+September 2025
+3 / 5
+
+PAGE 4
+Visual comparison - IRFs (ii)
+Taylor rule: inflation + output
+growth
+Forward-looking rule: inflation +
+output gap (t+1)
+Julius Pain
+Assessing a Basic NK Model in Dynare
+September 2025
+4 / 5
+
+PAGE 5
+Visual comparison - IRFs (iii)
+Backward-looking rule: inflation +
+output gap (t−1)
+Optimal simple rule:
+it = rn
+t + (ϕππt + ϕyygapt)
+Julius Pain
+Assessing a Basic NK Model in Dynare
+September 2025
+5 / 5
