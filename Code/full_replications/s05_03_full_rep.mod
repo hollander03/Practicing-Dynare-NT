@@ -402,44 +402,45 @@ cons = gamma2_solution(strcmp(M_.endo_names, 'c'), 2:302);
 consumption_tax = policies{1}(2:302, strcmp(M_.exo_names, 'tauc'))';
 q = gamma2_beta.^(0:300) .* (cons/cons(1)).^(-2) ...
     .* (1+consumption_tax(1))./(1+consumption_tax);
-q_baseline = gamma2_beta.^(0:39);
+discount = gamma2_beta;
+initial_cons = gamma2_baseline(2);
 short_rate = -log(q(2:end)./q(1:end-1));
-short_baseline = -log(gamma2_beta);
 
-yields = zeros(40, 61);
-% Fixed dates and maturities only: each cell is assigned once.
-% date+maturity is at most 101, within the 301-element price path.
-for date = 1:61
+% Select three observation dates; maturities are periods until repayment.
+observation_dates = [0 10 60];
+maturities = (1:40)';
+yields = zeros(40, 3);
+% Each column is one observation date; each row is one maturity.
+% Add one because MATLAB index 1 represents model date t=0.
+% These loops only calculate bond yields from the solved consumption path.
+for curve = 1:3
+    date_index = observation_dates(curve) + 1;
     for maturity = 1:40
-        yields(maturity, date) = -log(q(date+maturity)/q(date))/maturity;
+        yields(maturity, curve) = ...
+            -log(q(date_index+maturity)/q(date_index))/maturity;
     end
 end
 
-figure('Position', [100 100 1000 600]);
-subplot(2, 3, 1);
-plot(time, gamma2_baseline(2)*ones(40, 1), '--k', time, cons(1:40), 'b');
-title('Consumption'); xlabel('Time t');
+% Calendar time belongs on the first two panels; maturity on the third.
+time = (0:39)';
+figure('Position', [100 100 1200 400]);
+subplot(1, 3, 1);
+plot(time, initial_cons*ones(40, 1), '--k', time, cons(1:40), 'b');
+title('Consumption'); xlabel('Time t'); ylabel('Goods');
+legend('Initial steady state', 'Spending increase');
 
-subplot(2, 3, 2);
-plot(time, q_baseline, '--k', time, q(1:40), 'b');
-title('Dated price, q_t'); xlabel('Time t');
+subplot(1, 3, 2);
+plot(time, -log(discount)*ones(40, 1), '--k', ...
+     time, short_rate(1:40), 'b');
+title('One-period interest rate'); xlabel('Time t'); ylabel('Log rate per period');
 
-subplot(2, 3, 3);
-plot(time, short_baseline*ones(40, 1), '--k', time, short_rate(1:40), 'b');
-title('Continuously compounded short rate'); xlabel('Time t');
-
-subplot(2, 3, 4);
-% Columns 1, 11 and 61 correspond to dates t=0, 10 and 60.
-plot(1:40, yields(:, 1), 'b', 1:40, yields(:, 11), '-.r', ...
-     1:40, yields(:, 61), '--k');
-title('Yield curves'); xlabel('Maturity');
+subplot(1, 3, 3);
+plot(maturities, yields(:, 1), 'b', maturities, yields(:, 2), '-.r', ...
+     maturities, yields(:, 3), '--k');
+title('Yield curves'); xlabel('Maturity (periods)'); ylabel('Log yield per period');
 legend('t=0', 't=10', 't=60');
 
-subplot(2, 3, 5);
-plot(time, gamma2_baseline(5)*ones(40, 1), '--k', ...
-     time, gamma2_paths(:, 5), 'b');
-title('Government spending'); xlabel('Time t');
-
 print(gcf, fullfile('output', 's05_03_06_yields.png'), '-dpng', '-r150');
-save(fullfile('output', 's05_03_06_yields.mat'), 'q', 'yields', 'short_rate');
+save(fullfile('output', 's05_03_06_yields.mat'), ...
+     'q', 'yields', 'short_rate', 'discount', 'observation_dates', 'maturities');
 end;

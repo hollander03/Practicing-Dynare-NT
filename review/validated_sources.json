@@ -98,10 +98,10 @@
   },
   {
     "model": "Code/sections/s05_03_06_yields.mod",
-    "sha256": "9ff7313d3bdffa5b4e251a9cf26c7b48d436fcacf35eadf7f7620dea55c95ac0",
+    "sha256": "7f081efe1ff978075c007c29eefda9a0ca6b086fe7cc41b2fd2de93721370732",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "dc05d5e710f0102ec94c605d5a0f109e41e1c1df7c1e97de44cfd692116c53fc",
-    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun. Yield post-processing now calculates and plots three selected curves; model equations unchanged. No model rerun."
   },
   {
     "model": "Code/sections/s05_04_01_g.mod",
@@ -147,10 +147,10 @@
   },
   {
     "model": "Code/full_replications/s05_03_full_rep.mod",
-    "sha256": "c0ceddb671f7f07f0a823c2770e03c3bce238e5307bfb705034345cec468eefb",
+    "sha256": "a71c575ce5526ddb98e267ac984f821c63ee9e8757bbb043fc77f9471dcac7b7",
     "execution_log": "review/run_logs/equilibrium_alignment/full_fiscal.log",
     "executed_source_sha256": "8449c0fce7ed55f29dfcaa57ad8fccede5483a7ccdc258eac2f04de85db1f59a",
-    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun. Yield post-processing now calculates and plots three selected curves; model equations unchanged. No model rerun."
   },
   {
     "model": "Code/full_replications/s05_04_full_rep.mod",

@@ -71,24 +71,43 @@ end
 % The yield-curve exercise reuses the spending experiment's consumption path.
 data=load(fullfile(snapshot_dir,'s05_03_06_yields.mat'));
 spending=load(fullfile(snapshot_dir,'s05_03_01_g.mat'));
-time=spending.time;
-figure('Position',[100 100 1000 600]);
-subplot(2,3,1);
-plot(time,spending.baseline(2)*ones(40,1),'--k',time,spending.paths(:,2),'b');
-title('Consumption'); xlabel('Time t');
-subplot(2,3,2);
-plot(time,data.discount.^(0:39),'--k',time,data.q(1:40),'b');
-title('Dated price, q_t'); xlabel('Time t');
-subplot(2,3,3);
-plot(time,-log(data.discount)*ones(40,1),'--k',time,data.short_rate(1:40),'b');
-title('Continuously compounded short rate'); xlabel('Time t');
-subplot(2,3,4);
-plot(1:40,data.yields(:,1),'b',1:40,data.yields(:,11),'-.r', ...
-     1:40,data.yields(:,61),'--k');
-title('Yield curves'); xlabel('Maturity'); legend('t=0','t=10','t=60');
-subplot(2,3,5);
-plot(time,spending.baseline(5)*ones(40,1),'--k',time,spending.paths(:,5),'b');
-title('Government spending'); xlabel('Time t');
+cons = spending.paths(:,2);
+q = data.q;
+discount = data.discount;
+short_rate = data.short_rate;
+% Select three observation dates; maturities are periods until repayment.
+observation_dates = [0 10 60];
+maturities = (1:40)';
+yields = zeros(40, 3);
+% Each column is one observation date; each row is one maturity.
+% Add one because MATLAB index 1 represents model date t=0.
+% These loops only calculate bond yields from the solved consumption path.
+for curve = 1:3
+    date_index = observation_dates(curve) + 1;
+    for maturity = 1:40
+        yields(maturity, curve) = ...
+            -log(q(date_index+maturity)/q(date_index))/maturity;
+    end
+end
+
+% Calendar time belongs on the first two panels; maturity on the third.
+time = (0:39)';
+figure('Position', [100 100 1200 400]);
+subplot(1, 3, 1);
+plot(time, spending.baseline(2)*ones(40, 1), '--k', time, cons(1:40), 'b');
+title('Consumption'); xlabel('Time t'); ylabel('Goods');
+legend('Initial steady state', 'Spending increase');
+
+subplot(1, 3, 2);
+plot(time, -log(discount)*ones(40, 1), '--k', ...
+     time, short_rate(1:40), 'b');
+title('One-period interest rate'); xlabel('Time t'); ylabel('Log rate per period');
+
+subplot(1, 3, 3);
+plot(maturities, yields(:, 1), 'b', maturities, yields(:, 2), '-.r', ...
+     maturities, yields(:, 3), '--k');
+title('Yield curves'); xlabel('Maturity (periods)'); ylabel('Log yield per period');
+legend('t=0', 't=10', 't=60');
 print(gcf,fullfile(figure_dir,'s05_03_06_yields.png'),'-dpng','-r150');
 close(gcf);
 fprintf('Redrew 17 PNG figures from saved values. No model simulations or estimations were run.\n');

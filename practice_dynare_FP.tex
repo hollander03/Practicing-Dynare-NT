@@ -731,6 +731,8 @@ Compare the following low-curvature economy with \texttt{s05\_03\_01\_g.mod} ($\
 
 
 \subsection*{5.3.6 Bond prices and yields}
+How does an anticipated increase in government purchases change interest rates across maturities? This exercise uses the consumption response from Section 5.3.1 to answer that question.
+
 A bond promises a consumption good at a future date. Let $q_t$ be the price today of one good received at date $t$, and set $q_0=1$. If consumption is expected to be high at $t$, another good at that date is less valuable. The price also falls with the time until delivery because the household discounts future consumption.
 
 The solved consumption and tax paths give these prices directly:
@@ -744,7 +746,9 @@ At date $t$, a bond delivering one good $i$ periods later costs $q_{t+i}/q_t$ go
 \begin{align*}
 y_{i,t} &= -\frac{1}{i}\log\left(\frac{q_{t+i}}{q_t}\right),\qquad i\geq1. \tag{20}
 \end{align*}
-For example, a one-period bond costing 0.95 goods has gross return $1/0.95$ and continuously compounded yield $-\log(0.95)$. The exercise compares yields at dates before, during and after the announced increase in government purchases.
+For example, a one-period bond costing 0.95 goods has gross return $1/0.95$ and continuously compounded yield $-\log(0.95)$. The exercise compares yield curves at dates $t=0$, $10$ and $60$. Each curve shows the yields available at one date for repayment one to forty periods later. Calendar time and maturity are different: a forty-period bond bought at $t=10$ repays at $t=50$.
+
+With constant consumption and taxes, $q_{t+i}/q_t=\beta^i$, so every maturity has yield $-\log(\beta)$. Expected consumption growth raises the one-period interest rate: saving must offer a higher return when consumption today is scarce relative to tomorrow. A longer-maturity yield is the average of the one-period log rates over the bond's life. Use the consumption panel to interpret the short-rate path, then explain how that path shapes the three yield curves.
 
 \lstinputlisting{Code/sections/s05_03_06_yields.mod}
 
@@ -752,7 +756,7 @@ For example, a one-period bond costing 0.95 goods has gross return $1/0.95$ and 
 \begin{center}
   \includegraphics[width=\textwidth]{s05_03_06_yields.png}
 \captionsetup{labelformat=empty}
-\caption{Figure 17: Response to foreseen once-and-for-all increase in g at $t=10$. Yield curves for $t=0$ (solid line), $t=10$ (dashdotted line) and $t=60$ (dashed line); term to maturity is on the x axis for the yield curve, time for the other panels.\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=10$, announced at $t=0$. $c_t$ is consumption and $g_t$ government purchases. Consumption curvature is $\gamma=2$. The initial policy is $g=0.2$ with tax/subsidy rates zero; $\beta=0.95$, $\delta=0.2$, $A=1$ and $\alpha=0.33$. $q_t$ is the price of future consumption with $q_0=1$. Short rates and yields are continuously compounded; maturities are measured in model periods. All quantities and rates are per model period.}
+\caption{Figure 17: Consumption, interest rates and the yield curve after an announced spending increase.\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=10$, announced at $t=0$. The first two panels show calendar time; the third shows maturities of 1--40 periods at observation dates $t=0$ (solid blue), $t=10$ (dash-dot red) and $t=60$ (dashed black). The one-period rate and bond yields are continuously compounded, per model period. Dashed black lines in the first two panels show the initial steady state; its flat yield curve is $-\log(0.95)$. Calibration: $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $\gamma=2$; tax rates are zero.}
 \end{center}
 \label{fig:s05-03-06-yields}
 \end{figure}

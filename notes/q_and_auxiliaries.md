@@ -33,4 +33,4 @@ y_{i,t}=-\log(q_{t+i}/q_t)/i,\qquad i\geq1.
 
 For example, a one-period bond costing 0.95 goods has gross return 1/0.95 and continuously compounded yield -log(0.95).
 
-The code computes q and the yields after Dynare has solved consumption and capital. No extra price equation is needed in the model block. The yield loop fills one cell per date and maturity; its bounds are given in the comments.
+The code computes q and the yields after Dynare has solved consumption and capital. No extra price equation is needed in the model block. The yield calculation uses three observation dates (t=0, 10 and 60) and maturities of 1–40 periods. Each column is a yield curve at one date. The section file plots consumption, the one-period interest rate and these three curves. With constant consumption and taxes, the yield curve is flat at -log(beta).

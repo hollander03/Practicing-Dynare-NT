@@ -65,6 +65,11 @@ end;
 steady;
 check;
 
+// Keep initial consumption for the reference line in the plot.
+verbatim;
+initial_cons = oo_.steady_state(strcmp(M_.endo_names, 'c'));
+end;
+
 // Terminal steady state under the permanent new policy.
 endval;
     g    = 0.4;
@@ -92,7 +97,7 @@ perfect_foresight_solver;
 // program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 % M_.endo_names identifies the consumption row in Dynare's solution.
-% Column 1 is the initial condition; columns 2:301 are simulated dates.
+% Column 1 is the initial condition; columns 2:302 include the terminal date.
 cons = oo_.endo_simul(strcmp(M_.endo_names, 'c'), 2:302);
 
 % Parameters live in M_.params; select them by name rather than position.
@@ -106,14 +111,39 @@ consumption_tax = oo_.exo_simul(2:302, strcmp(M_.exo_names, 'tauc'))';
 q = discount.^(0:300) .* (cons/cons(1)).^(-curvature) ...
     .* (1+consumption_tax(1))./(1+consumption_tax);
 
-% Each column is a date t=0,...,60; each row a maturity of 1,...,40.
-% Continuously compounded yields; maturity zero would divide by zero.
-yields = zeros(40, 61);
-% Fixed dates and maturities only: each cell is assigned once.
-% date+maturity is at most 101, within the 301-element price path.
-for date = 1:61
+% Select three observation dates; maturities are periods until repayment.
+observation_dates = [0 10 60];
+maturities = (1:40)';
+yields = zeros(40, 3);
+% Each column is one observation date; each row is one maturity.
+% Add one because MATLAB index 1 represents model date t=0.
+% These loops only calculate bond yields from the solved consumption path.
+for curve = 1:3
+    date_index = observation_dates(curve) + 1;
     for maturity = 1:40
-        yields(maturity, date) = -log(q(date+maturity)/q(date))/maturity;
+        yields(maturity, curve) = ...
+            -log(q(date_index+maturity)/q(date_index))/maturity;
     end
 end
+
+short_rate = -log(q(2:end)./q(1:end-1));
+
+% Calendar time belongs on the first two panels; maturity on the third.
+time = (0:39)';
+figure('Position', [100 100 1200 400]);
+subplot(1, 3, 1);
+plot(time, initial_cons*ones(40, 1), '--k', time, cons(1:40), 'b');
+title('Consumption'); xlabel('Time t'); ylabel('Goods');
+legend('Initial steady state', 'Spending increase');
+
+subplot(1, 3, 2);
+plot(time, -log(discount)*ones(40, 1), '--k', ...
+     time, short_rate(1:40), 'b');
+title('One-period interest rate'); xlabel('Time t'); ylabel('Log rate per period');
+
+subplot(1, 3, 3);
+plot(maturities, yields(:, 1), 'b', maturities, yields(:, 2), '-.r', ...
+     maturities, yields(:, 3), '--k');
+title('Yield curves'); xlabel('Maturity (periods)'); ylabel('Log yield per period');
+legend('t=0', 't=10', 't=60');
 end;
