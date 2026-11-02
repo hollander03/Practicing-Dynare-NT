@@ -1,0 +1,122 @@
+[
+  {
+    "stem": "s02_02_growth_irfs",
+    "figure": "s02_02_growth_irfs.png",
+    "code": "s02_full_rep.mod",
+    "sha256": "28e82658564f8bea271aac9dd2129f7959d83d2a97ca67977f7224eab67e7d04"
+  },
+  {
+    "stem": "s02_03_priors",
+    "figure": "s02_03_priors.pdf",
+    "code": "s02_full_rep.mod",
+    "sha256": "158872350c7001c8e421200041b4eb4326dfaeca552911a88918721f8862d9cb"
+  },
+  {
+    "stem": "s02_03_posterior",
+    "figure": "s02_03_posterior.pdf",
+    "code": "s02_full_rep.mod",
+    "sha256": "81a30363e5d2da6140ec11a556c7a650df11fe8aa3ebc0da81c907a3431bfecd"
+  },
+  {
+    "stem": "s03_02_twocountry_irfs",
+    "figure": "s03_02_twocountry_irfs.png",
+    "code": "s03_full_rep.mod",
+    "sha256": "2ac6099771462ef3f16178236533de6fb69dacce7783de21af8f407f4fc8f221"
+  },
+  {
+    "stem": "s03_03_posterior",
+    "figure": "s03_03_posterior.pdf",
+    "code": "s03_full_rep.mod",
+    "sha256": "40bbd4248f14b5bd947f2ea656e435e7acc1fea1e82b1382e23b269dbacc7ac5"
+  },
+  {
+    "stem": "s04_03_01_g",
+    "figure": "s04_03_01_g.png",
+    "code": "s04_full_rep.mod",
+    "sha256": "81660bb67d1bbced242ea00526f2942eea8eea861f080873215176fb6845b30a"
+  },
+  {
+    "stem": "s04_03_02_tauc",
+    "figure": "s04_03_02_tauc.png",
+    "code": "s04_full_rep.mod",
+    "sha256": "fba28b55d7f985af9acea7dcd4c2961e9ecb7d804a654d881e60f68799ba78e7"
+  },
+  {
+    "stem": "s04_03_03_taui",
+    "figure": "s04_03_03_taui.png",
+    "code": "s04_full_rep.mod",
+    "sha256": "e8800930c6ddc174baedc458a988a513e4e0510379a41075c4ccee602254a1b9"
+  },
+  {
+    "stem": "s04_03_04_tauk",
+    "figure": "s04_03_04_tauk.png",
+    "code": "s04_full_rep.mod",
+    "sha256": "98140274b61ca47d1ebeaa39cdb1d405257cdcd827cf92684f98a005ef37b232"
+  },
+  {
+    "stem": "s04_03_05_g",
+    "figure": "s04_03_05_g.png",
+    "code": "s04_full_rep.mod",
+    "sha256": "9f8f9d0f4972f0b42b06d2e6b528175ed50732d44136bb466ade273711315a82"
+  },
+  {
+    "stem": "s04_03_06_taui",
+    "figure": "s04_03_06_taui.png",
+    "code": "s04_full_rep.mod",
+    "sha256": "d9534c21ccfc0bf0ff405aa53a786f8c70654ec203be51210f7ff726a89b7cc2"
+  },
+  {
+    "stem": "s05_03_01_g",
+    "figure": "s05_03_01_g.png",
+    "code": "s05_03_full_rep.mod",
+    "sha256": "94992937a37216bf4f045e9f78a4cc06b3fa2bdeef361e453eaafb886e68b51a"
+  },
+  {
+    "stem": "s05_03_02_tauc",
+    "figure": "s05_03_02_tauc.png",
+    "code": "s05_03_full_rep.mod",
+    "sha256": "3a7dbff10e479fd5637052a3827ae5ad6dbce96bc80bdf2791e8b1795ab794dc"
+  },
+  {
+    "stem": "s05_03_03_tauk",
+    "figure": "s05_03_03_tauk.png",
+    "code": "s05_03_full_rep.mod",
+    "sha256": "3809a55dbf053048ad30dd3f6489360d0bd7b6e85604a1d633b6285ad581bad1"
+  },
+  {
+    "stem": "s05_03_04_g",
+    "figure": "s05_03_04_g.png",
+    "code": "s05_03_full_rep.mod",
+    "sha256": "f482e90ef12fad929694aa61cbb9acfd80bc52dabb36063815af5a472db2ef0d"
+  },
+  {
+    "stem": "s05_03_05_g_gamma_comparison",
+    "figure": "s05_03_05_g_gamma_comparison.png",
+    "code": "s05_03_full_rep.mod",
+    "sha256": "c743075c646bed76fd8f30b34fe9f3cdfc7f1bc537b78c61c44585b140c0ac24"
+  },
+  {
+    "stem": "s05_03_06_yields",
+    "figure": "s05_03_06_yields.png",
+    "code": "s05_03_full_rep.mod",
+    "sha256": "2abaa9ebe5f7637a1e6765447f52d5fd5682aab872aae73ac530210f62bc0737"
+  },
+  {
+    "stem": "s05_04_01_g",
+    "figure": "s05_04_01_g.png",
+    "code": "s05_04_full_rep.mod",
+    "sha256": "ea34c86f154dccfa2650c829d4e29fcb56a226a880392709c9819f7672fe752a"
+  },
+  {
+    "stem": "s05_04_02_taun",
+    "figure": "s05_04_02_taun.png",
+    "code": "s05_04_full_rep.mod",
+    "sha256": "d75ea791d083b4931c76ba214933321f132816d9317c478954ae2bb3c21025e1"
+  },
+  {
+    "stem": "s05_04_03_taun",
+    "figure": "s05_04_03_taun.png",
+    "code": "s05_04_full_rep.mod",
+    "sha256": "ffcfeb40ce1e8990d8964c1ddee08f9c5be75cc1261b5fd485ba5dd7b3393817"
+  }
+]

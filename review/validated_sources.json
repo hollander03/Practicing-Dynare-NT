@@ -21,138 +21,142 @@
   },
   {
     "model": "Code/sections/s04_03_01_g.mod",
-    "sha256": "261772522cd74586a9e2f01493dc7689c7f8c302b900e6380672261bc7e3e216",
+    "sha256": "a49b30ae662e493f4bd0027099332ef051f79d8e70877dfa335008c33c66fb3c",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "d242856f526da62d8882372d728a99bf463606f922ba897ba577ab3363ffef82",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s04_03_02_tauc.mod",
-    "sha256": "18d986f7da1e6d36c380c6b4859e38ec61e15f6544f4934b98495f7dfa934602",
+    "sha256": "879cb673a87b920d6797c25030e9d48d1a8598a9f495ed4d7bec993195b448d2",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "4a57af17636960079479a035cda9b7c9b0f782417d9f44db5be5ea653e938873",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s04_03_03_taui.mod",
-    "sha256": "ab8194bd8e65b578cb4a1215253ca067f52ed1ddaa3d7268a47f925bcb156798",
+    "sha256": "333c670ce0e11ab658153a17a8c1ac4f0f30e32a0b1b14629075a721cc2c9cc3",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "0c6e65793af43bc948bd3946e55e654979e21c4d6660e9d9444c0923f04be3ff",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s04_03_04_tauk.mod",
-    "sha256": "604d4788f738f2523f2b7663284e8f70a3f828f2ae87ff472d64114fb272ef96",
+    "sha256": "ebc79b5931b74beefa176c825455639aeb1423d21ccfe0ccebd9da50f5b79a23",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "fb5a225ce7d2eb87544b8ef9f5ab37163a15eb3684fc92f4a594a1753128e3d9",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s04_03_05_g.mod",
-    "sha256": "20e3ab30aa3d6caa6f93ef47e7b04c271df18ce3db175402b41da18fd33e86e5",
+    "sha256": "40f78d22bf005bb1d1d15c5e9711d5582d9ac831c91abc9b9b6ef18d83ea29bc",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "c16b55e1cc5b48ac162dbc72f4698230c5664b90a2f8a1fe729ba2b88cae6639",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s04_03_06_taui.mod",
-    "sha256": "1585ab0645ce4509d6e3d594c13ab7f706b09af0c69ee02613577ec1cc14afc4",
+    "sha256": "60910a818a16b4afb61eb801a9c6adf946190f9779bdc688955893df43411a8c",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "91cd90926edde6d46d3b54b048566463f11b154a7fbcdfd428fb35303a95eefb",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s05_03_01_g.mod",
-    "sha256": "4923f2d4171ff88803a9bb25d81c06d943040c74ca28210c4e3ec91d3ff19d3d",
+    "sha256": "a6a1214e97b1a8408b363f94088788b22fa403c113c95367bbacd7bebd32e274",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "971c408333f0b65c8811d1cb4768b09537701f642b4380f806b5a5f331100194",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s05_03_02_tauc.mod",
-    "sha256": "cc19034fc454abe8c8e94c0bd206423d4293d63b7631c4ce15f3f94606a9cd8a",
+    "sha256": "7064d39ff6dfedce2ded6aba0e5d34811f6e282d254859ceec3014fa65a3b1c2",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "3281f97b978a811404c848afb8a6573807827c65ef31a54dc7ccbc7468f372fa",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s05_03_03_tauk.mod",
-    "sha256": "aa0a088e4229c5e4f1090ddfeecefe17c21b250bee05005df8b7869575aefb77",
+    "sha256": "077f1ea5756bc629a2b05e890feca05cae84d79c9a0dc24f50f5e3e9780f96f4",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "b9c4b08580cfa46c1484e26e090bc1a335c8c2c2d3b112fc79824340a24751a2",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s05_03_04_g.mod",
-    "sha256": "c14c06c5d7aae0f8f646b95c7b607e4c2991f3e8ff065531d77cb62bec9fb4c9",
+    "sha256": "d51cea35a8c3ddc6c25113da3c1b8eeae3ab2210da91dca29d84b67cd1ddb56a",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "1787facf722fd7cc972abd451ab8048e25d14b1b507d7103e119f03e488d3c8b",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s05_03_05_g_gamma02.mod",
-    "sha256": "4257e710b7c4bd0e605ca583eb2d6befe75edcc352944619ea23c3af9ea74119",
+    "sha256": "68d7e44a3e17d96c70624652716caf66358ef337d54116839753ddacfeeff00e",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "6e5c6bb80b9a18e9708c62559df68cfae741d1075dcdad4767116323464d3302",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s05_03_06_yields.mod",
-    "sha256": "12eafa39ca5720fef67c5e47da8460bfef66251409528a31e6ba842822a03ce1",
+    "sha256": "9ff7313d3bdffa5b4e251a9cf26c7b48d436fcacf35eadf7f7620dea55c95ac0",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "dc05d5e710f0102ec94c605d5a0f109e41e1c1df7c1e97de44cfd692116c53fc",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s05_04_01_g.mod",
-    "sha256": "833859f8f06c47373305ea43eab436a8a355526a69f7b02d1bc58be099f1cbaf",
+    "sha256": "170c8439f0364b3c3480f3bf4ce9582a6b5e878750c7033281ce56d04126def2",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "2294c77ecdfcc4b192f45a085684d5d09062bd42329adb9fc7120b46e861473e",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s05_04_02_taun.mod",
-    "sha256": "194bcdbdea74fae57e1dd68ba3291b4c9b870229541083d7c0805a9546c76a11",
+    "sha256": "d968d8e14cf7b8cde24c3b3e0ece88c44765cbe907467bb7b3974b27422e8e16",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "04715adb40263628f313f4b535c417ad619549d70e382e6385bbee099dc0c1e3",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/sections/s05_04_03_taun.mod",
-    "sha256": "8c056b0aaedb35dd75e88c05a0d8abb741edb5547e984213f617c04fbc1fbe10",
+    "sha256": "939ab392fc03bb4c7152af9f54a50723ce3e998e394c32e0c5702849cadf1d2c",
     "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log",
     "executed_source_sha256": "3894681e716b16019627fdd5a5c4058e5daa92c6af3216add5ae850eb20f1a3c",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/full_replications/s02_full_rep.mod",
-    "sha256": "591c8e8511ba576706129d1742055419169cf434cfbd9b16bd7b582b16047bb5",
-    "execution_log": "review/run_logs/equilibrium_alignment/full_stochastic.log"
+    "sha256": "84df9d5b66188f1283cb2d04bfc8cb1acddc00f01a89105457a48229c813ec16",
+    "execution_log": "review/run_logs/equilibrium_alignment/full_stochastic.log",
+    "executed_source_sha256": "591c8e8511ba576706129d1742055419169cf434cfbd9b16bd7b582b16047bb5",
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/full_replications/s03_full_rep.mod",
-    "sha256": "bc5698d8d092ce855d2316a957d83487ce4ed3045826955e679fb4a0be216f04",
-    "execution_log": "review/run_logs/equilibrium_alignment/full_stochastic.log"
+    "sha256": "ca9de615d97a87f5d3431c5c2d93a505ba5281723b300a18293ea941e94d59e5",
+    "execution_log": "review/run_logs/equilibrium_alignment/full_stochastic.log",
+    "executed_source_sha256": "bc5698d8d092ce855d2316a957d83487ce4ed3045826955e679fb4a0be216f04",
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/full_replications/s04_full_rep.mod",
-    "sha256": "72c3d5a823cc684d034a74a63069ed855ddf20b2c5bccd644156c9856940bbf6",
+    "sha256": "4412c4f3410eac4e261f325257ffa16f7b9039637d9c07898107ea143f782472",
     "execution_log": "review/run_logs/equilibrium_alignment/full_fiscal.log",
     "executed_source_sha256": "8744fcccdc5613defcf9d1ece7fe3997ea471d5e0434b1472519c3cc71f22085",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/full_replications/s05_03_full_rep.mod",
-    "sha256": "d11a2ffc4ac10ea71af6f73ffadca251df4e133cb523d8d18b0cb17f012b3d4e",
+    "sha256": "c0ceddb671f7f07f0a823c2770e03c3bce238e5307bfb705034345cec468eefb",
     "execution_log": "review/run_logs/equilibrium_alignment/full_fiscal.log",
     "executed_source_sha256": "8449c0fce7ed55f29dfcaa57ad8fccede5483a7ccdc258eac2f04de85db1f59a",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   },
   {
     "model": "Code/full_replications/s05_04_full_rep.mod",
-    "sha256": "3705f54fb407d57b6e03ff9f2c3a8b0994106ed96d7f4dbfc99893be838afd12",
+    "sha256": "f62d088f246fce331cb61bafef14635b944eacada6b2a4d39826b83699b58799",
     "execution_log": "review/run_logs/equilibrium_alignment/full_fiscal.log",
     "executed_source_sha256": "37fef0d7858862fde2130ad828398b1ed96c57bfe01e4ab525223f11889b5501",
-    "subsequent_change": "Capital-timing comments and plot-label text only; numerical code compared unchanged against the executed revision. No numerical rerun."
+    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
   }
 ]

@@ -1,0 +1,11 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+[Warning: Variable 'dataset_' originally saved as a dseries cannot be
+instantiated as an object and will be read in as a uint32.] 
+[> In save_plotting_snapshots (line 5)
+In run (line 112)] 
+[Warning: Variable 'dataset_' originally saved as a dseries cannot be
+instantiated as an object and will be read in as a uint32.] 
+[> In save_plotting_snapshots (line 5)
+In run (line 112)] 
+Redrew 17 PNG figures from saved values. No model simulations or estimations were run.

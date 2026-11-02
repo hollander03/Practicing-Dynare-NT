@@ -10,7 +10,6 @@
 var
     c       // Consumption, c_t
     k       // Capital chosen during t, k_t (available in t+1)
-    qtilde  // Detrended price c_t^(-gamma)/(1+tauc_t)
     r       // Current real rental yield, r_t (before depreciation)
     w       // Current real wage, w_t
     R       // Forward consumption-adjusted gross return, R_(t+1)
@@ -37,26 +36,21 @@ model;
     // (7) Resource constraint; k(-1) is capital available today.
     c = A*k(-1)^alpha + (1-delta)*k(-1) - k - g;
 
-    // (8) Detrended marginal-utility price; dated q_t = beta^t*qtilde_t.
-    // This algebraic definition fixes the level; it is not a q recursion.
-    qtilde = c^(-gamma)/(1+tauc);
-
-    // (9) Current real rental yield (before taxes and depreciation).
+    // (8) Current real rental yield (before taxes and depreciation).
     r = A*alpha*k(-1)^(alpha-1);
 
-    // (10) Current real wage; with n=1 it is also total labour income.
+    // (9) Current real wage; with n=1 it is also total labour income.
     w = A*(1-alpha)*k(-1)^alpha;
 
-    // (11) Forward gross return R_(t+1) on saving at date t.
-    // Expand the future rental yield to retain dependence on today's k
-    // even at the final simulated date (where future r is a boundary value).
+    // (10) Forward gross return R_(t+1) on saving at date t.
+    // Capital chosen today earns the rental yield in period t+1.
     R = (1+tauc)/(1+tauc(+1))
         * ((1-taui(+1))*(1-delta) + (1-tauk(+1))*A*alpha*k^(alpha-1))/(1-taui);
 
-    // (12) Realized real capital payoff, distinct from forward R.
+    // (11) Realized real capital payoff, distinct from forward R.
     s = (1-tauk)*r + 1-delta;
 
-    // (13) Consumption Euler equation.
+    // (12) Consumption Euler equation.
     c^(-gamma) = beta*c(+1)^(-gamma)*R;
 end;
 
@@ -71,8 +65,8 @@ end;
 // -------------------------------------------------------------------------
 // Example 4.3.1 | g permanent change
 // -------------------------------------------------------------------------
-// Eliminating qtilde, r, w, R and s reduces this to the allocation model.
-// They remain explicit here so the code matches the displayed conditions.
+// Eliminating r, w, R and s reduces this to the allocation model.
+// The separate definitions also give the wages and returns to inspect.
 
 // 3. Scenario | g rises permanently at text date t=10
 // Policy is known at t=0. Simulation period 1 corresponds to text t=0.
@@ -119,8 +113,6 @@ end;
 perfect_foresight_setup(periods=300);
 perfect_foresight_solver;
 
-// Optional accuracy settings for numerical residual comparisons:
-// perfect_foresight_solver(tolf=1e-10, tolx=1e-10);
 
 // Keep this solution; all panels are drawn together at the end.
 // verbatim copies this block unchanged into the generated MATLAB/Octave
@@ -169,8 +161,6 @@ end;
 perfect_foresight_setup(periods=300);
 perfect_foresight_solver;
 
-// Optional accuracy settings for numerical residual comparisons:
-// perfect_foresight_solver(tolf=1e-10, tolx=1e-10);
 
 // Keep this solution; all panels are drawn together at the end.
 // verbatim copies this block unchanged into the generated MATLAB/Octave
@@ -219,8 +209,6 @@ end;
 perfect_foresight_setup(periods=300);
 perfect_foresight_solver;
 
-// Optional accuracy settings for numerical residual comparisons:
-// perfect_foresight_solver(tolf=1e-10, tolx=1e-10);
 
 // Keep this solution; all panels are drawn together at the end.
 // verbatim copies this block unchanged into the generated MATLAB/Octave
@@ -269,8 +257,6 @@ end;
 perfect_foresight_setup(periods=300);
 perfect_foresight_solver;
 
-// Optional accuracy settings for numerical residual comparisons:
-// perfect_foresight_solver(tolf=1e-10, tolx=1e-10);
 
 // Keep this solution; all panels are drawn together at the end.
 // verbatim copies this block unchanged into the generated MATLAB/Octave
@@ -318,8 +304,6 @@ end;
 perfect_foresight_setup(periods=300);
 perfect_foresight_solver;
 
-// Optional accuracy settings for numerical residual comparisons:
-// perfect_foresight_solver(tolf=1e-10, tolx=1e-10);
 
 // Keep this solution; all panels are drawn together at the end.
 // verbatim copies this block unchanged into the generated MATLAB/Octave
@@ -367,8 +351,6 @@ end;
 perfect_foresight_setup(periods=300);
 perfect_foresight_solver;
 
-// Optional accuracy settings for numerical residual comparisons:
-// perfect_foresight_solver(tolf=1e-10, tolx=1e-10);
 
 // Keep this solution; all panels are drawn together at the end.
 // verbatim copies this block unchanged into the generated MATLAB/Octave
@@ -389,7 +371,7 @@ end
 
 time = (0:39)';
 series = {'k', 'c', 'R', 'w', 's', 'r'};
-labels = {'Beginning-of-period capital, k_{t-1}', 'Consumption, c_t', 'Saving return, R_{t+1}', 'Real wage, w_t', 'Realized capital payoff, s_t', 'Rental yield, r_t'};
+labels = {'Capital, k_{t-1}', 'Consumption, c_t', 'Gross return, R_{t+1}', 'Real wage, w_t', 'Capital payoff, s_t', 'Rental yield, r_t'};
 filenames = {'s04_03_01_g', ...
              's04_03_02_tauc', ...
              's04_03_03_taui', ...
@@ -418,7 +400,7 @@ for example = 1:numel(solutions)
         end
     end
 
-    figure;
+    figure('Position', [100 100 1000 600]);
     % One column per labelled panel; no parameters or policy paths change.
     for panel = 1:size(paths, 2)
         subplot(2, 3, panel);
@@ -428,7 +410,7 @@ for example = 1:numel(solutions)
         xlabel('Time t');
     end
 
-    % Local output names match the worksheet's historical figure stems.
+    % Save the figure and the plotted values using the same filename.
     print(gcf, fullfile('output', [filenames{example} '.png']), ...
           '-dpng', '-r150');
     save(fullfile('output', [filenames{example} '.mat']), ...

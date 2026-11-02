@@ -92,14 +92,17 @@ if ~exist('output', 'dir')
     mkdir('output');
 end
 series = {'c1', 'c2', 'k1', 'k2', 'a1', 'a2'};
-figure;
+labels = {'Log consumption, c_{1,t}', 'Log consumption, c_{2,t}', ...
+          'Log capital, k_{1,t}', 'Log capital, k_{2,t}', ...
+          'Log productivity, a_{1,t}', 'Log productivity, a_{2,t}'};
+figure('Position', [100 100 1000 600]);
 % Fixed list of variable names; row selection does not change the model.
 for panel = 1:numel(series)
     subplot(2, 3, panel);
     % oo_.irfs fields combine the variable and innovation names.
     response = oo_.irfs.([series{panel} '_e1']);
     plot(0:40, [0; response(:)], 'b', 'LineWidth', 1.2);
-    title(series{panel}); xlabel('Periods (0 = pre-shock)');
+    title(labels{panel}); xlabel('Periods (0 = pre-shock)');
 end
 print(gcf, fullfile('output', 's03_02_twocountry_irfs.png'), '-dpng', '-r150');
 % Simulation used nograph. Enable Dynare's prior/posterior plots below.

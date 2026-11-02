@@ -37,11 +37,10 @@ for jj=1:numel(files)
     rental=A*alpha*k(ix-1).^(alpha-1).*n(ix).^(1-alpha);
     wage=A*(1-alpha)*k(ix-1).^alpha.*n(ix).^(-alpha);
     observed_r=v('r'); observed_w=v('w'); observed_R=v('R');
-    observed_s=v('s'); observed_q=v('qtilde');
+    observed_s=v('s');
     price_errors=[observed_r(ix)-rental; observed_w(ix)-wage; ...
         observed_R(ix)-return_next; ...
-        observed_s(ix)-((1-tk(ix)).*rental+1-delta); ...
-        observed_q(ix)-c(ix).^(-gamma)./(1+tc(ix))];
+        observed_s(ix)-((1-tk(ix)).*rental+1-delta)];
     assert(max(abs(price_errors(:)))<residual_tolerance, ...
         'Explicit price/return equation residual too large');
     terminal_scale=max(1,abs(oo.endo_simul(:,302)));
