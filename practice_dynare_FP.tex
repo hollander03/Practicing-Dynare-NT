@@ -22,7 +22,7 @@
 
 \author{\\%Contributors: Hylton Hollander, Clinton Joel, Julius Pain
 }
-\date{National Treasury training}
+\date{02 November 2026 \\ Work-in-Progress \\ \sc{Not for Distribution}}
 
 
 \usepackage{listings}
@@ -32,7 +32,7 @@
 
 
 \begin{abstract}
-This workbook introduces Dynare through stochastic growth models and fiscal-policy experiments. Each model is presented with its variables, calibration and equilibrium equations, followed by a runnable example. The exercises cover approximation, simulation, estimation and transitions following announced policy changes. Participants will learn to read model solutions, interpret factor prices and returns, and construct their own fiscal scenarios.
+This document updates \textit{Practicing Dynare} by Barillas et al. (2010), with a focus on fiscal-policy applications drawn from \textit{Recursive Macroeconomic Theory} by Ljungqvist and Sargent. It develops stochastic growth models and deterministic fiscal experiments through model equations, calibration and corresponding Dynare code. The examples cover approximation, simulation, estimation and the effects of anticipated and unanticipated policy changes. A further section is reserved for a full-scale flexible-price fiscal model. The aim is to help readers understand model solutions, interpret economic responses and construct their own policy experiments.
 \end{abstract}
 
 \pagebreak
@@ -42,16 +42,16 @@ This workbook introduces Dynare through stochastic growth models and fiscal-poli
 \pagebreak
 
 \section{Introduction}
-Sections 2 and 3 introduce stochastic growth models, simulation and estimation. Sections 4 and 5 examine government spending and taxes in deterministic growth models, including anticipated policies and changes in labour supply.
+This guide updates the examples in Barillas et al. (2010) and develops their fiscal-policy applications using Ljungqvist and Sargent's \textit{Recursive Macroeconomic Theory}. Sections 2 and 3 introduce stochastic growth models, approximation, simulation and estimation. Sections 4 and 5 examine government spending and taxation in deterministic growth models, including anticipated policy changes, bond yields and elastic labour supply. Section 6 is reserved for a full-scale flexible-price fiscal model.
 
-Run the individual examples in \path{Code/sections} to study one scenario at a time. The files in \path{Code/full_replications} produce the complete set of outputs for each section. Appendix A lists the files and their purposes. The accompanying \path{notes/README.md} explains commands used for data export and plotting.
+Each example links the model equations and calibration to a runnable Dynare file. The files in \path{Code/sections} present individual exercises; those in \path{Code/full_replications} produce the corresponding section outputs. Appendix A lists these files. Accompanying notes explain less common commands and calculations.
 
-In fiscal simulations, period 1 represents model date $t=0$. A policy change at $t=10$ therefore starts in simulation period 11. The capital-timing convention is explained at the start of each model.
+In fiscal simulations, simulation period 1 represents model date $t=0$. A policy change at $t=10$ therefore begins in simulation period 11.
 
 \section{The Neoclassical growth model}
 \subsection*{2.1 The model}
 
-Capital is indexed by the date at which it is chosen.\footnote{We use Dynare timing: $k_{t-1}$ is the physical capital stock available at the beginning of period $t$, chosen by the end of $t-1$; $k_t$ is chosen during period $t$ and is available at the beginning of $t+1$. Thus code \texttt{k(-1)} is $k_{t-1}$ and code \texttt{k} is $k_t$.}
+Capital available at the beginning of period $t$ is $k_{t-1}$; capital chosen during $t$ for use at $t+1$ is $k_t$. This coincides with Dynare timing: \texttt{k(-1)} is $k_{t-1}$ and \texttt{k} is $k_t$.
 
 \begingroup
 \small
@@ -181,7 +181,32 @@ $\sigma$ & 1 \\
 \end{center}
 \end{table}
 
-Dynare prints the coefficients of the approximated decision rules. Inspect how consumption, capital and labour respond to the state variables and the productivity innovation.
+Table 2 gives the second-order decision rules at the calibration above. For each column, multiply the coefficients by the terms in the first column and add them to the constant. For example, a unit increase in beginning-of-period capital raises consumption by approximately 0.027972 goods at first order, holding productivity and the innovation fixed.
+
+\begin{table}[!htbp]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\hline
+Term & $c_t$ & $k_t$ & $l_t$ & $z_t$ \\
+\hline
+Constant & 1.491629 & 29.288977 & 0.291594 & 0.000000 \\
+Correction (included) & -0.000002 & 0.000004 & 0.000000 & 0.000000 \\
+$\widehat k_{t-1}$ & 0.027972 & 0.978257 & -0.001831 & 0.000000 \\
+$z_{t-1}$ & 0.622874 & 1.853511 & 0.191285 & 0.950000 \\
+$e_t$ & 0.004590 & 0.013657 & 0.001409 & 0.007000 \\
+$\widehat k_{t-1}^{\,2}$ & -0.000182 & -0.000086 & 0.000025 & 0.000000 \\
+$z_{t-1}\widehat k_{t-1}$ & 0.007307 & 0.024441 & 0.000712 & 0.000000 \\
+$z_{t-1}^{2}$ & 0.237402 & 1.157824 & -0.008033 & 0.000000 \\
+$e_t^2$ & 0.000013 & 0.000063 & 0.000000 & 0.000000 \\
+$\widehat k_{t-1}e_t$ & 0.000054 & 0.000180 & 0.000005 & 0.000000 \\
+$z_{t-1}e_t$ & 0.003499 & 0.017063 & -0.000118 & 0.000000 \\
+\hline
+\end{tabular}
+\captionsetup{labelformat=empty}
+\caption{Table 2: Policy and transition coefficients for the one-sector model.\\ \footnotesize\textit{Notes:} $c_t$ is consumption, $k_t$ capital chosen during $t$, $l_t$ hours and $z_t$ log productivity. $\widehat k_{t-1}=k_{t-1}-\bar k$ is beginning-of-period capital less its deterministic steady state; productivity has steady state zero. The innovation $e_t$ has standard deviation one and enters productivity multiplied by $s=0.007$. The constant already includes the reported second-order correction; do not add the correction row again. Squared-term coefficients already include the Taylor-expansion factor $1/2$. Values are rounded to six decimals.}
+\end{table}
+
 
 \subsection*{2.3 Estimation}
 The simulated data series for consumption are used to estimate some unknown parameters of the model. Suppose we would like to estimate the preference parameters $\theta$ and $\tau$, and the stochastic process for productivity, summarized by two parameters $\rho$ and $\sigma$. The following code instructs Dynare to conduct the estimation.
@@ -190,7 +215,7 @@ The simulated data series for consumption are used to estimate some unknown para
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{s02_03_priors.pdf}
+  \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{s02_03_priors.png}
 \captionsetup{labelformat=empty}
 \caption{Figure 2: Prior distributions for the one-sector model.\\ \footnotesize\textit{Notes:} $\rho$ is productivity persistence, $\theta$ the consumption share, $\tau$ utility curvature and $\sigma$ the innovation standard deviation. Horizontal axes are parameter values and vertical axes are probability densities.}
 \end{center}
@@ -199,7 +224,7 @@ The simulated data series for consumption are used to estimate some unknown para
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{s02_03_posterior.pdf}
+  \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{s02_03_posterior.png}
 \captionsetup{labelformat=empty}
 \caption{Figure 3: Prior and posterior distributions for the one-sector model.\\ \footnotesize\textit{Notes:} $\rho$ is productivity persistence, $\theta$ the consumption share, $\tau$ utility curvature and $\sigma$ the innovation standard deviation. Horizontal axes are parameter values and vertical axes are probability densities. The posterior uses simulated observations and a 1,000-draw teaching chain; convergence must be assessed before drawing empirical conclusions.}
 \end{center}
@@ -223,17 +248,34 @@ $\sigma$ & Inv. Gamma & 1 & 0.2 \\
 \hline\hline
 \end{tabular}
 \captionsetup{labelformat=empty}
-\caption{Table 2: Priors\\ \footnotesize\textit{Notes:} One-sector priors: $\rho$ is productivity persistence, $\theta$ the consumption share, $\tau$ utility curvature and $\sigma$ the standard deviation of innovation $e$. Std.Dev. denotes the prior standard deviation. The productivity multiplier $s=0.007$ is fixed.}
+\caption{Table 3: Priors\\ \footnotesize\textit{Notes:} One-sector priors: $\rho$ is productivity persistence, $\theta$ the consumption share, $\tau$ utility curvature and $\sigma$ the standard deviation of innovation $e$. Std.Dev. denotes the prior standard deviation. The productivity multiplier $s=0.007$ is fixed.}
 \end{center}
 \end{table}
 
+
+Table 4 summarizes the posterior from the simulated-data exercise. The posterior mean describes the centre of the retained draws; the 90\% highest-posterior-density (HPD) interval summarizes their uncertainty.
+
+\begin{table}[!htbp]
+\centering
+\begin{tabular}{lrrrr}
+\hline
+Parameter & Prior mean & Posterior mean & \multicolumn{2}{c}{90\% HPD interval} \\
+\hline
+$\rho$ & 0.930 & 0.9512 & 0.9358 & 0.9645 \\
+$\theta$ & 0.300 & 0.3602 & 0.3552 & 0.3646 \\
+$\tau$ & 2.100 & 1.9265 & 1.4895 & 2.3129 \\
+$\sigma$ & 1.000 & 1.0450 & 0.9361 & 1.2061 \\
+\hline
+\end{tabular}
+\captionsetup{labelformat=empty}
+\caption{Table 4: Posterior summary for the one-sector model.\\ \footnotesize\textit{Notes:} $\rho$ is productivity persistence, $\theta$ the consumption share, $\tau$ utility curvature and $\sigma$ the standard deviation of innovation $e_t$; the productivity multiplier $s=0.007$ is fixed. Priors are listed in Table 3. Results use simulated consumption and a 1,000-draw teaching chain. This short chain illustrates Bayesian estimation; its intervals do not establish MCMC convergence.}
+\end{table}
 
 \section{International Business Cycle Model}
 We study a simplified version of the two-country production model in Kim and Kim (2003).
 
 \subsection*{3.1 The model}
 
-Capital is indexed by the date at which it is chosen.\footnote{We use Dynare timing: $K_{i,t-1}$ is the physical capital available at the beginning of period $t$, chosen by the end of $t-1$; $K_{i,t}$ is the stock chosen during $t$ and available at the beginning of $t+1$. The code uses logs: \texttt{k1(-1)} and \texttt{k2(-1)} are $\ln K_{i,t-1}$, while \texttt{k1} and \texttt{k2} are $\ln K_{i,t}$.}
 
 \begingroup
 \small
@@ -296,7 +338,7 @@ $\sigma_{\epsilon_{2}}$ & 0.08 \\
 \hline\hline
 \end{tabular}
 \captionsetup{labelformat=empty}
-\caption{Table 3: Parameter Values\\ \footnotesize\textit{Notes:} Two-country growth calibration: $\beta$ discounts utility, $\delta$ is depreciation, $\alpha$ the capital share, $\rho$ productivity persistence and $\sigma_{\epsilon_i}$ country innovation SDs. Consumption curvature is $\gamma=2$. Rates and innovation variances are per model period.}
+\caption{Table 5: Parameter Values\\ \footnotesize\textit{Notes:} Two-country growth calibration: $\beta$ discounts utility, $\delta$ is depreciation, $\alpha$ the capital share, $\rho$ productivity persistence and $\sigma_{\epsilon_i}$ country innovation SDs. Consumption curvature is $\gamma=2$. Rates and innovation variances are per model period.}
 \end{center}
 \end{table}
 
@@ -314,9 +356,20 @@ Dynare computes the policy function as a second-order approximation around the (
 \end{figure}
 
 
-Inspect the decision-rule coefficients reported by Dynare. Compare how each country responds to its own productivity innovation and to an innovation in the other country.
+The coefficients can also be written as a consumption rule. Let $\widehat k_{i,t-1}=\ln K_{i,t-1}-\ln\bar K_i$ and $a_{i,t}=\ln A_{i,t}$ (steady-state productivity is one). At the calibration above, country 1's second-order rule is
+\begin{align*}
+\ln C_{1,t} \simeq{}& 0.828143 + 0.243036(\widehat k_{1,t-1}+\widehat k_{2,t-1})
+ + 0.139989(a_{1,t}+a_{2,t})\\
+&+ 0.061511(\widehat k_{1,t-1}^{\,2}+\widehat k_{2,t-1}^{\,2})
+ -0.109951\widehat k_{1,t-1}\widehat k_{2,t-1}\\
+& -0.015489(a_{1,t}\widehat k_{1,t-1}+a_{2,t}\widehat k_{2,t-1})\\
+& -0.032259(a_{1,t}\widehat k_{2,t-1}+a_{2,t}\widehat k_{1,t-1})\\
+&+ 0.044325(a_{1,t}^{2}+a_{2,t}^{2}) -0.040310 a_{1,t}a_{2,t}.
+\end{align*}
+The left-hand side is log consumption, not its deviation from steady state. The constant includes the second-order uncertainty correction. Dynare reports lagged productivity and current innovations separately; substituting $a_{i,t}=0.85a_{i,t-1}+\epsilon_{i,t}$ gives the compact form above. The quadratic coefficients already include the appropriate Taylor-expansion weights. At first order, both countries' capital and productivity raise country 1's consumption. Identical preferences and complete risk sharing imply the same consumption rule for country 2. Coefficients are rounded to six decimals.
 
-Dynare also produces the associated impulse response functions of the system. Figure 4 illustrate the response of the system to a one-standard-deviation shock to $\epsilon_{1}$.
+
+Dynare also produces the associated impulse response functions of the system. Figure 4 illustrates the response of the system to a one-standard-deviation shock to $\epsilon_{1}$.
 
 The approximation file saves named observable series in a section-specific MAT file. Run it before the corresponding estimation example. The random seed is fixed for repeatability.
 
@@ -329,7 +382,7 @@ We will estimate 4 parameters $\rho, \alpha, \sigma_{\epsilon_{1}}$, and $\sigma
 
 \begin{figure}[!htbp]
 \begin{center}
-  \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{s03_03_posterior.pdf}
+  \includegraphics[width=\textwidth,height=0.65\textheight,keepaspectratio]{s03_03_posterior.png}
 \captionsetup{labelformat=empty}
 \caption{Figure 5: Prior and posterior distributions for the two-country model.\\ \footnotesize\textit{Notes:} $\rho$ is productivity persistence, $\alpha$ the capital share and $\sigma_{\epsilon_1},\sigma_{\epsilon_2}$ the innovation standard deviations. Horizontal axes are parameter values and vertical axes are probability densities. The posterior uses simulated observations and a 1,000-draw teaching chain; convergence must be assessed before drawing empirical conclusions.}
 \end{center}
@@ -345,7 +398,6 @@ This section describes a suite of Dynare programs that implement the transition 
 
 \subsection*{4.1 The model}
 
-Capital is indexed by the date at which it is chosen.\footnote{We use Dynare timing: $k_{t-1}$ is the physical capital stock available at the beginning of period $t$, chosen by the end of $t-1$; $k_t$ is chosen during period $t$ and is available at the beginning of $t+1$. Thus code \texttt{k(-1)} is $k_{t-1}$ and code \texttt{k} is $k_t$.}
 
 \begingroup
 \small
@@ -552,7 +604,6 @@ This section describes a suite of Dynare programs that implement the transition 
 
 \subsection*{5.1 The model with inelastic labor supply}
 
-Capital is indexed by the date at which it is chosen.\footnote{We use Dynare timing: $k_{t-1}$ is the physical capital stock available at the beginning of period $t$, chosen by the end of $t-1$; $k_t$ is chosen during period $t$ and is available at the beginning of $t+1$. Thus code \texttt{k(-1)} is $k_{t-1}$ and code \texttt{k} is $k_t$.}
 
 \begingroup
 \small
@@ -764,7 +815,6 @@ With constant consumption and taxes, $q_{t+i}/q_t=\beta^i$, so every maturity ha
 
 \subsection*{5.4 The model with elastic labor supply}
 
-Capital is indexed by the date at which it is chosen.\footnote{We use Dynare timing: $k_{t-1}$ is the physical capital stock available at the beginning of period $t$, chosen by the end of $t-1$; $k_t$ is chosen during period $t$ and is available at the beginning of $t+1$. Thus code \texttt{k(-1)} is $k_{t-1}$ and code \texttt{k} is $k_t$.}
 
 \begingroup
 \small
@@ -889,6 +939,10 @@ A foreseen once-and-for-all increase in $\tau_{n}$ to 20 percentage points at $t
 \label{fig:s05-04-03-taun}
 \end{figure}
 
+
+\section{A full-scale fiscal RBC model}
+
+This section is reserved for the flexible-price version of the separate NT-DSGE model. Its implementation and exercises will be added separately.
 
 \appendix
 

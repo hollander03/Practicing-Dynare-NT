@@ -115,15 +115,15 @@ set_dynare_seed(2025);
 // mode_compute=4 searches for the posterior mode before sampling.
 // A short teaching chain; increase mh_replic for empirical inference.
 estimation(datafile=s02_simudata, mode_compute=4, mh_replic=1000,
-           mh_nblocks=1, graph_format=(pdf), nodisplay);
+           mh_nblocks=1, graph_format=(png), nodisplay);
 
 // Dynare saves density panels in this model's graphs/ directory.
 // Copy the principal panels to the same output/ naming scheme as the IRFs.
 // verbatim copies this block unchanged into the generated MATLAB/Octave
 // program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
-copyfile(fullfile(M_.fname, 'graphs', [M_.fname '_Priors1.pdf']), ...
-         fullfile('output', 's02_03_priors.pdf'));
-copyfile(fullfile(M_.fname, 'graphs', [M_.fname '_PriorsAndPosteriors1.pdf']), ...
-         fullfile('output', 's02_03_posterior.pdf'));
+copyfile(fullfile(M_.fname, 'graphs', [M_.fname '_Priors1.png']), ...
+         fullfile('output', 's02_03_priors.png'));
+copyfile(fullfile(M_.fname, 'graphs', [M_.fname '_PriorsAndPosteriors1.png']), ...
+         fullfile('output', 's02_03_posterior.png'));
 end;

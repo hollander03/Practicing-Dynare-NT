@@ -37,3 +37,15 @@ The full files solve each policy scenario explicitly, then use loops to draw the
 A short MCMC chain illustrates estimation but does not establish convergence. The approximation examples generate second-order data; estimation uses the first-order likelihood. `drop` controls moment reporting and does not trim the saved simulation array.
 
 See [prices and returns](q_and_auxiliaries.md) for the fiscal variables and the yield-curve calculation, and [figure_map.md](figure_map.md) for the figure files.
+
+## Reading the numerical examples
+
+In Section 2.2, Table 2 gives second-order policy and transition coefficients. State variables enter as deviations from the deterministic steady state. Multiply each row's term by its coefficient and sum with the constant. The constant already includes the uncertainty correction; do not add the correction row again. Squared-term coefficients already include the factor one-half from the Taylor expansion.
+
+In Section 2.3, Table 4 reports posterior means and 90% highest-posterior-density intervals from the simulated-data exercise. A posterior mean is distinct from the posterior mode printed earlier in Dynare's estimation output. Interpret these short-chain results as a teaching example.
+
+The worked formula in Section 3.2 uses log consumption on the left and log capital deviations on the right. It combines lagged productivity and current innovations into current productivity using its autoregressive equation.
+
+Section 5.3.6 plots consumption and the one-period interest rate against calendar time, then yields against maturity. The three yield curves are observed at t=0, 10 and 60; each contains maturities of 1–40 periods. With constant consumption and taxes, the curve is flat at -log(beta).
+
+The guide uses PNG figures. Section 6 is reserved for the flexible-price fiscal model and has no accompanying exercise yet.

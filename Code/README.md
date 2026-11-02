@@ -1,6 +1,6 @@
 # Running the workbook examples
 
-The `.mod` files in `sections/` each contain one model and one exercise. They calculate consumption, capital, real factor prices and returns without creating figures. The five files in `full_replications/` run the section exercises and produce the figures used in the workbook.
+The `.mod` files in `sections/` each contain one model and one exercise. The fiscal files calculate consumption, capital, real factor prices and returns. Most section files omit plotting; the bond-yield exercise in 5.3.6 includes its three-panel plot. The five files in `full_replications/` run the section exercises and produce the figures used in the workbook.
 
 | Workbook | Individual files in `sections/` | Full-output file |
 |---|---|---|
@@ -24,6 +24,8 @@ The fiscal models use `k(-1)` for beginning-of-period capital and `k` for the ca
 
 Full-output files save figures and plotted values under local `output/`. The workbook uses the same section-based figure names. The estimation examples use 1,000 MCMC draws to demonstrate the workflow; assess convergence and use longer chains before empirical interpretation.
 
-`results_snapshot/` contains the saved numerical values used for the supplied figures. To redraw those plots without solving models, add the repository's `tools` folder to the MATLAB path and run `redraw_saved_figures`. The density PDFs are saved directly in `figures/`.
+`results_snapshot/` contains the saved numerical values used for the supplied figures. To redraw those plots without solving models, add the repository's `tools` folder to the MATLAB path and run `redraw_saved_figures`. The three estimation-density PNGs are supplied in `figures/`. `results_snapshot/teaching_summaries.json` records the decision-rule coefficients and posterior summaries used in Tables 2 and 4 and the worked two-country formula. Dynare prints these summaries when the full files are run.
 
 See [participant notes](../notes/README.md), [prices and returns](../notes/q_and_auxiliaries.md), and the [figure map](../notes/figure_map.md).
+
+Section 6 is a placeholder; no runnable flexible-price NT-DSGE example is included yet.

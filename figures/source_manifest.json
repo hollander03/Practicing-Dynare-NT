@@ -7,15 +7,15 @@
   },
   {
     "stem": "s02_03_priors",
-    "figure": "s02_03_priors.pdf",
+    "figure": "s02_03_priors.png",
     "code": "s02_full_rep.mod",
-    "sha256": "158872350c7001c8e421200041b4eb4326dfaeca552911a88918721f8862d9cb"
+    "sha256": "3b0eacc77589e8565927c4348dbfd6bde9671d509c13aaf4d0000406611109c6"
   },
   {
     "stem": "s02_03_posterior",
-    "figure": "s02_03_posterior.pdf",
+    "figure": "s02_03_posterior.png",
     "code": "s02_full_rep.mod",
-    "sha256": "81a30363e5d2da6140ec11a556c7a650df11fe8aa3ebc0da81c907a3431bfecd"
+    "sha256": "f87a6feb8fe05f5d68f7cbc699d7e9bea95953931b5081cf931db29e70d69926"
   },
   {
     "stem": "s03_02_twocountry_irfs",
@@ -25,9 +25,9 @@
   },
   {
     "stem": "s03_03_posterior",
-    "figure": "s03_03_posterior.pdf",
+    "figure": "s03_03_posterior.png",
     "code": "s03_full_rep.mod",
-    "sha256": "40bbd4248f14b5bd947f2ea656e435e7acc1fea1e82b1382e23b269dbacc7ac5"
+    "sha256": "2e066df93e3527ea008a852a5a21e358ff09ffa6757ff971b1d2f0ea2e955110"
   },
   {
     "stem": "s04_03_01_g",

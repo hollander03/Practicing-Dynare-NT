@@ -126,17 +126,17 @@
   },
   {
     "model": "Code/full_replications/s02_full_rep.mod",
-    "sha256": "84df9d5b66188f1283cb2d04bfc8cb1acddc00f01a89105457a48229c813ec16",
+    "sha256": "bdf3ce85dfe0a6234ecf05bc941e979d614cdd21cd135a2d0cc56674f177819c",
     "execution_log": "review/run_logs/equilibrium_alignment/full_stochastic.log",
     "executed_source_sha256": "591c8e8511ba576706129d1742055419169cf434cfbd9b16bd7b582b16047bb5",
-    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
+    "subsequent_change": "Presentation-only changes: plot labels and size; density output format changed from PDF to PNG with matching filenames. Model and estimation settings unchanged; no model rerun."
   },
   {
     "model": "Code/full_replications/s03_full_rep.mod",
-    "sha256": "ca9de615d97a87f5d3431c5c2d93a505ba5281723b300a18293ea941e94d59e5",
+    "sha256": "2f76a68c01faae1925c3f1cc59f0973dd9382f727140fd519b01cadf6581f3df",
     "execution_log": "review/run_logs/equilibrium_alignment/full_stochastic.log",
     "executed_source_sha256": "bc5698d8d092ce855d2316a957d83487ce4ed3045826955e679fb4a0be216f04",
-    "subsequent_change": "Removed independent, unused qtilde definition; remaining model equations compared unchanged. Updated comments and figure presentation. No model rerun."
+    "subsequent_change": "Presentation-only changes: plot labels and size; density output format changed from PDF to PNG with matching filenames. Model and estimation settings unchanged; no model rerun."
   },
   {
     "model": "Code/full_replications/s04_full_rep.mod",

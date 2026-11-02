@@ -5,10 +5,10 @@ Each figure is produced by the indicated full replication file. Saved plotting v
 | Figure | Full replication file |
 |---|---|
 | `s02_02_growth_irfs.png` | `s02_full_rep.mod` |
-| `s02_03_priors.pdf` | `s02_full_rep.mod` |
-| `s02_03_posterior.pdf` | `s02_full_rep.mod` |
+| `s02_03_priors.png` | `s02_full_rep.mod` |
+| `s02_03_posterior.png` | `s02_full_rep.mod` |
 | `s03_02_twocountry_irfs.png` | `s03_full_rep.mod` |
-| `s03_03_posterior.pdf` | `s03_full_rep.mod` |
+| `s03_03_posterior.png` | `s03_full_rep.mod` |
 | `s04_03_01_g.png` | `s04_full_rep.mod` |
 | `s04_03_02_tauc.png` | `s04_full_rep.mod` |
 | `s04_03_03_taui.png` | `s04_full_rep.mod` |
