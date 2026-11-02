@@ -2,7 +2,7 @@
 
 **Follow-up:** [TEACHING_ITERATION.md](TEACHING_ITERATION.md) records the participant-facing rewrite, full-output files, figure renames and current execution checks. The code/settings and validation hashes described below belong to the initial review pass; its hash register is preserved as `validated_sources_iteration1.json`.
 
-Scope: `practice_dynare_NT.tex`, original annotated 2010 PDF, all hand-authored fiscal `.mod` variants in the supplied 2025 folder, and the adjacent presentation folder. Source material was read locally; external originals were not edited. Visual checks and numerical/textbook replication are excluded by request. A successful run establishes executability, not agreement with historical figures.
+Scope: `practice_dynare_FP.tex`, original annotated 2010 PDF, all hand-authored fiscal `.mod` variants in the supplied 2025 folder, and the adjacent presentation folder. Source material was read locally; external originals were not edited. Visual checks and numerical/textbook replication are excluded by request. A successful run establishes executability, not agreement with historical figures.
 
 ## Corrections applied
 

@@ -19,4 +19,4 @@ Validation with MATLAB R2024a Update 5 / Dynare 6.1, using temporary working fol
 
 The short MCMC chains still do not establish convergence. Visual inspection, historical/textbook replication and Section 6 remain deferred. Generated local LaTeX/Dynare files are ignored; the previously tracked LaTeX build database is removed from version control while retaining its local copy.
 
-Overleaf's existing integration was confirmed linked to `hollander03/Practicing-Dynare-NT`. Sync uses that integration rather than uploads or project replacement. The old active Overleaf filename is `practice_dynare_FP.tex`; the maintained main document is `practice_dynare_NT.tex`, so the active main-document setting must follow the maintained filename after pulling.
+Overleaf's existing integration was confirmed linked to `hollander03/Practicing-Dynare-NT`. Sync uses that integration rather than uploads or project replacement. The canonical filename is `practice_dynare_FP.tex`, matching the existing Overleaf main document. The repository source and README have been aligned to this filename; no change of Overleaf main document is needed.

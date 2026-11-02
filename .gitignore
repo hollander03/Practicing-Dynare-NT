@@ -21,3 +21,13 @@
 /Code/full_replications/*.log
 /Code/full_replications/*.mat
 /Code/full_replications/output/
+
+# Canonical FP main document; NT products above are from earlier local builds.
+/practice_dynare_FP.aux
+/practice_dynare_FP.fdb_latexmk
+/practice_dynare_FP.fls
+/practice_dynare_FP.log
+/practice_dynare_FP.out
+/practice_dynare_FP.pdf
+/practice_dynare_FP.synctex.gz
+/practice_dynare_FP.toc

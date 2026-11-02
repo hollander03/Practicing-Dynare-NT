@@ -1,6 +1,6 @@
 # Practicing Dynare — National Treasury training worksheet
 
-This repository reviews the 2010 *Practicing Dynare* examples using the 2025 NT training revisions. The worksheet is [practice_dynare_NT.tex](practice_dynare_NT.tex). Its executable listings now read directly from the section `.mod` files.
+This repository reviews the 2010 *Practicing Dynare* examples using the 2025 NT training revisions. The worksheet is [practice_dynare_FP.tex](practice_dynare_FP.tex). Its executable listings now read directly from the section `.mod` files.
 
 - [Simple examples and full section outputs](Code/README.md)
 - [Participant command notes](notes/README.md) and [figure map](notes/figure_map.md)
@@ -15,4 +15,4 @@ Sections 2–3 cover stochastic growth and estimation. Sections 4–5 cover dete
 
 This pass checks equations, code execution and annotations. Historical figures, tables, posterior summaries and textbook replication are reserved for a later explicit comparison. No visual checks were requested or performed.
 
-The [Overleaf project](https://www.overleaf.com/read/cbpwghwvmyck#f1a82c) is linked to this GitHub repository. Synchronize through its existing GitHub integration; the maintained main document is `practice_dynare_NT.tex`.
+The [Overleaf project](https://www.overleaf.com/read/cbpwghwvmyck#f1a82c) is linked to this GitHub repository. Synchronize through its existing GitHub integration; the maintained main document is `practice_dynare_FP.tex`.

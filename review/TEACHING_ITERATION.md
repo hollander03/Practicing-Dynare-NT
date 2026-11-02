@@ -15,7 +15,7 @@ The full fiscal files use one `initval` block, remember the initial steady state
 
 ## Figures and worksheet
 
-All 20 images used in `practice_dynare_NT.tex` were renamed to section/scenario stems, such as `s05_03_01_g_legacy.jpg`. Image bytes are unchanged. The LaTeX and the archived LaTeX's corresponding references were updated. Figures previously sitting under the following subsection were moved alongside the example named in their own captions; figure contents and captions' numerical claims were not revalidated.
+All 20 images used in `practice_dynare_FP.tex` were renamed to section/scenario stems, such as `s05_03_01_g_legacy.jpg`. Image bytes are unchanged. The LaTeX and the archived LaTeX's corresponding references were updated. Figures previously sitting under the following subsection were moved alongside the example named in their own captions; figure contents and captions' numerical claims were not revalidated.
 
 New full-code output uses the matching stem, e.g. `output/s05_03_01_g.png`. Density panels are PDF because that format is supported by the installed Dynare 6.1 graph export. Section 3 additionally produces a prior-only panel. The 21 explicit plot outputs comprise 17 PNGs and four density PDFs; fiscal runs also save 15 same-stem MAT files. Dynare retains its own logs, parameter/steady-state/policy-function summaries, posterior summaries and native graph outputs. These outputs were exercised in temporary work folders; generated plots have not replaced the historical worksheet images.
 
