@@ -74,6 +74,8 @@ stoch_simul(order=2, periods=1000, drop=100, irf=40, nograph);
 // Export the observed series for the estimation example.
 // verbatim passes ordinary MATLAB/Octave code through the Dynare parser.
 // strcmp selects a row by name; the apostrophe makes a column of data.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 c1 = oo_.endo_simul(strcmp(M_.endo_names, 'c1'), :)';
 k2 = oo_.endo_simul(strcmp(M_.endo_names, 'k2'), :)';

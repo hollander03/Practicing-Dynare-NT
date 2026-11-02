@@ -1,122 +1,122 @@
 [
   {
     "model": "Code/sections/s02_02_growth_approx.mod",
-    "sha256": "dfb3be21c7e7cb90f1cb5042007f3a5f891cf544e506cf6469daec2731e30fba",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "b8d98c10ec8d5a75b4dad6036a4c2e7d61d111eb198242a1f06dc0fada00e53d",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_stochastic.log"
   },
   {
     "model": "Code/sections/s02_03_growth_estimate.mod",
     "sha256": "eb82fc874fcc0e7b390e879f0dd0292b9f3c8fc548577862d1be7c6b52a72333",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_stochastic.log"
   },
   {
     "model": "Code/sections/s03_02_twocountry_approx.mod",
-    "sha256": "774795d6ddee556e4f3c11fef69a43df23ef77637a0717de100fdd757d949d27",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "63b75d8faf38b41e6ce565f47653055b767e6ca50ba81dd2070c332738f7baef",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_stochastic.log"
   },
   {
     "model": "Code/sections/s03_03_twocountry_estimate.mod",
     "sha256": "a8734eff39afe2b03c4665c63e1650613214a7d678c5ee88b84dd3bce6a9ae35",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_stochastic.log"
   },
   {
     "model": "Code/sections/s04_03_01_g.mod",
-    "sha256": "47794fe2a5e3bace40ff32ae7001f722d2960508a45c26de0067b14ccbae4ae4",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "d242856f526da62d8882372d728a99bf463606f922ba897ba577ab3363ffef82",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s04_03_02_tauc.mod",
-    "sha256": "ac47ad46ff135b1545c1e13075f304cd4f72a739e3d674be2244c83d5159285b",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "4a57af17636960079479a035cda9b7c9b0f782417d9f44db5be5ea653e938873",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s04_03_03_taui.mod",
-    "sha256": "121a4ec5f6349dc2b38dfc3a46feefc61f240f281e9d37bdba595692ac18ce38",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "0c6e65793af43bc948bd3946e55e654979e21c4d6660e9d9444c0923f04be3ff",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s04_03_04_tauk.mod",
-    "sha256": "fc9eb2c21ce3d2737c06de26f8e170ded9b882acbd7c6dcb4411f148e28ce196",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "fb5a225ce7d2eb87544b8ef9f5ab37163a15eb3684fc92f4a594a1753128e3d9",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s04_03_05_g.mod",
-    "sha256": "fab73a339d5533cd08e18b224062f62c1fde4fc29e7bbef13a99654264897a3a",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "c16b55e1cc5b48ac162dbc72f4698230c5664b90a2f8a1fe729ba2b88cae6639",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s04_03_06_taui.mod",
-    "sha256": "253b1424ffd6496fe128453ad07fbfed58d70d9e5400dc8bd72c546215705317",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "91cd90926edde6d46d3b54b048566463f11b154a7fbcdfd428fb35303a95eefb",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s05_03_01_g.mod",
-    "sha256": "8f12a9f210085472f8636c7c292f7a3e634c65192701acd80462e4fc74b62446",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "971c408333f0b65c8811d1cb4768b09537701f642b4380f806b5a5f331100194",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s05_03_02_tauc.mod",
-    "sha256": "d24d9a17d78618d44f75e8b711bb125311c70937d08627ac40d31b0cf85a39f1",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "3281f97b978a811404c848afb8a6573807827c65ef31a54dc7ccbc7468f372fa",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s05_03_03_tauk.mod",
-    "sha256": "903f8439a10cfb3cfc24fb48f40f863bde31381d6c692869cf6813e7bc1fdf16",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "b9c4b08580cfa46c1484e26e090bc1a335c8c2c2d3b112fc79824340a24751a2",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s05_03_04_g.mod",
-    "sha256": "90ba9a004956aa7eb9a725e5b8392d3d9adf347b1e3004cf3e3ff0b281bcd154",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "1787facf722fd7cc972abd451ab8048e25d14b1b507d7103e119f03e488d3c8b",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s05_03_05_g_gamma02.mod",
-    "sha256": "6a0f8009218a8c9c01130cabf7bd981b5de60451e33dbb40342be923b56406a8",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "6e5c6bb80b9a18e9708c62559df68cfae741d1075dcdad4767116323464d3302",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s05_03_06_yields.mod",
-    "sha256": "88ea8c233299f560d59467534438ddafa5c4be3198f685b5d2a07b43722c1307",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "dc05d5e710f0102ec94c605d5a0f109e41e1c1df7c1e97de44cfd692116c53fc",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s05_04_01_g.mod",
-    "sha256": "19b590d74b2b2aa78d06e8e55b254d9bf4b33e1b8082887820d00422dc391da8",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "2294c77ecdfcc4b192f45a085684d5d09062bd42329adb9fc7120b46e861473e",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s05_04_02_taun.mod",
-    "sha256": "ff8291076ab9d56f961d28c2fcdb57a1e858a1dbc6f930094bd120900c79a1ac",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "04715adb40263628f313f4b535c417ad619549d70e382e6385bbee099dc0c1e3",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/sections/s05_04_03_taun.mod",
-    "sha256": "4dda530a429c6608468acb7378195cdf674ffc72a05e38e6504630e7239164d0",
-    "execution_log": "review/run_logs/q_alignment/simple.log"
+    "sha256": "3894681e716b16019627fdd5a5c4058e5daa92c6af3216add5ae850eb20f1a3c",
+    "execution_log": "review/run_logs/equilibrium_alignment/sections_fiscal.log"
   },
   {
     "model": "Code/full_replications/s02_full_rep.mod",
-    "sha256": "eea9e5febe0f8785175ce6fde4b81d9254aec617dae2e92a6ccc99ba7da8eba7",
-    "execution_log": "review/run_logs/q_alignment/full.log"
+    "sha256": "591c8e8511ba576706129d1742055419169cf434cfbd9b16bd7b582b16047bb5",
+    "execution_log": "review/run_logs/equilibrium_alignment/full_stochastic.log"
   },
   {
     "model": "Code/full_replications/s03_full_rep.mod",
-    "sha256": "fc38a4f9bb283c7a1e410b276ce36d1d1164456c39387f04a401b0b6bd40d837",
-    "execution_log": "review/run_logs/q_alignment/full.log"
+    "sha256": "bc5698d8d092ce855d2316a957d83487ce4ed3045826955e679fb4a0be216f04",
+    "execution_log": "review/run_logs/equilibrium_alignment/full_stochastic.log"
   },
   {
     "model": "Code/full_replications/s04_full_rep.mod",
-    "sha256": "4ce0511c459275bd6f2a0992150dd20833b23fe2e4998f35c49d83026adf83a7",
-    "execution_log": "review/run_logs/q_alignment/full.log"
+    "sha256": "8744fcccdc5613defcf9d1ece7fe3997ea471d5e0434b1472519c3cc71f22085",
+    "execution_log": "review/run_logs/equilibrium_alignment/full_fiscal.log"
   },
   {
     "model": "Code/full_replications/s05_03_full_rep.mod",
-    "sha256": "d386021357d837245dfa9efc14ff0a99ba79051794fe0d164765ddccd9c7c7ab",
-    "execution_log": "review/run_logs/q_alignment/full.log"
+    "sha256": "8449c0fce7ed55f29dfcaa57ad8fccede5483a7ccdc258eac2f04de85db1f59a",
+    "execution_log": "review/run_logs/equilibrium_alignment/full_fiscal.log"
   },
   {
     "model": "Code/full_replications/s05_04_full_rep.mod",
-    "sha256": "9ee3f6c7138edfd9224e64f6436b68ba128a940b89eff4bc3a1b6c4281dfff97",
-    "execution_log": "review/run_logs/q_alignment/full.log"
+    "sha256": "37fef0d7858862fde2130ad828398b1ed96c57bfe01e4ab525223f11889b5501",
+    "execution_log": "review/run_logs/equilibrium_alignment/full_fiscal.log"
   }
 ]

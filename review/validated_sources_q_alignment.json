@@ -1,0 +1,122 @@
+[
+  {
+    "model": "Code/sections/s02_02_growth_approx.mod",
+    "sha256": "dfb3be21c7e7cb90f1cb5042007f3a5f891cf544e506cf6469daec2731e30fba",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s02_03_growth_estimate.mod",
+    "sha256": "eb82fc874fcc0e7b390e879f0dd0292b9f3c8fc548577862d1be7c6b52a72333",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s03_02_twocountry_approx.mod",
+    "sha256": "774795d6ddee556e4f3c11fef69a43df23ef77637a0717de100fdd757d949d27",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s03_03_twocountry_estimate.mod",
+    "sha256": "a8734eff39afe2b03c4665c63e1650613214a7d678c5ee88b84dd3bce6a9ae35",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_01_g.mod",
+    "sha256": "47794fe2a5e3bace40ff32ae7001f722d2960508a45c26de0067b14ccbae4ae4",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_02_tauc.mod",
+    "sha256": "ac47ad46ff135b1545c1e13075f304cd4f72a739e3d674be2244c83d5159285b",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_03_taui.mod",
+    "sha256": "121a4ec5f6349dc2b38dfc3a46feefc61f240f281e9d37bdba595692ac18ce38",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_04_tauk.mod",
+    "sha256": "fc9eb2c21ce3d2737c06de26f8e170ded9b882acbd7c6dcb4411f148e28ce196",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_05_g.mod",
+    "sha256": "fab73a339d5533cd08e18b224062f62c1fde4fc29e7bbef13a99654264897a3a",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s04_03_06_taui.mod",
+    "sha256": "253b1424ffd6496fe128453ad07fbfed58d70d9e5400dc8bd72c546215705317",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_01_g.mod",
+    "sha256": "8f12a9f210085472f8636c7c292f7a3e634c65192701acd80462e4fc74b62446",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_02_tauc.mod",
+    "sha256": "d24d9a17d78618d44f75e8b711bb125311c70937d08627ac40d31b0cf85a39f1",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_03_tauk.mod",
+    "sha256": "903f8439a10cfb3cfc24fb48f40f863bde31381d6c692869cf6813e7bc1fdf16",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_04_g.mod",
+    "sha256": "90ba9a004956aa7eb9a725e5b8392d3d9adf347b1e3004cf3e3ff0b281bcd154",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_05_g_gamma02.mod",
+    "sha256": "6a0f8009218a8c9c01130cabf7bd981b5de60451e33dbb40342be923b56406a8",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_03_06_yields.mod",
+    "sha256": "88ea8c233299f560d59467534438ddafa5c4be3198f685b5d2a07b43722c1307",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_04_01_g.mod",
+    "sha256": "19b590d74b2b2aa78d06e8e55b254d9bf4b33e1b8082887820d00422dc391da8",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_04_02_taun.mod",
+    "sha256": "ff8291076ab9d56f961d28c2fcdb57a1e858a1dbc6f930094bd120900c79a1ac",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/sections/s05_04_03_taun.mod",
+    "sha256": "4dda530a429c6608468acb7378195cdf674ffc72a05e38e6504630e7239164d0",
+    "execution_log": "review/run_logs/q_alignment/simple.log"
+  },
+  {
+    "model": "Code/full_replications/s02_full_rep.mod",
+    "sha256": "eea9e5febe0f8785175ce6fde4b81d9254aec617dae2e92a6ccc99ba7da8eba7",
+    "execution_log": "review/run_logs/q_alignment/full.log"
+  },
+  {
+    "model": "Code/full_replications/s03_full_rep.mod",
+    "sha256": "fc38a4f9bb283c7a1e410b276ce36d1d1164456c39387f04a401b0b6bd40d837",
+    "execution_log": "review/run_logs/q_alignment/full.log"
+  },
+  {
+    "model": "Code/full_replications/s04_full_rep.mod",
+    "sha256": "4ce0511c459275bd6f2a0992150dd20833b23fe2e4998f35c49d83026adf83a7",
+    "execution_log": "review/run_logs/q_alignment/full.log"
+  },
+  {
+    "model": "Code/full_replications/s05_03_full_rep.mod",
+    "sha256": "d386021357d837245dfa9efc14ff0a99ba79051794fe0d164765ddccd9c7c7ab",
+    "execution_log": "review/run_logs/q_alignment/full.log"
+  },
+  {
+    "model": "Code/full_replications/s05_04_full_rep.mod",
+    "sha256": "9ee3f6c7138edfd9224e64f6436b68ba128a940b89eff4bc3a1b6c4281dfff97",
+    "execution_log": "review/run_logs/q_alignment/full.log"
+  }
+]

@@ -4,8 +4,13 @@
 // 1. Variables and calibration
 // c: consumption; k: capital chosen today.
 var
-    c    // Consumption
-    k    // Physical capital chosen today for use next period
+    c       // Consumption, c_t
+    k       // Capital chosen today (textbook k_(t+1))
+    qtilde  // Detrended price c_t^(-gamma)/(1+tauc_t)
+    r       // Current real rental yield, r_t (before depreciation)
+    w       // Current real wage, w_t
+    R       // Forward consumption-adjusted gross return, R_(t+1)
+    s       // Current after-tax capital payoff, s_t
 ;
 varexo
     g       // Government purchases
@@ -20,16 +25,37 @@ A     = 1;       // Productivity level
 alpha = 0.33;    // Capital share
 gamma = 2;       // CRRA consumption curvature
 
-// 2. Equilibrium conditions
-// k(-1) is used today; k earns its rental return next period.
+// 2. Equilibrium conditions: one equation per displayed condition.
+// Code k is chosen at t and becomes textbook k_(t+1); k(-1) is textbook k_t.
 model;
-    // Resource constraint: output plus undepreciated capital.
+    // (14) Resource constraint; k(-1) is capital available today.
     c = A*k(-1)^alpha + (1-delta)*k(-1) - k - g;
 
-    // Euler equation: taxes and the capital payoff are dated t+1.
-    c^(-gamma) = beta*c(+1)^(-gamma) * (1+tauc)/(1+tauc(+1))
+    // (15) Detrended marginal-utility price; dated q_t = beta^t*qtilde_t.
+    // This algebraic definition fixes the level; it is not a q recursion.
+    qtilde = c^(-gamma)/(1+tauc);
+
+    // (16) Current real rental yield (before taxes and depreciation).
+    r = A*alpha*k(-1)^(alpha-1);
+
+    // (17) Current real wage; with n=1 it is also total labour income.
+    w = A*(1-alpha)*k(-1)^alpha;
+
+    // (18) Forward gross return R_(t+1) on saving at date t.
+    // Expand the future rental yield to retain dependence on today's k
+    // even at the final simulated date (where future r is a boundary value).
+    R = (1+tauc)/(1+tauc(+1))
         * (1-delta + (1-tauk(+1))*A*alpha*k^(alpha-1));
+
+    // (19) Consumption Euler equation.
+    c^(-gamma) = beta*c(+1)^(-gamma)*R;
+
+    // (19a) Realized real capital payoff, distinct from forward R.
+    s = (1-tauk)*r + 1-delta;
 end;
+
+// Eliminating qtilde, r, w, R and s reduces this to the allocation model.
+// They remain explicit here so the code matches the displayed conditions.
 
 // 3. Scenario | tauk rises permanently at text date t=10
 // Policy is known at t=0. Simulation period 1 corresponds to text t=0.
@@ -67,41 +93,3 @@ perfect_foresight_solver;
 
 // Optional accuracy settings for numerical residual comparisons:
 // perfect_foresight_solver(tolf=1e-10, tolx=1e-10);
-
-
-// 5. Optional interpretation epilogue (commented out)
-// Keep the two/three-equation model above for the first exercise.
-// To calculate plotting quantities, remove the block-comment markers below.
-// These are ordinary MATLAB/Octave calculations, not extra model equations.
-// The full files declare the corresponding observables inside model instead.
-/*
-verbatim;
-% Locate simulated dates after the initial-condition padding.
-% Each row below is aligned to current text dates t=0,...,T-1.
-dates = (1:options_.periods) + M_.maximum_lag;
-c_path = oo_.endo_simul(strcmp(M_.endo_names, 'c'), dates);
-c_next = oo_.endo_simul(strcmp(M_.endo_names, 'c'), dates+1);
-k_used = oo_.endo_simul(strcmp(M_.endo_names, 'k'), dates-1);
-n_path = ones(size(c_path));  % Inelastic labour is normalized to one.
-
-% Dynare stores parameter values in M_.params; select them by name.
-productivity = M_.params(strcmp(M_.param_names, 'A'));
-capital_share = M_.params(strcmp(M_.param_names, 'alpha'));
-depreciation = M_.params(strcmp(M_.param_names, 'delta'));
-discount = M_.params(strcmp(M_.param_names, 'beta'));
-curvature = M_.params(strcmp(M_.param_names, 'gamma'));
-capital_tax = oo_.exo_simul(dates, strcmp(M_.exo_names, 'tauk'))';
-
-% Real factor prices: the dated-price factor q cancels analytically.
-r_over_q = productivity*capital_share .* k_used.^(capital_share-1) ...
-           .* n_path.^(1-capital_share);
-w_over_q = productivity*(1-capital_share) .* k_used.^capital_share ...
-           .* n_path.^(-capital_share);
-s_over_q = (1-capital_tax).*r_over_q + 1-depreciation;
-
-% Euler-implied saving return R_(t+1), called RBIG in the 2025 code.
-% It equals the full file's R; do not add a second equilibrium restriction.
-RBIG = (c_path./c_next).^(-curvature) / discount;
-% No plots are created here; these aligned series are ready for inspection.
-end;
-*/

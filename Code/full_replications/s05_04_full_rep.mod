@@ -6,15 +6,16 @@
 
 // 1. Variables and calibration
 // c: consumption; k: capital chosen today. n: hours worked.
-// Extra variables record returns and factor prices for the output panels.
+// Every equilibrium price and return is explicit, as in the guide.
 var
-    c                // Consumption
-    k                // Physical capital chosen today for use next period
-    n                // Labour supplied (hours)
-    R                // Consumption-adjusted return on saving today, R_(t+1)
-    rental           // Current real rental rate, r_t/q_t
-    wage             // Current real wage, w_t/q_t
-    saving_return    // Realized real capital payoff, s_t/q_t
+    c       // Consumption, c_t
+    k       // Capital chosen today (textbook k_(t+1))
+    n       // Labour supplied, n_t
+    qtilde  // Detrended price c_t^(-gamma)/(1+tauc_t)
+    r       // Current real rental yield, r_t (before depreciation)
+    w       // Current real wage, w_t
+    R       // Forward consumption-adjusted gross return, R_(t+1)
+    s       // Current after-tax capital payoff, s_t
 ;
 varexo
     g       // Government purchases
@@ -31,34 +32,41 @@ alpha = 0.33;    // Capital share
 gamma = 1;       // Log-consumption utility
 B     = 3;       // Weight on leisure
 
-// 2. Equilibrium conditions
-// k(-1) is used today; k earns its rental return next period.
+// 2. Equilibrium conditions: one equation per displayed condition.
+// Code k is chosen at t and becomes textbook k_(t+1); k(-1) is textbook k_t.
 model;
-    // Resource constraint: output plus undepreciated capital.
+    // (22) Resource constraint; k(-1) is capital available today.
     c = A*k(-1)^alpha*n^(1-alpha) + (1-delta)*k(-1) - k - g;
 
-    // Euler equation: taxes and the capital payoff are dated t+1.
-    c^(-gamma) = beta*c(+1)^(-gamma)*R;
+    // (22a) Detrended marginal-utility price; dated q_t = beta^t*qtilde_t.
+    // This algebraic definition fixes the level; it is not a q recursion.
+    qtilde = c^(-gamma)/(1+tauc);
 
-    // R is the consumption-adjusted return on saving today.
-    // The Euler-implied RBIG is identical in equilibrium, so no duplicate
-    // endogenous equation/variable is needed (see the optional short-file epilogue).
+    // (22b) Current real rental yield (before taxes and depreciation).
+    r = A*alpha*k(-1)^(alpha-1)*n^(1-alpha);
+
+    // (22c) Current real wage; with n=1 it is also total labour income.
+    w = A*(1-alpha)*k(-1)^alpha*n^(-alpha);
+
+    // (22d) Forward gross return R_(t+1) on saving at date t.
+    // Expand the future rental yield to retain dependence on today's k
+    // even at the final simulated date (where future r is a boundary value).
     R = (1+tauc)/(1+tauc(+1))
         * (1-delta + (1-tauk(+1))*A*alpha*k^(alpha-1)*n(+1)^(1-alpha));
 
-    // Labour condition: marginal disutility equals after-tax real wage.
-    B*c^gamma*(1+tauc) = (1-taun)*(1-alpha)*A*k(-1)^alpha*n^(-alpha);
+    // (22e) Realized real capital payoff, distinct from forward R.
+    s = (1-tauk)*r + 1-delta;
 
-    // Current rental and wage in consumption-good units (r/q and w/q).
-    // Calculate the ratios directly; no recursive q state or division by q.
-    rental = A*alpha*k(-1)^(alpha-1)*n^(1-alpha);
-    wage = A*(1-alpha)*k(-1)^alpha*n^(-alpha);
+    // (23) Consumption Euler equation.
+    c^(-gamma) = beta*c(+1)^(-gamma)*R;
 
-    // Realized payoff on capital, before any investment-price adjustment.
-    saving_return = (1-tauk)*rental + 1-delta;
+    // (24) Consumption-leisure condition with the consumption-tax wedge.
+    B*c*(1+tauc) = (1-taun)*w;
 end;
 
 // Store scenario results in cells; each cell contains one solved path.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 solutions = {};
 policies = {};
@@ -67,6 +75,9 @@ end;
 // -------------------------------------------------------------------------
 // Example 5.4.1 | g permanent change
 // -------------------------------------------------------------------------
+// Eliminating qtilde, r, w, R and s reduces this to the allocation model.
+// They remain explicit here so the code matches the displayed conditions.
+
 // 3. Scenario | g rises permanently at text date t=0
 // Policy is known at t=0. Simulation period 1 corresponds to text t=0.
 // Initial steady state: guesses for c and k are refined by steady.
@@ -84,6 +95,8 @@ steady;
 check;
 
 // Remember the common starting point for the later experiments.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 initial_steady = oo_.steady_state;
 initial_policy = oo_.exo_steady_state;
@@ -107,6 +120,8 @@ perfect_foresight_solver;
 // perfect_foresight_solver(tolf=1e-10, tolx=1e-10);
 
 // Keep this solution; all panels are drawn together at the end.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 solutions{1} = oo_.endo_simul;
 policies{1} = oo_.exo_simul;
@@ -119,6 +134,8 @@ end;
 // Policy is known at t=0. Simulation period 1 corresponds to text t=0.
 // Start this experiment from the original baseline, not the last policy.
 // Dynare does not allow another initval block after an endval block.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 oo_.steady_state = initial_steady;
 oo_.exo_steady_state = initial_policy;
@@ -149,6 +166,8 @@ perfect_foresight_solver;
 // perfect_foresight_solver(tolf=1e-10, tolx=1e-10);
 
 // Keep this solution; all panels are drawn together at the end.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 solutions{2} = oo_.endo_simul;
 policies{2} = oo_.exo_simul;
@@ -161,6 +180,8 @@ end;
 // Policy is known at t=0. Simulation period 1 corresponds to text t=0.
 // Start this experiment from the original baseline, not the last policy.
 // Dynare does not allow another initval block after an endval block.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 oo_.steady_state = initial_steady;
 oo_.exo_steady_state = initial_policy;
@@ -195,6 +216,8 @@ perfect_foresight_solver;
 // perfect_foresight_solver(tolf=1e-10, tolx=1e-10);
 
 // Keep this solution; all panels are drawn together at the end.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 solutions{3} = oo_.endo_simul;
 policies{3} = oo_.exo_simul;
@@ -202,13 +225,15 @@ end;
 
 
 // Output panels: one common plotting block, with no custom functions.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 if ~exist('output', 'dir')
     mkdir('output');
 end
 
 time = (0:39)';
-series = {'k', 'c', 'R', 'wage', 'n'};
+series = {'k', 'c', 'R', 'w', 'n'};
 labels = {'Capital available, k_t', 'Consumption, c_t', 'Saving return, R_{t+1}', 'Real wage', 'Hours worked, n_t'};
 filenames = {'s05_04_01_g', ...
              's05_04_02_taun', ...
@@ -259,4 +284,3 @@ for example = 1:numel(solutions)
          'time', 'paths', 'baseline');
 end
 end;
-

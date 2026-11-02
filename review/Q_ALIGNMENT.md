@@ -1,5 +1,7 @@
 # Dated-price and auxiliary alignment — 2 November 2026
 
+Follow-up: [EQUILIBRIUM_ALIGNMENT.md](EQUILIBRIUM_ALIGNMENT.md) supersedes the optional-epilogue design with complete active equilibrium systems in the participant code. The prior source register is preserved as `validated_sources_q_alignment.json`.
+
 Agreed follow-up: correct the 2025 `q` explanation, add commented optional fiscal epilogues, label every maintained endogenous/exogenous declaration, explain the bounds and role of output loops, then publish the complete reviewed update to GitHub and use the existing Overleaf GitHub connection.
 
 The dated recursion with beta is not a unit root; imposing a constant level at a constant allocation yields q=0. Removing beta detrends the price but leaves a scale-free recursive level/unit root. The LaTeX and [participant note](../notes/q_and_auxiliaries.md) distinguish dated prices, real payoff ratios, normalization and the one-period pricing factor. Yield calculations retain beta and now write the consumption-tax normalization explicitly (it equals one in the spending example).

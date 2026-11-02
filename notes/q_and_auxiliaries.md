@@ -1,51 +1,66 @@
-# Dated prices, real payoffs and optional auxiliaries
+# Unified prices, returns and the displayed model equations
 
-This note applies to Sections 4, 5.3 and 5.4. It also corrects the explanation beside the `q` recursion in the preserved `Code/training_2025/fiscal/RMT_FP_final.mod` (and its duplicate revision). The historical source is retained unchanged for provenance.
+This note applies to Sections 4, 5.3 and 5.4. The guide and both code folders now use the same explicit equilibrium variables. Each participant model includes every displayed condition, with the equation number in a code comment; the full files add scenario collection and plots.
 
-The worksheet uses the date-zero price of a consumption good delivered at date t:
+| Current symbol / code | Meaning |
+|---|---|
+| `c` | Current consumption |
+| `k(-1)` | Capital available today, textbook k_t; code `k` chooses k_(t+1) |
+| `n` | Hours in the elastic-labour model |
+| `qtilde` | Algebraically defined detrended price, c^(-gamma)/(1+tauc) |
+| `r` | Real rental yield before taxes and depreciation; the marginal product of capital |
+| `w` | Real wage per unit of labour; wage income is w*n (n=1 with inelastic labour) |
+| `R` | Forward consumption-adjusted gross saving return, textbook R_(t+1) |
+| `s` | Current after-capital-tax payoff plus undepreciated capital, (1-tauk)*r+1-delta |
+
+The rental yield `r` is **not** the net interest rate. Without taxes/subsidies the forward net interest rate is the future rental yield minus depreciation, and the gross return adds one. When consumption-tax or investment-subsidy wedges change, `R` includes those wedges as shown in the Euler equation. MATLAB/Octave distinguishes `r` from `R`; there is no need for an R-bar notation.
+
+## Why the original Section 4 divided by q
+
+The original notation expressed some factor payoffs in date-zero goods. A dated rental payoff is `q_t*r_t` in the current real-price convention. Dividing that dated payoff by `q_t` recovers the real rental yield. The same applies to wages and the current capital payoff. This converts price units; it does not rescale physical output.
+
+The guide now calls the original quantities `r_dated`, `w_dated` and `s_dated` when explaining the conversion. Its model equations and budgets use real `r`, `w` and `s` throughout Sections 4 and 5. The former Section 5 `eta` label is replaced by `r`. Historical images are unchanged; their caption notes map old `r/q`, `w/q`, `s/q`, `eta` and R-bar labels into the current notation.
+
+## Dated prices and a well-defined algebraic price level
+
+The original dated consumption-good price is proportional to
 
 \[
-q_t=\beta^t c_t^{-\gamma}/(1+\tau_{c,t}),
+q_t=\beta^t c_t^{-\gamma}/(1+\tau_{c,t}).
 \]
 
-up to a common positive normalization. The corresponding recursion includes beta:
+At constant consumption and taxes its recursion becomes `q_t=beta*q_(t-1)`. For beta between zero and one, dated prices decline. This is **not a unit root**; forcing a constant steady-state level gives q=0 and makes divisions by q problematic.
+
+Deleting beta from that recursion removes the discount trend but gives `qtilde_t=qtilde_(t-1)` at a constant allocation. That leaves the level undetermined and has a unit root. This corrects the explanation in the preserved `RMT_FP_final.mod` and its duplicate development revision. Historical source bytes remain unchanged, with a linked erratum beside those sources.
+
+The maintained models instead define the price level **algebraically**:
 
 \[
-q_t=\beta q_{t-1}(c_t/c_{t-1})^{-\gamma}
-       (1+\tau_{c,t-1})/(1+\tau_{c,t}).
+\widetilde q_t=c_t^{-\gamma}/(1+\tau_{c,t}),\qquad
+q_t=\beta^t\widetilde q_t.
 \]
 
-At a constant allocation and constant taxes, this is `q_t = beta*q_(t-1)`. For beta between zero and one it describes declining dated prices. It is **not a unit root**. Forcing it into a constant steady-state equation yields `q=0`; subsequent `r/q`, `w/q` and `s/q` divisions can then be undefined or numerically unstable. A solver convergence message does not establish that the price normalization is meaningful.
+This fixes the level through marginal utility; it is not the undetermined detrended recursion. In Section 5.4, gamma=1 implements log consumption. The price equation therefore appears explicitly alongside the other equilibrium conditions and has a positive steady state at positive consumption.
 
-Removing beta can be interpreted as detrending: define `q_tilde_t=q_t/beta^t`. But its recursion becomes `q_tilde_t=q_tilde_(t-1)` at a constant allocation. This leaves the level arbitrary and introduces a unit root in the recursive level. Dropping beta alone does **not** pin down a unique positive steady state. The 2025 comment reverses these two cases. Calling the result a “stationary kernel” is insufficient; an explicit level normalization or direct algebraic definition is required.
-
-The normalized dated price can instead be calculated directly after solving allocations:
+Dated prices for yields are recovered after solving, normalized to q_0=1:
 
 \[
 q_t/q_0=\beta^t(c_t/c_0)^{-\gamma}
         (1+\tau_{c,0})/(1+\tau_{c,t}).
 \]
 
-The one-period pricing factor is `q_(t+1)/q_t`, and it retains beta. A detrended price **level** is not itself this one-period factor. Section 5.3.6 uses the dated prices for continuously compounded yields, `-log(q_(t+i)/q_t)/i`. The spending experiment has a constant zero consumption tax, so its tax ratio equals one; the code now retains that ratio explicitly.
+The one-period pricing factor is `q_(t+1)/q_t`, retaining beta. Yields use `-log(q_(t+i)/q_t)/i` for positive maturities. The consumption-tax ratio is written explicitly even though it equals one in the spending experiment.
 
-## How the code preserves the useful quantities
+## Complete system and reduction
 
-| 2025 name | Meaning | Full-output model name | Optional short-file name |
-|---|---|---|---|
-| `r_over_q` | Current real marginal product of capital | `rental` | `r_over_q` |
-| `w_over_q` | Current real wage; wage income when labour is normalized to one | `wage` | `w_over_q` |
-| `s_over_q` | Current after-capital-tax payoff plus undepreciated capital | `saving_return` | `s_over_q` |
-| `R` | Consumption-adjusted saving return R_(t+1), including applicable tax/subsidy wedges | `R` | Recovered through `RBIG` |
-| `RBIG` | Return implied by the consumption Euler equation | Equals `R` in equilibrium | `RBIG` |
+Section 4 has resource, detrended price, rental yield, wage, forward return, current payoff and Euler equations, matching (7)–(13). Section 5.3 matches (14)–(19), with current payoff definition (19a) included for interpretation. Section 5.4 matches (22)–(24), including the lettered price/payoff definitions and the labour condition.
 
-Real factor prices are computed directly from capital and labour. The dated-price factor cancels algebraically, so there is no need to create `q*rental` and then divide by `q`. `saving_return` is a realized current payoff; it is not interchangeable with the forward, consumption-adjusted `R`, especially when taxes or the investment subsidy vary over time. `RBIG` is useful for interpretation or checking the Euler equation, but is a duplicate of `R` in equilibrium, not another independent restriction.
+Eliminating `qtilde`, `r`, `w`, `R` and `s` algebraically gives the two allocation equations in c and k, or three in c, k and n with elastic labour. The complete system is displayed and active for teaching; the earlier optional price epilogues have been superseded. `RBIG` from the 2025 code is the Euler-implied value of `R`, so it is not an independent equilibrium restriction.
 
-Each short fiscal file has a fully commented **optional interpretation epilogue** after the solver (after the price/yield calculation in 5.3.6). Remove its opening and closing block-comment markers to activate it. It uses the solved paths and parameter values without adding endogenous variables or equations. The core resource/Euler/labour model remains unchanged, and the epilogue creates no figures. Capital available at a date comes from the previous capital choice; consumption and labour come from the current simulated column. Every resulting series uses the same dates.
+The return equation expands the future rental yield in terms of today's capital choice (and future labour where applicable). This preserves its dependence on code `k` at the final simulated date; replacing that expression mechanically by a boundary value of `r(+1)` can create a singular terminal Jacobian. The time convention and economic equation are unchanged.
 
-The full-output files retain active auxiliary equations, with labels explaining their timing and units. These are the examples to use for the complete panels. The short epilogues offer the same interpretation in a separate learning step.
+## What verbatim does
 
-## Why the loops are limited and auditable
+`verbatim; ... end;` copies ordinary MATLAB/Octave code unchanged into Dynare's generated program. It is not a Dynare `model` block. Use `%` comments inside it. The code now explains this at every active use: data export, scenario reset/storage, yield calculations and plots. The explicit price/return equations belong in `model`, not in a post-processing block.
 
-All policy scenarios are solved in explicit blocks. The full files' loops read stored solutions, select named rows, and fill fixed output columns or draw fixed panels. They do not iterate on policy rules or carry solver guesses between scenarios. The original baseline is restored explicitly before each solve.
-
-The yield loops cover 61 dates and 40 maturities. Each cell is assigned once; the largest price index is 101, inside the 301-element price path. Maturity begins at one, avoiding division by zero. The code comments state these bounds. This makes the indexing checkable; it is not a claim that arbitrary future edits are safe. Execution checks also compare the short/full allocations and optional payoff calculations.
+All policy solves remain explicit. Output loops only read stored paths or fill fixed arrays; yield-loop comments state their dates, maturities and maximum price index. Independent checks compare the full and participant allocations and all active price/return definitions.

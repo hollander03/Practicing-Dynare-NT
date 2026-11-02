@@ -5,6 +5,7 @@ for jj=1:numel(files)
     [~,stem]=fileparts(files(jj).name);
     result=load(fullfile(stem,'Output',[stem '_results.mat']));
     mm=result.M_; oo=result.oo_;
+    assert(oo.deterministic_simulation.status==1,'Solver status reports failure');
     p=@(name) mm.params(strcmp(mm.param_names,name));
     v=@(name) oo.endo_simul(strcmp(mm.endo_names,name),:);
     ex=@(name) oo.exo_simul(:,strcmp(mm.exo_names,name))';
@@ -32,11 +33,24 @@ for jj=1:numel(files)
     euler=c(ix).^(-gamma)-beta*c(ix+1).^(-gamma).*return_next;
     assert(max(abs(resource))<residual_tolerance,'Resource residual too large');
     assert(max(abs(euler))<residual_tolerance,'Euler residual too large');
-    assert(max(abs(oo.endo_simul(:,301)-oo.endo_simul(:,302)))<1e-5, ...
-        'Final solved period not near terminal steady state');
+    % Independently check the explicit price/payoff equations, not just c,k.
+    rental=A*alpha*k(ix-1).^(alpha-1).*n(ix).^(1-alpha);
+    wage=A*(1-alpha)*k(ix-1).^alpha.*n(ix).^(-alpha);
+    observed_r=v('r'); observed_w=v('w'); observed_R=v('R');
+    observed_s=v('s'); observed_q=v('qtilde');
+    price_errors=[observed_r(ix)-rental; observed_w(ix)-wage; ...
+        observed_R(ix)-return_next; ...
+        observed_s(ix)-((1-tk(ix)).*rental+1-delta); ...
+        observed_q(ix)-c(ix).^(-gamma)./(1+tc(ix))];
+    assert(max(abs(price_errors(:)))<residual_tolerance, ...
+        'Explicit price/return equation residual too large');
+    terminal_scale=max(1,abs(oo.endo_simul(:,302)));
+    assert(max(abs(oo.endo_simul(:,301)-oo.endo_simul(:,302))./terminal_scale)<1e-5, ...
+        'Final solved period not near terminal steady state in scaled units');
     if startsWith(stem,'s04_03_05') || startsWith(stem,'s04_03_06') || startsWith(stem,'s05_03_04')
         assert(max(abs(oo.endo_simul(:,1)-oo.endo_simul(:,302)))<1e-6, ...
             'Pulse terminal steady state differs from initial');
     end
-    fprintf('PATH_PASS %s resource=%.3g euler=%.3g\n',stem,max(abs(resource)),max(abs(euler)));
+    fprintf('PATH_PASS %s resource=%.3g euler=%.3g prices=%.3g\n', ...
+        stem,max(abs(resource)),max(abs(euler)),max(abs(price_errors(:))));
 end

@@ -68,12 +68,16 @@ stoch_simul(order=2, periods=1000, drop=100, irf=40, nograph);
 // Export the observed series for the estimation example.
 // verbatim passes ordinary MATLAB/Octave code through the Dynare parser.
 // strcmp selects a row by name; the apostrophe makes a column of data.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 c = oo_.endo_simul(strcmp(M_.endo_names, 'c'), :)';
 save('s02_simudata.mat', 'c');
 end;
 
 // 5. Plot only the IRFs used in the worksheet.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 if ~exist('output', 'dir')
     mkdir('output');
@@ -114,6 +118,8 @@ estimation(datafile=s02_simudata, mode_compute=4, mh_replic=1000,
 
 // Dynare saves density panels in this model's graphs/ directory.
 // Copy the principal panels to the same output/ naming scheme as the IRFs.
+// verbatim copies this block unchanged into the generated MATLAB/Octave
+// program. It is not a Dynare equilibrium block; use % comments inside.
 verbatim;
 copyfile(fullfile(M_.fname, 'graphs', [M_.fname '_Priors1.pdf']), ...
          fullfile('output', 's02_03_priors.pdf'));

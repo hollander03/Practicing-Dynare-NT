@@ -7,6 +7,10 @@ for file_index=1:numel(files)
     fprintf('\nNT_RUN_BEGIN %s\n',model_name);
     try
         dynare(model_name,'noclearall','nograph');
+        if isfield(oo_,'deterministic_simulation')
+            assert(oo_.deterministic_simulation.status==1, ...
+                   'Perfect foresight solver reported failure');
+        end
         fprintf('NT_RUN_PASS %s\n',model_name);
     catch run_error
         fprintf('NT_RUN_FAIL %s: %s\n',model_name,run_error.message);

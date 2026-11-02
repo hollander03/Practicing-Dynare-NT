@@ -1,0 +1,738 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+
+NT_RUN_BEGIN s04_full_rep.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 3 auxiliary variables and equations.
+Found 10 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+qtilde          		 5.10374
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.082222
+Iter: 2,	 err. = 1.43804,	 time = 0.003253
+Iter: 3,	 err. = 0.00209562,	 time = 0.003206
+Iter: 4,	 err. = 1.22194e-06,	 time = 0.003431
+
+Total time of simulation: 0.09615.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.01779
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.403558,	 time = 0.032963
+Iter: 2,	 err. = 0.037191,	 time = 0.003248
+Iter: 3,	 err. = 0.0173938,	 time = 0.002879
+Iter: 4,	 err. = 2.01624e-05,	 time = 0.00311
+Iter: 5,	 err. = 1.07453e-10,	 time = 0.003146
+
+Total time of simulation: 0.048102.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.657388
+k               		 2.07878
+qtilde          		 2.31396
+r               		 0.202107
+w               		 0.853006
+R               		 1.05263
+s               		 1.00211
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.603571,	 time = 0.003142
+Iter: 2,	 err. = 0.120825,	 time = 0.003113
+Iter: 3,	 err. = 0.0110869,	 time = 0.003155
+Iter: 4,	 err. = 3.28866e-07,	 time = 0.003068
+
+Total time of simulation: 0.014776.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.608336
+k               		 1.0679
+qtilde          		 2.70217
+r               		 0.315789
+w               		 0.684684
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.456363,	 time = 0.003543
+Iter: 2,	 err. = 0.0991641,	 time = 0.002888
+Iter: 3,	 err. = 0.00189488,	 time = 0.002824
+Iter: 4,	 err. = 2.82042e-08,	 time = 0.002959
+
+Total time of simulation: 0.014499.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.003157
+Iter: 2,	 err. = 0.00634208,	 time = 0.003979
+Iter: 3,	 err. = 1.31774e-06,	 time = 0.00293
+
+Total time of simulation: 0.011761.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.263158,	 time = 0.002997
+Iter: 2,	 err. = 0.0903669,	 time = 0.002911
+Iter: 3,	 err. = 0.000665544,	 time = 0.002816
+Iter: 4,	 err. = 5.45094e-08,	 time = 0.002795
+
+Total time of simulation: 0.013541.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m06s
+NT_RUN_PASS s04_full_rep.mod
+
+NT_RUN_BEGIN s05_03_full_rep.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 9 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 3 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 3 equation(s)
+                                 and 2 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+qtilde          		 5.10374
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.063337
+Iter: 2,	 err. = 1.43804,	 time = 0.003841
+Iter: 3,	 err. = 0.00209562,	 time = 0.00292
+Iter: 4,	 err. = 1.22194e-06,	 time = 0.003165
+
+Total time of simulation: 0.075361.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.01779
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.403558,	 time = 0.003194
+Iter: 2,	 err. = 0.037191,	 time = 0.00312
+Iter: 3,	 err. = 0.0173938,	 time = 0.003128
+Iter: 4,	 err. = 2.01624e-05,	 time = 0.006079
+Iter: 5,	 err. = 1.07453e-10,	 time = 0.003649
+
+Total time of simulation: 0.021984.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.608336
+k               		 1.0679
+qtilde          		 2.70217
+r               		 0.315789
+w               		 0.684684
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.456363,	 time = 0.00644
+Iter: 2,	 err. = 0.0991641,	 time = 0.003595
+Iter: 3,	 err. = 0.00189488,	 time = 0.003509
+Iter: 4,	 err. = 2.82042e-08,	 time = 0.003264
+
+Total time of simulation: 0.019648.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.8524           0.8524                0
+           1.235            1.235                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 2.42135
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.003858
+Iter: 2,	 err. = 0.00634208,	 time = 0.003048
+Iter: 3,	 err. = 1.31774e-06,	 time = 0.003426
+
+Total time of simulation: 0.011967.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.642645
+k               		 1.48996
+qtilde          		 1.09246
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.5779           0.5779                0
+           1.822            1.822                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 3 eigenvalue(s) larger than 1 in modulus for 3 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.442645
+k               		 1.48996
+qtilde          		 1.17703
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.2,	 time = 0.003099
+Iter: 2,	 err. = 0.0215433,	 time = 0.003313
+Iter: 3,	 err. = 1.56077e-05,	 time = 0.002908
+Iter: 4,	 err. = 5.65467e-10,	 time = 0.002671
+
+Total time of simulation: 0.014592.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m03s
+NT_RUN_PASS s05_03_full_rep.mod
+
+NT_RUN_BEGIN s05_04_full_rep.mod
+Starting Dynare (version 6.1).
+Calling Dynare with arguments: noclearall nograph
+Starting preprocessing of the model file ...
+Substitution of exo leads: added 2 auxiliary variables and equations.
+Found 10 equation(s).
+Evaluating expressions...
+Computing static model derivatives (order 1).
+Normalizing the static model...
+Finding the optimal block decomposition of the static model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Computing dynamic model derivatives (order 1).
+Normalizing the dynamic model...
+Finding the optimal block decomposition of the dynamic model...
+3 block(s) found:
+  2 recursive block(s) and 1 simultaneous block(s).
+  the largest simultaneous block has 5 equation(s)
+                                 and 5 feedback variable(s).
+Preprocessing completed.
+Preprocessing time: 0h00m00s.
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+qtilde          		 3.92554
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf              Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 1.15771
+n               		 0.777008
+qtilde          		 3.92554
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.383358,	 time = 0.06422
+Iter: 2,	 err. = 0.124801,	 time = 0.002874
+Iter: 3,	 err. = 5.27792e-05,	 time = 0.003089
+Iter: 4,	 err. = 4.96291e-09,	 time = 0.00322
+
+Total time of simulation: 0.076301.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+qtilde          		 3.92554
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf              Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.203794
+k               		 0.713984
+n               		 0.479198
+qtilde          		 4.90692
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.0939281,	 time = 0.003288
+Iter: 2,	 err. = 0.0167043,	 time = 0.00352
+Iter: 3,	 err. = 1.27796e-06,	 time = 0.003379
+
+Total time of simulation: 0.012364.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.254742
+k               		 0.80407
+n               		 0.53966
+qtilde          		 3.92554
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+          0.6724           0.6724                0
+           1.566            1.566                0
+             Inf              Inf                0
+             Inf             -Inf                0
+             Inf             -Inf                0
+
+There are 4 eigenvalue(s) larger than 1 in modulus for 4 forward-looking variable(s)
+The rank condition is verified.
+
+
+STEADY-STATE RESULTS:
+
+c               		 0.203794
+k               		 0.713984
+n               		 0.479198
+qtilde          		 4.90692
+r               		 0.252632
+w               		 0.764226
+R               		 1.05263
+s               		 1.05263
+
+--------------------------------------------------------
+MODEL SIMULATION:
+
+Iter: 1,	 err. = 0.152845,	 time = 0.003589
+Iter: 2,	 err. = 0.245097,	 time = 0.003506
+Iter: 3,	 err. = 3.59835e-05,	 time = 0.003439
+Iter: 4,	 err. = 3.71268e-10,	 time = 0.003279
+
+Total time of simulation: 0.016631.
+--------------------------------------------------------
+
+
+Perfect foresight solution found.
+
+Total computing time : 0h00m01s
+NT_RUN_PASS s05_04_full_rep.mod

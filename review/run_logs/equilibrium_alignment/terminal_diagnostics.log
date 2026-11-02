@@ -1,0 +1,17 @@
+WARNING: package sun.awt.X11 not in java.desktop
+WARNING: package sun.awt.X11 not in java.desktop
+s04_03_01_g gap=9.2769e-09 variable=w
+s04_03_02_tauc gap=4.0403e-08 variable=k
+s04_03_03_taui gap=1.5367e-05 variable=k
+s04_03_04_tauk gap=1.8507e-08 variable=k
+s04_03_05_g gap=4.0403e-08 variable=k
+s04_03_06_taui gap=4.0403e-08 variable=k
+s05_03_01_g gap=9.2769e-09 variable=w
+s05_03_02_tauc gap=4.0403e-08 variable=k
+s05_03_03_tauk gap=1.8507e-08 variable=k
+s05_03_04_g gap=4.0403e-08 variable=k
+s05_03_05_g_gamma02 gap=1.0307e-07 variable=w
+s05_03_06_yields gap=9.2769e-09 variable=w
+s05_04_01_g gap=1.0778e-07 variable=qtilde
+s05_04_02_taun gap=2.7886e-08 variable=s
+s05_04_03_taun gap=2.7886e-08 variable=r
