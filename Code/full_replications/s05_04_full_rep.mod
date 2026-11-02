@@ -9,7 +9,7 @@
 // Every equilibrium price and return is explicit, as in the guide.
 var
     c       // Consumption, c_t
-    k       // Capital chosen today (textbook k_(t+1))
+    k       // Capital chosen during t, k_t (available in t+1)
     n       // Labour supplied, n_t
     qtilde  // Detrended price c_t^(-gamma)/(1+tauc_t)
     r       // Current real rental yield, r_t (before depreciation)
@@ -33,7 +33,7 @@ gamma = 1;       // Log-consumption utility
 B     = 3;       // Weight on leisure
 
 // 2. Equilibrium conditions: one equation per displayed condition.
-// Code k is chosen at t and becomes textbook k_(t+1); k(-1) is textbook k_t.
+// Text and code share Dynare timing: k(-1) is k_(t-1); k is k_t.
 model;
     // (22) Resource constraint; k(-1) is capital available today.
     c = A*k(-1)^alpha*n^(1-alpha) + (1-delta)*k(-1) - k - g;
@@ -234,7 +234,7 @@ end
 
 time = (0:39)';
 series = {'k', 'c', 'R', 'w', 'n'};
-labels = {'Capital available, k_t', 'Consumption, c_t', 'Saving return, R_{t+1}', 'Real wage', 'Hours worked, n_t'};
+labels = {'Beginning-of-period capital, k_{t-1}', 'Consumption, c_t', 'Saving return, R_{t+1}', 'Real wage', 'Hours worked, n_t'};
 filenames = {'s05_04_01_g', ...
              's05_04_02_taun', ...
              's05_04_03_taun'};

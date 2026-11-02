@@ -5,7 +5,7 @@
 // c: consumption; k: capital chosen today.
 var
     c       // Consumption, c_t
-    k       // Capital chosen today (textbook k_(t+1))
+    k       // Capital chosen during t, k_t (available in t+1)
     qtilde  // Detrended price c_t^(-gamma)/(1+tauc_t)
     r       // Current real rental yield, r_t (before depreciation)
     w       // Current real wage, w_t
@@ -28,7 +28,7 @@ gamma = 2;       // CRRA consumption curvature
 // taui is an investment subsidy: the investment purchase price is 1-taui.
 
 // 2. Equilibrium conditions: one equation per displayed condition.
-// Code k is chosen at t and becomes textbook k_(t+1); k(-1) is textbook k_t.
+// Text and code share Dynare timing: k(-1) is k_(t-1); k is k_t.
 model;
     // (7) Resource constraint; k(-1) is capital available today.
     c = A*k(-1)^alpha + (1-delta)*k(-1) - k - g;

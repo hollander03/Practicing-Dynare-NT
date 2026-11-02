@@ -1,0 +1,1 @@
+24 maintained model files: numerical code unchanged; only comments and capital plot-label strings differ. Five local capital-timing footnotes present. Active capital equations use Dynare dates directly. No numerical model reruns or visual checks performed.

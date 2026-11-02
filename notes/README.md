@@ -18,7 +18,7 @@ Filenames in the short-example column omit `.mod`. Run the approximation before 
 
 ## Reading the model and scenario
 
-`k(-1)` is the capital available today; `k` is chosen today for use tomorrow. `c(+1)` is next-period consumption. In stochastic Euler equations Dynare supplies the conditional-expectation interpretation. In deterministic perfect foresight the announced future policy is known.
+The text and code share the same timing: `k(-1)` is beginning-of-period capital k_(t-1); `k` is the choice k_t made during t for use in t+1. Each model section repeats this convention in a footnote at its first capital mention. `c(+1)` is next-period consumption. In stochastic Euler equations Dynare supplies the conditional-expectation interpretation. In deterministic perfect foresight the announced future policy is known.
 
 In Sections 4–5, simulation period 1 denotes text date t=0. A policy change at t=10 therefore starts in simulation period 11. `initval` provides the starting policy and guesses; `steady` computes the actual equilibrium. `endval; steady;` computes the terminal equilibrium for a permanent change. A one-period pulse keeps the original terminal equilibrium. `shocks` specifies the temporary exceptions to those baseline or terminal policy levels; `values` are **levels**, not innovations or percentage changes here.
 
@@ -45,7 +45,7 @@ In Sections 4–5, simulation period 1 denotes text date t=0. A policy change at
 | Cells `{...}`, `for`, `subplot` | Full files | Stores scenario paths and draws the same panels without repeating the plotting code or introducing custom functions |
 | `print`, `copyfile`, `fullfile` | Full files | Exports plots and gives Dynare density panels consistent output names |
 
-For the fiscal files here, endogenous column 1 is the initial condition, columns 2:301 are the 300 simulated dates, and column 302 is the terminal condition. To plot capital **available** at t, use column 1 for the first date; to plot current consumption use column 2. The plotted saving return is explicitly labelled R_(t+1). The full files restore the original `oo_.steady_state` and `oo_.exo_steady_state` between experiments: Dynare does not permit another `initval` after an `endval`. Each subsequent `endval` then defines that scenario's terminal state.
+For the fiscal files here, endogenous column 1 is the initial condition, columns 2:301 are the 300 simulated dates, and column 302 is the terminal condition. To plot capital **available** at t, labelled k_(t-1), use column 1 for the first date; to plot current consumption use column 2. The plotted saving return is explicitly labelled R_(t+1). The full files restore the original `oo_.steady_state` and `oo_.exo_steady_state` between experiments: Dynare does not permit another `initval` after an `endval`. Each subsequent `endval` then defines that scenario's terminal state.
 
 The yield example normalizes q_0=1 and uses `-log(q_(t+i)/q_t)/i`, for maturities i=1,...,40. The full file's short rate uses the same continuously compounded convention. In stochastic IRF panels, period 0 is the pre-shock reference point.
 

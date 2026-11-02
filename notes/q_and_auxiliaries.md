@@ -5,7 +5,7 @@ This note applies to Sections 4, 5.3 and 5.4. The guide and both code folders no
 | Current symbol / code | Meaning |
 |---|---|
 | `c` | Current consumption |
-| `k(-1)` | Capital available today, textbook k_t; code `k` chooses k_(t+1) |
+| `k(-1)` | Capital available at the beginning of t, k_(t-1); code `k` chooses k_t for t+1 |
 | `n` | Hours in the elastic-labour model |
 | `qtilde` | Algebraically defined detrended price, c^(-gamma)/(1+tauc) |
 | `r` | Real rental yield before taxes and depreciation; the marginal product of capital |
@@ -64,3 +64,5 @@ The return equation expands the future rental yield in terms of today's capital 
 `verbatim; ... end;` copies ordinary MATLAB/Octave code unchanged into Dynare's generated program. It is not a Dynare `model` block. Use `%` comments inside it. The code now explains this at every active use: data export, scenario reset/storage, yield calculations and plots. The explicit price/return equations belong in `model`, not in a post-processing block.
 
 All policy solves remain explicit. Output loops only read stored paths or fill fixed arrays; yield-loop comments state their dates, maturities and maximum price index. Independent checks compare the full and participant allocations and all active price/return definitions.
+
+The guide uses this capital indexing directly throughout every model. A local footnote at the first capital mention in each model explains the convention. Production at t uses k_(t-1); accumulation chooses k_t; the Euler payoff in t+1 uses k_t. This is a notational relabelling, not a change to the numerical model.

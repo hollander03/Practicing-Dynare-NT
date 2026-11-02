@@ -58,6 +58,8 @@ The listings below are the short participant examples. Self-contained files in \
 \section{The Neoclassical growth model}
 \subsection*{2.1 The model}
 
+Capital is indexed by the date at which it is chosen.\footnote{We use Dynare timing: $k_{t-1}$ is the physical capital stock available at the beginning of period $t$, chosen by the end of $t-1$; $k_t$ is chosen during period $t$ and is available at the beginning of $t+1$. Thus code \texttt{k(-1)} is $k_{t-1}$ and code \texttt{k} is $k_t$. The original textbook's beginning-of-period $k_t$ is relabelled $k_{t-1}$ throughout this section.}
+
 \begingroup
 \small
 \captionsetup{labelformat=empty}
@@ -71,7 +73,8 @@ Symbol & Code & Meaning / calibration (continued) \\
 \hline
 \endhead
 $c_t$ & \texttt{c} & Consumption; endogenous. \\
-$k_t$ & \texttt{k(-1)} & Capital available today; code \texttt{k} chooses next-period capital. \\
+$k_{t-1}$ & \texttt{k(-1)} & Physical capital available at the beginning of period $t$; predetermined. \\
+$k_t$ & \texttt{k} & Capital chosen during period $t$ for use in period $t+1$; endogenous. \\
 $l_t$ & \texttt{lab} & Hours as a fraction of available time, between zero and one; endogenous. \\
 $z_t$ & \texttt{z} & Stationary log productivity; endogenous AR(1) state. \\
 $\epsilon_t$ & \texttt{e} & Exogenous independent Gaussian innovation, mean zero and standard deviation $\sigma=1$. \\
@@ -98,7 +101,7 @@ subject to the resource constraint
 
 
 \begin{equation*}
-c_{t}+i_{t}=e^{z_{t}} k_{t}^{\alpha} l_{t}^{1-\alpha} \tag{1}
+c_{t}+i_{t}=e^{z_{t}} k_{t-1}^{\alpha} l_{t}^{1-\alpha} \tag{1}
 \end{equation*}
 
 
@@ -106,7 +109,7 @@ the law of motion for capital
 
 
 \begin{equation*}
-k_{t+1}=i_{t}+(1-\delta) k_{t} \tag{2}
+k_{t}=i_{t}+(1-\delta) k_{t-1} \tag{2}
 \end{equation*}
 
 
@@ -123,7 +126,7 @@ The system of equations characterizing an equilibrium is comprised of equations 
 
 
 \begin{equation*}
-\frac{\left(c_{t}^{\theta}\left(1-l_{t}\right)^{1-\theta}\right)^{1-\tau}}{c_{t}}=\beta E_{t}\left[\frac{\left(c_{t+1}^{\theta}\left(1-l_{t+1}\right)^{1-\theta}\right)^{1-\tau}}{c_{t+1}}\left(1+\alpha e^{z_{t+1}} k_{t+1}^{\alpha-1} l_{t+1}^{1-\alpha}-\delta\right)\right] \tag{4}
+\frac{\left(c_{t}^{\theta}\left(1-l_{t}\right)^{1-\theta}\right)^{1-\tau}}{c_{t}}=\beta E_{t}\left[\frac{\left(c_{t+1}^{\theta}\left(1-l_{t+1}\right)^{1-\theta}\right)^{1-\tau}}{c_{t+1}}\left(1+\alpha e^{z_{t+1}} k_{t}^{\alpha-1} l_{t+1}^{1-\alpha}-\delta\right)\right] \tag{4}
 \end{equation*}
 
 
@@ -131,7 +134,7 @@ and an optimality condition for supply of labor
 
 
 \begin{equation*}
-\frac{1-\theta}{\theta} \frac{c_{t}}{1-l_{t}}=(1-\alpha) e^{z_{t}} k_{t}^{\alpha} l_{t}^{-\alpha} . \tag{5}
+\frac{1-\theta}{\theta} \frac{c_{t}}{1-l_{t}}=(1-\alpha) e^{z_{t}} k_{t-1}^{\alpha} l_{t}^{-\alpha} . \tag{5}
 \end{equation*}
 
 
@@ -139,7 +142,7 @@ Use (1) and (2) to get
 
 
 \begin{equation*}
-k_{t+1}=e^{z_{t}} k_{t}^{\alpha} l_{t}^{1-\alpha}-c_{t}+(1-\delta) k_{t} . \tag{6}
+k_{t}=e^{z_{t}} k_{t-1}^{\alpha} l_{t}^{1-\alpha}-c_{t}+(1-\delta) k_{t-1} . \tag{6}
 \end{equation*}
 
 
@@ -158,7 +161,7 @@ The following file implements the model in Dynare. The stochastic Euler equation
 \begin{center}
   \includegraphics[width=\textwidth]{s02_02_growth_irfs_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 1: Impulse response function to a technology shock\\ \footnotesize\textit{Notes:} $c$ is consumption, $k$ physical capital, $lab$ hours and $z$ log productivity. The innovation is to productivity, with effective standard deviation $s\sigma=0.007$; horizontal axes show periods. Historical panels and their original scaling are retained; they are not new simulation output.}
+\caption{Figure 1: Impulse response function to a technology shock\\ \footnotesize\textit{Notes:} $c$ is consumption, $k_t$ end-of-period physical capital chosen during $t$, $lab$ hours and $z$ log productivity. The innovation is to productivity, with effective standard deviation $s\sigma=0.007$; horizontal axes show periods. Historical panels and their original scaling are retained; they are not new simulation output.}
 \end{center}
 \label{fig:s02-02-growth-irfs-legacy}
 \end{figure}
@@ -215,7 +218,7 @@ z (-1),e & -0.001076 & 0 & 0.000430 & -0.000056 \\
 \hline
 \end{tabular}
 \captionsetup{labelformat=empty}
-\caption{Table 2: Policy and transition functions.\\ \footnotesize\textit{Notes:} Historical one-sector policy coefficients: columns $k,z,c,lab$ denote capital, log productivity, consumption and hours. Rows identify the state/innovation or second-order interaction; $e$ is the standardized productivity innovation. Coefficients are historical and are not outputs of the revised model.}
+\caption{Table 2: Policy and transition functions.\\ \footnotesize\textit{Notes:} Historical one-sector policy coefficients: columns $k,z,c,lab$ denote the end-of-period capital choice $k_t$, log productivity, consumption and hours; the row $k(-1)$ is beginning-of-period capital $k_{t-1}$. Rows identify the state/innovation or second-order interaction; $e$ is the standardized productivity innovation. Coefficients are historical and are not outputs of the revised model.}
 \end{center}
 \end{table}
 
@@ -287,6 +290,8 @@ We study a simplified version of the two-country production model in Kim and Kim
 
 \subsection*{3.1 The model}
 
+Capital is indexed by the date at which it is chosen.\footnote{We use Dynare timing: $K_{i,t-1}$ is the physical capital available at the beginning of period $t$, chosen by the end of $t-1$; $K_{i,t}$ is the stock chosen during $t$ and available at the beginning of $t+1$. The code uses logs: \texttt{k1(-1)} and \texttt{k2(-1)} are $\ln K_{i,t-1}$, while \texttt{k1} and \texttt{k2} are $\ln K_{i,t}$. The original textbook's beginning-of-period $K_{i,t}$ is therefore relabelled $K_{i,t-1}$ here.}
+
 \begingroup
 \small
 \captionsetup{labelformat=empty}
@@ -300,7 +305,8 @@ Symbol & Code & Meaning / calibration (continued) \\
 \hline
 \endhead
 $C_{i,t}$ & \texttt{c1}, \texttt{c2} & Country $i=1,2$ consumption in levels; code variables are $c_i=\ln C_i$. \\
-$K_{i,t}$ & \texttt{k1(-1)}, \texttt{k2(-1)} & Capital available today in levels; code uses logs. Code $k_i$ chooses $\ln K_{i,t+1}$. \\
+$K_{i,t-1}$ & \texttt{k1(-1)}, \texttt{k2(-1)} & Beginning-of-period physical capital in each country; code variables are its logs. \\
+$K_{i,t}$ & \texttt{k1}, \texttt{k2} & Capital chosen during $t$ for use in $t+1$; code variables are its logs. \\
 $A_{i,t}$ & \texttt{a1}, \texttt{a2} & Country productivity in levels; code uses $a_i=\ln A_i$. \\
 $\epsilon_{i,t}$ & \texttt{e1}, \texttt{e2} & Independent mean-zero Gaussian country innovations; both SDs are 0.08. \\
 $\beta$ & \texttt{beta} & Discount factor: 0.98. \\
@@ -318,15 +324,15 @@ Two countries are identical ex-ante and markets are complete. A solution to a Pa
 $$
 \begin{aligned}
 C_{1, t} & =C_{2, t} \\
-C_{1, t}^{-\gamma} & =\beta \mathbb{E}_{t} C_{1, t+1}^{-\gamma}\left(\alpha A_{1, t+1} K_{1, t+1}^{\alpha-1}+1-\delta\right) \\
-C_{2, t}^{-\gamma} & =\beta \mathbb{E}_{t} C_{2, t+1}^{-\gamma}\left(\alpha A_{2, t+1} K_{2, t+1}^{\alpha-1}+1-\delta\right) \\
-A_{1, t} K_{1, t}^{\alpha}+A_{2, t} K_{2, t}^{\alpha} & =C_{1, t}+C_{2, t}+K_{1, t+1}-(1-\delta) K_{1, t}+K_{2, t+1}-(1-\delta) K_{2, t} \\
+C_{1, t}^{-\gamma} & =\beta \mathbb{E}_{t} C_{1, t+1}^{-\gamma}\left(\alpha A_{1, t+1} K_{1, t}^{\alpha-1}+1-\delta\right) \\
+C_{2, t}^{-\gamma} & =\beta \mathbb{E}_{t} C_{2, t+1}^{-\gamma}\left(\alpha A_{2, t+1} K_{2, t}^{\alpha-1}+1-\delta\right) \\
+A_{1, t} K_{1, t-1}^{\alpha}+A_{2, t} K_{2, t-1}^{\alpha} & =C_{1, t}+C_{2, t}+K_{1, t}-(1-\delta) K_{1, t-1}+K_{2, t}-(1-\delta) K_{2, t-1} \\
 \ln A_{1, t+1} & =\rho \ln A_{1, t}+\epsilon_{1, t+1} \\
 \ln A_{2, t+1} & =\rho \ln A_{2, t}+\epsilon_{2, t+1}
 \end{aligned}
 $$
 
-The first three equalities are the first-order conditions with regard to the consumption ( $C_{i, t}$ ), and the fourth one is the world resource constraint. The last two describe the law of motion for the technological shock $\left(A_{i, t}\right) . K_{i, t}$ denotes the capital stock of country $i$ at time $t$.
+The first three equalities are the first-order conditions with regard to the consumption ( $C_{i, t}$ ), and the fourth one is the world resource constraint. The last two describe the law of motion for the technological shock $\left(A_{i, t}\right) . K_{i, t-1}$ denotes the capital stock of country $i$ at time $t$.
 
 \subsection*{3.2 Calibration and approximation}
 \subsection*{3.2.1 Calibration}
@@ -359,18 +365,18 @@ Dynare computes the policy function as a second-order approximation around the (
 \begin{center}
   \includegraphics[width=\textwidth]{s03_02_twocountry_irfs_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 4: Impulse response function $(\epsilon_1)$\\ \footnotesize\textit{Notes:} $c_1,c_2$ are log consumption, $k_1,k_2$ log capital and $a_1,a_2$ log productivity in countries 1 and 2. The shock is a one-standard-deviation innovation $\epsilon_1$ (SD 0.08) in country 1; horizontal axes show periods. Historical response scaling is retained and has not been revalidated.}
+\caption{Figure 4: Impulse response function $(\epsilon_1)$\\ \footnotesize\textit{Notes:} $c_1,c_2$ are log consumption, $k_1,k_2$ log end-of-period capital choices and $a_1,a_2$ log productivity in countries 1 and 2. The shock is a one-standard-deviation innovation $\epsilon_1$ (SD 0.08) in country 1; horizontal axes show periods. Historical response scaling is retained and has not been revalidated.}
 \end{center}
 \label{fig:s03-02-twocountry-irfs-legacy}
 \end{figure}
 
 
-The historical output is given as a matrix of coefficients for the policy function; the numerical coefficients below have not been revalidated against the revised code. From this matrix, for example, one can construct the optimal consumption rule for Country 1:
+The historical output is given as a matrix of coefficients for the policy function; the numerical coefficients below have not been revalidated against the revised code. Capital date labels in this historical illustration have been shifted to the Dynare convention used here; the historical coefficient values are unchanged. From this matrix, for example, one can construct the optimal consumption rule for Country 1:
 
 $$
 \begin{aligned}
-\hat{c}_{1, t}= & 0.824+0.243\left(\hat{k}_{1, t}+\hat{k}_{2, t}\right)+0.140\left(\hat{a}_{1, t}+\hat{a}_{2, t}\right)+0.062\left(\hat{k}_{1, t-1}^{2}+\hat{k}_{2, t-1}^{2}\right)-0.110 \hat{k}_{1, t} \hat{k}_{2, t} \\
-& -0.015\left(\hat{a}_{1, t} \hat{k}_{1, t}+\hat{a}_{2, t} \hat{k}_{2, t}\right)-0.032\left(\hat{a}_{1, t} \hat{k}_{2, t}+\hat{a}_{2, t} \hat{k}_{1, t}\right)+0.044\left(\hat{a}_{1, t}^{2}+\hat{a}_{2, t}^{2}\right)-0.040 \hat{a}_{1, t} \hat{a}_{2, t},
+\hat{c}_{1, t}= & 0.824+0.243\left(\hat{k}_{1, t-1}+\hat{k}_{2, t-1}\right)+0.140\left(\hat{a}_{1, t}+\hat{a}_{2, t}\right)+0.062\left(\hat{k}_{1, t-2}^{2}+\hat{k}_{2, t-2}^{2}\right)-0.110 \hat{k}_{1, t-1} \hat{k}_{2, t-1} \\
+& -0.015\left(\hat{a}_{1, t} \hat{k}_{1, t-1}+\hat{a}_{2, t} \hat{k}_{2, t-1}\right)-0.032\left(\hat{a}_{1, t} \hat{k}_{2, t-1}+\hat{a}_{2, t} \hat{k}_{1, t-1}\right)+0.044\left(\hat{a}_{1, t}^{2}+\hat{a}_{2, t}^{2}\right)-0.040 \hat{a}_{1, t} \hat{a}_{2, t},
 \end{aligned}
 $$
 
@@ -405,6 +411,8 @@ This section describes a suite of Dynare programs that implement the transition 
 
 \subsection*{4.1 The model}
 
+Capital is indexed by the date at which it is chosen.\footnote{We use Dynare timing: $k_{t-1}$ is the physical capital stock available at the beginning of period $t$, chosen by the end of $t-1$; $k_t$ is chosen during period $t$ and is available at the beginning of $t+1$. Thus code \texttt{k(-1)} is $k_{t-1}$ and code \texttt{k} is $k_t$. The original textbook's beginning-of-period $k_t$ is relabelled $k_{t-1}$ throughout this section.}
+
 \begingroup
 \small
 \captionsetup{labelformat=empty}
@@ -418,7 +426,8 @@ Symbol & Code & Meaning / calibration (continued) \\
 \hline
 \endhead
 $c_t$ & \texttt{c} & Consumption in goods units; endogenous. \\
-$k_t$ & \texttt{k(-1)} & Physical capital available today; code \texttt{k} chooses $k_{t+1}$. Endogenous. \\
+$k_{t-1}$ & \texttt{k(-1)} & Physical capital available at the beginning of period $t$; predetermined. \\
+$k_t$ & \texttt{k} & Capital chosen during period $t$ for use in period $t+1$; endogenous. \\
 $\widetilde q_t$ & \texttt{qtilde} & Detrended marginal-utility price; algebraically determined. \\
 $q_t$ & Post-processing & Dated consumption-good price: $q_t=\beta^t\widetilde q_t$, up to normalization. \\
 $r_t$ & \texttt{r} & Real rental yield on capital before tax and depreciation; endogenous. \\
@@ -449,31 +458,31 @@ $$
 Feasible allocations satisfy
 
 $$
-g_{t}+c_{t}+k_{t+1} \leq A k_{t}^{\alpha}+(1-\delta) k_{t} .
+g_{t}+c_{t}+k_{t} \leq A k_{t-1}^{\alpha}+(1-\delta) k_{t-1} .
 $$
 
 Let $T_t$ denote a residual lump-sum tax (negative for a transfer), which finances spending net of distorting tax receipts. This closes the fiscal budget without altering the marginal conditions. The household budget constraint is
 
 $$
-\sum_{t=0}^{\infty}\left\{q_{t}\left(1+\tau_{c t}\right)c_t+\left(1-\tau_{i t}\right) q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]\right\} \leq \sum_{t=0}^{\infty}q_t\left\{r_{t}\left(1-\tau_{k t}\right) k_{t}+w_{t}-T_t\right\}
+\sum_{t=0}^{\infty}\left\{q_{t}\left(1+\tau_{c t}\right)c_t+\left(1-\tau_{i t}\right) q_{t}\left[k_{t}-(1-\delta) k_{t-1}\right]\right\} \leq \sum_{t=0}^{\infty}q_t\left\{r_{t}\left(1-\tau_{k t}\right) k_{t-1}+w_{t}-T_t\right\}
 $$
 
 and the government budget constraint is
 
 $$
-\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty}\left\{\tau_{c t} q_{t} c_{t}-\tau_{i t} q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]+q_t r_{t} \tau_{k t} k_{t}+q_t T_t\right\}
+\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty}\left\{\tau_{c t} q_{t} c_{t}-\tau_{i t} q_{t}\left[k_{t}-(1-\delta) k_{t-1}\right]+q_t r_{t} \tau_{k t} k_{t-1}+q_t T_t\right\}
 $$
 
 The following conditions characterize an equilibrium:
 
 
 \begin{align*}
-c_t &= A k_t^\alpha+(1-\delta)k_t-k_{t+1}-g_t \tag{7}\\
+c_t &= A k_{t-1}^\alpha+(1-\delta)k_{t-1}-k_{t}-g_t \tag{7}\\
 \widetilde q_t &= c_t^{-\gamma}/(1+\tau_{c,t}) \tag{8}\\
-r_t &= A\alpha k_t^{\alpha-1} \tag{9}\\
-w_t &= (1-\alpha)A k_t^\alpha \tag{10}\\
+r_t &= A\alpha k_{t-1}^{\alpha-1} \tag{9}\\
+w_t &= (1-\alpha)A k_{t-1}^\alpha \tag{10}\\
 R_{t+1} &= \frac{1+\tau_{c,t}}{1+\tau_{c,t+1}}
- \frac{(1-\tau_{i,t+1})(1-\delta)+(1-\tau_{k,t+1})A\alpha k_{t+1}^{\alpha-1}}
+ \frac{(1-\tau_{i,t+1})(1-\delta)+(1-\tau_{k,t+1})A\alpha k_{t}^{\alpha-1}}
       {1-\tau_{i,t}} \tag{11}\\
 s_t &= (1-\tau_{k,t})r_t+1-\delta \tag{12}\\
 c_t^{-\gamma} &= \beta c_{t+1}^{-\gamma}R_{t+1}. \tag{13}
@@ -505,7 +514,7 @@ q_t/q_0=\beta^t(c_t/c_0)^{-\gamma}
 \]
 The one-period pricing factor is $q_{t+1}/q_t$ and retains $\beta$.
 
-Every displayed condition (7)--(13) has an active equation in each Section 4 listing, with its equation number in a code comment. Eliminating $\widetilde q,r,w,R,s$ algebraically reduces the system to the resource constraint and the consumption Euler equation in $c$ and $k$. We retain the full set for interpretation and direct comparison with the written model. Textbook $k_t$ is capital available at date $t$; Dynare \texttt{k(-1)} represents it, while code \texttt{k} is the choice for textbook $k_{t+1}$. The code variable \texttt{R} represents $R_{t+1}$. See \path{notes/q_and_auxiliaries.md} for the historical notation mapping.
+Every displayed condition (7)--(13) has an active equation in each Section 4 listing, with its equation number in a code comment. Eliminating $\widetilde q,r,w,R,s$ algebraically reduces the system to the resource constraint and the consumption Euler equation in $c$ and $k$. We retain the full set for interpretation and direct comparison with the written model. The displayed notation now matches Dynare directly: $k_{t-1}$ (\texttt{k(-1)}) is beginning-of-period capital and $k_t$ (\texttt{k}) is the choice made during $t$. The code variable \texttt{R} represents $R_{t+1}$. See \path{notes/q_and_auxiliaries.md} for the historical notation mapping.
 
 \subsection*{4.2 Parameter values}
 We set the parameters and the baseline values of the exogenous variables at values set in chapter 11 of Ljungqvist and Sargent (2004), as described in the following table are taken from RMT2.
@@ -541,7 +550,7 @@ The Dynare code below implements the experiment associated with Figure 11.3.1. w
 \begin{center}
   \includegraphics[width=\textwidth]{s04_03_01_g_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 6: A permanent increase of g (Figure 11.3.1).\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=10$, announced at $t=0$. $c$ is consumption and $k$ capital available for production. In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 6: A permanent increase of g (Figure 11.3.1).\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=10$, announced at $t=0$. $c$ is consumption and $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$). In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s04-03-01-g-legacy}
 \end{figure}
@@ -559,7 +568,7 @@ A permanent increase of $\tau_{c}$ at $\mathrm{t}=10$ of 20 percentage points. (
 \begin{center}
   \includegraphics[width=\textwidth]{s04_03_02_tauc_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 7: A permanent increase of $\tau_c$ (Figure 11.3.2).\\ \footnotesize\textit{Notes:} The consumption-tax rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption and $k$ capital available for production. In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 7: A permanent increase of $\tau_c$ (Figure 11.3.2).\\ \footnotesize\textit{Notes:} The consumption-tax rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption and $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$). In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s04-03-02-tauc-legacy}
 \end{figure}
@@ -574,7 +583,7 @@ A permanent increase of $\tau_{i}$ at $\mathrm{t}=10$ of 20 percentage points. (
 \begin{center}
   \includegraphics[width=\textwidth]{s04_03_03_taui_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 8: A permanent increase of $\tau_i$ (Figure 11.5.1).\\ \footnotesize\textit{Notes:} The investment-subsidy rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption and $k$ capital available for production. In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 8: A permanent increase of $\tau_i$ (Figure 11.5.1).\\ \footnotesize\textit{Notes:} The investment-subsidy rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption and $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$). In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s04-03-03-taui-legacy}
 \end{figure}
@@ -589,7 +598,7 @@ A permanent increase of $\tau_{k}$ at $\mathrm{t}=10$ of 20 percentage points. (
 \begin{center}
   \includegraphics[width=\textwidth]{s04_03_04_tauk_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 9: A permanent increase of $\tau_k$ (Figure 11.5.2).\\ \footnotesize\textit{Notes:} The capital-income-tax rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption and $k$ capital available for production. In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 9: A permanent increase of $\tau_k$ (Figure 11.5.2).\\ \footnotesize\textit{Notes:} The capital-income-tax rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption and $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$). In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s04-03-04-tauk-legacy}
 \end{figure}
@@ -604,7 +613,7 @@ A one time pulse of $g$ at $\mathrm{t}=10$ of 0.2 . (Figure 11.7.1)
 \begin{center}
   \includegraphics[width=\textwidth]{s04_03_05_g_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 10: One time increase of g (Figure 11.7.1).\\ \footnotesize\textit{Notes:} Government purchases rise from 0.2 to 0.4 only at $t=10$, announced at $t=0$. $c$ is consumption and $k$ capital available for production. In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 10: One time increase of g (Figure 11.7.1).\\ \footnotesize\textit{Notes:} Government purchases rise from 0.2 to 0.4 only at $t=10$, announced at $t=0$. $c$ is consumption and $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$). In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s04-03-05-g-legacy}
 \end{figure}
@@ -619,7 +628,7 @@ A one time pulse of $\tau_{i}$ at $\mathrm{t}=10$ of 20 percentage points. (Figu
 \begin{center}
   \includegraphics[width=\textwidth]{s04_03_06_taui_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 11: One time increase of $\tau_i$ (Figure 11.7.2).\\ \footnotesize\textit{Notes:} The investment-subsidy rate rises from 0 to 0.2 only at $t=10$, announced at $t=0$. $c$ is consumption and $k$ capital available for production. In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 11: One time increase of $\tau_i$ (Figure 11.7.2).\\ \footnotesize\textit{Notes:} The investment-subsidy rate rises from 0 to 0.2 only at $t=10$, announced at $t=0$. $c$ is consumption and $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$). In the unified real-price notation, $r$ is the rental yield, $w$ the real wage, $s=(1-\tau_k)r+1-\delta$ the current capital payoff, and $R$ the forward consumption-adjusted gross return. The old image labels $r/q,w/q,s/q$ denote these real quantities; they are not physical-output rescalings. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s04-03-06-taui-legacy}
 \end{figure}
@@ -629,6 +638,8 @@ A one time pulse of $\tau_{i}$ at $\mathrm{t}=10$ of 20 percentage points. (Figu
 This section describes a suite of Dynare programs that implement the transition experiments performed in chapter 11 of Ljungqvist and Sargent (2012).
 
 \subsection*{5.1 The model with inelastic labor supply}
+
+Capital is indexed by the date at which it is chosen.\footnote{We use Dynare timing: $k_{t-1}$ is the physical capital stock available at the beginning of period $t$, chosen by the end of $t-1$; $k_t$ is chosen during period $t$ and is available at the beginning of $t+1$. Thus code \texttt{k(-1)} is $k_{t-1}$ and code \texttt{k} is $k_t$. The original textbook's beginning-of-period $k_t$ is relabelled $k_{t-1}$ throughout this section.}
 
 \begingroup
 \small
@@ -643,7 +654,8 @@ Symbol & Code & Meaning / calibration (continued) \\
 \hline
 \endhead
 $c_t$ & \texttt{c} & Consumption in goods units; endogenous. \\
-$k_t$ & \texttt{k(-1)} & Physical capital available today; code \texttt{k} chooses $k_{t+1}$. Endogenous. \\
+$k_{t-1}$ & \texttt{k(-1)} & Physical capital available at the beginning of period $t$; predetermined. \\
+$k_t$ & \texttt{k} & Capital chosen during period $t$ for use in period $t+1$; endogenous. \\
 $\widetilde q_t$ & \texttt{qtilde} & Detrended marginal-utility price; algebraically determined. \\
 $q_t$ & Post-processing & Dated consumption-good price: $q_t=\beta^t\widetilde q_t$, up to normalization. \\
 $r_t$ & \texttt{r} & Real rental yield on capital before tax and depreciation; endogenous. \\
@@ -673,37 +685,37 @@ $$
 Feasible allocations satisfy
 
 $$
-g_{t}+c_{t}+k_{t+1} \leq A k_{t}^{\alpha}+(1-\delta) k_{t}
+g_{t}+c_{t}+k_{t} \leq A k_{t-1}^{\alpha}+(1-\delta) k_{t-1}
 $$
 
 Let $T_t$ denote a residual lump-sum tax (negative for a transfer), which finances spending net of distorting tax receipts. This closes the fiscal budget without altering the marginal conditions. The household budget constraint is
 
 $$
-\sum_{t=0}^{\infty}\left\{q_{t} c_{t}\left(1+\tau_{c t}\right)+q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]\right\} \leq \sum_{t=0}^{\infty} q_{t}\left\{r_{t}\left(1-\tau_{k t}\right) k_{t}+w_{t}-T_t\right\}
+\sum_{t=0}^{\infty}\left\{q_{t} c_{t}\left(1+\tau_{c t}\right)+q_{t}\left[k_{t}-(1-\delta) k_{t-1}\right]\right\} \leq \sum_{t=0}^{\infty} q_{t}\left\{r_{t}\left(1-\tau_{k t}\right) k_{t-1}+w_{t}-T_t\right\}
 $$
 
 and the government budget constraint is
 
 $$
-\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty} q_{t}\left\{\tau_{c t} c_{t}+\tau_{k t} r_{t} k_{t}+T_t\right\}
+\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty} q_{t}\left\{\tau_{c t} c_{t}+\tau_{k t} r_{t} k_{t-1}+T_t\right\}
 $$
 
 The following conditions characterize an equilibrium:
 
 
 \begin{align*}
-c_t &= A k_t^\alpha+(1-\delta)k_t-k_{t+1}-g_t \tag{14}\\
+c_t &= A k_{t-1}^\alpha+(1-\delta)k_{t-1}-k_{t}-g_t \tag{14}\\
 \widetilde q_t &= c_t^{-\gamma}/(1+\tau_{c,t}) \tag{15}\\
-r_t &= A\alpha k_t^{\alpha-1} \tag{16}\\
-w_t &= (1-\alpha)A k_t^\alpha \tag{17}\\
+r_t &= A\alpha k_{t-1}^{\alpha-1} \tag{16}\\
+w_t &= (1-\alpha)A k_{t-1}^\alpha \tag{17}\\
 R_{t+1} &= \frac{1+\tau_{c,t}}{1+\tau_{c,t+1}}
- \left[1-\delta+(1-\tau_{k,t+1})A\alpha k_{t+1}^{\alpha-1}\right] \tag{18}\\
+ \left[1-\delta+(1-\tau_{k,t+1})A\alpha k_{t}^{\alpha-1}\right] \tag{18}\\
 c_t^{-\gamma} &= \beta c_{t+1}^{-\gamma}R_{t+1} \tag{19}\\
 s_t &= (1-\tau_{k,t})r_t+1-\delta. \tag{19a}
 \end{align*}
 
 
-Each condition (14)--(19a) appears explicitly in the Section 5.3 model blocks. Here $r$ is a real rental yield, not $\eta$ and not the net interest rate; $w$ is a real wage. The code \texttt{R} is $R_{t+1}$, a forward gross return; no bar is used. The current payoff $s_t$ is reported separately for interpretation. Algebraic substitution of $\widetilde q,r,w,R,s$ reduces the model to two allocation equations in $c$ and $k$. In code, \texttt{k(-1)} is textbook $k_t$ and \texttt{k} is textbook $k_{t+1}$.
+Each condition (14)--(19a) appears explicitly in the Section 5.3 model blocks. Here $r$ is a real rental yield, not $\eta$ and not the net interest rate; $w$ is a real wage. The code \texttt{R} is $R_{t+1}$, a forward gross return; no bar is used. The current payoff $s_t$ is reported separately for interpretation. Algebraic substitution of $\widetilde q,r,w,R,s$ reduces the model to two allocation equations in $c$ and $k$. The notation matches the code: \texttt{k(-1)} is beginning-of-period $k_{t-1}$ and \texttt{k} is the new choice $k_t$.
 
 The dated Arrow--Debreu price is $q_t=\beta^t\widetilde q_t$ up to a common positive scale; it is distinct from the algebraic detrended price \texttt{qtilde}. To price future goods or compute yields use $q_t/q_0=\beta^t(c_t/c_0)^{-\gamma}(1+\tau_{c,0})/(1+\tau_{c,t})$. No recursive $q$ level or division by $q$ is needed to calculate real factor prices.
 
@@ -740,7 +752,7 @@ The Dynare code below implements the experiment associated with Figure 11.6.1. w
 \begin{center}
   \includegraphics[width=\textwidth]{s05_03_01_g_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 12: Foreseen once-and-for-all increase in g at $t=10$ (Figure 11.6.1).\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=10$, announced at $t=0$. $c$ is consumption, $k$ capital available for production, $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 12: Foreseen once-and-for-all increase in g at $t=10$ (Figure 11.6.1).\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=10$, announced at $t=0$. $c$ is consumption, $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$), $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s05-03-01-g-legacy}
 \end{figure}
@@ -758,7 +770,7 @@ A foreseen once-and-for-all increase in $\tau_{c}$ at $t=10$ of 20 percentage po
 \begin{center}
   \includegraphics[width=\textwidth]{s05_03_02_tauc_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 13: Foreseen once-and-for-all increase in $\tau_c$ at $t=10$ (Figure 11.6.4).\\ \footnotesize\textit{Notes:} The consumption-tax rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption, $k$ capital available for production, $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 13: Foreseen once-and-for-all increase in $\tau_c$ at $t=10$ (Figure 11.6.4).\\ \footnotesize\textit{Notes:} The consumption-tax rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption, $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$), $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s05-03-02-tauc-legacy}
 \end{figure}
@@ -773,7 +785,7 @@ A foreseen once-and-for-all increase in $\tau_{k}$ at $t=10$ of 20 percentage po
 \begin{center}
   \includegraphics[width=\textwidth]{s05_03_03_tauk_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 14: Foreseen once-and-for-all foreseen increase in $\tau_k$ at $t=10$ (Figure 11.6.5).\\ \footnotesize\textit{Notes:} The capital-income-tax rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption, $k$ capital available for production, $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 14: Foreseen once-and-for-all foreseen increase in $\tau_k$ at $t=10$ (Figure 11.6.5).\\ \footnotesize\textit{Notes:} The capital-income-tax rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption, $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$), $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s05-03-03-tauk-legacy}
 \end{figure}
@@ -788,7 +800,7 @@ A foreseen one-time pulse of $g$ at $t=10$ of 0.2 . (Figure 11.6.6)
 \begin{center}
   \includegraphics[width=\textwidth]{s05_03_04_g_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 15: Foreseen one-time pulse increase in g at $t=10$ (Figure 11.6.6).\\ \footnotesize\textit{Notes:} Government purchases rise from 0.2 to 0.4 only at $t=10$, announced at $t=0$. $c$ is consumption, $k$ capital available for production, $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 15: Foreseen one-time pulse increase in g at $t=10$ (Figure 11.6.6).\\ \footnotesize\textit{Notes:} Government purchases rise from 0.2 to 0.4 only at $t=10$, announced at $t=0$. $c$ is consumption, $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$), $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s05-03-04-g-legacy}
 \end{figure}
@@ -804,7 +816,7 @@ Compare the following low-curvature economy with \texttt{s05\_03\_01\_g.mod} ($\
 \begin{center}
   \includegraphics[width=\textwidth]{s05_03_05_g_gamma_comparison_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 16: Response to foreseen once-and-for-all increase in g at $t=10$. The solid line is for $\gamma=2$, while the dashed-dotted line is for $\gamma=.2$ (Figure 11.6.2).\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=10$, announced at $t=0$, in both economies. $c$ is consumption, $k$ capital available for production, $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. The two preference curvatures are $\gamma=2$ and $\gamma=0.2$; horizontal axes are dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 16: Response to foreseen once-and-for-all increase in g at $t=10$. The solid line is for $\gamma=2$, while the dashed-dotted line is for $\gamma=.2$ (Figure 11.6.2).\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=10$, announced at $t=0$, in both economies. $c$ is consumption, $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$), $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. The two preference curvatures are $\gamma=2$ and $\gamma=0.2$; horizontal axes are dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s05-03-05-g-gamma-comparison-legacy}
 \end{figure}
@@ -826,13 +838,15 @@ y_{i, t} & =-\frac{1}{i} \log \left(\frac{q_{t+i}}{q_{t}}\right) \tag{21}
 \begin{center}
   \includegraphics[width=\textwidth]{s05_03_06_yields_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 17: Response to foreseen once-and-for-all increase in g at $t=10$. Yield curves for $t=0$ (solid line), $t=10$ (dashdotted line) and $t=60$ (dashed line); term to maturity is on the x axis for the yield curve, time for the other panels (Figure 11.6.3).\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=10$, announced at $t=0$. $c$ is consumption, $k$ capital available for production, $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. $q_t/q_0$ is the normalized dated price and yields are $-\log(q_{t+i}/q_t)/i$ for positive maturities $i$. The yield-curve horizontal axis is maturity; the other horizontal axes are dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 17: Response to foreseen once-and-for-all increase in g at $t=10$. Yield curves for $t=0$ (solid line), $t=10$ (dashdotted line) and $t=60$ (dashed line); term to maturity is on the x axis for the yield curve, time for the other panels (Figure 11.6.3).\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=10$, announced at $t=0$. $c$ is consumption, $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$), $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. $q_t/q_0$ is the normalized dated price and yields are $-\log(q_{t+i}/q_t)/i$ for positive maturities $i$. The yield-curve horizontal axis is maturity; the other horizontal axes are dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Consumption curvature is $\gamma=2$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s05-03-06-yields-legacy}
 \end{figure}
 
 
 \subsection*{5.4 The model with elastic labor supply}
+
+Capital is indexed by the date at which it is chosen.\footnote{We use Dynare timing: $k_{t-1}$ is the physical capital stock available at the beginning of period $t$, chosen by the end of $t-1$; $k_t$ is chosen during period $t$ and is available at the beginning of $t+1$. Thus code \texttt{k(-1)} is $k_{t-1}$ and code \texttt{k} is $k_t$. The original textbook's beginning-of-period $k_t$ is relabelled $k_{t-1}$ throughout this section.}
 
 \begingroup
 \small
@@ -847,7 +861,8 @@ Symbol & Code & Meaning / calibration (continued) \\
 \hline
 \endhead
 $c_t$ & \texttt{c} & Consumption in goods units; endogenous. \\
-$k_t$ & \texttt{k(-1)} & Physical capital available today; code \texttt{k} chooses $k_{t+1}$. Endogenous. \\
+$k_{t-1}$ & \texttt{k(-1)} & Physical capital available at the beginning of period $t$; predetermined. \\
+$k_t$ & \texttt{k} & Capital chosen during period $t$ for use in period $t+1$; endogenous. \\
 $n_t$ & \texttt{n} & Hours as a fraction of available time, between zero and one; endogenous. \\
 $\widetilde q_t$ & \texttt{qtilde} & Detrended marginal-utility price; algebraically determined. \\
 $q_t$ & Post-processing & Dated consumption-good price: $q_t=\beta^t\widetilde q_t$, up to normalization. \\
@@ -880,37 +895,37 @@ $$
 where B is substantially greater than 1 to assure an interior solution $n \in(0,1)$ for labor supply. Feasible allocations satisfy
 
 $$
-g_{t}+c_{t}+k_{t+1} \leq A k_{t}^{\alpha} n_{t}^{1-\alpha}+(1-\delta) k_{t} .
+g_{t}+c_{t}+k_{t} \leq A k_{t-1}^{\alpha} n_{t}^{1-\alpha}+(1-\delta) k_{t-1} .
 $$
 
 Let $T_t$ denote a residual lump-sum tax (negative for a transfer), which finances spending net of distorting tax receipts. This closes the fiscal budget without altering the marginal conditions. The household budget constraint is
 
 $$
-\sum_{t=0}^{\infty}\left\{q_{t}\left(1+\tau_{c t}\right)c_t+q_{t}\left[k_{t+1}-(1-\delta) k_{t}\right]\right\} \leq \sum_{t=0}^{\infty} q_{t}\left\{r_{t}\left(1-\tau_{k t}\right) k_{t}+w_{t}n_t\left(1-\tau_{n t}\right)-T_t\right\}
+\sum_{t=0}^{\infty}\left\{q_{t}\left(1+\tau_{c t}\right)c_t+q_{t}\left[k_{t}-(1-\delta) k_{t-1}\right]\right\} \leq \sum_{t=0}^{\infty} q_{t}\left\{r_{t}\left(1-\tau_{k t}\right) k_{t-1}+w_{t}n_t\left(1-\tau_{n t}\right)-T_t\right\}
 $$
 
 and the government budget constraint is
 
 $$
-\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty} q_{t}\left\{\tau_{c t} c_{t}+\tau_{k t} r_{t} k_{t}+\tau_{n t} n_{t} w_{t}+T_t\right\}
+\sum_{t=0}^{\infty} q_{t} g_{t} \leq \sum_{t=0}^{\infty} q_{t}\left\{\tau_{c t} c_{t}+\tau_{k t} r_{t} k_{t-1}+\tau_{n t} n_{t} w_{t}+T_t\right\}
 $$
 
 The following conditions characterize the endogenous variables in the model equilibrium:
 
 
 \begin{align*}
-c_t &= A k_t^\alpha n_t^{1-\alpha}+(1-\delta)k_t-k_{t+1}-g_t \tag{22}\\
+c_t &= A k_{t-1}^\alpha n_t^{1-\alpha}+(1-\delta)k_{t-1}-k_{t}-g_t \tag{22}\\
 \widetilde q_t &= c_t^{-1}/(1+\tau_{c,t}) \tag{22a}\\
-r_t &= A\alpha k_t^{\alpha-1}n_t^{1-\alpha} \tag{22b}\\
-w_t &= A(1-\alpha)k_t^\alpha n_t^{-\alpha} \tag{22c}\\
+r_t &= A\alpha k_{t-1}^{\alpha-1}n_t^{1-\alpha} \tag{22b}\\
+w_t &= A(1-\alpha)k_{t-1}^\alpha n_t^{-\alpha} \tag{22c}\\
 R_{t+1} &= \frac{1+\tau_{c,t}}{1+\tau_{c,t+1}}
- \left[1-\delta+(1-\tau_{k,t+1})A\alpha k_{t+1}^{\alpha-1}n_{t+1}^{1-\alpha}\right] \tag{22d}\\
+ \left[1-\delta+(1-\tau_{k,t+1})A\alpha k_{t}^{\alpha-1}n_{t+1}^{1-\alpha}\right] \tag{22d}\\
 s_t &= (1-\tau_{k,t})r_t+1-\delta \tag{22e}\\
 c_t^{-1} &= \beta c_{t+1}^{-1}R_{t+1} \tag{23}\\
 B c_t(1+\tau_{c,t}) &= (1-\tau_{n,t})w_t. \tag{24}
 \end{align*}
 
-Every condition (22)--(24), including the lettered price/payoff definitions, is active in the Section 5.4 listings. Here \texttt{gamma=1} implements log consumption utility. The wage $w_t$ is per hour, so wage income is $w_t n_t$; $r_t$ is the rental yield before depreciation, $s_t$ a current capital payoff, and $R_{t+1}$ the forward gross return represented by code \texttt{R}. In code, \texttt{k(-1)} is capital available today and \texttt{k} is the next-period capital choice. Eliminating the price and return definitions reduces the system to resource, Euler and labour-supply equations in $c,k,n$.
+Every condition (22)--(24), including the lettered price/payoff definitions, is active in the Section 5.4 listings. Here \texttt{gamma=1} implements log consumption utility. The wage $w_t$ is per hour, so wage income is $w_t n_t$; $r_t$ is the rental yield before depreciation, $s_t$ a current capital payoff, and $R_{t+1}$ the forward gross return represented by code \texttt{R}. In both text and code, beginning-of-period capital is $k_{t-1}$ (\texttt{k(-1)}), while $k_t$ (\texttt{k}) is chosen during $t$ for use at $t+1$. Eliminating the price and return definitions reduces the system to resource, Euler and labour-supply equations in $c,k,n$.
 
 Dated prices are recovered as $q_t=\beta^t\widetilde q_t$, not solved as a recursive level. The detrended algebraic price \texttt{qtilde} has a level fixed by the displayed marginal-utility definition. Real payoffs are already in consumption-good units and require no division by $q$.
 
@@ -924,7 +939,7 @@ An unforeseen once-and-for-all increase in g from 0.2 to 0.4 at $t=0$ (Figure 11
 \begin{center}
   \includegraphics[width=\textwidth]{s05_04_01_g_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 18: Elastic labor supply: response to unforeseen increase in g at $t=0$ (Figure 11.9.1).\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=0$, with no earlier anticipation. $c$ is consumption, $k$ capital available for production, $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. $n$ is hours, $w$ the wage per hour and $wn$ wage income; preferences have $\gamma=1$ and $B=3$. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Preferences use $\gamma=1$, $B=3$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 18: Elastic labor supply: response to unforeseen increase in g at $t=0$ (Figure 11.9.1).\\ \footnotesize\textit{Notes:} Government purchases rise permanently from 0.2 to 0.4 at $t=0$, with no earlier anticipation. $c$ is consumption, $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$), $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. $n$ is hours, $w$ the wage per hour and $wn$ wage income; preferences have $\gamma=1$ and $B=3$. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Preferences use $\gamma=1$, $B=3$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s05-04-01-g-legacy}
 \end{figure}
@@ -939,7 +954,7 @@ An unforeseen once-and-for-all increase in $\tau_{n}$ to 20 percentage points at
 \begin{center}
   \includegraphics[width=\textwidth]{s05_04_02_taun_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 19: Elastic labor supply: response to unforeseen increase in $\tau_n$ at $t=0$ (Figure 11.9.2).\\ \footnotesize\textit{Notes:} The labour-income-tax rate rises permanently from 0 to 0.2 at $t=0$, with no earlier anticipation. $c$ is consumption, $k$ capital available for production, $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. $n$ is hours, $w$ the wage per hour and $wn$ wage income; preferences have $\gamma=1$ and $B=3$. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Preferences use $\gamma=1$, $B=3$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 19: Elastic labor supply: response to unforeseen increase in $\tau_n$ at $t=0$ (Figure 11.9.2).\\ \footnotesize\textit{Notes:} The labour-income-tax rate rises permanently from 0 to 0.2 at $t=0$, with no earlier anticipation. $c$ is consumption, $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$), $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. $n$ is hours, $w$ the wage per hour and $wn$ wage income; preferences have $\gamma=1$ and $B=3$. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Preferences use $\gamma=1$, $B=3$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s05-04-02-taun-legacy}
 \end{figure}
@@ -954,7 +969,7 @@ A foreseen once-and-for-all increase in $\tau_{n}$ to 20 percentage points at $t
 \begin{center}
   \includegraphics[width=\textwidth]{s05_04_03_taun_legacy.jpg}
 \captionsetup{labelformat=empty}
-\caption{Figure 20: Elastic labor supply: response to foreseen increase in $\tau_n$ at $t=10$ (Figure 11.9.3).\\ \footnotesize\textit{Notes:} The labour-income-tax rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption, $k$ capital available for production, $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. $n$ is hours, $w$ the wage per hour and $wn$ wage income; preferences have $\gamma=1$ and $B=3$. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Preferences use $\gamma=1$, $B=3$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
+\caption{Figure 20: Elastic labor supply: response to foreseen increase in $\tau_n$ at $t=10$ (Figure 11.9.3).\\ \footnotesize\textit{Notes:} The labour-income-tax rate rises permanently from 0 to 0.2 at $t=10$, announced at $t=0$. $c$ is consumption, $k_{t-1}$ capital available at the beginning of $t$ (the historical image labels it $k$), $g$ government purchases, $\tau_c,\tau_k,\tau_n$ consumption, capital-income and labour-income tax rates. $r$ is the real rental yield and $R$ the forward gross return; legacy $\eta$ and $\bar R$ labels denote the corresponding rental-yield and gross-return concepts. $n$ is hours, $w$ the wage per hour and $wn$ wage income; preferences have $\gamma=1$ and $B=3$. Horizontal axes show model dates. Baseline $\beta=0.95$, $\delta=0.2$, $A=1$, $\alpha=0.33$, $g=0.2$ and tax/subsidy rates zero. Preferences use $\gamma=1$, $B=3$. All rates are per model period. The historical image and line conventions are retained; numerical values and plotted timing remain subject to the separate replication review.}
 \end{center}
 \label{fig:s05-04-03-taun-legacy}
 \end{figure}

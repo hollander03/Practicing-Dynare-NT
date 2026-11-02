@@ -44,3 +44,9 @@ Environment: MATLAB R2024a Update 5 and Dynare 6.1 arm64; generated files are is
 The default numerical settings are retained. Tight tolerances remain optional comments. Short MCMC chains still do not establish convergence. Compilation retains the pre-existing historical policy-function overfull line and float-placement warnings; no rendered pages or plots were visually inspected. Historical/textbook replication and the separate NT-DSGE Section 6 implementation remain deferred.
 
 Current exact source hashes are in `validated_sources.json`; the preceding q-alignment register is preserved as `validated_sources_q_alignment.json`.
+
+## Capital-timing notation follow-up
+
+The guide now uses Dynare dates directly: k_(t-1) is beginning-of-period capital at t, while k_t is chosen during t for use in t+1. The two-country equations use the same convention for K_i. Five local footnotes introduce this at the first capital mention in each model; notation tables, resource/Euler equations, budgets, code comments and fiscal plot labels are aligned. Historical coefficient values and image bytes are unchanged.
+
+A source comparison confirms that all 24 models have unchanged numerical code; only comments and plot-label text changed. No numerical models were rerun and no visual checks were performed. The revised LaTeX passed two-pass syntax compilation; evidence is in `run_logs/capital_timing`. The current source-hash register identifies the executed source hashes separately where comments/labels changed.
