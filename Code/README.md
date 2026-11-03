@@ -28,4 +28,4 @@ Full-output files save figures and plotted values under local `output/`. The wor
 
 See [participant notes](../notes/README.md), [prices and returns](../notes/q_and_auxiliaries.md), and the [figure map](../notes/figure_map.md).
 
-Section 6 is a placeholder; no runnable flexible-price NT-DSGE example is included yet.
+Section 6 remains a placeholder: its model explanation and exercises have not yet been incorporated into the workbook. A separate [fixed-calibration real fiscal DSGE example](https://github.com/hollander03/dsge-training/tree/main/training/dsge_content/sessions/session_2/code/real_fiscal), with run instructions and research references, is available as supplementary material.
