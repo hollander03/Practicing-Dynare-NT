@@ -1,5 +1,0 @@
-Starting Dynare (version 6.1).
-Calling Dynare with arguments: none
-Starting preprocessing of the model file ...
-ERROR in macro-processor: RMT_FP_exercises.mod:75.18-76.0: character unrecognized by lexer
-Preprocessing time: 0h00m00s.

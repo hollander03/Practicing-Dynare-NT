@@ -14,3 +14,5 @@ Sections 2–3 introduce stochastic growth, simulation and estimation. Sections 
 The guide uses PNG figures throughout. Saved simulation values and numerical teaching summaries are in `Code/full_replications/results_snapshot`. The simulation figures can be redrawn without solving models using `tools/redraw_saved_figures.m`; the three estimation-density PNGs are supplied in `figures/`. Figures not used by the current workbook are stored in `figures/archive/`.
 
 The [Overleaf project](https://www.overleaf.com/read/cbpwghwvmyck#f1a82c) is linked to this GitHub repository. Its main document is `practice_dynare_FP.tex`.
+
+The earlier NT-specific [2025 training collection](https://github.com/hollander03/dsge-training-nt/tree/main/training/2025) is maintained in the separate NT training repository. Use the model files linked above for the current workbook.
